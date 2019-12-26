@@ -6,10 +6,22 @@
     <description>Recent content on HappyGrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 26 Dec 2019 03:34:12 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 26 Dec 2019 23:35:16 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Quickstart for Experts</title>
+      <link>https://happygrammer.github.io/tensorflow2/quickstart-for-experts/</link>
+      <pubDate>Thu, 26 Dec 2019 23:35:16 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow2/quickstart-for-experts/</guid>
+      <description>텐서플로우 튜토리얼(https://www.tensorflow.org/tutorials/quickstart/advanced?hl=ko) 한국어 번역 문서입니다.
+전문가용 텐서플로우 2 튜토리얼 Google Colaboratory에 노트북 파일이 있습니다. 이 사이트는 파이썬 노트북 파이을 브라우저에서 바로 실행해 볼 수 있어 텐서플로우를 이해하는데 도움을 줍니다. 튜토리얼을 진행해 보겠습니다.
+ Colab에서 파이썬 런타임에 접속합니다. 메뉴바의 오른쪽에 위치한 CONNECT을 선택합니다. 메뉴에서 Runtime &amp;gt; Run all을 선택합니다.  텐서플로우 패키지 설치와 임포트 텐서플로우 2 패키지를 다운로드 받고 설치를 진행하고, 텐서플로우를 프로그램으로 임포트합니다.
+from __future__ import absolute_import, division, print_function, unicode_literals import tensorflow as tf from tensorflow.</description>
+    </item>
     
     <item>
       <title>조선 최고의 메모광 다산 정약용</title>

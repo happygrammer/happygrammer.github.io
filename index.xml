@@ -24,6 +24,16 @@ from __future__ import absolute_import, division, print_function, unicode_litera
     </item>
     
     <item>
+      <title>About</title>
+      <link>https://happygrammer.github.io/about/</link>
+      <pubDate>Thu, 26 Dec 2019 04:13:25 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/about/</guid>
+      <description>사용자에게 행복을 주는 서비스를 만드는 해피그래머의 개발 블로그입니다. 저의 관심 영역은 AI, NLP, AI Service 입니다. 이 블로그는 AI 서비스를 만드는데 필요한 기반 기술들을 소개하고 다루는 것에 초점이 있습니다. 다음은 제가 좋아하는 영국 속담입니다.
+A smooth sea never made a skilled mariner. </description>
+    </item>
+    
+    <item>
       <title>조선 최고의 메모광 다산 정약용</title>
       <link>https://happygrammer.github.io/worth/jeong-yak-young/</link>
       <pubDate>Thu, 26 Dec 2019 03:34:12 +0300</pubDate>

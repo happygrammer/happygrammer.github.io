@@ -50,7 +50,7 @@
       <pubDate>Wed, 25 Dec 2019 21:59:01 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/posts/hugo-template/</guid>
-      <description>Hugo는 Go언어로 만들어진 정적 사이트 생성기(static site generator)입니다. Go언어로 만들어져서 정저 파일 생성이 빠르고 최근 많은 인기를 얻고 있습니다.
+      <description>Hugo는 Go언어로 만들어진 정적 사이트 생성기(static site generator)입니다. Go언어로 만들어져서 정적 파일 생성이 빠르고 최근 많은 인기를 얻고 있습니다.
 변수 사전 정의 변수
  {{ .Title }} 사용자 정의
 {{ $address } 템플릿 가져 오기 파셜 템플릿 가져오기

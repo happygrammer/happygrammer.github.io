@@ -34,5 +34,21 @@
   케라스를 사용한 짧은 소개  이미지를 분류하는 뉴럴 네트워크(neural network)를 빌드합니다. 빌드된 뉴럴 네트워크를 이용해 학습(Train)을 진행합니다. 마지막으로, 모델의 정확도(accuracy)를 평가합니다.  Google Colaboratory에 노트북 파일이 있습니다. 이 사이트는 파이썬 노트북 파이을 브라우저에서 바로 실행해 볼 수 있어 텐서플로우를 이해하는데 도움을 줍니다. 튜토리얼을 진행해 보겠습니다.</description>
     </item>
     
+    <item>
+      <title>Hugo 정적 사이트 생성기 가이드</title>
+      <link>https://happygrammer.github.io/posts/hugo-template/</link>
+      <pubDate>Wed, 25 Dec 2019 21:59:01 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/posts/hugo-template/</guid>
+      <description>Hugo는 Go언어로 만들어진 정적 사이트 생성기(static site generator)입니다. Go언어로 만들어져서 정저 파일 생성이 빠르고 최근 많은 인기를 얻고 있습니다.
+변수 사전 정의 변수
+ {{ .Title }} 사용자 정의
+{{ $address } 템플릿 가져 오기 파셜 템플릿 가져오기
+{{ partial &amp;quot;header.html&amp;quot;}} 템플릿 룩업 순서 layouts/posts/single.html.html가 layouts/posts/single.html보다 우선 순위가 높습니다.
+베이스 템플릿 layouts/_default
+위 디렉터리에 접근해보면 베이스 템플릿인 baseof.html가 존재합니다. 디폴트 리스트 템플릿인 list.html 파일이 존재합니다.
+템플릿 템플릿 설치는 https://themes.gohugo.io/ 사이트를 이용할 수 있습니다.</description>
+    </item>
+    
   </channel>
 </rss>

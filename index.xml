@@ -6,10 +6,20 @@
     <description>Recent content on HappyGrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Thu, 26 Dec 2019 23:35:16 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 30 Dec 2019 01:29:36 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Classification</title>
+      <link>https://happygrammer.github.io/tensorflow2/keras/classification/</link>
+      <pubDate>Mon, 30 Dec 2019 01:29:36 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow2/keras/classification/</guid>
+      <description>분류기의 기본 : 옷 데이터 분류하기 이번 가이드는 옷 이미지(스니커즈나 셔츠) 분류할 수 있는 뉴럴넷 모델을 학습해 보겠습니다. 자세히 이해 되지 못할지 모르겠지만, 빠르게 텐서플로우 프로그램을 만들어 본 후 자세히 설명 하겠습니다. 이 가이드는 tf.keras, 라는 고수준 API를 이용해 모델을 학습합니다.
+from __future__ import absolute_import, division, print_function, unicode_literals # TensorFlow and tf.keras import tensorflow as tf from tensorflow import keras # Helper libraries import numpy as np import matplotlib.pyplot as plt print(tf.</description>
+    </item>
     
     <item>
       <title>전문가용 텐서플로우 2 튜토리얼</title>

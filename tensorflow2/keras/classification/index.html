@@ -68,8 +68,9 @@
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <h3 id="-----">분류기의 기본 : 옷 데이터 분류하기</h3>
-<p>이번 가이드는 옷 이미지(스니커즈나 셔츠) 분류할 수 있는 뉴럴넷 모델을 학습해 보겠습니다. 자세히 이해 되지 못할지 모르겠지만, 빠르게 텐서플로우 프로그램을 만들어 본 후 자세히 설명 하겠습니다. 이 가이드는 <a href="https://www.tensorflow.org/guide/keras">tf.keras</a>, 라는 고수준 API를 이용해 모델을 학습합니다.</p>
+            <p>텐서플로우 튜토리얼(<a href="https://www.tensorflow.org/tutorials/quickstart/advanced?hl=ko">https://www.tensorflow.org/tutorials/quickstart/advanced?hl=ko</a>) 한국어 번역 문서입니다.</p>
+<h3 id="-----">분류기의 기본 : 옷 데이터 분류하기</h3>
+<p>이번 가이드는 옷 이미지(스니커즈나 셔츠) 분류할 수 있는 뉴럴넷 모델을 학습해 보겠습니다. 바로 이해가 되지 않을 수 있지만, 텐서플로우 예제를 보고 빠르게 살펴 보겠습니다. 이 가이드는 <a href="https://www.tensorflow.org/guide/keras">tf.keras</a>, 라는 고수준 API를 이용해 모델을 학습합니다.</p>
 <pre><code>from __future__ import absolute_import, division, print_function, unicode_literals
 
 # TensorFlow and tf.keras
@@ -133,14 +134,17 @@ plt<span style="color:#f92672">.</span>show()
 <h3 id="--1">모델 빌드</h3>
 <p>뉴럴 네터워크를 빌드할 때 레이어 설정이 필요하고, 이후 모델을 컴파일합니다.</p>
 <h4 id="--2">레이어 설정</h4>
-<p>신경망 레이어를 설정하겠습니다. 레이터는 데이터에 나타난 표현을 추출합니다. 대부분의 딥러닝은 간단한 레이어의 연결로 구성됩니다.  레이어에(예:<a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense"><code>tf.keras.layers.Dense</code></a>, 학습에 필요한 파라메터를 전달합니다.</p>
+<p>뉴럴넷 레이어를 설정하겠습니다. 레이터는 데이터에 나타난 표현을 추출합니다. 대부분의 딥러닝은 간단한 레이어의 연결로 구성됩니다. 레이어 설정시 <a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense"><code>tf.keras.layers.Dense</code></a>로 학습에 사용하는 파라메터를 설정합니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model <span style="color:#f92672">=</span> keras<span style="color:#f92672">.</span>Sequential([
     keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Flatten(input_shape<span style="color:#f92672">=</span>(<span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">28</span>)),
     keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">128</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">relu</span><span style="color:#e6db74">&#39;</span>),
     keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">10</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">softmax</span><span style="color:#e6db74">&#39;</span>)
 ])
 </code></pre></div><p>첫번째 네트워크에 (<a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Flatten"><code>tf.keras.layers.Flatten</code></a>) 2차원에서 1차원으로 변경합니다.(28x28픽셀 =&gt; 784픽셀). 이 레이어는 이미지에 픽셀 행을 분리 하고 정렬 하는 역할을 수행하며, 학습에 필요한 매개변수를 이용하지도 않으며, 단지 데이터 포맷만 변경할 뿐입니다.</p>
-<p>픽셀을 펼칩니다. 데이터는 2개의 [ tf.keras.layers.Dense<code>](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense) 레이어로 구성되어 있습니다. 이들 두 레이어는 밀접히 연결되어 있으며 완전 연결(fully connected)되어 있습니다. 첫번째  </code>Dense` 레이어는 128 노드(뉴런) 입니다. 두번째 레이어는 10-노드 소프트 맥스 레이어입니다. 이층은 10개 확률을 반환하며 확률 합계는 1입니다.</p>
+<p>픽셀을 펼칩니다. 데이터는 2개의 [ tf.keras.layers.Dense<code>](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense) 레이어로 설정했으며, 완전 연결(fully connected)되어 있습니다. 첫번째  </code>Dense` 레이어는 128 노드(뉴런) 입니다. 두번째 레이어는 10개 노드인 소프트 맥스 레이어입니다. 이층은 10개 확률을 반환하며 확률 합계는 1입니다.</p>
+<ul>
+<li>역자주 : <code>소프트 맥스 레이어</code> 는  멀티 화률값 예측에 좋으며, 0~1의 범위인 숫자값을 출력하는 <code>소프트 맥스 함수</code>를 사용함.</li>
+</ul>
 <h4 id="--3">컴파일 모델</h4>
 <p>모델 학습 전에 설정이 좀 더 필요합니다. 다음은 모델 컴파일 단계입니다.:</p>
 <ul>
@@ -183,31 +187,35 @@ Epoch <span style="color:#ae81ff">10</span><span style="color:#f92672">/</span><
 <span style="color:#ae81ff">60000</span><span style="color:#f92672">/</span><span style="color:#ae81ff">60000</span> [<span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">4</span>s <span style="color:#ae81ff">60</span>us<span style="color:#f92672">/</span>sample <span style="color:#f92672">-</span> loss: <span style="color:#ae81ff">0.2388</span> <span style="color:#f92672">-</span> accuracy: <span style="color:#ae81ff">0.9100</span>
 
 <span style="color:#f92672">&lt;</span>tensorflow<span style="color:#f92672">.</span>python<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>callbacks<span style="color:#f92672">.</span>History at <span style="color:#ae81ff">0x7fefe642a860</span><span style="color:#f92672">&gt;</span>
-</code></pre></div><p>As the model trains, the loss and accuracy metrics are displayed. This model reaches an accuracy of about 0.88 (or 88%) on the training data.</p>
-<h4 id="evaluate-accuracy">Evaluate accuracy</h4>
-<p>Next, compare how the model performs on the test dataset:</p>
+</code></pre></div><p>모델 학습을 진행하고 나면, 손실과 정확도의 측정 결과가 표시됩니다. 이 모델은 학습 데이터에 대한 정확도가 약 0.88%입니다.</p>
+<h4 id="--5">정확도 평가하기</h4>
+<p>다음으로 학습된 모델을 테스트 데이터셋에 적용해 보겠습니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test_loss, test_acc <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>evaluate(test_images,  test_labels, verbose<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
 
 <span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Test accuracy:</span><span style="color:#e6db74">&#39;</span>, test_acc)
 <span style="color:#ae81ff">10000</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>s <span style="color:#f92672">-</span> loss: <span style="color:#ae81ff">0.2934</span> <span style="color:#f92672">-</span> accuracy: <span style="color:#ae81ff">0.8830</span>
 
 Test accuracy: <span style="color:#ae81ff">0.883</span>
-</code></pre></div><p>It turns out that the accuracy on the test dataset is a little less than the accuracy on the training dataset. This gap between training accuracy and test accuracy represents <em>overfitting</em>. Overfitting is when a machine learning model performs worse on new, previously unseen inputs than on the training data.</p>
+</code></pre></div><p>테스트 셋의 정확도를 학습 셋의 정확도에 비해 다소 낮음을 확인할 수 있습니다. 이 차이는 학습 정확도와 테스트 정확도간의 차이로 오버피팅에 해당합니다. 오버피팅은 학습 데이터에 나타나지 않은 새로운 입력으로 인한 성능 저하입니다.</p>
 <h4 id="heading">예측하기</h4>
 <p>모델 학습을 할때, 어떤 이미지에 대한 예측율(predictions)을 이용할 수 있어야 합니다.</p>
 <pre><code>predictions = model.predict(test_images)
-</code></pre><p>Here, the model has predicted the label for each image in the testing set. Let's take a look at the first prediction:</p>
+</code></pre><p>모델은 학습셋의 각 이미지에 대해 라벨을 예측했습니다. 첫번째 예측(prediction)을 보겠습니다.</p>
 <pre><code>predictions[0]
 array([1.06123218e-06, 8.76374884e-09, 4.13958730e-07, 9.93547733e-09,
        2.39135318e-07, 2.61428091e-03, 2.91701099e-07, 6.94991834e-03,
        1.02351805e-07, 9.90433693e-01], dtype=float32)
-</code></pre><p>A prediction is an array of 10 numbers. They represent the model's &ldquo;confidence&rdquo; that the image corresponds to each of the 10 different articles of clothing. You can see which label has the highest confidence value:</p>
+</code></pre><p>배열에는 10개의 예측과 관련한 신뢰도(<strong>confidence</strong>) 숫자를 포함합니다.</p>
+<ul>
+<li>역자주 : <strong>신뢰도</strong>는 라벨의 분류를 얼마나 신뢰할 수 있는지에 대한 확률값입니다.</li>
+</ul>
+<p>가장 높은 신뢰도에 대한 라벨을 확인해 보겠습니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>argmax(predictions[<span style="color:#ae81ff">0</span>])
 <span style="color:#ae81ff">9</span>
-</code></pre></div><p>So, the model is most confident that this image is an ankle boot, or <code>class_names[9]</code>. Examining the test label shows that this classification is correct:</p>
+</code></pre></div><p>모델은 발목 부츠(ankle boot) 또는 <code>class_names[9]</code>라고 확신하고 있습니다.   테스트 라벨을 보면 이 분류는 정확함을 확인할 수 있습니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test_labels[<span style="color:#ae81ff">0</span>]
 <span style="color:#ae81ff">9</span>
-</code></pre></div><p>Graph this to look at the full set of 10 class predictions.</p>
+</code></pre></div><p>클래스 10개에 대한 그래프를 확인 하려면 다음 예제를 작성해야 합니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">plot_image</span>(i, predictions_array, true_label, img):
   predictions_array, true_label, img <span style="color:#f92672">=</span> predictions_array, true_label[i], img[i]
   plt<span style="color:#f92672">.</span>grid(False)
@@ -238,7 +246,7 @@ array([1.06123218e-06, 8.76374884e-09, 4.13958730e-07, 9.93547733e-09,
 
   thisplot[predicted_label]<span style="color:#f92672">.</span>set_color(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">red</span><span style="color:#e6db74">&#39;</span>)
   thisplot[true_label]<span style="color:#f92672">.</span>set_color(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">blue</span><span style="color:#e6db74">&#39;</span>)
-</code></pre></div><p>Let's look at the 0th image, predictions, and prediction array. Correct prediction labels are blue and incorrect prediction labels are red. The number gives the percentage (out of 100) for the predicted label.</p>
+</code></pre></div><p>0번째 이미지의 prediction 배열을 보겠습니다. 정확히 라벨을 예측하면 파랑색, 오분류라면 빨강색으로 표시합니다. 숫자(100을 벗어남)는 예측된 라벨의 퍼센테이지입니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
 plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">3</span>))
 plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>)
@@ -255,7 +263,7 @@ plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">1</sp
 plot_value_array(i, predictions[i],  test_labels)
 plt<span style="color:#f92672">.</span>show()
 </code></pre></div><p><img src="https://www.tensorflow.org/tutorials/keras/classification_files/output_Ko-uzOufSCSe_0.png" alt="png"></p>
-<p>Let's plot several images with their predictions. Note that the model can be wrong even when very confident.</p>
+<p>몇개의 이미지를 그려보겠습니다.  모델은 매우 확실한 경우에도 잘못 예측할 수 있음을 유의해야합니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Plot the first X test images, their predicted labels, and the true labels.</span>
 <span style="color:#75715e"># Color correct predictions in blue and incorrect predictions in red.</span>
 num_rows <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
@@ -270,19 +278,19 @@ plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672"
 plt<span style="color:#f92672">.</span>tight_layout()
 plt<span style="color:#f92672">.</span>show()
 </code></pre></div><p><img src="https://www.tensorflow.org/tutorials/keras/classification_files/output_hQlnbqaw2Qu__0.png" alt="png"></p>
-<p>Finally, use the trained model to make a prediction about a single image.</p>
+<p>마침네, 학습 모델을 단일 이미지에 대한 예측에 사용할 수 있게 되었습니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Grab an image from the test dataset.</span>
 img <span style="color:#f92672">=</span> test_images[<span style="color:#ae81ff">1</span>]
 
 <span style="color:#66d9ef">print</span>(img<span style="color:#f92672">.</span>shape)
 (<span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">28</span>)
-</code></pre></div><p><a href="https://www.tensorflow.org/api_docs/python/tf/keras"><code>tf.keras</code></a> models are optimized to make predictions on a <em>batch</em>, or collection, of examples at once. Accordingly, even though you're using a single image, you need to add it to a list:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Add the image to a batch where it&#39;s the only member.</span>
+</code></pre></div><p><a href="https://www.tensorflow.org/api_docs/python/tf/keras"><code>tf.keras</code></a> 모델은 배치 수행시, 이미지 라벨 예측 성능을 최적화 하는데 사용합니다.  (단일 이미지라도 리스트에 추가 필요)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 단일 이미지라도 배치에 추가해야함.</span>
 img <span style="color:#f92672">=</span> (np<span style="color:#f92672">.</span>expand_dims(img,<span style="color:#ae81ff">0</span>))
 
 <span style="color:#66d9ef">print</span>(img<span style="color:#f92672">.</span>shape)
 (<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">28</span>)
-</code></pre></div><p>Now predict the correct label for this image:</p>
+</code></pre></div><p>이미지의 라벨을 정확히 예측할 수 있는지 보겠습니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">predictions_single <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(img)
 
 <span style="color:#66d9ef">print</span>(predictions_single)
@@ -291,11 +299,10 @@ img <span style="color:#f92672">=</span> (np<span style="color:#f92672">.</span>
 plot_value_array(<span style="color:#ae81ff">1</span>, predictions_single[<span style="color:#ae81ff">0</span>], test_labels)
 _ <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>xticks(range(<span style="color:#ae81ff">10</span>), class_names, rotation<span style="color:#f92672">=</span><span style="color:#ae81ff">45</span>)
 </code></pre></div><p><img src="https://www.tensorflow.org/tutorials/keras/classification_files/output_6Ai-cpLjO-3A_0.png" alt="png"></p>
-<p><code>model.predict</code> returns a list of lists—one list for each image in the batch of data. Grab the predictions for our (only) image in the batch:</p>
+<p><code>model.predict</code> 는 리스트에 있는 하나의 리스트를 반환합니다. 데이터의 배치에서 각 이미지는 하나의 리스트입니다. 모델은 다음과 같이 라벨을 예측했습니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>argmax(predictions_single[<span style="color:#ae81ff">0</span>])
 <span style="color:#ae81ff">2</span>
-</code></pre></div><p>And the model predicts a label as expected.</p>
-
+</code></pre></div>
         </div>
 
         

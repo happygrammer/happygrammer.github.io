@@ -95,9 +95,10 @@ x_train = x_train[..., tf.newaxis]
 x_test = x_test[..., tf.newaxis]
 </code></pre><pre><code>Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
 11493376/11490434 [==============================] - 0s 0us/step
-</code></pre><p><a href="https://www.tensorflow.org/api_docs/python/tf/data"><code>tf.data</code></a> 를 사용해 데이터셋을 셔플(shuffle)하고 배치(batch)하게 합니다.</p>
+</code></pre><p><a href="https://www.tensorflow.org/api_docs/python/tf/data"><code>tf.data</code></a> 를 사용해 하이퍼파라메터를 설정합니다. 셔플(shuffle) 횟수와 배치 사이즈(batch size)를 설정합니다.</p>
 <ul>
-<li>역자주 : <code>배치</code>는 한번에 학습할 수 있는 <code>데이터 개수</code>를 의미</li>
+<li>역자주 : <code>하이퍼파라메터</code> 는 학습에 필요한 파라메터 값입니다.</li>
+<li>역자주 :   <code>배치 사이즈</code>는 한번의 학습에 사용하는  <code>데이터 개수</code>입니다.</li>
 </ul>
 <pre><code>train_ds = tf.data.Dataset.from_tensor_slices(
     (x_train, y_train)).shuffle(10000).batch(32)

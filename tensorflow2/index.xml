@@ -6,10 +6,21 @@
     <description>Recent content in Tensorflow2s on HappyGrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 30 Dec 2019 01:29:36 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 01 Jan 2020 18:27:25 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/tensorflow2/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>텐서플로우 허텍스트 분류</title>
+      <link>https://happygrammer.github.io/tensorflow2/text_classification_with_hub/</link>
+      <pubDate>Wed, 01 Jan 2020 18:27:25 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow2/text_classification_with_hub/</guid>
+      <description>Run in Google ColabView source on GitHubDownload notebook
+노트북은 리뷰 텍스트를 이용해 영화 리뷰을 긍정인지 부정인지를 분류하는 이진 분류를 수행합니다. 머신러닝 문제에 넓게 적용되는 중요한 예제입니다. 튜토리얼은 텐서플로우 허브와 케라스를 이용해 트랜스퍼 러닝(transfer learning)의 기본 응용 방법을 설명합니다. IMDB 데이터셋 은 5만개의 영화 리뷰(Internet Movie Database)를 포함하고 있습니다. 2만 5천개 리뷰는 학습에 사용하고 나머지 2만 5천개는 테스팅에 사용합니다. 데이터는 긍정 리뷰와 부정 리뷰가 동일한 개수로 포함하고 있어 균형적입니다.
+이 노트북은 tf.</description>
+    </item>
     
     <item>
       <title>Classification</title>

@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>텐서플로우 허텍스트 분류 // HappyGrammer Blog</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="텐서플로우 허텍스트 분류" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/tensorflow2/text_classification_with_hub/" />
+    
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">HappyGrammer Blog</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/tensorflow2/">TensorFlow</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">텐서플로우 허텍스트 분류</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/tensorflow2/text_classification_with_hub/" class="article-date">
+                <time datetime='2020-01-01T18:27:25.000&#43;03:00' itemprop="datePublished">2020-01-01</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p><a href="https://colab.research.google.com/github/tensorflow/docs/blob/master/site/en/tutorials/keras/text_classification_with_hub.ipynb"><img src="https://www.tensorflow.org/images/colab_logo_32px.png" alt="img">Run in Google Colab</a><a href="https://github.com/tensorflow/docs/blob/master/site/en/tutorials/keras/text_classification_with_hub.ipynb"><img src="https://www.tensorflow.org/images/GitHub-Mark-32px.png" alt="img">View source on GitHub</a><a href="https://storage.googleapis.com/tensorflow_docs/docs/site/en/tutorials/keras/text_classification_with_hub.ipynb"><img src="https://www.tensorflow.org/images/download_logo_32px.png" alt="img">Download notebook</a></p>
+<p>노트북은 리뷰 텍스트를 이용해 영화 리뷰을 긍정인지 부정인지를 분류하는 이진 분류를 수행합니다. 머신러닝 문제에 넓게 적용되는 중요한 예제입니다. 튜토리얼은 텐서플로우 허브와 케라스를 이용해 트랜스퍼 러닝(transfer learning)의 기본 응용 방법을 설명합니다.  <a href="https://www.tensorflow.org/api_docs/python/tf/keras/datasets/imdb">IMDB 데이터셋</a> 은 5만개의 영화 리뷰(<a href="https://www.imdb.com/">Internet Movie Database</a>)를 포함하고 있습니다.  2만 5천개 리뷰는 학습에 사용하고 나머지 2만 5천개는 테스팅에 사용합니다. 데이터는 긍정 리뷰와 부정 리뷰가 동일한 개수로 포함하고 있어 균형적입니다.</p>
+<p>이 노트북은 <a href="https://www.tensorflow.org/guide/keras">tf.keras</a>의 고수준 API를 사용해 텐서플로우 모델을 학습합니다. 그리고 <a href="https://www.tensorflow.org/hub">TensorFlow Hub</a>는 라이브러리이며 트랜스퍼 러닝 수행을 위한 플랫폼입니다. 보다 개선된 텍스트 분류 튜토리얼은 <a href="https://www.tensorflow.org/api_docs/python/tf/keras"><code>tf.keras</code></a>를 사용합니다. <a href="https://developers.google.com/machine-learning/guides/text-classification/">MLCC Text Classification Guide</a>확인 바랍니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#f92672">from</span> __future__ <span style="color:#f92672">import</span> absolute_import, division, print_function, unicode_literals
+
+<span style="color:#f92672">import</span> numpy <span style="color:#f92672">as</span> np
+
+<span style="color:#f92672">import</span> tensorflow <span style="color:#f92672">as</span> tf
+
+<span style="color:#960050;background-color:#1e0010">!</span>pip install <span style="color:#f92672">-</span>q tensorflow<span style="color:#f92672">-</span>hub
+<span style="color:#960050;background-color:#1e0010">!</span>pip install <span style="color:#f92672">-</span>q tensorflow<span style="color:#f92672">-</span>datasets
+<span style="color:#f92672">import</span> tensorflow_hub <span style="color:#f92672">as</span> hub
+<span style="color:#f92672">import</span> tensorflow_datasets <span style="color:#f92672">as</span> tfds
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Version: </span><span style="color:#e6db74">&#34;</span>, tf<span style="color:#f92672">.</span>__version__)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Eager mode: </span><span style="color:#e6db74">&#34;</span>, tf<span style="color:#f92672">.</span>executing_eagerly())
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">Hub version: </span><span style="color:#e6db74">&#34;</span>, hub<span style="color:#f92672">.</span>__version__)
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">GPU is</span><span style="color:#e6db74">&#34;</span>, <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">available</span><span style="color:#e6db74">&#34;</span> <span style="color:#66d9ef">if</span> tf<span style="color:#f92672">.</span>config<span style="color:#f92672">.</span>experimental<span style="color:#f92672">.</span>list_physical_devices(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">GPU</span><span style="color:#e6db74">&#34;</span>) <span style="color:#66d9ef">else</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">NOT AVAILABLE</span><span style="color:#e6db74">&#34;</span>)
+Version:  <span style="color:#ae81ff">2.0</span><span style="color:#f92672">.</span><span style="color:#ae81ff">0</span> Eager mode:  True Hub version:  <span style="color:#ae81ff">0.7</span><span style="color:#f92672">.</span><span style="color:#ae81ff">0</span> GPU <span style="color:#f92672">is</span> available
+</code></pre></div><h3 id="imdb--">IMDB 데이터셋 다운로드</h3>
+<p>IMDB 데이터셋은 <a href="https://github.com/tensorflow/datasets/blob/master/docs/datasets.md#imdb_reviews">imdb reviews</a> 또는 TensorFlow datasets](<a href="https://github.com/tensorflow/datasets">https://github.com/tensorflow/datasets</a>)에서 이용할 수 있습니다.</p>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#imdb--">IMDB 데이터셋 다운로드</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/tensorflow2/keras/classification/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Classification&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 HappyGrammer Blog
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

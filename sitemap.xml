@@ -3,17 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://happygrammer.github.io/tensorflow2/keras/classification/</loc>
-    <lastmod>2019-12-30T01:29:36+03:00</lastmod>
-  </url>
-  
-  <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2019-12-30T01:29:36+03:00</lastmod>
+    <lastmod>2020-01-01T18:27:25+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://happygrammer.github.io/tensorflow2/</loc>
+    <lastmod>2020-01-01T18:27:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/tensorflow2/text_classification_with_hub/</loc>
+    <lastmod>2020-01-01T18:27:25+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/tensorflow2/keras/classification/</loc>
     <lastmod>2019-12-30T01:29:36+03:00</lastmod>
   </url>
   

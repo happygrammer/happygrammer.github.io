@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>텐서플로우 허텍스트 분류</title>
+      <title>영화 리뷰 텍스트 분류</title>
       <link>https://happygrammer.github.io/tensorflow2/text_classification_with_hub/</link>
       <pubDate>Wed, 01 Jan 2020 18:27:25 +0300</pubDate>
       

@@ -18,8 +18,8 @@
       
       <guid>https://happygrammer.github.io/java/processbuilder/</guid>
       <description>이 클래스는 운영체제 프로세스 생성할 때 사용합니다. 자바 JDK 7 이상에서 지원하며 이전 버전에서는 Runtime.exec()을 이용해 프로세스를 실행할 수 있습니다. start() 메서드는 새로운 프로세스를 생성하고 입력 받은 커맨드를 실행하도록 합니다.
-생성자
- ProcessBuilder(List 커맨드): 운영체제 명령어를 리스트 형태로 받아 명령 수행을 위해 프로세스를 실행합니다. ProcessBuilder(String… 커맨드): 운영체제 명령어를 단일 명령어를 받아 명령 수행을 위ㅇ해 프로세스를 실행합니다.  예제1. ProcessBuilder(List 커맨드) 방식
+생성자의 역할
+ ProcessBuilder(List 커맨드): 운영체제 명령어를 리스트 형태로 받아 명령 수행을 위한 프로세스 생성 ProcessBuilder(String… 커맨드): 운영체제 명령어를 String 문자열로 입력 받아 명령 수행을 위한 프로세스 생성  예제1. ProcessBuilder(List 커맨드) 방식
 import java.lang.*; import java.io.*; class ProcessBuilderExample { public static void main(String[] arg) throws IOException { // processs 목록을 생성 	List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;String&amp;gt;(); list.</description>
     </item>
     

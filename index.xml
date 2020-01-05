@@ -17,10 +17,8 @@
       <pubDate>Sat, 04 Jan 2020 05:56:56 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/java/processbuilder/</guid>
-      <description>이 클래스는 운영체제 프로세스 생성할 때 사용합니다. 자바 JDK 7 이상에서 지원하며 이전 버전에서는 Runtime.exec()을 이용해 프로세스를 실행할 수 있습니다. start() 메서드는 새로운 프로세스를 생성하고 입력 받은 커맨드를 실행하도록 합니다.
-생성자의 역할
- ProcessBuilder(List 커맨드): 운영체제 명령어를 리스트 형태로 받아 명령 수행을 위한 프로세스 생성 ProcessBuilder(String… 커맨드): 운영체제 명령어를 String 문자열로 입력 받아 명령 수행을 위한 프로세스 생성  예제1. ProcessBuilder(List 커맨드) 방식
-import java.lang.*; import java.io.*; class ProcessBuilderExample { public static void main(String[] arg) throws IOException { // processs 목록을 생성 	List&amp;lt;String&amp;gt; list = new ArrayList&amp;lt;String&amp;gt;(); list.</description>
+      <description>이전 버전에서는 Runtime.exec()을 이용해 프로세스를 실행할 수 있습니다. 그런데 이 방법은 When Runtime.exec() won&#39;t에서도 소개 됐듯이 표준 입력과 출력에 대한 제한된 버퍼 사이즈로 인해 하위 프로세스가 block 되거나 데드락이 되기도 하는 문제가 있었습니다.
+자바 JDK 7 이상에서는 이러한 문제점을 해결 하고자 Proccess Builder 클래스가 소개됩니다. 이 클래스는 운영체제 프로세스 생성할 때 사용합니다. Process Builder 클래스 인스턴스에는 프로세스를 제어할 때 필요한 유용한 속성을 제어합니다. 예를 들어 start() 메서드는 입력 받은 커맨드를 실행해 새로운 프로세스를 생성 합니다.</description>
     </item>
     
     <item>
@@ -29,8 +27,9 @@ import java.lang.*; import java.io.*; class ProcessBuilderExample { public stati
       <pubDate>Wed, 01 Jan 2020 18:27:25 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/tensorflow2/text_classification_with_hub/</guid>
-      <description>Run in Google Colab View source on GitHub Download notebook  노트북은 리뷰 텍스트를 이용해 영화 리뷰을 긍정인지 부정인지를 분류하는 이진 분류를 수행합니다. 머신러닝 문제에 넓게 적용되는 중요한 예제입니다. 튜토리얼은 텐서플로우 허브와 케라스를 이용해 트랜스퍼 러닝(transfer learning)의 기본 응용 방법을 설명합니다.
- 역자주 : 트랜스퍼 러닝은 사전 학습 모델(pre-trained mode)을 재사용하여 응용 모델을 구축하는 방법  IMDB 데이터셋 은 5만개의 영화 리뷰(Internet Movie Database)를 포함하고 있습니다. 2만 5천개 리뷰는 학습에 사용하고 나머지 2만 5천개는 테스팅에 사용합니다.</description>
+      <description>이글은 text_classification_with_hub 한국어 번역 문서입니다.
+ Run in Google Colab View source on GitHub Download notebook  노트북은 리뷰 텍스트를 이용해 영화 리뷰을 긍정인지 부정인지를 분류하는 이진 분류를 수행합니다. 머신러닝 문제에 넓게 적용되는 중요한 예제입니다. 튜토리얼은 텐서플로우 허브와 케라스를 이용해 트랜스퍼 러닝(transfer learning)의 기본 응용 방법을 설명합니다.
+ 역자주 : 트랜스퍼 러닝은 사전 학습 모델(pre-trained mode)을 재사용하여 응용 모델을 구축하는 방법  IMDB 데이터셋 은 5만개의 영화 리뷰(Internet Movie Database)를 포함하고 있습니다.</description>
     </item>
     
     <item>
@@ -50,7 +49,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
       <pubDate>Thu, 26 Dec 2019 23:35:16 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/tensorflow2/quickstart-for-experts/</guid>
-      <description>텐서플로우 튜토리얼(https://www.tensorflow.org/tutorials/quickstart/advanced?hl=ko) 한국어 번역 문서입니다.
+      <description>텐서플로우 튜토리얼(https://www.tensorflow.org/tutorials/quickstart/advanced) 한국어 번역 문서입니다.
 전문가용 텐서플로우 2 튜토리얼 Google Colaboratory에 노트북 파일이 있습니다. 이 사이트는 파이썬 노트북 파이을 브라우저에서 바로 실행해 볼 수 있어 텐서플로우를 이해하는데 도움을 줍니다. 튜토리얼을 진행해 보겠습니다.
  Colab에서 파이썬 런타임에 접속합니다. 메뉴바의 오른쪽에 위치한 CONNECT을 선택합니다. 메뉴에서 Runtime &amp;gt; Run all을 선택합니다.  텐서플로우 패키지 설치와 임포트 텐서플로우 2 패키지를 다운로드 받고 설치를 진행하고, 텐서플로우를 프로그램으로 임포트합니다.
 from __future__ import absolute_import, division, print_function, unicode_literals import tensorflow as tf from tensorflow.</description>

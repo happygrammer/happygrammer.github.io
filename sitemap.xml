@@ -3,17 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://happygrammer.github.io/</loc>
+    <lastmod>2020-01-07T01:01:16+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/spring/spring-boot/</loc>
+    <lastmod>2020-01-07T01:01:16+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/spring/</loc>
+    <lastmod>2020-01-07T01:01:16+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://happygrammer.github.io/git/one-hour-git/</loc>
     <lastmod>2020-01-06T01:26:13+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://happygrammer.github.io/git/</loc>
-    <lastmod>2020-01-06T01:26:13+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/</loc>
     <lastmod>2020-01-06T01:26:13+03:00</lastmod>
   </url>
   

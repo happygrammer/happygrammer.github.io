@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Spring Boot 시작하기 // HappyGrammer Blog</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Spring Boot 시작하기" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/spring/spring-boot/" />
+    
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">HappyGrammer Blog</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/tensorflow2/">TensorFlow</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">Spring Boot 시작하기</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/spring/spring-boot/" class="article-date">
+                <time datetime='2020-01-07T01:01:16.000&#43;03:00' itemprop="datePublished">2020-01-07</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>이 문서는 스프링 <a href="https://spring.io/projects/spring-boot">문서</a>의 번역 문서입니다. <code>스프링 부트</code>는 쉽게 제품 등급의 독립형 스프링 기반 애플리케이션을 만들 수 있습니다. 대부분의 스프링 부트 애플리케케이션은 적은 설정을 필요로 합니다.</p>
+<h2 id="heading">특징</h2>
+<ul>
+<li>독립형 애플리케이셩 생성</li>
+<li>내장 톰캣, 제티 포함. (WAR파일 배포 불필요)</li>
+<li>스타터는 단순한 빌드 설정을 이용합니다.</li>
+<li>Spring 및 타사 의존 라이브러리를 자동으로 설정 되도록 합니다.</li>
+<li>운영에 필요한 health 체크, 외부 설정 등의 기능을 제공합니다.</li>
+<li>코드를 생성하거나 XML 설정을 요구 하지 않습니다.</li>
+</ul>
+<h3 id="--">스프링 부트 소개</h3>
+<p>이 문서는 레퍼런스 <a href="https://docs.spring.io/spring-boot/docs/2.2.2.RELEASE/reference/html/getting-started.html#getting-started">문서</a>의 번역 문서입니다. 스프링 부트의 목표는 다음과 같습니다.</p>
+<ul>
+<li>스프링 개발을 위한 빠르게 넓게 접근할 수 있는 스프링 개발 경험을 제공</li>
+<li>프로젝트 공통에 해당하는 특징을 제공함 예를 들어 내장 서버, 보안, 메트릭, 헬스 체크, 외부 설정</li>
+<li>XML 설정을 요구하거나 코드 생성이 없음</li>
+</ul>
+<p>스프링 부터는 다음의 내장 서블릿 컨테이를 제공하고 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="left">Servlet Version</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">Tomcat 9.0</td>
+<td align="left">4.0</td>
+</tr>
+<tr>
+<td align="left">Jetty 9.4</td>
+<td align="left">3.1</td>
+</tr>
+<tr>
+<td align="left">Undertow 2.0</td>
+<td align="left">4.0</td>
+</tr>
+</tbody>
+</table>
+<h3 id="---1">스프링 부트 시작</h3>
+<p>프로젝트 생성 후 Dependencies로 JDBC가 있다면 아래와 같은 메시지가 뜨면서 실행이 안될 것 입니다.</p>
+<pre><code>***************************
+APPLICATION FAILED TO START
+***************************
+
+Description:
+
+Failed to configure a DataSource: 'url' attribute is not specified and no embedded datasource could be configured.
+
+Reason: Failed to determine a suitable driver class
+</code></pre><p>JDBC 설정을 바로 하지 않을 것이라면 다음 애노테이션을 추가합니다.</p>
+<pre><code>@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+</code></pre><p>예제를 시작 하겠습니다. 프로젝트 우클릭후 Run As - Spring Boot App을 선택합니다.</p>
+<pre><code>package com.example.demo.com.example.demo;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+
+@SpringBootApplication
+@EnableAutoConfiguration(exclude={DataSourceAutoConfiguration.class})
+
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+
+}
+</code></pre><p>그리고 브라우저를 이용해 다음 주소로 접속합니다.</p>
+<p><code>http://localhost:8080/login</code></p>
+<h3 id="---2">빈 이름 출력</h3>
+<pre><code>package main;
+
+import java.util.Arrays;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.autoconfigure.jdbc.DataSourceAutoConfiguration;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.Bean;
+
+@SpringBootApplication
+@EnableAutoConfiguration(exclude = { DataSourceAutoConfiguration.class })
+public class Application {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+
+	@Bean
+	public CommandLineRunner commandLineRunner(ApplicationContext ctx) {
+		return args -&gt; {
+			System.out.println(&quot;Let's inspect the beans provided by Spring Boot:&quot;);
+			String[] beanNames = ctx.getBeanDefinitionNames();
+			Arrays.sort(beanNames);
+			for (String beanName : beanNames) {
+				System.out.println(&quot;BeanName : &quot; + beanName);
+			}
+		};
+	}
+}
+</code></pre><p>빈 이름 목록 출력 결과입니다.</p>
+<pre><code>Let's inspect the beans provided by Spring Boot:
+BeanName : application
+BeanName : applicationTaskExecutor
+BeanName : basicErrorController
+BeanName : beanNameHandlerMapping
+BeanName : beanNameViewResolver
+BeanName : characterEncodingFilter
+...(중략)
+BeanName : webServerFactoryCustomizerBeanPostProcessor
+BeanName : websocketServletWebServerCustomizer
+</code></pre><h3 id="mustache--">Mustache 템플릿 사용</h3>
+<p>Mustache는 Logic-Less해 배우기 쉽고 사용법도 간단합니다. <a href="https://www.thymeleaf.org/documentation.html">공식 문서</a>를 확인해 보시기 바랍니다.</p>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">특징</a>
+      <ul>
+        <li><a href="#--">스프링 부트 소개</a></li>
+        <li><a href="#---1">스프링 부트 시작</a></li>
+        <li><a href="#---2">빈 이름 출력</a></li>
+        <li><a href="#mustache--">Mustache 템플릿 사용</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/git/one-hour-git/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">1시간 안에 Git 익히기&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 HappyGrammer Blog
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

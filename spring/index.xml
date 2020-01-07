@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Springs on HappyGrammer Blog</title>
+    <link>https://happygrammer.github.io/spring/</link>
+    <description>Recent content in Springs on HappyGrammer Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Tue, 07 Jan 2020 01:01:16 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/spring/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Spring Boot 시작하기</title>
+      <link>https://happygrammer.github.io/spring/spring-boot/</link>
+      <pubDate>Tue, 07 Jan 2020 01:01:16 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/spring/spring-boot/</guid>
+      <description>이 문서는 스프링 문서의 번역 문서입니다. 스프링 부트는 쉽게 제품 등급의 독립형 스프링 기반 애플리케이션을 만들 수 있습니다. 대부분의 스프링 부트 애플리케케이션은 적은 설정을 필요로 합니다.
+특징  독립형 애플리케이셩 생성 내장 톰캣, 제티 포함. (WAR파일 배포 불필요) 스타터는 단순한 빌드 설정을 이용합니다. Spring 및 타사 의존 라이브러리를 자동으로 설정 되도록 합니다. 운영에 필요한 health 체크, 외부 설정 등의 기능을 제공합니다. 코드를 생성하거나 XML 설정을 요구 하지 않습니다.  스프링 부트 소개 이 문서는 레퍼런스 문서의 번역 문서입니다.</description>
+    </item>
+    
+  </channel>
+</rss>

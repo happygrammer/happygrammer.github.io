@@ -6,10 +6,20 @@
     <description>Recent content on HappyGrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Tue, 07 Jan 2020 22:28:52 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 07 Jan 2020 23:38:20 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>자연어처리 오픈소스 프로젝트</title>
+      <link>https://happygrammer.github.io/nlp/open-source/</link>
+      <pubDate>Tue, 07 Jan 2020 23:38:20 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/open-source/</guid>
+      <description>자연어처리 모듈을 처음 부터 모두 개발하는 것은 쉽지 않습니다. 따라서 이미 구현된 자연어처리 알고리즘에 해당하는 라이브러리가 있다면 자연어 처리 프로젝트의 효과적인 진행을 위해 공개된 자연어처리 라이브러리를 적절히 이용하는 것이 좋습니다. 본문에서는 자연어처리 오픈소스 프로젝트를 간략히 소개하며 어떤 점을 활용하면 좋을지를 소개 하겠습니다.
+자연어처리 툴킷(NLTK) **NLTK(Natural Language Toolkit)**는 언어 처리 기능을 제공하는 파이썬 라이브러리입니다. 손쉽게 이용할 수 있도록 모듈 형식으로 제공하고 있습니다. 이러한 모듈의 범주로 분류 토큰화(tokenization), 스테밍(stemming)와 같은 언어 전처리 모듈 부터 구문분석(parsing)과 같은 언어 분석, 클러스터링, 감정 분석(sentiment analysis), 태깅(tagging)과 같은 분석 모듈 시맨틱 추론(semantic reasoning)과 같이 보다 고차원 적인 추론 모듈도 제공하고 있습니다.</description>
+    </item>
     
     <item>
       <title>텍스트 파일 처리를 위한 쉘 명령어</title>

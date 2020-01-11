@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hangeuls on HappyGrammer Blog</title>
+    <link>https://happygrammer.github.io/hangeul/</link>
+    <description>Recent content in Hangeuls on HappyGrammer Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>ko-kr</language>
+    <lastBuildDate>Sat, 11 Jan 2020 03:11:49 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/hangeul/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>한글</title>
+      <link>https://happygrammer.github.io/hangeul/hangeul-spelling/</link>
+      <pubDate>Sat, 11 Jan 2020 03:11:49 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/hangeul/hangeul-spelling/</guid>
+      <description>이 글은 한글 맞춤법 어문 규정 중요 내용을 소개 하고 한글의 이해를 높이고자 하는 목적으로 작성되었습니다.
+한글 맞춤법**은 한글을 문자로 입력할때의 **관례(convention)**이자 약속입니다. 한글 맞춤법의 원칙은 **표준어를 소리대로 적되, 어법에 맞도록 함을 원칙(제 1항)으로 합니다. 제 1항에서 제시한 한글 표기의 원칙은 &amp;lsquo;소리대로 적는다&#39;입니다. 왜냐하면 한글은 소리를 문자로 표기하는 **표음 문자(表音文字)**이기 때문입니다. 표음 문자는 음소 문자와 음절 문자로 나뉩니다.
+ 음소 문자 음절 문자  한글은 **음소 문자(音素文字)**입니다. 한글에서 **음소(phonemes)**는 단어의 의미를 구분짓는 소리의 최소 단위로 자음 또는 모음을 가르킵니다.</description>
+    </item>
+    
+  </channel>
+</rss>

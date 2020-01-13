@@ -6,10 +6,21 @@
     <description>Recent content on HappyGrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Sat, 11 Jan 2020 03:11:49 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jan 2020 02:23:13 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>연비 예측을 위한 회귀 분석</title>
+      <link>https://happygrammer.github.io/tensorflow2/keras/regression/</link>
+      <pubDate>Mon, 13 Jan 2020 02:23:13 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow2/keras/regression/</guid>
+      <description>회귀 문제(regression problem)의 목표는 연속 출력값을 예측하는 것 입니다. 클래스 목록에서 클래스를 선택하는 것이 목표입니다. (사진을 인식해 사과 인지 오렌지를 식별함).
+이 노트 북은 고전적인 Auto MPG 데이터셋을 사용하여 모델을 만들고 있는 1970년대 후반부터 1980년데 전반까지의 자동차 연비 예측을 수행합니다. 이를 수행할 목적으로, 저 시기동안 많은 자동차들의 설명(description)을 가지고 구축한 모델을 제공합니다. 이 설명은 다음의 속성을 포함합니다. 예) 실린더, 변위(displacement), 마력(horsepower), 무게
+이 예제는 tf.keras API를 사용합니다. 자세한 가이드를 보시면 this guide 글을 보세요.</description>
+    </item>
     
     <item>
       <title>[한글학] 표음 문자인 한글</title>

@@ -3,17 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://happygrammer.github.io/</loc>
+    <lastmod>2020-01-13T02:23:13+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/tensorflow2/</loc>
+    <lastmod>2020-01-13T02:23:13+03:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/tensorflow2/keras/regression/</loc>
+    <lastmod>2020-01-13T02:23:13+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://happygrammer.github.io/hangeul/hangeul-spelling/</loc>
     <lastmod>2020-01-11T03:11:49+03:00</lastmod>
   </url>
   
   <url>
     <loc>https://happygrammer.github.io/hangeul/</loc>
-    <lastmod>2020-01-11T03:11:49+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/</loc>
     <lastmod>2020-01-11T03:11:49+03:00</lastmod>
   </url>
   
@@ -75,11 +85,6 @@
   <url>
     <loc>https://happygrammer.github.io/java/processbuilder/</loc>
     <lastmod>2020-01-04T05:56:56+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/tensorflow2/</loc>
-    <lastmod>2020-01-01T18:27:25+03:00</lastmod>
   </url>
   
   <url>

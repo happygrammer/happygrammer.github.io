@@ -98,7 +98,7 @@
 <span style="color:#f92672">import</span> tensorflow_docs <span style="color:#f92672">as</span> tfdocs
 <span style="color:#f92672">import</span> tensorflow_docs.plots
 <span style="color:#f92672">import</span> tensorflow_docs.modeling
-</code></pre></div><h3 id="the-auto-mpg-dataset">The Auto MPG dataset</h3>
+</code></pre></div><h3 id="-mpg-">오토 MPG 데이터셋</h3>
 <p>데이터셋은 <a href="https://archive.ics.uci.edu/ml/">UCI Machine Learning Repository</a>에서 이용할 수 있습니다.</p>
 <h4 id="get-the-data">Get the data</h4>
 <p>첫번째로 데이터 셋을 다운로드합니다.</p>
@@ -117,7 +117,7 @@ raw_dataset <span style="color:#f92672">=</span> pd<span style="color:#f92672">.
 
 dataset <span style="color:#f92672">=</span> raw_dataset<span style="color:#f92672">.</span>copy()
 dataset<span style="color:#f92672">.</span>tail()
-</code></pre></div><h3 id="-">데이터 청소</h3>
+</code></pre></div><h4 id="-">데이터 청소</h4>
 <p>데이터셋에 몇개의 무명 값들이 들어 있습니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">dataset<span style="color:#f92672">.</span>isna()<span style="color:#f92672">.</span>sum()
 MPG             <span style="color:#ae81ff">0</span>
@@ -135,7 +135,7 @@ dtype: int64
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">dataset[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Origin</span><span style="color:#e6db74">&#39;</span>] <span style="color:#f92672">=</span> dataset[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Origin</span><span style="color:#e6db74">&#39;</span>]<span style="color:#f92672">.</span>map(<span style="color:#66d9ef">lambda</span> x: {<span style="color:#ae81ff">1</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">USA</span><span style="color:#e6db74">&#39;</span>, <span style="color:#ae81ff">2</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Europe</span><span style="color:#e6db74">&#39;</span>, <span style="color:#ae81ff">3</span>: <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Japan</span><span style="color:#e6db74">&#39;</span>}<span style="color:#f92672">.</span>get(x))
 dataset <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>get_dummies(dataset, prefix<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span>, prefix_sep<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">&#39;</span>)
 dataset<span style="color:#f92672">.</span>tail()
-</code></pre></div><h3 id="---">학습과 테스트로 데이터로 나누기</h3>
+</code></pre></div><h4 id="---">학습과 테스트로 데이터로 나누기</h4>
 <p>학습셋과 테스트셋으로 나누겠습니다. 테스트 셋은 우리 모델의 최종 평가에 이용합니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train_dataset <span style="color:#f92672">=</span> dataset<span style="color:#f92672">.</span>sample(frac<span style="color:#f92672">=</span><span style="color:#ae81ff">0.8</span>,random_state<span style="color:#f92672">=</span><span style="color:#ae81ff">0</span>)
 test_dataset <span style="color:#f92672">=</span> dataset<span style="color:#f92672">.</span>drop(train_dataset<span style="color:#f92672">.</span>index)
@@ -149,7 +149,7 @@ test_dataset <span style="color:#f92672">=</span> dataset<span style="color:#f92
 train_stats<span style="color:#f92672">.</span>pop(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">MPG</span><span style="color:#e6db74">&#34;</span>)
 train_stats <span style="color:#f92672">=</span> train_stats<span style="color:#f92672">.</span>transpose()
 train_stats
-</code></pre></div><h3 id="----1">특징에 따라 라벨 나누기</h3>
+</code></pre></div><h4 id="----1">특징에 따라 라벨 나누기</h4>
 <p>목표 값 또는 라벨을  or &ldquo;label&rdquo;, from the features. This label is the value that you will train the model to predict.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train_labels <span style="color:#f92672">=</span> train_dataset<span style="color:#f92672">.</span>pop(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">MPG</span><span style="color:#e6db74">&#39;</span>)
 test_labels <span style="color:#f92672">=</span> test_dataset<span style="color:#f92672">.</span>pop(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">MPG</span><span style="color:#e6db74">&#39;</span>)
@@ -163,8 +163,7 @@ normed_train_data <span style="color:#f92672">=</span> norm(train_dataset)
 normed_test_data <span style="color:#f92672">=</span> norm(test_dataset)
 </code></pre></div><p>This normalized data is what we will use to train the model.</p>
 <p><strong>Caution:</strong> The statistics used to normalize the inputs here (mean and standard deviation) need to be applied to any other data that is fed to the model, along with the one-hot encoding that we did earlier. That includes the test set as well as live data when the model is used in production.</p>
-<p>The model</p>
-<h3 id="--2">모델 빌드</h3>
+<h4 id="--2">모델 빌드</h4>
 <p>모델을 빌드하겠습니다. 여기서 <code>Sequential</code> 모델을 사용하겠습니다. 두 은닉 밀집 레이어(densely connected hidden layers)와 단일, 연속 값을 반환하는 출력 레이어(output layer)로 구성됩니다. <code>build_model</code> 은 빌드 과정을 래핑합니다. 두번째 모델을 나중에 만들것입니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">build_model</span>():
   model <span style="color:#f92672">=</span> keras<span style="color:#f92672">.</span>Sequential([
@@ -322,12 +321,8 @@ _ <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>yl
   <ul>
     <li>
       <ul>
-        <li><a href="#the-auto-mpg-dataset">The Auto MPG dataset</a></li>
-        <li><a href="#-">데이터 청소</a></li>
-        <li><a href="#---">학습과 테스트로 데이터로 나누기</a></li>
-        <li><a href="#----1">특징에 따라 라벨 나누기</a></li>
+        <li><a href="#-mpg-">오토 MPG 데이터셋</a></li>
         <li><a href="#-normalize">데이터 정규화(Normalize)</a></li>
-        <li><a href="#--2">모델 빌드</a></li>
         <li><a href="#--3">모델 검사</a></li>
         <li><a href="#--4">모델 학습</a></li>
         <li><a href="#--5">예측 만들기</a></li>

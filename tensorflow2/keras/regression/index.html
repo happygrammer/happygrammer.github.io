@@ -154,15 +154,14 @@ train_stats
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train_labels <span style="color:#f92672">=</span> train_dataset<span style="color:#f92672">.</span>pop(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">MPG</span><span style="color:#e6db74">&#39;</span>)
 test_labels <span style="color:#f92672">=</span> test_dataset<span style="color:#f92672">.</span>pop(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">MPG</span><span style="color:#e6db74">&#39;</span>)
 </code></pre></div><h3 id="-normalize">데이터 정규화(Normalize)</h3>
-<p>Look again at the <code>train_stats</code> block above and note how different the ranges of each feature are.</p>
-<p>It is good practice to normalize features that use different scales and ranges. Although the model <em>might</em> converge without feature normalization, it makes training more difficult, and it makes the resulting model dependent on the choice of units used in the input.</p>
-<p><strong>Note:</strong> Although we intentionally generate these statistics from only the training dataset, these statistics will also be used to normalize the test dataset. We need to do that to project the test dataset into the same distribution that the model has been trained on.</p>
+<p><code>train_stats</code> 블록을 다시 보겠습니다. 그리고 어떻게  각 피쳐의 범주가 어떻게 다른지 유의해 보겠습니다. 피쳐 정규화의 좋은 예제는 다른 scales과 ranges를 사용하는 것 입니다. 비록 모델은 피쳐 정규화(feature normalization) 어이 수렴(converge)합니다. 학습을 어렵게 하고, 모델이 입력 유닛에 의존하게 합니다.</p>
+<p><strong>유의:</strong> 의도적으로 학습 셋에 대해 이러한 통계를 생성하며, 이러한 통계는 테스트 셋의 정규화에도 사용합니다. 테스트 데이터셋이 학습 셋의 모델 분포와 동일 하도록 할 필요가 있습니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">norm</span>(x):
   <span style="color:#66d9ef">return</span> (x <span style="color:#f92672">-</span> train_stats[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">mean</span><span style="color:#e6db74">&#39;</span>]) <span style="color:#f92672">/</span> train_stats[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">std</span><span style="color:#e6db74">&#39;</span>]
 normed_train_data <span style="color:#f92672">=</span> norm(train_dataset)
 normed_test_data <span style="color:#f92672">=</span> norm(test_dataset)
-</code></pre></div><p>This normalized data is what we will use to train the model.</p>
-<p><strong>Caution:</strong> The statistics used to normalize the inputs here (mean and standard deviation) need to be applied to any other data that is fed to the model, along with the one-hot encoding that we did earlier. That includes the test set as well as live data when the model is used in production.</p>
+</code></pre></div><p>정규화된 데이터는 모델 학습에 사용할것 입니다.</p>
+<p><strong>유의:</strong> The statistics used to normalize the inputs here (mean and standard deviation) need to be applied to any other data that is fed to the model, along with the one-hot encoding that we did earlier. That includes the test set as well as live data when the model is used in production.</p>
 <h4 id="--2">모델 빌드</h4>
 <p>모델을 빌드하겠습니다. 여기서 <code>Sequential</code> 모델을 사용하겠습니다. 두 은닉 밀집 레이어(densely connected hidden layers)와 단일, 연속 값을 반환하는 출력 레이어(output layer)로 구성됩니다. <code>build_model</code> 은 빌드 과정을 래핑합니다. 두번째 모델을 나중에 만들것입니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">build_model</span>():

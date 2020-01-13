@@ -6,10 +6,21 @@
     <description>Recent content on HappyGrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>ko-kr</language>
-    <lastBuildDate>Mon, 13 Jan 2020 02:23:13 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 13 Jan 2020 17:27:38 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>중의성의 분류와 중의성 해소</title>
+      <link>https://happygrammer.github.io/nlp/word-sense-disambiguation/</link>
+      <pubDate>Mon, 13 Jan 2020 17:27:38 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/word-sense-disambiguation/</guid>
+      <description>이 글은 중의성의 종류를 소개하고, 중의성 해소에 필요한 방법을 알아보겠습니다.
+중의성의 분류 자연어 처리에서 중의성 해결은 중요한 태스크입니다. 중의성은 하나의 언어 표현이 둘 이상의 해석이 가능한 특성을 의미합니다. 중의성의 종류는 다음과 같습니다.
+ 어휘 중의성 구조 중의성  어휘 중의성 어휘 중의성 글자나 소리가 동일하지만 의미가 여럿인 중의성입니다. 중의성의 대표적인 예로 동음이의어(homonym)가 있습니다. 동음이의어는 글자는 동일(동형어; homographs)하지만 의미가 다른 단어(다의어; polysemes) 입니다. 동음이의어는 글자로 보면 의미가 구분이 되지 않는 애매성(ambiguity)이 있습니다.</description>
+    </item>
     
     <item>
       <title>연비 예측을 위한 회귀 분석</title>

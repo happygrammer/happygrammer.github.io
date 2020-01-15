@@ -164,7 +164,7 @@ git remote add origin https://github.com/happygrammer/happygrammer.github.io.git
 git push -u origin master
 ```
 
-만야 push시 충돌이 나면 다음과 같은 메시지가 나타날 수 있습니다.
+만야 push시 다른 저장소에서 commit해 update가 되어 충돌이 나면 다음과 같은 메시지가 나타날 수 있습니다.
 
 ```
 fatal: remote origin already exists.

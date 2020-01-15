@@ -53,6 +53,40 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/shell/date-time/">[쉘스크립트] 날짜와 시간 처리</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/shell/date-time/" class="article-date">
+                        <time datetime='2020-01-15T07:15:14.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    날짜 포맷 출력(기본 포맷) mm/dd/yy형식으로 날짜 출력
+date +&quot;%D&quot; 날짜 포맷 출력(지정 포맷) yyyy-mm-dd 형식의 날짜 출력
+date &quot;+%Y-%m-%d&quot; echo date # 2020-01-14 시간 출력(기본 포맷) hh-mm-ss 형식의 시간 출력
+date +&quot;%T&quot; # 04:09:51 시간 출력(12시간 기준) date +&quot;%r&quot; # 04:09:51 AM 날짜와 시간 출력(기본 포맷) now=$(date) echo $no # 2020년 1월 15일 수요일 05시 19분 36초 MSK 날짜와 시간 출력(지정 포맷) yyyy-mm-dd_hh-mm-ss 형식으로 출력
+echo $(date +%F_%H-%M-%S) # 2020-01-15_05-12-24 시간 조건 분기(12시간 기준) 쉘 코드로 오전(AM), 오후(PM)에 대한 조건 분기는 다음과 같습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/shell/date-time/">Read More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/nlp/wsd/">중의성의 분류와 중의성 해소</a></h1>
                 </header>
                 
@@ -199,38 +233,6 @@
                     </p>
                     <p class="article-more-link">
                         <a href="/spring/spring-boot/">Read More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/guide/git/">1시간 안에 Git 익히기</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/guide/git/" class="article-date">
-                        <time datetime='2020-01-15T06:36:29.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    Git은 분산 버전 관리 시스템으로 리눅스 토발즈가 만들었으며 파일의 변경사항을 추적하고 관리할 수 있습니다.
-1. Git 설치  GIt 설치 : https://git-scm.com/downloads Github : 깃허브는 Git을 지원하는 웹 호스팅 서비스 Github Desktop : https://desktop.github.com/, Github을 편리하게 이용할 수 있도록 만든 소프트웨어  2. Git을 이용한 형상 관리 http://nvie.com/posts/a-successful-git-branching-model/
-3. Git 쉘 명령어 기본 명령어  git init: 깃 저장소를 초기화한다. git help: 깃 명령어를 확인한다. git status: 저장소 상태 정보 표시(저장소에 존재하는 파일, 커밋이 필요한 변경 사항, 현재 브랜치 위치 등)  상태 상태라면 &quot;your branch is up-to-date with 'origin/master'&quot;와 같이 표시    사용자 설정  git config –global user.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/guide/git/">Read More</a>
                     </p>
                 </div>
 

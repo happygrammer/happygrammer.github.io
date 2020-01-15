@@ -6,10 +6,23 @@
     <description>Recent content on Happtgrammer Bog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jan 2020 06:41:24 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 15 Jan 2020 07:15:14 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[쉘스크립트] 날짜와 시간 처리</title>
+      <link>https://happygrammer.github.io/shell/date-time/</link>
+      <pubDate>Wed, 15 Jan 2020 07:15:14 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/shell/date-time/</guid>
+      <description>날짜 포맷 출력(기본 포맷) mm/dd/yy형식으로 날짜 출력
+date +&amp;quot;%D&amp;quot; 날짜 포맷 출력(지정 포맷) yyyy-mm-dd 형식의 날짜 출력
+date &amp;quot;+%Y-%m-%d&amp;quot; echo date # 2020-01-14 시간 출력(기본 포맷) hh-mm-ss 형식의 시간 출력
+date +&amp;quot;%T&amp;quot; # 04:09:51 시간 출력(12시간 기준) date +&amp;quot;%r&amp;quot; # 04:09:51 AM 날짜와 시간 출력(기본 포맷) now=$(date) echo $no # 2020년 1월 15일 수요일 05시 19분 36초 MSK 날짜와 시간 출력(지정 포맷) yyyy-mm-dd_hh-mm-ss 형식으로 출력
+echo $(date +%F_%H-%M-%S) # 2020-01-15_05-12-24 시간 조건 분기(12시간 기준) 쉘 코드로 오전(AM), 오후(PM)에 대한 조건 분기는 다음과 같습니다.</description>
+    </item>
     
     <item>
       <title>중의성의 분류와 중의성 해소</title>
@@ -62,17 +75,6 @@
       <guid>https://happygrammer.github.io/spring/spring-boot/</guid>
       <description>이 문서는 스프링 문서의 번역 문서입니다. 스프링 부트는 쉽게 제품 등급의 독립형 스프링 기반 애플리케이션을 만들 수 있습니다. 대부분의 스프링 부트 애플리케케이션은 적은 설정을 필요로 합니다.
 특징  독립형 애플리케이셩 생성 내장 톰캣, 제티 포함. (WAR파일 배포 불필요) 스타터는 단순한 빌드 설정을 이용합니다. Spring 및 타사 의존 라이브러리를 자동으로 설정 되도록 합니다. 운영에 필요한 health 체크, 외부 설정 등의 기능을 제공합니다. 코드를 생성하거나 XML 설정을 요구 하지 않습니다.  스프링 부트 소개 이 문서는 레퍼런스 문서의 번역 문서입니다.</description>
-    </item>
-    
-    <item>
-      <title>1시간 안에 Git 익히기</title>
-      <link>https://happygrammer.github.io/guide/git/</link>
-      <pubDate>Wed, 15 Jan 2020 06:36:29 +0300</pubDate>
-      
-      <guid>https://happygrammer.github.io/guide/git/</guid>
-      <description>Git은 분산 버전 관리 시스템으로 리눅스 토발즈가 만들었으며 파일의 변경사항을 추적하고 관리할 수 있습니다.
-1. Git 설치  GIt 설치 : https://git-scm.com/downloads Github : 깃허브는 Git을 지원하는 웹 호스팅 서비스 Github Desktop : https://desktop.github.com/, Github을 편리하게 이용할 수 있도록 만든 소프트웨어  2. Git을 이용한 형상 관리 http://nvie.com/posts/a-successful-git-branching-model/
-3. Git 쉘 명령어 기본 명령어  git init: 깃 저장소를 초기화한다. git help: 깃 명령어를 확인한다. git status: 저장소 상태 정보 표시(저장소에 존재하는 파일, 커밋이 필요한 변경 사항, 현재 브랜치 위치 등)  상태 상태라면 &amp;quot;your branch is up-to-date with &#39;origin/master&#39;&amp;quot;와 같이 표시    사용자 설정  git config –global user.</description>
     </item>
     
     <item>
@@ -140,6 +142,16 @@ A smooth sea never made a skilled mariner. </description>
     </item>
     
     <item>
+      <title>조선 최고의 메모광 다산 정약용</title>
+      <link>https://happygrammer.github.io/worth/jeong-yak-young/</link>
+      <pubDate>Wed, 15 Jan 2020 06:31:12 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/worth/jeong-yak-young/</guid>
+      <description>기록은 남겨야 보존된다. 메모하지 않으면 기억의 저장고에서 깊은 잠에 빠지고 만다. 생각은 메모를 통해서만 싹을 틔운다. 메모의 습관은 꾸준한 연습 없이는 몸에 잘 붙지 않는다. 밥 먹듯이 메모하고, 숨 쉬듯이 메모해야 습관이 된다. 무심코 기록한 일기가 사료가 되고, 한 시대의 소중한 증언이 된다. 말은 항상 떠돌지만, 기록은 남기는 자를 통해서만 보존된다. 기록되는 순간 그것은 비로소 제 생명을 갖는다.
+옛사람의 메모벽 옛사람의 메모벽은 자못 유난스럽다. 책을 읽다가 번뜩 떠오른 생각이 있으면 메모지에 옮겨 적었다.</description>
+    </item>
+    
+    <item>
       <title>스티브잡스, Stay Hungry. Stay Foolish</title>
       <link>https://happygrammer.github.io/worth/steven-jobs/</link>
       <pubDate>Wed, 15 Jan 2020 06:30:21 +0300</pubDate>
@@ -174,6 +186,17 @@ A smooth sea never made a skilled mariner. </description>
 베이스 템플릿 layouts/_default
 위 디렉터리에 접근해보면 베이스 템플릿인 baseof.html가 존재합니다. 디폴트 리스트 템플릿인 list.html 파일이 존재합니다.
 템플릿 템플릿 설치는 https://themes.gohugo.io/ 사이트를 이용할 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>1시간 안에 Git 익히기</title>
+      <link>https://happygrammer.github.io/guide/git/</link>
+      <pubDate>Mon, 06 Jan 2020 01:26:13 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/guide/git/</guid>
+      <description>Git은 분산 버전 관리 시스템으로 리눅스 토발즈가 만들었으며 파일의 변경사항을 추적하고 관리할 수 있습니다.
+1. Git 설치  GIt 설치 : https://git-scm.com/downloads Github : 깃허브는 Git을 지원하는 웹 호스팅 서비스 Github Desktop : https://desktop.github.com/, Github을 편리하게 이용할 수 있도록 만든 소프트웨어  2. Git을 이용한 형상 관리 http://nvie.com/posts/a-successful-git-branching-model/
+3. Git 쉘 명령어 기본 명령어  git init: 깃 저장소를 초기화한다. git help: 깃 명령어를 확인한다. git status: 저장소 상태 정보 표시(저장소에 존재하는 파일, 커밋이 필요한 변경 사항, 현재 브랜치 위치 등)  상태 상태라면 &amp;quot;your branch is up-to-date with &#39;origin/master&#39;&amp;quot;와 같이 표시    사용자 설정  git config &amp;ndash;global user.</description>
     </item>
     
   </channel>

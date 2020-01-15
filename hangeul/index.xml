@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Hangeuls on Happygrammer Bog</title>
+    <title>Hangeuls on Happygrammer Blog</title>
     <link>https://happygrammer.github.io/hangeul/</link>
-    <description>Recent content in Hangeuls on Happygrammer Bog</description>
+    <description>Recent content in Hangeuls on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 15 Jan 2020 06:39:54 +0300</lastBuildDate>

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>HappyGrammer Blog</title>
+    <title>Happtgrammer Bog</title>
     <link>https://happygrammer.github.io/</link>
-    <description>Recent content on HappyGrammer Blog</description>
+    <description>Recent content on Happtgrammer Bog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko-kr</language>
-    <lastBuildDate>Mon, 13 Jan 2020 17:27:38 +0300</lastBuildDate>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jan 2020 06:41:24 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>중의성의 분류와 중의성 해소</title>
       <link>https://happygrammer.github.io/nlp/wsd/</link>
-      <pubDate>Mon, 13 Jan 2020 17:27:38 +0300</pubDate>
+      <pubDate>Wed, 15 Jan 2020 06:41:24 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/nlp/wsd/</guid>
       <description>이 글은 중의성의 종류를 소개하고, 중의성 해소에 필요한 방법을 알아보겠습니다.
@@ -25,7 +25,7 @@
     <item>
       <title>연비 예측을 위한 회귀 분석</title>
       <link>https://happygrammer.github.io/tensorflow2/keras/regression/</link>
-      <pubDate>Mon, 13 Jan 2020 02:23:13 +0300</pubDate>
+      <pubDate>Wed, 15 Jan 2020 06:40:34 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/tensorflow2/keras/regression/</guid>
       <description>회귀 문제(regression problem)의 목표는 연속 출력값을 예측하는 것 입니다. 클래스 목록에서 클래스를 선택하는 것이 목표입니다. (사진을 인식해 사과 인지 오렌지를 식별함).
@@ -36,18 +36,18 @@
     <item>
       <title>[한글학] 표음 문자인 한글</title>
       <link>https://happygrammer.github.io/hangeul/hangeul-spelling/</link>
-      <pubDate>Sat, 11 Jan 2020 03:11:49 +0300</pubDate>
+      <pubDate>Wed, 15 Jan 2020 06:39:54 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/hangeul/hangeul-spelling/</guid>
       <description>이 글은 한글 맞춤법 어문 규정 중요 내용을 소개 하고 한글의 이해를 높이고자 하는 목적으로 작성되었습니다.
-1. 한글 표기의 원칙 한글 맞춤법은 한글을 문자로 표기할때의 관례(convention)이자 약속입니다. 한글 맞춤법의 원칙은 표준어를 소리대로 적되, 어법에 맞도록 함을 원칙(제 1항)으로 합니다. 제 1항에서 제시한 한글 표기의 원칙은 &amp;lsquo;소리대로 적는다&#39;입니다. 왜냐하면 한글은 소리를 문자로 표기하는 표음 문자(表音文字)이기 때문입니다. 표음 문자는 음소 문자와 음절 문자로 나뉩니다.
+1. 한글 표기의 원칙 한글 맞춤법은 한글을 문자로 표기할때의 관례(convention)이자 약속입니다. 한글 맞춤법의 원칙은 표준어를 소리대로 적되, 어법에 맞도록 함을 원칙(제 1항)으로 합니다. 제 1항에서 제시한 한글 표기의 원칙은 ‘소리대로 적는다&#39;입니다. 왜냐하면 한글은 소리를 문자로 표기하는 표음 문자(表音文字)이기 때문입니다. 표음 문자는 음소 문자와 음절 문자로 나뉩니다.
  음소 문자 음절 문자  음소 문자 한글은 음소 문자(音素文字)입니다.</description>
     </item>
     
     <item>
       <title>자연어처리 라이브러리 소개</title>
       <link>https://happygrammer.github.io/nlp/open-source/</link>
-      <pubDate>Tue, 07 Jan 2020 23:38:20 +0300</pubDate>
+      <pubDate>Wed, 15 Jan 2020 06:38:57 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/nlp/open-source/</guid>
       <description>자연어처리 모듈을 처음 부터 모두 개발하는 것은 쉽지 않습니다. 따라서 필요로 하는 자언어 처리 알고리즘이 이미 구현되어 있다면 효율적인 진행을 위해 공개된 자연어처리 라이브러리를 적절히 이용하는 것이 좋습니다. 오픈소스로 공개된 자연어처리 라이브러리는 그 수가 많습니다. 본문에서는 주요 자연어처리 라이브러리를 소개하며 어떤 점을 활용하면 좋을지를 소개 하겠습니다.
@@ -55,24 +55,9 @@
     </item>
     
     <item>
-      <title>텍스트 처리를 위한 쉘 명령어</title>
-      <link>https://happygrammer.github.io/shell/find-replace/</link>
-      <pubDate>Tue, 07 Jan 2020 22:28:52 +0300</pubDate>
-      
-      <guid>https://happygrammer.github.io/shell/find-replace/</guid>
-      <description>본 문서는 실무를 하면서 자주 쓰는 리눅스 쉘 명령어 소개하기 위한 목적이 있습니다.
-cat 명령어 cat 명령어는 concatenate의 줄임말입니다. 리눅스에서 빈번하게 사용하는 파일 보기 명령어입니다.
-기본 문법으로 파일 내용 출력가 있습니다.
-$ cat &amp;lt;file-name&amp;gt; 파일 내용을 출력해 특정 파일명으로 저장 할 수 있습니다.
-$ cat &amp;lt;file-name&amp;gt; &amp;gt; &amp;lt;output-file-name&amp;gt; 여러 파일 출력이 가능합니다.
-cat sample1.txt sample2.txt &amp;gt; sample3.txt 파일 내용 출력시 -n 옵션을 추가하면 줄번호 표시가 가능합니다.
-cat -n &amp;lt;file-name&amp;gt; grep 명령어와 조합해서 무자열 필터에 사용할 수 있습니다.</description>
-    </item>
-    
-    <item>
       <title>Spring Boot 시작하기</title>
       <link>https://happygrammer.github.io/spring/spring-boot/</link>
-      <pubDate>Tue, 07 Jan 2020 01:01:16 +0300</pubDate>
+      <pubDate>Wed, 15 Jan 2020 06:37:32 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/spring/spring-boot/</guid>
       <description>이 문서는 스프링 문서의 번역 문서입니다. 스프링 부트는 쉽게 제품 등급의 독립형 스프링 기반 애플리케이션을 만들 수 있습니다. 대부분의 스프링 부트 애플리케케이션은 적은 설정을 필요로 합니다.
@@ -81,21 +66,21 @@ cat -n &amp;lt;file-name&amp;gt; grep 명령어와 조합해서 무자열 필터
     
     <item>
       <title>1시간 안에 Git 익히기</title>
-      <link>https://happygrammer.github.io/git/one-hour-git/</link>
-      <pubDate>Mon, 06 Jan 2020 01:26:13 +0300</pubDate>
+      <link>https://happygrammer.github.io/guide/git/</link>
+      <pubDate>Wed, 15 Jan 2020 06:36:29 +0300</pubDate>
       
-      <guid>https://happygrammer.github.io/git/one-hour-git/</guid>
+      <guid>https://happygrammer.github.io/guide/git/</guid>
       <description>Git은 분산 버전 관리 시스템으로 리눅스 토발즈가 만들었으며 파일의 변경사항을 추적하고 관리할 수 있습니다.
 1. Git 설치  GIt 설치 : https://git-scm.com/downloads Github : 깃허브는 Git을 지원하는 웹 호스팅 서비스 Github Desktop : https://desktop.github.com/, Github을 편리하게 이용할 수 있도록 만든 소프트웨어  2. Git을 이용한 형상 관리 http://nvie.com/posts/a-successful-git-branching-model/
-3. Git 쉘 명령어 기본 명령어  git init: 깃 저장소를 초기화한다. git help: 깃 명령어를 확인한다. git status: 저장소 상태 정보 표시(저장소에 존재하는 파일, 커밋이 필요한 변경 사항, 현재 브랜치 위치 등)  상태 상태라면 &amp;quot;your branch is up-to-date with &#39;origin/master&#39;&amp;quot;와 같이 표시    사용자 설정  git config &amp;ndash;global user.</description>
+3. Git 쉘 명령어 기본 명령어  git init: 깃 저장소를 초기화한다. git help: 깃 명령어를 확인한다. git status: 저장소 상태 정보 표시(저장소에 존재하는 파일, 커밋이 필요한 변경 사항, 현재 브랜치 위치 등)  상태 상태라면 &amp;quot;your branch is up-to-date with &#39;origin/master&#39;&amp;quot;와 같이 표시    사용자 설정  git config –global user.</description>
     </item>
     
     <item>
       <title>1시간 안에 펄(Perl) 언어 익히기</title>
-      <link>https://happygrammer.github.io/perl/one-hour-perl/</link>
-      <pubDate>Mon, 06 Jan 2020 01:20:12 +0300</pubDate>
+      <link>https://happygrammer.github.io/guide/perl/</link>
+      <pubDate>Wed, 15 Jan 2020 06:35:54 +0300</pubDate>
       
-      <guid>https://happygrammer.github.io/perl/one-hour-perl/</guid>
+      <guid>https://happygrammer.github.io/guide/perl/</guid>
       <description>Perl은 고수준의 동적 타입 언어로 csh, Pascal, BASIC-PLUS, PHP, Python 등과 비교되는 언어다. Perl은 쉘 스크립트로 기원했기에 다른 스크립트나 다른 프로그램을 엮어 주는 글루 코드(glue code) 언어로 시스템 관리에도 적합한 언어이다. C, sed, awk 그리고 sh와 같은 언어나 프로그램들의 가장 좋은 점들을 취합한 언어이기도 하다. sed, awk, sh를 사용하여 문제를 풀기 어렵다면 Perl이 대안이 된다. 이외에도 다음과 같은 특징이 있다.
  거의 모든 운영체제에 설치되어 있다. 무료이다. 사용하기 쉬운 언어이다. 텍스트 데이터 처리가 쉽다.</description>
     </item>
@@ -103,7 +88,7 @@ cat -n &amp;lt;file-name&amp;gt; grep 명령어와 조합해서 무자열 필터
     <item>
       <title>ProcessBuilder 클래스 - 운영체제 프로세스 생성</title>
       <link>https://happygrammer.github.io/java/processbuilder/</link>
-      <pubDate>Sat, 04 Jan 2020 05:56:56 +0300</pubDate>
+      <pubDate>Wed, 15 Jan 2020 06:35:19 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/java/processbuilder/</guid>
       <description>이전 버전에서는 Runtime.exec()을 이용해 프로세스를 실행할 수 있습니다. 그런데 이 방법은 When Runtime.exec() won&#39;t에서도 소개 됐듯이 표준 입력과 출력에 대한 제한된 버퍼 사이즈로 인해 하위 프로세스가 block 되거나 데드락이 되기도 하는 문제가 있었습니다.
@@ -113,7 +98,7 @@ cat -n &amp;lt;file-name&amp;gt; grep 명령어와 조합해서 무자열 필터
     <item>
       <title>영화 리뷰 텍스트 분류</title>
       <link>https://happygrammer.github.io/tensorflow2/text_classification_with_hub/</link>
-      <pubDate>Wed, 01 Jan 2020 18:27:25 +0300</pubDate>
+      <pubDate>Wed, 15 Jan 2020 06:34:47 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/tensorflow2/text_classification_with_hub/</guid>
       <description>이글은 text_classification_with_hub 한국어 번역 문서입니다.
@@ -124,7 +109,7 @@ cat -n &amp;lt;file-name&amp;gt; grep 명령어와 조합해서 무자열 필터
     <item>
       <title>Classification</title>
       <link>https://happygrammer.github.io/tensorflow2/keras/classification/</link>
-      <pubDate>Mon, 30 Dec 2019 01:29:36 +0300</pubDate>
+      <pubDate>Wed, 15 Jan 2020 06:34:03 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/tensorflow2/keras/classification/</guid>
       <description>텐서플로우 튜토리얼(https://www.tensorflow.org/tutorials/quickstart/advanced?hl=ko) 한국어 번역 문서입니다.
@@ -135,7 +120,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
     <item>
       <title>전문가용 텐서플로우 2 튜토리얼</title>
       <link>https://happygrammer.github.io/tensorflow2/quickstart-for-experts/</link>
-      <pubDate>Thu, 26 Dec 2019 23:35:16 +0300</pubDate>
+      <pubDate>Wed, 15 Jan 2020 06:32:43 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/tensorflow2/quickstart-for-experts/</guid>
       <description>텐서플로우 튜토리얼(https://www.tensorflow.org/tutorials/quickstart/advanced) 한국어 번역 문서입니다.
@@ -147,7 +132,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
     <item>
       <title>About</title>
       <link>https://happygrammer.github.io/about/</link>
-      <pubDate>Thu, 26 Dec 2019 04:13:25 +0300</pubDate>
+      <pubDate>Wed, 15 Jan 2020 06:32:17 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/about/</guid>
       <description>사용자에게 행복을 주는 서비스를 만드는 해피그래머의 개발 블로그입니다. 저의 관심 영역은 AI, NLP, AI Service 입니다. 이 블로그는 AI 서비스를 만드는데 필요한 기반 기술들을 소개하고 다루는 것에 초점이 있습니다. 다음은 제가 좋아하는 영국 속담입니다.
@@ -155,19 +140,9 @@ A smooth sea never made a skilled mariner. </description>
     </item>
     
     <item>
-      <title>조선 최고의 메모광 다산 정약용</title>
-      <link>https://happygrammer.github.io/worth/jeong-yak-young/</link>
-      <pubDate>Thu, 26 Dec 2019 03:34:12 +0300</pubDate>
-      
-      <guid>https://happygrammer.github.io/worth/jeong-yak-young/</guid>
-      <description>기록은 남겨야 보존된다. 메모하지 않으면 기억의 저장고에서 깊은 잠에 빠지고 만다. 생각은 메모를 통해서만 싹을 틔운다. 메모의 습관은 꾸준한 연습 없이는 몸에 잘 붙지 않는다. 밥 먹듯이 메모하고, 숨 쉬듯이 메모해야 습관이 된다. 무심코 기록한 일기가 사료가 되고, 한 시대의 소중한 증언이 된다. 말은 항상 떠돌지만, 기록은 남기는 자를 통해서만 보존된다. 기록되는 순간 그것은 비로소 제 생명을 갖는다.
-옛사람의 메모벽 옛사람의 메모벽은 자못 유난스럽다. 책을 읽다가 번뜩 떠오른 생각이 있으면 메모지에 옮겨 적었다.</description>
-    </item>
-    
-    <item>
       <title>스티브잡스, Stay Hungry. Stay Foolish</title>
       <link>https://happygrammer.github.io/worth/steven-jobs/</link>
-      <pubDate>Thu, 26 Dec 2019 03:22:12 +0300</pubDate>
+      <pubDate>Wed, 15 Jan 2020 06:30:21 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/worth/steven-jobs/</guid>
       <description>하는 일을 사랑하는 것 여러분이 진정으로 만족하는 유일한 길은 여러분 스스로 훌륭하다고 믿는 일을 하는 것입니다. 그리고 훌륭한 일을 하는 유일한 길은 여러분이 하는 일을 사랑하는 것입니다. 만일 그것을 아직 찾지 못했다면, 계속 찾으십시오. 주저앉지 마십시오. 언젠가 그것을 발견할 때 여러분은 마음으로부터 그것을 알게 될 것입니다.
@@ -175,9 +150,9 @@ A smooth sea never made a skilled mariner. </description>
     </item>
     
     <item>
-      <title>텐서플로우 2 입문 튜토리얼</title>
+      <title>텐서플로우 2 입문자용 튜토리얼</title>
       <link>https://happygrammer.github.io/tensorflow2/quickstart-for-beginners/</link>
-      <pubDate>Thu, 26 Dec 2019 00:39:19 +0300</pubDate>
+      <pubDate>Wed, 15 Jan 2020 06:29:13 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/tensorflow2/quickstart-for-beginners/</guid>
       <description>텐서플로우 튜토리얼(https://www.tensorflow.org/tutorials/quickstart/beginner) 한국어 번역 문서입니다.
@@ -187,10 +162,10 @@ A smooth sea never made a skilled mariner. </description>
     
     <item>
       <title>Hugo 정적 사이트 생성기 가이드</title>
-      <link>https://happygrammer.github.io/posts/hugo-template/</link>
-      <pubDate>Wed, 25 Dec 2019 21:59:01 +0300</pubDate>
+      <link>https://happygrammer.github.io/guide/hugo/</link>
+      <pubDate>Wed, 15 Jan 2020 06:27:50 +0300</pubDate>
       
-      <guid>https://happygrammer.github.io/posts/hugo-template/</guid>
+      <guid>https://happygrammer.github.io/guide/hugo/</guid>
       <description>Hugo는 Go언어로 만들어진 정적 사이트 생성기(static site generator)입니다. Go언어로 만들어져서 정적 파일 생성이 빠르고 최근 많은 인기를 얻고 있습니다.
 변수 사전 정의 변수
  {{ .Title }} 사용자 정의

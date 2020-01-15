@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Nlps on HappyGrammer Blog</title>
+    <title>Nlps on Happtgrammer Bog</title>
     <link>https://happygrammer.github.io/nlp/</link>
-    <description>Recent content in Nlps on HappyGrammer Blog</description>
+    <description>Recent content in Nlps on Happtgrammer Bog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko-kr</language>
-    <lastBuildDate>Mon, 13 Jan 2020 17:27:38 +0300</lastBuildDate>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jan 2020 06:41:24 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/nlp/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>중의성의 분류와 중의성 해소</title>
       <link>https://happygrammer.github.io/nlp/wsd/</link>
-      <pubDate>Mon, 13 Jan 2020 17:27:38 +0300</pubDate>
+      <pubDate>Wed, 15 Jan 2020 06:41:24 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/nlp/wsd/</guid>
       <description>이 글은 중의성의 종류를 소개하고, 중의성 해소에 필요한 방법을 알아보겠습니다.
@@ -25,7 +25,7 @@
     <item>
       <title>자연어처리 라이브러리 소개</title>
       <link>https://happygrammer.github.io/nlp/open-source/</link>
-      <pubDate>Tue, 07 Jan 2020 23:38:20 +0300</pubDate>
+      <pubDate>Wed, 15 Jan 2020 06:38:57 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/nlp/open-source/</guid>
       <description>자연어처리 모듈을 처음 부터 모두 개발하는 것은 쉽지 않습니다. 따라서 필요로 하는 자언어 처리 알고리즘이 이미 구현되어 있다면 효율적인 진행을 위해 공개된 자연어처리 라이브러리를 적절히 이용하는 것이 좋습니다. 오픈소스로 공개된 자연어처리 라이브러리는 그 수가 많습니다. 본문에서는 주요 자연어처리 라이브러리를 소개하며 어떤 점을 활용하면 좋을지를 소개 하겠습니다.

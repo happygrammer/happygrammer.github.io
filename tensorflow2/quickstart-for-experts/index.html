@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>전문가용 텐서플로우 2 튜토리얼 // HappyGrammer Blog</title>
+    <title>전문가용 텐서플로우 2 튜토리얼 // Happtgrammer Bog</title>
 
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -35,16 +35,8 @@
     <div id="header-outer" class="outer">
         <div id="header-inner" class="inner">
             <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
-            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">HappyGrammer Blog</a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happtgrammer Bog</a>
             <nav id="main-nav">
-                
-                <a class="main-nav-link" href="/about/">About</a>
-                
-                <a class="main-nav-link" href="/hangeul/">Hangeul</a>
-                
-                <a class="main-nav-link" href="/nlp/">NLP</a>
-                
-                <a class="main-nav-link" href="/tensorflow2/">TensorFlow</a>
                 
             </nav>
             <nav id="sub-nav">
@@ -65,7 +57,7 @@
         
         <div class="article-meta">
             <a href="/tensorflow2/quickstart-for-experts/" class="article-date">
-                <time datetime='2019-12-26T23:35:16.000&#43;03:00' itemprop="datePublished">2019-12-26</time>
+                <time datetime='2020-01-15T06:32:43.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
             </a>
             
             
@@ -97,12 +89,12 @@ x_train, x_test = x_train / 255.0, x_test / 255.0
 # Add a channels dimension
 x_train = x_train[..., tf.newaxis]
 x_test = x_test[..., tf.newaxis]
-</code></pre><pre><code>Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
+Downloading data from https://storage.googleapis.com/tensorflow/tf-keras-datasets/mnist.npz
 11493376/11490434 [==============================] - 0s 0us/step
 </code></pre><p><a href="https://www.tensorflow.org/api_docs/python/tf/data"><code>tf.data</code></a> 를 사용해 하이퍼파라메터를 설정합니다. 셔플(shuffle) 횟수와 배치 사이즈(batch size)를 설정합니다.</p>
 <ul>
 <li>역자주 : <code>하이퍼파라메터</code> 는 학습에 필요한 파라메터 값입니다.</li>
-<li>역자주 :   <code>배치 사이즈</code>는 한번의 학습에 사용하는  <code>데이터 개수</code>입니다.</li>
+<li>역자주 : <code>배치 사이즈</code>는 한번의 학습에 사용하는 <code>데이터 개수</code>입니다.</li>
 </ul>
 <pre><code>train_ds = tf.data.Dataset.from_tensor_slices(
     (x_train, y_train)).shuffle(10000).batch(32)
@@ -156,7 +148,7 @@ def test_step(images, labels):
 
   test_loss(t_loss)
   test_accuracy(labels, predictions)
-</code></pre><pre><code>EPOCHS = 5
+EPOCHS = 5
 
 for epoch in range(EPOCHS):
   # Reset the metrics at the start of the next epoch
@@ -228,7 +220,9 @@ for epoch in range(EPOCHS):
     <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2020 HappyGrammer Blog
+            &copy; 2020 Happtgrammer Bog
+            <br />
+            Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/carsonip/hugo-theme-minos" target="_blank">Minos</a>
         </div>
     </div>
     

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>연비 예측을 위한 회귀 분석 // HappyGrammer Blog</title>
+    <title>연비 예측을 위한 회귀 분석 // Happtgrammer Bog</title>
 
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -35,16 +35,8 @@
     <div id="header-outer" class="outer">
         <div id="header-inner" class="inner">
             <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
-            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">HappyGrammer Blog</a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happtgrammer Bog</a>
             <nav id="main-nav">
-                
-                <a class="main-nav-link" href="/about/">About</a>
-                
-                <a class="main-nav-link" href="/hangeul/">Hangeul</a>
-                
-                <a class="main-nav-link" href="/nlp/">NLP</a>
-                
-                <a class="main-nav-link" href="/tensorflow2/">TensorFlow</a>
                 
             </nav>
             <nav id="sub-nav">
@@ -65,7 +57,7 @@
         
         <div class="article-meta">
             <a href="/tensorflow2/keras/regression/" class="article-date">
-                <time datetime='2020-01-13T02:23:13.000&#43;03:00' itemprop="datePublished">2020-01-13</time>
+                <time datetime='2020-01-15T06:40:34.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
             </a>
             
             
@@ -150,11 +142,11 @@ train_stats<span style="color:#f92672">.</span>pop(<span style="color:#e6db74"><
 train_stats <span style="color:#f92672">=</span> train_stats<span style="color:#f92672">.</span>transpose()
 train_stats
 </code></pre></div><h4 id="----1">특징에 따라 라벨 나누기</h4>
-<p>목표 값 또는 라벨을  or &ldquo;label&rdquo;, from the features. This label is the value that you will train the model to predict.</p>
+<p>목표 값 또는 라벨을 or “label”, from the features. This label is the value that you will train the model to predict.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train_labels <span style="color:#f92672">=</span> train_dataset<span style="color:#f92672">.</span>pop(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">MPG</span><span style="color:#e6db74">&#39;</span>)
 test_labels <span style="color:#f92672">=</span> test_dataset<span style="color:#f92672">.</span>pop(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">MPG</span><span style="color:#e6db74">&#39;</span>)
 </code></pre></div><h3 id="-normalize">데이터 정규화(Normalize)</h3>
-<p><code>train_stats</code> 블록을 다시 보겠습니다. 그리고 어떻게  각 피쳐의 범주가 어떻게 다른지 유의해 보겠습니다. 피쳐 정규화의 좋은 예제는 다른 scales과 ranges를 사용하는 것 입니다. 비록 모델은 피쳐 정규화(feature normalization) 어이 수렴(converge)합니다. 학습을 어렵게 하고, 모델이 입력 유닛에 의존하게 합니다.</p>
+<p><code>train_stats</code> 블록을 다시 보겠습니다. 그리고 어떻게 각 피쳐의 범주가 어떻게 다른지 유의해 보겠습니다. 피쳐 정규화의 좋은 예제는 다른 scales과 ranges를 사용하는 것 입니다. 비록 모델은 피쳐 정규화(feature normalization) 어이 수렴(converge)합니다. 학습을 어렵게 하고, 모델이 입력 유닛에 의존하게 합니다.</p>
 <p><strong>유의:</strong> 의도적으로 학습 셋에 대해 이러한 통계를 생성하며, 이러한 통계는 테스트 셋의 정규화에도 사용합니다. 테스트 데이터셋이 학습 셋의 모델 분포와 동일 하도록 할 필요가 있습니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">norm</span>(x):
   <span style="color:#66d9ef">return</span> (x <span style="color:#f92672">-</span> train_stats[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">mean</span><span style="color:#e6db74">&#39;</span>]) <span style="color:#f92672">/</span> train_stats[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">std</span><span style="color:#e6db74">&#39;</span>]
@@ -195,7 +187,7 @@ Total params: <span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">8
 Trainable params: <span style="color:#ae81ff">4</span>,<span style="color:#ae81ff">865</span>
 Non<span style="color:#f92672">-</span>trainable params: <span style="color:#ae81ff">0</span>
 _________________________________________________________________
-</code></pre></div><p>하나의 배치에 쓰일 10개의 예제를 학습셋으로 부터 얻고  <code>model.predict</code> 을 호출하겠습니다.</p>
+</code></pre></div><p>하나의 배치에 쓰일 10개의 예제를 학습셋으로 부터 얻고 <code>model.predict</code> 을 호출하겠습니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">example_batch <span style="color:#f92672">=</span> normed_train_data[:<span style="color:#ae81ff">10</span>]
 example_result <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(example_batch)
 example_result
@@ -241,7 +233,7 @@ Epoch: 900, loss:2.9253,  mae:1.1366,  mse:2.9253,  val_loss:9.5585,  val_mae:2.
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">hist <span style="color:#f92672">=</span> pd<span style="color:#f92672">.</span>DataFrame(history<span style="color:#f92672">.</span>history)
 hist[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">epoch</span><span style="color:#e6db74">&#39;</span>] <span style="color:#f92672">=</span> history<span style="color:#f92672">.</span>epoch
 hist<span style="color:#f92672">.</span>tail()
-</code></pre></div><div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plotter <span style="color:#f92672">=</span> tfdocs<span style="color:#f92672">.</span>plots<span style="color:#f92672">.</span>HistoryPlotter(smoothing_std<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+plotter <span style="color:#f92672">=</span> tfdocs<span style="color:#f92672">.</span>plots<span style="color:#f92672">.</span>HistoryPlotter(smoothing_std<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
 plotter<span style="color:#f92672">.</span>plot({<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">Basic</span><span style="color:#e6db74">&#39;</span>: history}, metric <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">mae</span><span style="color:#e6db74">&#34;</span>)
 plt<span style="color:#f92672">.</span>ylim([<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">10</span>])
 plt<span style="color:#f92672">.</span>ylabel(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">MAE [MPG]</span><span style="color:#e6db74">&#39;</span>)
@@ -280,7 +272,7 @@ WARNING:tensorflow:Falling back <span style="color:#f92672">from</span> v2 loop 
 <span style="color:#ae81ff">78</span><span style="color:#f92672">/</span><span style="color:#ae81ff">78</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">0</span>s <span style="color:#f92672">-</span> loss: <span style="color:#ae81ff">6.0765</span> <span style="color:#f92672">-</span> mae: <span style="color:#ae81ff">1.9287</span> <span style="color:#f92672">-</span> mse: <span style="color:#ae81ff">6.0765</span>
 Testing set Mean Abs Error:  <span style="color:#ae81ff">1.93</span> MPG
 </code></pre></div><h3 id="--5">예측 만들기</h3>
-<p>마침내 학습 셋을 이용해  MPG 값을 예측해 보겠습니다.</p>
+<p>마침내 학습 셋을 이용해 MPG 값을 예측해 보겠습니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test_predictions <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(normed_test_data)<span style="color:#f92672">.</span>flatten()
 
 a <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>axes(aspect<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">equal</span><span style="color:#e6db74">&#39;</span>)
@@ -361,7 +353,9 @@ _ <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>yl
     <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2020 HappyGrammer Blog
+            &copy; 2020 Happtgrammer Bog
+            <br />
+            Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/carsonip/hugo-theme-minos" target="_blank">Minos</a>
         </div>
     </div>
     

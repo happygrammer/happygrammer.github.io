@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Tags on HappyGrammer Blog</title>
+    <title>Tags on Happtgrammer Bog</title>
     <link>https://happygrammer.github.io/tags/</link>
-    <description>Recent content in Tags on HappyGrammer Blog</description>
+    <description>Recent content in Tags on Happtgrammer Bog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko-kr</language>
+    <language>en-us</language>
     
 	<atom:link href="https://happygrammer.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
     

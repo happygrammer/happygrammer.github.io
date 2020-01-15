@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Javas on HappyGrammer Blog</title>
+    <title>Javas on Happtgrammer Bog</title>
     <link>https://happygrammer.github.io/java/</link>
-    <description>Recent content in Javas on HappyGrammer Blog</description>
+    <description>Recent content in Javas on Happtgrammer Bog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>ko-kr</language>
-    <lastBuildDate>Sat, 04 Jan 2020 05:56:56 +0300</lastBuildDate>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jan 2020 06:35:19 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/java/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>ProcessBuilder 클래스 - 운영체제 프로세스 생성</title>
       <link>https://happygrammer.github.io/java/processbuilder/</link>
-      <pubDate>Sat, 04 Jan 2020 05:56:56 +0300</pubDate>
+      <pubDate>Wed, 15 Jan 2020 06:35:19 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/java/processbuilder/</guid>
       <description>이전 버전에서는 Runtime.exec()을 이용해 프로세스를 실행할 수 있습니다. 그런데 이 방법은 When Runtime.exec() won&#39;t에서도 소개 됐듯이 표준 입력과 출력에 대한 제한된 버퍼 사이즈로 인해 하위 프로세스가 block 되거나 데드락이 되기도 하는 문제가 있었습니다.

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Classification // HappyGrammer Blog</title>
+    <title>Classification // Happtgrammer Bog</title>
 
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -35,16 +35,8 @@
     <div id="header-outer" class="outer">
         <div id="header-inner" class="inner">
             <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
-            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">HappyGrammer Blog</a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happtgrammer Bog</a>
             <nav id="main-nav">
-                
-                <a class="main-nav-link" href="/about/">About</a>
-                
-                <a class="main-nav-link" href="/hangeul/">Hangeul</a>
-                
-                <a class="main-nav-link" href="/nlp/">NLP</a>
-                
-                <a class="main-nav-link" href="/tensorflow2/">TensorFlow</a>
                 
             </nav>
             <nav id="sub-nav">
@@ -65,7 +57,7 @@
         
         <div class="article-meta">
             <a href="/tensorflow2/keras/classification/" class="article-date">
-                <time datetime='2019-12-30T01:29:36.000&#43;03:00' itemprop="datePublished">2019-12-30</time>
+                <time datetime='2020-01-15T06:34:03.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
             </a>
             
             
@@ -86,12 +78,12 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 print(tf.__version__)
-</code></pre><pre><code>2.0.0
+2.0.0
 </code></pre><h3 id="-mnist--">패션 MNIST 데이터셋 임포트</h3>
 <p>이 가이드는 Fashion MNIST](<a href="https://github.com/zalandoresearch/fashion-mnist">https://github.com/zalandoresearch/fashion-mnist</a>) 데이터셋을 이용합니다. 이 데이터셋에는 70,000장의 흑백 이미지가 있고, 이들 이미지는 10개의 카테고리입니다. 저해상도(28 by 28 pixels) 이미지 이며 다음과 같습니다.</p>
-<p><img src="https://tensorflow.org/images/fashion-mnist-sprite.png" alt=""></p>
+<p><img src="https://tensorflow.org/images/fashion-mnist-sprite.png" alt="img"></p>
 <p><strong>그림 1.</strong> <a href="https://github.com/zalandoresearch/fashion-mnist">패션-MNIST 샘플</a> (by Zalando, MIT License).</p>
-<p>패션 MNIST는  컴퓨터 비전 분야의 종종 &ldquo;Hello, World&quot;에 해당하는 <a href="http://yann.lecun.com/exdb/mnist/">MNIST</a> 데이터셋입니다. 이 데이터셋은 손글씨숫자(0, 1, 2, etc.)에 대한 이미지입니다.  이 가이드는 예제 다양성을 고려하여 패션 MNIST 데이터셋을 이용하며 일반 MNIST보다 어렵습니다. 두 데이터셋은 상대적으로 크기가 작으며, 다양한 알고리즘 검증 작업에 사용할 수 있습니다.  코드를 테스트하고 디버그 하기 좋습니다.</p>
+<p>패션 MNIST는 컴퓨터 비전 분야의 종종 “Hello, World&quot;에 해당하는 <a href="http://yann.lecun.com/exdb/mnist/">MNIST</a> 데이터셋입니다. 이 데이터셋은 손글씨숫자(0, 1, 2, etc.)에 대한 이미지입니다. 이 가이드는 예제 다양성을 고려하여 패션 MNIST 데이터셋을 이용하며 일반 MNIST보다 어렵습니다. 두 데이터셋은 상대적으로 크기가 작으며, 다양한 알고리즘 검증 작업에 사용할 수 있습니다. 코드를 테스트하고 디버그 하기 좋습니다.</p>
 <p>6만장의 이미지로 뉴럴 네트워크를 학습며, 1만장의 이미지는 분류 정확도 측정에 사용합니다. 패션 MNIST는 텐서플로우에서 바로 임포트해 사용할 수 있습니다.</p>
 <pre><code>fashion_mnist = keras.datasets.fashion_mnist
 
@@ -145,9 +137,9 @@ plt<span style="color:#f92672">.</span>show()
     keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">10</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">softmax</span><span style="color:#e6db74">&#39;</span>)
 ])
 </code></pre></div><p>첫번째 네트워크에 (<a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Flatten"><code>tf.keras.layers.Flatten</code></a>) 2차원에서 1차원으로 변경합니다.(28x28픽셀 =&gt; 784픽셀). 이 레이어는 이미지에 픽셀 행을 분리 하고 정렬 하는 역할을 수행하며, 학습에 필요한 매개변수를 이용하지도 않으며, 단지 데이터 포맷만 변경할 뿐입니다.</p>
-<p>픽셀을 펼칩니다. 데이터는 2개의 [ tf.keras.layers.Dense<code>](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense) 레이어로 설정했으며, 완전 연결(fully connected)되어 있습니다. 첫번째  </code>Dense` 레이어는 128 노드(뉴런) 입니다. 두번째 레이어는 10개 노드인 소프트 맥스 레이어입니다. 이층은 10개 확률을 반환하며 확률 합계는 1입니다.</p>
+<p>픽셀을 펼칩니다. 데이터는 2개의 [ tf.keras.layers.Dense<code>](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense) 레이어로 설정했으며, 완전 연결(fully connected)되어 있습니다. 첫번째 </code>Dense` 레이어는 128 노드(뉴런) 입니다. 두번째 레이어는 10개 노드인 소프트 맥스 레이어입니다. 이층은 10개 확률을 반환하며 확률 합계는 1입니다.</p>
 <ul>
-<li>역자주 : <code>소프트 맥스 레이어</code> 는  멀티 화률값 예측에 사용하며,  출력 노드에는 0~1 숫자값을 출력하는 <code>소프트 맥스 함수</code>를 사용함.</li>
+<li>역자주 : <code>소프트 맥스 레이어</code> 는 멀티 화률값 예측에 사용하며, 출력 노드에는 0~1 숫자값을 출력하는 <code>소프트 맥스 함수</code>를 사용함.</li>
 </ul>
 <h4 id="--3">컴파일 모델</h4>
 <p>모델 학습 전에 설정이 좀 더 필요합니다. 다음은 모델 컴파일 단계입니다.:</p>
@@ -166,7 +158,7 @@ plt<span style="color:#f92672">.</span>show()
 <li>The model learns to associate images and labels.</li>
 <li>You ask the model to make predictions about a test set—in this example, the <code>test_images</code> array. Verify that the predictions match the labels from the <code>test_labels</code> array.</li>
 </ol>
-<p>To start training, call the <code>model.fit</code> method—so called because it &ldquo;fits&rdquo; the model to the training data:</p>
+<p>To start training, call the <code>model.fit</code> method—so called because it “fits” the model to the training data:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model<span style="color:#f92672">.</span>fit(train_images, train_labels, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
 Train on <span style="color:#ae81ff">60000</span> samples
 Epoch <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
@@ -216,7 +208,7 @@ array([1.06123218e-06, 8.76374884e-09, 4.13958730e-07, 9.93547733e-09,
 <p>가장 높은 신뢰도에 대한 라벨을 확인해 보겠습니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>argmax(predictions[<span style="color:#ae81ff">0</span>])
 <span style="color:#ae81ff">9</span>
-</code></pre></div><p>모델은 발목 부츠(ankle boot) 또는 <code>class_names[9]</code>라고 확신하고 있습니다.   테스트 라벨을 보면 이 분류는 정확함을 확인할 수 있습니다.</p>
+</code></pre></div><p>모델은 발목 부츠(ankle boot) 또는 <code>class_names[9]</code>라고 확신하고 있습니다. 테스트 라벨을 보면 이 분류는 정확함을 확인할 수 있습니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test_labels[<span style="color:#ae81ff">0</span>]
 <span style="color:#ae81ff">9</span>
 </code></pre></div><p>클래스 10개에 대한 그래프를 확인 하려면 다음 예제를 작성해야 합니다.</p>
@@ -267,7 +259,7 @@ plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">1</sp
 plot_value_array(i, predictions[i],  test_labels)
 plt<span style="color:#f92672">.</span>show()
 </code></pre></div><p><img src="https://www.tensorflow.org/tutorials/keras/classification_files/output_Ko-uzOufSCSe_0.png" alt="png"></p>
-<p>몇개의 이미지를 그려보겠습니다.  모델은 매우 확실한 경우에도 잘못 예측할 수 있음을 유의해야합니다.</p>
+<p>몇개의 이미지를 그려보겠습니다. 모델은 매우 확실한 경우에도 잘못 예측할 수 있음을 유의해야합니다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Plot the first X test images, their predicted labels, and the true labels.</span>
 <span style="color:#75715e"># Color correct predictions in blue and incorrect predictions in red.</span>
 num_rows <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
@@ -288,7 +280,7 @@ img <span style="color:#f92672">=</span> test_images[<span style="color:#ae81ff"
 
 <span style="color:#66d9ef">print</span>(img<span style="color:#f92672">.</span>shape)
 (<span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">28</span>)
-</code></pre></div><p><a href="https://www.tensorflow.org/api_docs/python/tf/keras"><code>tf.keras</code></a> 모델은 배치 수행시, 이미지 라벨 예측 성능을 최적화 하는데 사용합니다.  (단일 이미지라도 리스트에 추가 필요)</p>
+</code></pre></div><p><a href="https://www.tensorflow.org/api_docs/python/tf/keras"><code>tf.keras</code></a> 모델은 배치 수행시, 이미지 라벨 예측 성능을 최적화 하는데 사용합니다. (단일 이미지라도 리스트에 추가 필요)</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 단일 이미지라도 배치에 추가해야함.</span>
 img <span style="color:#f92672">=</span> (np<span style="color:#f92672">.</span>expand_dims(img,<span style="color:#ae81ff">0</span>))
 
@@ -357,7 +349,9 @@ _ <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>xt
     <footer id="footer">
     <div class="outer">
         <div id="footer-info" class="inner">
-            &copy; 2020 HappyGrammer Blog
+            &copy; 2020 Happtgrammer Bog
+            <br />
+            Powered by <a href="https://gohugo.io" target="_blank">Hugo</a> with theme <a href="https://github.com/carsonip/hugo-theme-minos" target="_blank">Minos</a>
         </div>
     </div>
     

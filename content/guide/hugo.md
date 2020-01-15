@@ -1,7 +1,7 @@
 ---
 title: "Hugo 정적 사이트 생성기 가이드"
 date: 2020-01-15T06:27:50+03:00
-draft: false
+draft: f
 ---
 
 Hugo는 Go언어로 만들어진 정적 사이트 생성기(static site generator)입니다. Go언어로 만들어져서 정적 파일 생성이 빠르고 최근 많은 인기를 얻고 있습니다.
@@ -17,7 +17,7 @@ Hugo는 Go언어로 만들어진 정적 사이트 생성기(static site generato
 사용자 정의
 
 ```
-{{ $address }
+{{ $address }}
 ```
 
 ### 템플릿 가져 오기

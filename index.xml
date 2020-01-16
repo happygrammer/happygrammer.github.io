@@ -13,10 +13,10 @@
     
     <item>
       <title>클린코드 관리하기</title>
-      <link>https://happygrammer.github.io/java/clean-code/</link>
+      <link>https://happygrammer.github.io/guide/clean-code/</link>
       <pubDate>Thu, 16 Jan 2020 01:17:18 +0300</pubDate>
       
-      <guid>https://happygrammer.github.io/java/clean-code/</guid>
+      <guid>https://happygrammer.github.io/guide/clean-code/</guid>
       <description>본 문서는 클린코드를 위한 중요 원칙 5가지를 경험에 기반해 요약했습니다.
 1. 네이밍 컨벤션 준수 구글의 자바 가이드 와 같은 사례를 참조 하면 좋습니다. 관례적으로 네이밍 컨벤션은 다음과 같은 원칙을 따르는 것이 좋습니다.
  클래스명은 명사를 사용하며 의미가 드러나는 이름을 짓습니다. 변수는 의도가 드러나는 작성합니다. 메서드는 객체의 동작을 의미하므로 동사를 사용하여 이름을 짓습니다. 멤버 벼수, 인자명, 로컬 변수명은 lowerCamelCase 방식을 따릅니다. 상수 변수명은 CONTANT_CASE 방식을 이용합니다.  // Constants static final int NUMBER = 5; static final ImmutableList NAMES = ImmutableList.</description>

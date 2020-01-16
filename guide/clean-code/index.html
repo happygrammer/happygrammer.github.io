@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>클린코드 관리하기 // Happygrammer Blog</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="클린코드 관리하기" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/guide/clean-code/" />
+    
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer Blog</a>
+            <nav id="main-nav">
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">클린코드 관리하기</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/guide/clean-code/" class="article-date">
+                <time datetime='2020-01-16T01:17:18.000&#43;03:00' itemprop="datePublished">2020-01-16</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>본 문서는 클린코드를 위한 중요 원칙 <strong>5가지</strong>를 경험에 기반해 요약했습니다.</p>
+<h3 id="1---">1. 네이밍 컨벤션 준수</h3>
+<p>구글의 <a href="https://google.github.io/styleguide/javaguide.html">자바 가이드</a> 와 같은 사례를 참조 하면 좋습니다. 관례적으로 네이밍 컨벤션은 다음과 같은 원칙을 따르는 것이 좋습니다.</p>
+<ul>
+<li><strong>클래스</strong>명은 명사를 사용하며 의미가 드러나는 이름을 짓습니다.</li>
+<li><strong>변수</strong>는 의도가 드러나는 작성합니다.</li>
+<li><strong>메서드</strong>는 객체의 동작을 의미하므로 동사를 사용하여 이름을 짓습니다.</li>
+<li>멤버 벼수, 인자명, 로컬 변수명은 <strong>lowerCamelCase</strong> 방식을 따릅니다.</li>
+<li>상수 변수명은 CONTANT_CASE 방식을 이용합니다.</li>
+</ul>
+<pre><code>// Constants
+static final int NUMBER = 5;
+static final ImmutableList NAMES = ImmutableList.of(&quot;Ed&quot;, &quot;Ann&quot;);
+</code></pre><h3 id="2--">2. 주석 관리</h3>
+<p>불필요한 주석을 제거하고 의도를 명확하게 관리합니다.</p>
+<h4 id="21---">2.1 중복 주석 제거</h4>
+<p>코드로서 의도를 직관적으로 파악할 수 있다면 주석을 남기지 않아도 됩니다.</p>
+<pre><code>ProcessBuilder builder = new ProcessBuilder(&quot;notepad.exe&quot;); 
+Process pro = builder.start();
+</code></pre><p>제거 해야할 주석도 있지만 좋은 주석도 있습니다. 이후 소개할 주석 유형들에 해당합니다.</p>
+<h4 id="22---">2.2 정보 제공 주석</h4>
+<p>코드에서 강조할 부분이 있거나,  의도를 직관적으로 파악할 수 없다면 정보 제공 주석을 남겨야 합니다.</p>
+<pre><code>private void quicksort(int low, int high) {
+        int i = low, j = high;
+        // 리스트 중간의 피봇 엘리먼트의 위치
+        int pivot = numbers[(low + high) / 2];
+        // 하나의 리스트를 두개의 리스트로 나눔
+        while (i &lt;= j) {
+        ..
+}
+</code></pre><h4 id="23--">2.3 할일 주석</h4>
+<p>할일 주석은 차기 기능 요소 추가시 유용하게 사용 가능합니다.</p>
+<pre><code>// TODO 미사용 함수
+public String getProgramName() {
+     ...
+     return nameOfProgram;
+}
+</code></pre><h4 id="24--">2.4 경고 주석</h4>
+<p>경고 주석은 잘못된 코드 사용을 방지하고 Side Effect를 예방합니다.</p>
+<pre><code> // WARN 암호화 모드 에서만 사용
+ public void _getEncryptionResult() {
+     ...
+ }
+</code></pre><h3 id="3---">3. 코드 복잡도 관리</h3>
+<p>좋은 개발자는 사람이 이해할 수 있는 코드를 만듭니다. 나쁜 개발자는 컴퓨터만 이해할 수 있는 코드를 작성합니다. 주기적인 리팩토링을 통해 점진적인 개선을 통해 낮은 복잡도의 코드가 되도록 합니다. 낮은 복잡도의 코드는 다음과 같은 특성이 있습니다.</p>
+<ul>
+<li>간결한 코드</li>
+<li>역할이 분명한 코드</li>
+<li>형식을 갖춘 코드</li>
+</ul>
+<h4 id="31--">3.1 간결한 코드</h4>
+<p>레거코드를 지속적으로 리팩토링하여 간결한 코드가 되도록 합니다.</p>
+<h5 id="--">함수 인자 최소화</h5>
+<p>함수 인자가 많으면 함수가 여러 관점의 일을 수행해 코드가 복잡해지고 동작 예측이 어려워집니다.</p>
+<h5 id="---1">중복 코드 제거</h5>
+<p>가급적 적은 코드가 유지 되도록합니다. 클래스는 다른데 역할이 동일한 메서드가 있다면 중복 코드로 제거합니다. 디자인 패턴은 중복 코드를 어떻게 제거 할지에 대한 초점이 있습니다.</p>
+<h5 id="---2">죽은 코드 제거</h5>
+<p>더이상 사용하지 않는 함수는 삭제합니다. 버전 코드 시스템이 기억하게 합니다.</p>
+<h4 id="32---">3.2 역할이 분명한 코드</h4>
+<h5 id="heading">단일책임원칙</h5>
+<p>클래스는 <strong>단일책임원칙</strong>(SRP : Single Responsibility Principle)을 따라 한가지 역할 만을 수행 하도록 합니다. 만약 SRP원칙에 위배되는 역할이 2개 이상 존재하는 클래스가 있다면 단일책임원칙을 수행하도록 새로운 클래스를 생성합니다. 이 원칙은 클래스 뿐 아니라 함수에도 동일하게 적용 가능합니다. 단일책임원칙을 지키다 보면 분리된 각 클래스의 결합도(coupling)가 낮아지고 응집도(cohesion)가 높아져 외부 결합도(<strong>External coupling</strong>)는 낮추고 내용 결합도(<strong>Content coupling</strong> 또는 <strong>Pathological coupling</strong>)는 높입니다.</p>
+<h4 id="33---">3.3 형식을 갖춘 코드</h4>
+<h5 id="---3">적절한 행 길이</h5>
+<p>500줄을 넘지 않고 대부분 200줄 정도인 파일로도 커다란 시스템을 구축할 수 있습니다. 큰 파일 보다 작은 파일이 이해하기 쉽습니다. 적절한 행 길이를 유지해 코드 가독성을 높입니다. 함수도 최대한 작게 만듭니다. 한 함수당 3~5줄 정도로 줄이는 것이 좋습니다.</p>
+<h5 id="-">형식 길이</h5>
+<p>한 줄당 80~120자 정도의 길이로 제한하고 적절한 들여쓰기를 고려합니다.</p>
+<h5 id="--1">적절한 배치</h5>
+<p>서로 밀접한 개념은 한 파일에 세로로 가까이 둡니다. 변수는 사용하는 위치에서 가장 근접한 위치에 선언합니다.</p>
+<h3 id="4---">4. 코드 품질 관리</h3>
+<h4 id="41--">4.1 예외 관리</h4>
+<ul>
+<li>오류 코드보다 예외를 사용합니다.</li>
+</ul>
+<h4 id="42--">4.2 테스트 관리</h4>
+<ul>
+<li>버그 주변은 철저히 테스트하여 코드 안전성 확보</li>
+<li>경계 조건 테스트</li>
+<li>테스트 커버리지 높임 : 단위 테스트가 가능 하도록 테스트 가능한 코드를 작성 하려고 합니다.</li>
+</ul>
+<h3 id="5---">5. 클린코드 원칙 적용</h3>
+<h4 id="51--">5.1 보이스카우트 규칙</h4>
+<p>시간이 지날 수 록 코드가 지저해진다면 보이스카우트 규칙을 도입할 필요가 있습니다. 이 규칙은  <strong>야영지는 그곳을 발견했을 때보다 떠날 때 더 나은 곳이어야 한다</strong>는 규칙입니다.</p>
+<pre><code>&quot;Leave the campground cleaner than you found it.&quot;
+</code></pre>
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1---">1. 네이밍 컨벤션 준수</a></li>
+        <li><a href="#2--">2. 주석 관리</a></li>
+        <li><a href="#3---">3. 코드 복잡도 관리</a></li>
+        <li><a href="#4---">4. 코드 품질 관리</a></li>
+        <li><a href="#5---">5. 클린코드 원칙 적용</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/shell/date-time/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">[쉘스크립트] 날짜와 시간 처리&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Happygrammer Blog
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

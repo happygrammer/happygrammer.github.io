@@ -3,17 +3,17 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://happygrammer.github.io/guide/</loc>
+    <lastmod>2020-01-16T01:17:18+03:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://happygrammer.github.io/</loc>
     <lastmod>2020-01-16T01:17:18+03:00</lastmod>
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/java/</loc>
-    <lastmod>2020-01-16T01:17:18+03:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/java/clean-code/</loc>
+    <loc>https://happygrammer.github.io/guide/clean-code/</loc>
     <lastmod>2020-01-16T01:17:18+03:00</lastmod>
   </url>
   
@@ -83,8 +83,8 @@
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/guide/</loc>
-    <lastmod>2020-01-15T06:35:54+03:00</lastmod>
+    <loc>https://happygrammer.github.io/java/</loc>
+    <lastmod>2020-01-15T06:35:19+03:00</lastmod>
   </url>
   
   <url>

@@ -4,7 +4,7 @@ date: 2020-01-16T23:41:40+03:00
 draft: false
 ---
 
-이 문서는 [BERT 논문](https://arxiv.org/abs/1810.04805)을 통한 리서치 리뷰 문서이며 새로운 연구 결과를 포함하고 있지 않습니다.
+이 문서는 [BERT 논문](https://arxiv.org/abs/1810.04805)의  연구 결과 확인과 내용 공유를 위한 리서치 리뷰 문서이며 새로운 연구 결과를 포함하고 있지 않습니다.
 
 
 
@@ -37,7 +37,7 @@ BERT’s model architecture is a multi-layer bidirectional Transformer encoder b
 
 
 
-![your image](img/bert/1.png)
+![your image](./img/bert/1.png)
 
 
 
@@ -53,7 +53,7 @@ To make BERT handle a variety of down-stream tasks, our input representation is 
 
 
 
-![your image](img/bert/2.png)
+![your image](./img/bert/2.png)
 
 Figure 2: BERT input representation. The input embeddings are the sum of the token embeddings, the segmentation embeddings and the position embeddings.
 
@@ -91,7 +91,7 @@ Results are presented in Table 1. Both BERTBASE and BERTLARGE outperform all sys
 
 
 
-![your image](img/bert/3.png)
+![your image](./img/bert/3.png)
 
 Table 1: GLUE Test results, scored by the evaluation server (https://gluebenchmark.com/leaderboard). The number below each task denotes the number of training examples. The “Average” column is slightly different than the official GLUE score, since we exclude the problematic WNLI set.8 BERT and OpenAI GPT are singlemodel, single task. F1 scores are reported for QQP and MRPC, Spearman correlations are reported for STS-B, and accuracy scores are reported for the other tasks. We exclude entries that use BERT as one of their components.
 

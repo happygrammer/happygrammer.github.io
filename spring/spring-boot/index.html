@@ -257,6 +257,46 @@ public class HelloController {
 }
 </code></pre><p>그리고 브라우저를 이용해 아래 URL을 이용해 접속해서 hello.jsp 응답 결과인 <code>Hello Spring</code>가 출력된 것을 확인합니다.</p>
 <pre><code>http://localhost:8080/hello
+</code></pre><h3 id="---3">에러 페이지 처리</h3>
+<p>페이지가 존재하지 않을 경우 에러 페이지를 커스텀 마이징 할 수 있습니다. ErrorController 크래스를 상속 받아 커스텀 에러 컨트롤러를 구현해 줍니다.</p>
+<pre><code>package example.boot;
+
+import org.springframework.boot.web.servlet.error.ErrorController;
+import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import javax.servlet.RequestDispatcher;
+import javax.servlet.http.HttpServletRequest;
+
+@Controller
+public class CustomErrorController implements ErrorController {
+
+    private static final String ERROR_PATH = &quot;/error&quot;;
+
+    @Override
+    public String getErrorPath() {
+        return ERROR_PATH;
+    }
+    
+    @RequestMapping(value = ERROR_PATH)
+    public String error(HttpServletRequest servletReq) {
+        Object status = servletReq.getAttribute(RequestDispatcher.ERROR_STATUS_CODE);
+        if (status != null) {
+            Integer statusCode = Integer.valueOf(status.toString());
+            if(statusCode == HttpStatus.NOT_FOUND.value()) {
+                return &quot;errors/404&quot;;
+            }
+            else if(statusCode == HttpStatus.INTERNAL_SERVER_ERROR.value()) {
+                return &quot;errors/500&quot;;
+            }
+        }
+        return &quot;errors/default&quot;;
+    }
+}
+</code></pre><p>위 예제에도 나와 있지만 커스텀 에러 페이지는 다음 경로에 만듭니다.</p>
+<pre><code>/src/main/webapp/WEB-INF/views/errors/404
+/src/main/webapp/WEB-INF/views/errors/500
+/src/main/webapp/WEB-INF/views/errors/default
 </code></pre><h3 id="mustache--">Mustache 템플릿 사용</h3>
 <p>Mustache는 Logic-Less해 배우기 쉽고 사용법도 간단합니다. <a href="https://www.thymeleaf.org/documentation.html">공식 문서</a>를 확인해 보시기 바랍니다.</p>
 
@@ -274,6 +314,7 @@ public class HelloController {
         <li><a href="#---1">스프링 부트 시작</a></li>
         <li><a href="#-">서블릿 컨테이너</a></li>
         <li><a href="#hello-jsp-">Hello JSP 출력</a></li>
+        <li><a href="#---3">에러 페이지 처리</a></li>
         <li><a href="#mustache--">Mustache 템플릿 사용</a></li>
       </ul>
     </li>

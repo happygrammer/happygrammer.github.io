@@ -188,16 +188,38 @@ BeanName : characterEncodingFilter
 ...(중략)
 BeanName : webServerFactoryCustomizerBeanPostProcessor
 BeanName : websocketServletWebServerCustomizer
+</code></pre><h3 id="-">서블릿 컨테이너</h3>
+<p>서블릿 컨테이너인 톰캣은 요청을 받아 SpringDispatcherServlet  객체로 전달합니다. 이후 컨트롤러의 액션 메소드로 dispatch를 하게 됩니다. dispatch 수행시 URL과 파라메터와 일치하는 메소드를 찾고 없다면 페이지 없음 응답을 내보냅니다. 액션 메소드를 찾았다면 뷰 이름을 찾습니다. 뷰가 JSP라면 서블릿 컴파일러(tomcat embed-jasper)로 컴파일 후 톰캣이 해당 서블릿을 실행 하도록 합니다. 요약하면 다음 순서로 실행합니다.</p>
+<pre><code>JSP → JSTL(서블릿 코드로 변환) → 톰캣(서블릿실행)
+</code></pre><p>[서블릿 예제 코드]</p>
+<pre><code>import javax.servlet.http.*;  
+import javax.servlet.*;  
+import java.io.*;
+
+public class HelloServlet extends HttpServlet{ 
+public void doGet(HttpServletRequest req,HttpServletResponse res)  
+throws ServletException,IOException  
+{  
+    res.setContentType(&quot;text/html&quot;);//컨텐츠 타입 설정
+    PrintWriter pw=res.getWriter();//데이터 쓰기위한 스트림 가져옴 
+
+    // 스트림을 이용해 컨텐츠를 출력함
+    pw.println(&quot;&lt;html&gt;&lt;body&gt;&quot;);  
+    pw.println(&quot;Hello Servlet&quot;);  
+    pw.println(&quot;&lt;/body&gt;&lt;/html&gt;&quot;);
+
+    pw.close();// 스트림을 닫음
+}}  
 </code></pre><h3 id="hello-jsp-">Hello JSP 출력</h3>
-<p>머저 JSP 출력을 위해서 pom.xml에 의존성을 추가합니다.</p>
+<p>JSP 출력을 위해서 pom.xml에 의존성을 추가합니다. 아래 추가한 <a href="https://www.oracle.com/technetwork/java/index-jsp-135995.html">JSTL</a>은 Oracle에서 제공하는 표준 태그 라이브러리입니다. 즉 JSP에서 사용하는 표준 태그를 지원하기 위한 라이브러리입니다. <code>tomcat-embed-jasper</code>은 JSP파일은 서블릿으로 변환하는 컴파일러입니다. 톰캣은 JSP가 서블릿으로 변환되면, 해당 서블릿을 실행합니다. 해당 의존성을 추가하지 않으면 서블릿으로 변환되지 않고 출력됩니다.</p>
 <pre><code>&lt;dependency&gt;
-            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
-            &lt;artifactId&gt;jstl&lt;/artifactId&gt;
-        &lt;/dependency&gt;
-        &lt;dependency&gt;
-            &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
-            &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
-        &lt;/dependency&gt;
+    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+    &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+&lt;/dependency&gt;
+&lt;dependency&gt;
+    &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+    &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+&lt;/dependency&gt;
 </code></pre><h4 id="---">포트 설정, 뷰 설정</h4>
 <p>이후 애플리케이션 프로퍼티 파일 <code>src/main/resources/applicaton.properties</code>에 뷰 설정을 합니다.</p>
 <pre><code>spring.mvc.view.prefix=/WEB-INF/views/ # 디폴트 JSP 파일 위치
@@ -216,7 +238,7 @@ spring.mvc.view.suffix=.jsp # view의 확장자.
 Hell Spring
 &lt;/body&gt;
 &lt;/html&gt;
-</code></pre><h4 id="-">컨트롤러 설정</h4>
+</code></pre><h4 id="--1">컨트롤러 설정</h4>
 <p>Hello 컨트롤러 클래스를 추가하고, 컨트롤러 애노테이션을 추가합니다.</p>
 <pre><code>@Controller
 </code></pre><p>이때 @RequestMappin 애노테이션을 이용해 위에서 만들어둔 hello.jsp 응답을 하도록 합니다.</p>
@@ -233,6 +255,8 @@ public class HelloController {
     }
 
 }
+</code></pre><p>그리고 브라우저를 이용해 아래 URL을 이용해 접속해서 hello.jsp 응답 결과인 <code>Hello Spring</code>가 출력된 것을 확인합니다.</p>
+<pre><code>http://localhost:8080/hello
 </code></pre><h3 id="mustache--">Mustache 템플릿 사용</h3>
 <p>Mustache는 Logic-Less해 배우기 쉽고 사용법도 간단합니다. <a href="https://www.thymeleaf.org/documentation.html">공식 문서</a>를 확인해 보시기 바랍니다.</p>
 
@@ -248,6 +272,7 @@ public class HelloController {
       <ul>
         <li><a href="#--">스프링 부트 소개</a></li>
         <li><a href="#---1">스프링 부트 시작</a></li>
+        <li><a href="#-">서블릿 컨테이너</a></li>
         <li><a href="#hello-jsp-">Hello JSP 출력</a></li>
         <li><a href="#mustache--">Mustache 템플릿 사용</a></li>
       </ul>

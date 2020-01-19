@@ -221,7 +221,7 @@ throws ServletException,IOException
     &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
 &lt;/dependency&gt;
 </code></pre><h4 id="---">포트 설정, 뷰 설정</h4>
-<p>이후 애플리케이션 프로퍼티 파일 <code>src/main/resources/applicaton.properties</code>에 뷰 설정을 합니다.</p>
+<p>이후 <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html">애플리케이션 프로퍼티 파일</a> <code>src/main/resources/applicaton.properties</code>에 뷰 설정을 합니다.</p>
 <pre><code>spring.mvc.view.prefix=/WEB-INF/views/ # 디폴트 JSP 파일 위치
 spring.mvc.view.suffix=.jsp # view의 확장자.
 </code></pre><p>위 <code>/WEB-INF/views	</code>의 스프링부트 프로젝트의 실재 경로는 아래와 같습니다.</p>
@@ -298,7 +298,53 @@ public class CustomErrorController implements ErrorController {
 /src/main/webapp/WEB-INF/views/errors/500
 /src/main/webapp/WEB-INF/views/errors/default
 </code></pre><h3 id="mustache--">Mustache 템플릿 사용</h3>
-<p>Mustache는 Logic-Less해 배우기 쉽고 사용법도 간단합니다. <a href="https://www.thymeleaf.org/documentation.html">공식 문서</a>를 확인해 보시기 바랍니다.</p>
+<p>스프링부트에서  JSP는 권장 사항이 아닙니다. 다음과 같은 이유입니다.</p>
+<ul>
+<li>war로 배포해야 합니다. (java -jar로 실행은 가능함)</li>
+<li>Undertow(JBoss EAP 7에 새롭게 도입된 자바 언어로 작성된 웹서버)는 JSP를 지원하지 않습니다.
+<ul>
+<li>톰캣만 사용한다면 문제 없음</li>
+</ul>
+</li>
+<li>사용자 재정의 에러 페이지가 적용되지 않을 수 있습니다.</li>
+</ul>
+<p>따라서 JSP 외의 템플릿 엔진을 도입할 필요가 있습니다. 한가지 대안이 바로 <a href="https://www.thymeleaf.org/documentation.html">Mustache</a>입니다.</p>
+<h4 id="mustache---1">Mustache 템플릿 사용하기</h4>
+<p>애플리케이션 프로퍼티 파일에 설정해 줍니다.</p>
+<pre><code>spring.mustache.prefix=/WEB-INF/views/
+spring.mustache.suffix=.html
+</code></pre><p>이후 mustache 템플릿을 만듭니다. 경로는 <code>/src/main/webapp/WEB-INF/views/mustache.html</code>로 만들었습니다.</p>
+<pre><code>&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+	&lt;meta charset=&quot;utf-8&quot;/&gt;
+	&lt;title&gt;{{ title }}&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;div&gt;
+	{{ msg }}
+&lt;/div&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><p>위 mustache.html를 연결해줄 컨트롤러를 만듭니다.</p>
+<pre><code>package example.boot;
+import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class MustacheController {
+	
+	@RequestMapping(&quot;/mustache&quot;)
+    public String jsp(Model model) throws Exception {
+		model.addAttribute(&quot;title&quot;, &quot;Mustache Test Title&quot;);
+		model.addAttribute(&quot;msg&quot;, &quot;Hello Mustache!&quot;);
+        return &quot;mustache&quot;;
+    }
+
+}
+
+</code></pre><p><code>http://localhost:8080/mustache</code>주소를 호출해 보면 <code>Hello Mustache!</code>라는 문자열이 브라우저에 표시됩니다.</p>
 
         </div>
 

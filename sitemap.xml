@@ -122,20 +122,6 @@
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/spring/spring-boot/</loc>
-    <lastmod>2020-01-15T06:37:32+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/spring/</loc>
-    <lastmod>2020-01-15T06:37:32+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://happygrammer.github.io/guide/perl/</loc>
     <lastmod>2020-01-15T06:35:54+03:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -222,6 +208,20 @@
   <url>
     <loc>https://happygrammer.github.io/guide/git/</loc>
     <lastmod>2020-01-06T01:26:13+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/spring/spring-boot/</loc>
+    <lastmod>2019-11-20T06:37:32+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/spring/</loc>
+    <lastmod>2019-11-20T06:37:32+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -17,7 +17,7 @@
       <pubDate>Thu, 16 Jan 2020 23:41:40 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/papers/bert/</guid>
-      <description>이 문서는 BERT 논문의 연구 결과 확인과 내용 공유를 위한 리서치 리뷰 문서이며 새로운 연구 결과를 포함하고 있지 않습니다.
+      <description>이 문서는 BERT 논문의 연구 결과 확인을 위한 리서치 리뷰 문서이며 새로운 연구 결과를 포함하고 있지 않습니다.
 BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding BERT라 불리는 새로운 언어 표현 모델을 소개합니다. We introduce a new language representation model called BERT, which stands for Bidirectional Encoder Representations from Transformers. 최근 언어 표현 모델과 달리 (Peters et al., 2018a; Radford et al., 2018), BERT는 설계 되었습니다.
  pretrain deep bidirectional representations from unlabeled text by jointly conditioning on both left and right context in all layers.</description>
     </item>

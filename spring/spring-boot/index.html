@@ -63,14 +63,14 @@
         
         <div class="article-meta">
             <a href="/spring/spring-boot/" class="article-date">
-                <time datetime='2020-01-15T06:37:32.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+                <time datetime='2019-11-20T06:37:32.000&#43;03:00' itemprop="datePublished">2019-11-20</time>
             </a>
             
             
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <p>이 문서는 스프링 <a href="https://spring.io/projects/spring-boot">문서</a>의 번역 문서입니다. <code>스프링 부트</code>는 쉽게 제품 등급의 독립형 스프링 기반 애플리케이션을 만들 수 있습니다. 대부분의 스프링 부트 애플리케케이션은 적은 설정을 필요로 합니다.</p>
+            <p><code>스프링 부트</code>는 쉽게 제품 등급의 독립형 스프링 기반 애플리케이션을 만들 수 있습니다. 대부분의 스프링 부트 애플리케케이션은 적은 설정을 필요로 합니다.</p>
 <h2 id="heading">특징</h2>
 <ul>
 <li>독립형 애플리케이셩 생성</li>
@@ -143,7 +143,9 @@ public class Application {
 }
 </code></pre><p>그리고 브라우저를 이용해 다음 주소로 접속합니다.</p>
 <pre><code>http://localhost:8080/login
-</code></pre><h3 id="---2">빈 이름 출력</h3>
+</code></pre><p>만약 디폴트 포트인 8080을 8081로 변경하려면 애플리케이션 프로퍼티에 포트 설정을 합니다.</p>
+<pre><code>server.port=8081
+</code></pre><h4 id="---2">빈 이름 출력</h4>
 <pre><code>package main;
 
 import java.util.Arrays;
@@ -186,6 +188,51 @@ BeanName : characterEncodingFilter
 ...(중략)
 BeanName : webServerFactoryCustomizerBeanPostProcessor
 BeanName : websocketServletWebServerCustomizer
+</code></pre><h3 id="hello-jsp-">Hello JSP 출력</h3>
+<p>머저 JSP 출력을 위해서 pom.xml에 의존성을 추가합니다.</p>
+<pre><code>&lt;dependency&gt;
+            &lt;groupId&gt;javax.servlet&lt;/groupId&gt;
+            &lt;artifactId&gt;jstl&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+        &lt;dependency&gt;
+            &lt;groupId&gt;org.apache.tomcat.embed&lt;/groupId&gt;
+            &lt;artifactId&gt;tomcat-embed-jasper&lt;/artifactId&gt;
+        &lt;/dependency&gt;
+</code></pre><h4 id="---">포트 설정, 뷰 설정</h4>
+<p>이후 애플리케이션 프로퍼티 파일 <code>src/main/resources/applicaton.properties</code>에 뷰 설정을 합니다.</p>
+<pre><code>spring.mvc.view.prefix=/WEB-INF/views/ # 디폴트 JSP 파일 위치
+spring.mvc.view.suffix=.jsp # view의 확장자.
+</code></pre><p>위 <code>/WEB-INF/views	</code>의 스프링부트 프로젝트의 실재 경로는 아래와 같습니다.</p>
+<pre><code>/src/main/webapp/WEB-INF/views
+</code></pre><p>위 위치에 hello.jsp 파일을 만듭니다.</p>
+<pre><code>&lt;%@ page language=&quot;java&quot; contentType=&quot;text/html; charset=UTF-8&quot; pageEncoding=&quot;UTF-8&quot;%&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;UTF-8&quot;&gt;
+&lt;title&gt;Insert title here&lt;/title&gt;
+&lt;/head&gt;
+&lt;body&gt;
+Hell Spring
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre><h4 id="-">컨트롤러 설정</h4>
+<p>Hello 컨트롤러 클래스를 추가하고, 컨트롤러 애노테이션을 추가합니다.</p>
+<pre><code>@Controller
+</code></pre><p>이때 @RequestMappin 애노테이션을 이용해 위에서 만들어둔 hello.jsp 응답을 하도록 합니다.</p>
+<pre><code>package example.boot;
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+
+@Controller
+public class HelloController {
+	
+	@RequestMapping(&quot;/hello&quot;)
+    public String jsp() throws Exception {
+        return &quot;hello&quot;;
+    }
+
+}
 </code></pre><h3 id="mustache--">Mustache 템플릿 사용</h3>
 <p>Mustache는 Logic-Less해 배우기 쉽고 사용법도 간단합니다. <a href="https://www.thymeleaf.org/documentation.html">공식 문서</a>를 확인해 보시기 바랍니다.</p>
 
@@ -201,7 +248,7 @@ BeanName : websocketServletWebServerCustomizer
       <ul>
         <li><a href="#--">스프링 부트 소개</a></li>
         <li><a href="#---1">스프링 부트 시작</a></li>
-        <li><a href="#---2">빈 이름 출력</a></li>
+        <li><a href="#hello-jsp-">Hello JSP 출력</a></li>
         <li><a href="#mustache--">Mustache 템플릿 사용</a></li>
       </ul>
     </li>
@@ -218,16 +265,12 @@ BeanName : websocketServletWebServerCustomizer
     </div>
     <nav id="article-nav">
     
-    <a href="/shell/text/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/guide/git/" id="article-nav-newer" class="article-nav-link-wrap">
         <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            [쉘스크립트] 텍스트 처리를 위한 쉘 명령어
+            1시간 안에 Git 익히기
         </div>
     </a>
     
-    
-    <a href="/guide/perl/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">1시간 안에 펄(Perl) 언어 익히기&nbsp;<span>&gt;</span></div>
-    </a>
     
 </nav>
 

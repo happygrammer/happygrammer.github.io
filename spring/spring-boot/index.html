@@ -224,6 +224,19 @@ throws ServletException,IOException
 <p>이후 <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/appendix-application-properties.html">애플리케이션 프로퍼티 파일</a> <code>src/main/resources/applicaton.properties</code>에 뷰 설정을 합니다.</p>
 <pre><code>spring.mvc.view.prefix=/WEB-INF/views/ # 디폴트 JSP 파일 위치
 spring.mvc.view.suffix=.jsp # view의 확장자.
+</code></pre><p>애플리케이션 프로퍼티 파일이 아니라 코드를 이용해 <code>@Configuration</code> 애노테이션을 이용합니다.</p>
+<pre><code>@Configuration
+public class SpringConfig {
+
+	@Bean
+	public ViewResolver getViewResolver() {
+		InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
+		viewResolver.setPrefix(&quot;/WEB-INF/jsp/&quot;);
+		viewResolver.setSuffix(&quot;.jsp&quot;);
+		return viewResolver;
+	}
+}
+
 </code></pre><p>위 <code>/WEB-INF/views	</code>의 스프링부트 프로젝트의 실재 경로는 아래와 같습니다.</p>
 <pre><code>/src/main/webapp/WEB-INF/views
 </code></pre><p>위 위치에 hello.jsp 파일을 만듭니다.</p>

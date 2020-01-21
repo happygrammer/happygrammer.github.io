@@ -1,0 +1,881 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>품사와 품사 태그셋 소개 // Happygrammer Blog</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="품사와 품사 태그셋 소개" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/postag-set/" />
+    
+
+    <link rel="shortcut icon" href="/favicon.ico">
+
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer Blog</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">품사와 품사 태그셋 소개</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/postag-set/" class="article-date">
+                <time datetime='2020-01-22T00:46:58.000&#43;03:00' itemprop="datePublished">2020-01-22</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>POS tagging(<strong>part-of-speech tagging</strong>)은 형태소 분석 결과 분류된 품사를 태깅하는 작업을 의미합니다.여기서 품사는 단어의 공통 성질을 갈래 지어 놓은 이름을 말합니다. 태깅시 사용하는 품사에 대응하는 약속은 품사 태그(POS Tag : part-of-speech tag)라 하며 이들 품사 태그의 모음을 품사 태그 셋(tag set)이라고 합니다. 품사 부착 말뭉치(corpus)는 품사 태그가 부착된 말뭉치를 의미합니다. 고품질의 품사 부착 말뭉치의 규모가 커지면 언어 연구 진행이 용이해집니다. 이 문서에는 품사 태그셋을 소개하기에 앞서 한국어와 영어의 품사를 소개하고, 영어의 품사 태그셋과 한국어의 품사 태그셋(POS Tag Set)을 소개합니다.</p>
+<h3 id="--">한국어와 영어의 품사</h3>
+<p>한국어에는 9품사가 있고 영어에도 9품사가 있습니다. 품사 수는 동일하지만 품사 구성은 다릅니다.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>한국어</th>
+<th>영어</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>명사(noun)</td>
+<td>O</td>
+<td>O</td>
+</tr>
+<tr>
+<td>대명사(pronoun)</td>
+<td>O</td>
+<td>O</td>
+</tr>
+<tr>
+<td>동사(verb)</td>
+<td>O</td>
+<td>O</td>
+</tr>
+<tr>
+<td>형용사(adjective)</td>
+<td>O</td>
+<td>O</td>
+</tr>
+<tr>
+<td>관형사</td>
+<td>O</td>
+<td></td>
+</tr>
+<tr>
+<td>수사</td>
+<td>O</td>
+<td></td>
+</tr>
+<tr>
+<td>부사(adverb)</td>
+<td>O</td>
+<td>O</td>
+</tr>
+<tr>
+<td>조사</td>
+<td>O</td>
+<td></td>
+</tr>
+<tr>
+<td>감탄사</td>
+<td>O</td>
+<td></td>
+</tr>
+<tr>
+<td>관사(article)</td>
+<td></td>
+<td>O</td>
+</tr>
+<tr>
+<td>전치사(preposition)</td>
+<td></td>
+<td>O</td>
+</tr>
+<tr>
+<td>접속사(conjunction)</td>
+<td></td>
+<td>O</td>
+</tr>
+<tr>
+<td>감탄사(Interjection)</td>
+<td></td>
+<td>O</td>
+</tr>
+</tbody>
+</table>
+<p>한국어의 품사는 문장 내 역할에 따라 체언, 관계언, 용언, 수식언, 독립언으로 나뉩니다.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>품사명</th>
+<th>역할 기준</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>명사</td>
+<td>체언</td>
+</tr>
+<tr>
+<td>2</td>
+<td>대명사</td>
+<td>체언</td>
+</tr>
+<tr>
+<td>3</td>
+<td>수사</td>
+<td>체언</td>
+</tr>
+<tr>
+<td>4</td>
+<td>조사</td>
+<td>관계언</td>
+</tr>
+<tr>
+<td>5</td>
+<td>동사</td>
+<td>용언</td>
+</tr>
+<tr>
+<td>6</td>
+<td>형용사</td>
+<td>용언</td>
+</tr>
+<tr>
+<td>7</td>
+<td>관형사</td>
+<td>수식언</td>
+</tr>
+<tr>
+<td>8</td>
+<td>부사</td>
+<td>수식언</td>
+</tr>
+<tr>
+<td>9</td>
+<td>감탄사</td>
+<td>독립언</td>
+</tr>
+</tbody>
+</table>
+<h3 id="---1">영어의 품사 태그셋</h3>
+<p>영어에서는 <a href="https://www.ling.upenn.edu/courses/Fall_2003/ling001/penn_treebank_pos.html">펜 트리뱅크 태그셋</a>(<strong>Penn Treebank tagset</strong>)이 널리 알려져 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>품사 태그</th>
+<th>설명</th>
+<th>예시</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>CC</td>
+<td>coordinating conjunction</td>
+<td>and</td>
+</tr>
+<tr>
+<td>CD</td>
+<td>cardinal number</td>
+<td>1, third</td>
+</tr>
+<tr>
+<td>DT</td>
+<td>determiner</td>
+<td>the</td>
+</tr>
+<tr>
+<td>EX</td>
+<td>existential there</td>
+<td>there is</td>
+</tr>
+<tr>
+<td>FW</td>
+<td>foreign word</td>
+<td>les</td>
+</tr>
+<tr>
+<td>IN</td>
+<td>preposition, subordinating conjunction</td>
+<td>in, of, like</td>
+</tr>
+<tr>
+<td>IN/that</td>
+<td>that as subordinator</td>
+<td>that</td>
+</tr>
+<tr>
+<td>JJ</td>
+<td>adjective</td>
+<td>green</td>
+</tr>
+<tr>
+<td>JJR</td>
+<td>adjective, comparative</td>
+<td>greener</td>
+</tr>
+<tr>
+<td>JJS</td>
+<td>adjective, superlative</td>
+<td>greenest</td>
+</tr>
+<tr>
+<td>LS</td>
+<td>list marker</td>
+<td>1)</td>
+</tr>
+<tr>
+<td>MD</td>
+<td>modal</td>
+<td>could, will</td>
+</tr>
+<tr>
+<td>NN</td>
+<td>noun, singular or mass</td>
+<td>table</td>
+</tr>
+<tr>
+<td>NNS</td>
+<td>noun plural</td>
+<td>tables</td>
+</tr>
+<tr>
+<td>NP</td>
+<td>proper noun, singular</td>
+<td>John</td>
+</tr>
+<tr>
+<td>NPS</td>
+<td>proper noun, plural</td>
+<td>Vikings</td>
+</tr>
+<tr>
+<td>PDT</td>
+<td>predeterminer</td>
+<td>both the boys</td>
+</tr>
+<tr>
+<td>POS</td>
+<td>possessive ending</td>
+<td>friend’s</td>
+</tr>
+<tr>
+<td>PP</td>
+<td>personal pronoun</td>
+<td>I, he, it</td>
+</tr>
+<tr>
+<td>PP$</td>
+<td>possessive pronoun</td>
+<td>my, his</td>
+</tr>
+<tr>
+<td>RB</td>
+<td>adverb</td>
+<td>however, usually, naturally, here, good</td>
+</tr>
+<tr>
+<td>RBR</td>
+<td>adverb, comparative</td>
+<td>better</td>
+</tr>
+<tr>
+<td>RBS</td>
+<td>adverb, superlative</td>
+<td>best</td>
+</tr>
+<tr>
+<td>RP</td>
+<td>particle</td>
+<td>give up</td>
+</tr>
+<tr>
+<td>SENT</td>
+<td>Sentence-break punctuation</td>
+<td>. ! ?</td>
+</tr>
+<tr>
+<td>SYM</td>
+<td>Symbol</td>
+<td>/ [ = *</td>
+</tr>
+<tr>
+<td>TO</td>
+<td>infinitive ‘to’</td>
+<td>togo</td>
+</tr>
+<tr>
+<td>UH</td>
+<td>interjection</td>
+<td>uhhuhhuhh</td>
+</tr>
+<tr>
+<td>VB</td>
+<td>verb be, base form</td>
+<td>be</td>
+</tr>
+<tr>
+<td>VBD</td>
+<td>verb be, past tense</td>
+<td>was, were</td>
+</tr>
+<tr>
+<td>VBG</td>
+<td>verb be, gerund/present participle</td>
+<td>being</td>
+</tr>
+<tr>
+<td>VBN</td>
+<td>verb be, past participle</td>
+<td>been</td>
+</tr>
+<tr>
+<td>VBP</td>
+<td>verb be, sing. present, non-3d</td>
+<td>am, are</td>
+</tr>
+<tr>
+<td>VBZ</td>
+<td>verb be, 3rd person sing. present</td>
+<td>is</td>
+</tr>
+<tr>
+<td>VH</td>
+<td>verb have, base form</td>
+<td>have</td>
+</tr>
+<tr>
+<td>VHD</td>
+<td>verb have, past tense</td>
+<td>had</td>
+</tr>
+<tr>
+<td>VHG</td>
+<td>verb have, gerund/present participle</td>
+<td>having</td>
+</tr>
+<tr>
+<td>VHN</td>
+<td>verb have, past participle</td>
+<td>had</td>
+</tr>
+<tr>
+<td>VHP</td>
+<td>verb have, sing. present, non-3d</td>
+<td>have</td>
+</tr>
+<tr>
+<td>VHZ</td>
+<td>verb have, 3rd person sing. present</td>
+<td>has</td>
+</tr>
+<tr>
+<td>VV</td>
+<td>verb, base form</td>
+<td>take</td>
+</tr>
+<tr>
+<td>VVD</td>
+<td>verb, past tense</td>
+<td>took</td>
+</tr>
+<tr>
+<td>VVG</td>
+<td>verb, gerund/present participle</td>
+<td>taking</td>
+</tr>
+<tr>
+<td>VVN</td>
+<td>verb, past participle</td>
+<td>taken</td>
+</tr>
+<tr>
+<td>VVP</td>
+<td>verb, sing. present, non-3d</td>
+<td>take</td>
+</tr>
+<tr>
+<td>VVZ</td>
+<td>verb, 3rd person sing. present</td>
+<td>takes</td>
+</tr>
+<tr>
+<td>WDT</td>
+<td>wh-determiner</td>
+<td>which</td>
+</tr>
+<tr>
+<td>WP</td>
+<td>wh-pronoun</td>
+<td>who, what</td>
+</tr>
+<tr>
+<td>WP$</td>
+<td>possessive wh-pronoun</td>
+<td>whose</td>
+</tr>
+<tr>
+<td>WRB</td>
+<td>wh-abverb</td>
+<td>where, when</td>
+</tr>
+<tr>
+<td>#</td>
+<td>#</td>
+<td>#</td>
+</tr>
+<tr>
+<td>$</td>
+<td>$</td>
+<td>$</td>
+</tr>
+<tr>
+<td>“</td>
+<td>Quotation marks</td>
+<td>‘ “</td>
+</tr>
+<tr>
+<td>````      | Opening quotation marks                | ‘ “                                     |</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>(</td>
+<td>Opening brackets</td>
+<td>( {</td>
+</tr>
+<tr>
+<td>)</td>
+<td>Closing brackets</td>
+<td>) }</td>
+</tr>
+<tr>
+<td>,</td>
+<td>Comma</td>
+<td>,</td>
+</tr>
+<tr>
+<td>:</td>
+<td>Punctuation</td>
+<td>– ; : — …</td>
+</tr>
+</tbody>
+</table>
+<h3 id="---2">한국어의 품사 태그셋</h3>
+<p>아래 표에서는 널리 알려진 세종 품사 태그 셋과 mecab 품사 태그셋을 소개합니다.</p>
+<table>
+<thead>
+<tr>
+<th>품사</th>
+<th>설명설명</th>
+<th>설명</th>
+<th>Me cab 품사 태그</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>체언</td>
+<td>NNG</td>
+<td>일반 명사</td>
+<td>NNG</td>
+<td>일반 명사</td>
+</tr>
+<tr>
+<td></td>
+<td>NNP</td>
+<td>고유 명사</td>
+<td>NNP</td>
+<td>고유 명사</td>
+</tr>
+<tr>
+<td></td>
+<td>NNB</td>
+<td>의존 명사</td>
+<td>NNB<!-- raw HTML omitted -->NNBC</td>
+<td>의존 명사<!-- raw HTML omitted -->단위 명사</td>
+</tr>
+<tr>
+<td></td>
+<td>NR</td>
+<td>수사</td>
+<td>NR</td>
+<td>수사</td>
+</tr>
+<tr>
+<td></td>
+<td>NP</td>
+<td>대명사</td>
+<td>NP</td>
+<td>대명사</td>
+</tr>
+<tr>
+<td>용언</td>
+<td>VV</td>
+<td>동사</td>
+<td>VV</td>
+<td>동사</td>
+</tr>
+<tr>
+<td></td>
+<td>VA</td>
+<td>형용사</td>
+<td>VA</td>
+<td>형용사</td>
+</tr>
+<tr>
+<td></td>
+<td>VX</td>
+<td>보조 용언</td>
+<td>VX</td>
+<td>보조 용언</td>
+</tr>
+<tr>
+<td></td>
+<td>VCP</td>
+<td>긍정 지정사</td>
+<td>VCP</td>
+<td>긍정 지정사</td>
+</tr>
+<tr>
+<td></td>
+<td>VCN</td>
+<td>부정 지정사</td>
+<td>VCN</td>
+<td>부정 지정사</td>
+</tr>
+<tr>
+<td>관형사</td>
+<td>MM</td>
+<td>관형사</td>
+<td>MM</td>
+<td>관형사</td>
+</tr>
+<tr>
+<td>부사</td>
+<td>MAG</td>
+<td>일반 부사</td>
+<td>MAG</td>
+<td>일반 부사</td>
+</tr>
+<tr>
+<td></td>
+<td>MAJ</td>
+<td>접속 부사</td>
+<td>MAJ</td>
+<td>접속 부사</td>
+</tr>
+<tr>
+<td>감탄사</td>
+<td>IC</td>
+<td>감탄사</td>
+<td>IC</td>
+<td>감탄사</td>
+</tr>
+<tr>
+<td>조사</td>
+<td>JKS</td>
+<td>주격 조사</td>
+<td>JKS</td>
+<td>주격 조사</td>
+</tr>
+<tr>
+<td></td>
+<td>JKC</td>
+<td>보격 조사</td>
+<td>JKC</td>
+<td>보격 조사</td>
+</tr>
+<tr>
+<td></td>
+<td>JKG</td>
+<td>관형격 조사</td>
+<td>JKG</td>
+<td>관형격 조사</td>
+</tr>
+<tr>
+<td></td>
+<td>JKO</td>
+<td>목적격 조사</td>
+<td>JKO</td>
+<td>목적격 조사</td>
+</tr>
+<tr>
+<td></td>
+<td>JKB</td>
+<td>부사격 조사</td>
+<td>JKB</td>
+<td>부사격 조사</td>
+</tr>
+<tr>
+<td></td>
+<td>JKV</td>
+<td>호격 조사</td>
+<td>JKV</td>
+<td>호격 조사</td>
+</tr>
+<tr>
+<td></td>
+<td>JKQ</td>
+<td>인용격 조사</td>
+<td>JKQ</td>
+<td>인용격 조사</td>
+</tr>
+<tr>
+<td></td>
+<td>JX</td>
+<td>보조사</td>
+<td>JX</td>
+<td>보조사</td>
+</tr>
+<tr>
+<td></td>
+<td>JC</td>
+<td>접속 조사</td>
+<td>JC</td>
+<td>접속 조사</td>
+</tr>
+<tr>
+<td>선어말 어미</td>
+<td>EP</td>
+<td>선어말 어미</td>
+<td>EP</td>
+<td>선어말 어미</td>
+</tr>
+<tr>
+<td>어말 어미</td>
+<td>EF</td>
+<td>종결 어미</td>
+<td>EF</td>
+<td>종결 어미</td>
+</tr>
+<tr>
+<td></td>
+<td>EC</td>
+<td>연결 어미</td>
+<td>EC</td>
+<td>연결 어미</td>
+</tr>
+<tr>
+<td></td>
+<td>ETN</td>
+<td>명사형 전성 어미</td>
+<td>ETN</td>
+<td>명사형 전성 어미</td>
+</tr>
+<tr>
+<td></td>
+<td>ETM</td>
+<td>관형형 전성 어미</td>
+<td>ETM</td>
+<td>관형형 전성 어미</td>
+</tr>
+<tr>
+<td>접두사</td>
+<td>XPN</td>
+<td>체언 접두사</td>
+<td>XPN</td>
+<td>체언 접두사</td>
+</tr>
+<tr>
+<td>접미사</td>
+<td>XSN</td>
+<td>명사 파생 접미사</td>
+<td>XSN</td>
+<td>명사 파생 접미사</td>
+</tr>
+<tr>
+<td></td>
+<td>XSV</td>
+<td>동사 파생 접미사</td>
+<td>XSV</td>
+<td>동사 파생 접미사</td>
+</tr>
+<tr>
+<td></td>
+<td>XSA</td>
+<td>형용사 파생 접미사</td>
+<td>XSA</td>
+<td>형용사 파생 접미사</td>
+</tr>
+<tr>
+<td>어근</td>
+<td>XR</td>
+<td>어근</td>
+<td>XR</td>
+<td>어근</td>
+</tr>
+<tr>
+<td>부호</td>
+<td>SF</td>
+<td>마침표, 물음표, 느낌표</td>
+<td>SF</td>
+<td>마침표, 물음표, 느낌표</td>
+</tr>
+<tr>
+<td></td>
+<td>SE</td>
+<td>줄임표</td>
+<td>SE</td>
+<td>줄임표 …</td>
+</tr>
+<tr>
+<td></td>
+<td>SS</td>
+<td>따옴표, 괄호표, 줄표</td>
+<td>SSO<!-- raw HTML omitted -->SSCSY</td>
+<td>여는 괄호 (, [<!-- raw HTML omitted -->닫는 괄호 ), ]</td>
+</tr>
+<tr>
+<td></td>
+<td>SP</td>
+<td>쉼표, 가운뎃점, 콜론, 빗금</td>
+<td>SC</td>
+<td>구분자 , · / :</td>
+</tr>
+<tr>
+<td></td>
+<td>SO<!-- raw HTML omitted -->SW</td>
+<td>붙임표 (물결, 숨김, 빠짐)<!-- raw HTML omitted -->기타기호 (논리 수학 기호, 화폐기호)</td>
+<td>SY</td>
+<td></td>
+</tr>
+<tr>
+<td>기타</td>
+<td>SL</td>
+<td>외국어</td>
+<td>SL</td>
+<td>외국어</td>
+</tr>
+<tr>
+<td></td>
+<td>SH</td>
+<td>한자</td>
+<td>SH</td>
+<td>한자</td>
+</tr>
+<tr>
+<td></td>
+<td>SN</td>
+<td>숫자</td>
+<td>SN</td>
+<td>숫자</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#--">한국어와 영어의 품사</a></li>
+        <li><a href="#---1">영어의 품사 태그셋</a></li>
+        <li><a href="#---2">한국어의 품사 태그셋</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/papers/bert/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">BERT 논문, 리서치 리뷰&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Happygrammer Blog
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

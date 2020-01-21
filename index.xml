@@ -6,10 +6,19 @@
     <description>Recent content on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 16 Jan 2020 23:41:40 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jan 2020 00:46:58 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>품사와 품사 태그셋 소개</title>
+      <link>https://happygrammer.github.io/nlp/postag-set/</link>
+      <pubDate>Wed, 22 Jan 2020 00:46:58 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/postag-set/</guid>
+      <description>POS tagging(part-of-speech tagging)은 형태소 분석 결과 분류된 품사를 태깅하는 작업을 의미합니다.여기서 품사는 단어의 공통 성질을 갈래 지어 놓은 이름을 말합니다. 태깅시 사용하는 품사에 대응하는 약속은 품사 태그(POS Tag : part-of-speech tag)라 하며 이들 품사 태그의 모음을 품사 태그 셋(tag set)이라고 합니다. 품사 부착 말뭉치(corpus)는 품사 태그가 부착된 말뭉치를 의미합니다. 고품질의 품사 부착 말뭉치의 규모가 커지면 언어 연구 진행이 용이해집니다. 이 문서에는 품사 태그셋을 소개하기에 앞서 한국어와 영어의 품사를 소개하고, 영어의 품사 태그셋과 한국어의 품사 태그셋(POS Tag Set)을 소개합니다.</description>
+    </item>
     
     <item>
       <title>BERT 논문, 리서치 리뷰</title>

@@ -12,13 +12,13 @@
     
     
     <item>
-      <title>자연어처리란 무엇인가?</title>
+      <title>자연어 처리란 무엇인가?</title>
       <link>https://happygrammer.github.io/nlp/intro-nlp/</link>
       <pubDate>Wed, 29 Jan 2020 00:37:57 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/nlp/intro-nlp/</guid>
-      <description>자연어 처리는 언어의 이해와 활용을 다루는 기술 언어지능(linguistic Intelligence)은 말과 글을 이해하고 다시 활용할 수 있는 능력입니다. 말과 글에 대한 활용의 예로 말과 글의 의미와 의도를 이해해 의도에 부합된 문제 해결을 하거나, 단어나 사례를 개념화해 **추상화 추론(abstract reasoning)**이 가능한 능력을 의미합니다. 자연어처리는 언어지능을 이용해 기계가 언어(말과 글)를 이해하고 활용할 수 있게 만드는 기술입니다.
-자연어 처리의 단계 자연어 처리의 대상은 텍스트이며, 텍스트 중에서도 사람의 언어가 대상이 됩니다. 자연어 처리 과정은 다음과 같습니다.</description>
+      <description>자연어 처리는 사람의 언어를 이해하고 컴퓨터와 사람이 상호 소통할 수 있게 하는 기술입니다. 자연어 처리의 궁극적인 목표는 컴퓨터가 사람과 같은 언어지능(linguistic Intelligence)을 갖추도록 하는 것 입니다. 언어지능은 말과 글을 이해하고 다시 활용할 수 있는 능력입니다. 컴퓨터가 말과 글의 의미와 의도를 이해하면 사람 처럼 주어진 문제를 해결 하거나 언어에 나타난 말들을 개념화하는 추상화 추론(abstract reasoning)도 가능하게 됩니다.
+자연어 처리 과정 자연어 처리의 대상은 텍스트이며, 텍스트 중에서도 사람의 언어가 대상이 됩니다. 자연어 처리 과정은 다음과 같습니다.</description>
     </item>
     
     <item>

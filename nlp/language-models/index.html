@@ -78,10 +78,10 @@
 <pre><code>P(W)=P(w1,w2,w3,...,wn)
 </code></pre><p>ngram에서 n은 연속된 단어의 개수를 의미하며 n의 개수에 따라 다음과 같이 부릅니다.</p>
 <ul>
-<li>n=1 이면 unigram</li>
-<li>n=2 이면 bigram</li>
-<li>n=3이면 trigram</li>
-<li>n=4 이면 4-gram</li>
+<li>n=1 : 1-gram(unigram)</li>
+<li>n=2 : 2-gram(bigram</li>
+<li>n=3: 3-gram(trigram)</li>
+<li>n=4 : 4-gram</li>
 <li>&hellip;</li>
 </ul>
 <p>애국가 가사를 n-gram 으로 만드는 함수와 이를 bigram(N=2)으로 호출하는 예는 다음과 같습니다.</p>
@@ -90,29 +90,29 @@
     ngrams = [txt[i:i+N] for i in range(len(txt)-N+1)]
     return ngrams
 
-biGrams = getNgram(2, &quot;동해물과 백두산이 말으고 달토록 하나님이 보호하사 우리대한만세 무궁화 삼천리 화려강산 대한사람 대한으로 길이 보전하세&quot;)
+biGrams = getNgram(2, &quot;동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세&quot;)
 print(biGrams)
 </code></pre><p>실행 결과</p>
-<pre><code>[['동해물과', '백두산이'], ['백두산이', '말으고'], ['말으고', '달토록'], ['달토록', '하나님이'], ['하나님이', '보호하사'], ['보호하사', '우리대한만세'], ['우리대한만세', '무궁화'], ['무궁화', '삼천리'], ['삼천리', '화려강산'], ['화려강산', '대한사람'], ['대한사람', '대한으로'], ['대한으로', '길이'], ['길이', '보전하세']]
+<pre><code>[['동해', '물과'], ['물과', '백두산이'], ['백두산이', '마르고'], ['마르고', '닳도록'], ['닳도록', '하느님이'], ['하느님이', '보우하사'], ['보우하사', '우리나라'], ['우리나라', '만세']]
 </code></pre><h3 id="bag-of-wordsbow">Bag-Of-Words(BoW)</h3>
 <p><strong>Bag-Of-Words</strong>(BoW) 모델은 언어 모델에서 시퀀스를 고려하지 않는 언어 모델로 일찍히 컴퓨터 비전(computer vision) 분야에 사용되던 모델입니다. BoW는 정보 검색에서 문서간의 유사도 계산에 사용되었습니다.  Bag-Of-Words는 시퀀스 고려 없이 각 단어의 빈도수를 고려하는 모델입니다. BoW 관점으로 다음 두 문장를 보겠습니다.</p>
 <ul>
-<li>Rome was not built in a day</li>
-<li>day a in built not was Rome</li>
+<li>동해 물과 백두산이 마르고 닳도록</li>
+<li>닳도록 마르고 백두산이 물과 동해</li>
 </ul>
 <p>단어 순서를 고려하지 않습니다. 위 문장은 빈도수를 측정해 벡터로 나타내면 동일 벡터로 표현할 수 있습니다.</p>
 <table>
 <thead>
 <tr>
-<th>Rome</th>
-<th>was</th>
-<th>not</th>
-<th>in</th>
-<th>a</th>
-<th>Day</th>
-<th>am</th>
-<th>are</th>
-<th>is</th>
+<th>동해</th>
+<th>물과</th>
+<th>백두산이</th>
+<th>마르고</th>
+<th>닳도록</th>
+<th>하느님이</th>
+<th>보우하사</th>
+<th>우리나라</th>
+<th>만세</th>
 </tr>
 </thead>
 <tbody>
@@ -122,7 +122,7 @@ print(biGrams)
 <td>1</td>
 <td>1</td>
 <td>1</td>
-<td>1</td>
+<td>0</td>
 <td>0</td>
 <td>0</td>
 <td>0</td>

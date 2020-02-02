@@ -4,21 +4,7 @@
   
   <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2020-01-31T08:10:33+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/nlp/</loc>
-    <lastmod>2020-01-31T08:10:33+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/nlp/language-models/</loc>
-    <lastmod>2020-01-31T08:10:33+03:00</lastmod>
+    <lastmod>2020-01-31T01:21:05+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -26,6 +12,20 @@
   <url>
     <loc>https://happygrammer.github.io/nlp/n-gram-model/</loc>
     <lastmod>2020-01-31T01:21:05+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/nlp/</loc>
+    <lastmod>2020-01-31T01:21:05+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/nlp/language-models/</loc>
+    <lastmod>2020-01-30T08:10:33+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

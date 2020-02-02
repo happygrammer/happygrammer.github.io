@@ -12,13 +12,13 @@
     
     
     <item>
-      <title>[언어 모델] Bag-Of-Words 모델, n-gram 모델</title>
+      <title>[언어 모델] n-gram 모델</title>
       <link>https://happygrammer.github.io/nlp/language-models/</link>
       <pubDate>Fri, 31 Jan 2020 01:21:05 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/nlp/language-models/</guid>
-      <description>언어 모델(language model)은 단어 시퀀스(word sequence)를 이용한 확률 모델입니다. 단어 시퀀스는 P(w1,w2,w3,&amp;hellip;,wn)와 같이 n개의 단어를 의미하며, n개의 단어를 하나의 시퀀스로 보고 각 시퀀스에 확률 값을 할당합니다. 이러한 시퀀스들의 확률 값들을 언어 모델이라 합니다. 언어 모델은 기계 번역, 음성 인식, 문서 요약, 질의 응답, 오타 교정(spell correction), 손글씨 인식(handwriting recognition) 등과 같이 최종 출력인 단어열을 예측해야 하는 태스크에 사용됩니다.
-Bag-Of-Words(BoW) Bag-Of-Words(BoW) 모델은 이미 분류 또는 정보 검색에서 사용해오던 언어 모델입니다. 정보 검색에서는 문서에 나타난 단어들의 분포들을 고려해 문서 간의 유사도 계산에 사용됩니다.</description>
+      <description>언어 모델(language model)은 단어 시퀀스(word sequence)를 이용한 확률 모델입니다. 단어 시퀀스는 n개의 단어가 연속해서 나는 확률 P(w1,w2,w3,&amp;hellip;,wn)와 같습니다. 즉, n개의 단어를 하나의 시퀀스로 보고 단어 시퀀스들의 확률 값들을 계산하면 언어 모델이 됩니다. 언어 모델은 기계 번역, 음성 인식, 문서 요약, 질의 응답, 오타 교정(spell correction), 손글씨 인식(handwriting recognition) 등과 같이 최종 출력인 단어열을 예측해야 하는 태스크에 사용됩니다.
+n-gram 모델 n-ram 모델은 자연어처리, 정보 검색등의 분야에서 활용 되었습니다. 자연어 처리에서는 문서 또는 문장을 데이터로 표현해 활용하기 위해 사용합니다.</description>
     </item>
     
     <item>

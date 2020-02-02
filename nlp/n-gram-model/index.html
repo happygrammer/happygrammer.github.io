@@ -91,7 +91,7 @@
 P(w_1,\ldots,w_m) = \prod^m_{i=1} P(w_i\mid w_1,\ldots,w_{i-1})
 \approx \prod^m_{i=1} P(w_i\mid w_{i-(n-1)},\ldots,w_{i-1})
 $$</p>
-<p>n-gram은 빈도수 모델에서 확률 모델을 계산할 수 있습니다.
+<p>n-gram은 빈도수 값을 이용해 조건 확률을 계산할 수 있습니다.
 $$
 P(w_i\mid w_{i-(n-1)},\ldots,w_{i-1}) = \frac{\mathrm{count}(w_{i-(n-1)},\ldots,w_{i-1},w_i)}{\mathrm{count}(w_{i-(n-1)},\ldots,w_{i-1})}
 $$</p>

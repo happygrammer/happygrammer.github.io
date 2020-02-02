@@ -147,7 +147,7 @@ def getNgramDocuments(N, documents):
         vectorBow = getFrequencyVector(N, document, allVocabulary)
         bowDocuments.append(vectorBow)
     return bowDocuments
-</code></pre><h3 id="unigram---">unigram 벡터 생성 확인</h3>
+</code></pre><h3 id="unigram-">unigram 벡터</h3>
 <p>유니 그램(unigram) 은 <strong>Bag-Of-Words</strong>(이하 BoW)라고 불리는 언어 모델입니다. 유니 그램은 어순 정보를 고려하지 않습니다. 따라서 어순 정보만 다른 두 문장은 동일 문장이 됩니다.</p>
 <ul>
 <li>동해 물과 백두산이 마르고 닳도록</li>
@@ -194,7 +194,7 @@ for i, vector in enumerate(oneGramVectors):
 <pre><code>동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세  :  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 보전하세 길이 대한으로 사람 대한 화려강산 삼천리 무궁화 만세 우리나라 보우하사 하느님이 닳도록 마르고 백두산이 물과 동해  :  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 </code></pre><p>위 예제의 입력은 어순 정보만 바꾼 동일한 벡터입니다. 또한 실행 결과에서 확인할 수 있듯이 Bow 관점에서 두 문장은 동일한 벡터 입니다.</p>
-<h3 id="bigram">bigram</h3>
+<h3 id="bigram-">bigram 벡터</h3>
 <p>위 예제에서 확인했듯이 BoW는 문서 집합의 어휘 개수 만큼 벡터 사이즈가 커지는 어휘 벡터 사이즈 크기 문제가 있고, 빈도수로 단어 분포가 반영 디지만 단어 순서가 보장디지 않아 맥락 의미 의미 미반영 문제가 있습니다.</p>
 <ul>
 <li>어휘 벡터 사이즈 크기</li>
@@ -229,8 +229,8 @@ for i, vector in enumerate(oneGramVectors):
       <ul>
         <li><a href="#--">어휘 벡터 생성</a></li>
         <li><a href="#n-gram--">n-gram  벡터</a></li>
-        <li><a href="#unigram---">unigram 벡터 생성 확인</a></li>
-        <li><a href="#bigram">bigram</a></li>
+        <li><a href="#unigram-">unigram 벡터</a></li>
+        <li><a href="#bigram-">bigram 벡터</a></li>
       </ul>
     </li>
   </ul>

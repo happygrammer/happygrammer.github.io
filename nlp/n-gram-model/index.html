@@ -86,7 +86,7 @@
 <li>n=4 : 4-gram</li>
 <li>&hellip;</li>
 </ul>
-<p>n-gram 모델에서 확률은 문장  $w_1,\ldots,w_m$ 에서 얻어진 학률 $P(w_1,\ldots,w_m)$ 입니다.</p>
+<p>n-gram 모델에서 단어가 $w_i$ 부터 $w_{i-1}$ 개 단어가 나열 되었을때 i번째 단어 $w_i$ 의 확률 $P(w_i\mid w_1,\ldots,w_{i-1})$  문장  $w_1,\ldots,w_m$ 에서 얻어진 학률 $P(w_1,\ldots,w_m)$ 입니다.</p>
 <p>$$
 P(w_1,\ldots,w_m) = \prod^m_{i=1} P(w_i\mid w_1,\ldots,w_{i-1})
 \approx \prod^m_{i=1} P(w_i\mid w_{i-(n-1)},\ldots,w_{i-1})

@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>결합 확률 // Happygrammer Blog</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="결합 확률" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/math/probaility/joint-probability/" />
+    
+
+    
+<script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer Blog</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/hangeul/">한글학</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">결합 확률</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/math/probaility/joint-probability/" class="article-date">
+                <time datetime='2020-02-05T01:33:53.000&#43;03:00' itemprop="datePublished">2020-02-05</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="-">동적 던지기</h3>
+<p>동전을 던지면 앞면이 나올 수 있고 뒷면이 나올 수 있습니다.  동전이 앞면이면 랜덤 변수는 1이고, 뒷면이면 0입니다. 앞면(head0이든 뒷면(tail)이든 나올 확률은 1/2입니다. 여기서 앞면을 확률변수 A, 뒷면을 확률 변수 B라고 하겠습니다. 각 동전 던지기는 베르누이 시행(Bernoulli trial)이라 하며 베르누이 실행은 베르누이 분포(bernoulli distrubtion)을 따릅니다. 주변 확률 밀도 함수(<a href="https://presidentlee.tistory.com/entry/marginal-probability-distribution%EC%A3%BC%EB%B3%80%ED%99%95%EB%A5%A0%EB%B6%84%ED%8F%AC">marginal probability distribution</a>)는 다음과 같습니다.</p>
+<p>$$P(A)=1/2 \quad \text{for} \quad A\in {0, 1};$$
+$$P(B)=1/2 \quad \text{for} \quad B\in {0, 1}.$$</p>
+<p>실험 결과 결합 확률 밀도 함수 A와 B는 다음과 같습니다.</p>
+<p>$$
+(A=0,B=0),
+(A=0,B=1),
+(A=1,B=0),
+(A=1,B=1).
+$$
+각 실험 결과는 결합 확률 밀도 함수는 다음과 같습니다.</p>
+<p>$$P(A,B)=1/4 \quad \text{for} \quad A,B\in{0,1}.$$</p>
+<p>따라서 각 동전 던지는 독립 조건이며, 결합 확률 밀도 함수는 주변 확률의 곱(product of the marginals)입니다.</p>
+<p>:$$P(A,B)=P(A)P(B) \quad \text{for} \quad A,B \in{0,1}.$$</p>
+<p>확 분야에서 결합을 표시하기 위해 쉼표를 이용합니다.</p>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-">동적 던지기</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/nlp/word2vec/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Word2vec를 이용한 임베딩&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Happygrammer Blog
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

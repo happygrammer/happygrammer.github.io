@@ -4,7 +4,21 @@
   
   <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2020-02-03T23:33:53+03:00</lastmod>
+    <lastmod>2020-02-05T01:33:53+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/math/</loc>
+    <lastmod>2020-02-05T01:33:53+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/math/probaility/joint-probability/</loc>
+    <lastmod>2020-02-05T01:33:53+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

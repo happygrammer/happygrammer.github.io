@@ -6,10 +6,21 @@
     <description>Recent content on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 02 Feb 2020 23:03:00 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 03 Feb 2020 23:33:53 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Word2vec를 이용한 임베딩</title>
+      <link>https://happygrammer.github.io/nlp/word2vec/</link>
+      <pubDate>Mon, 03 Feb 2020 23:33:53 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/word2vec/</guid>
+      <description>Word2vec은 워드 고품질의 워드 벡터를 생성하는 임베딩 태스크에 사용할 수 있는 모델입니다. 구글의 Tomas Mikolov이 만든 기술입니다. 2013년 이 모델의 특성은 layer가 2개인 뉴럴넷을 이용합니다. Word2vec을 실행하면 입력으로 대규모 텍스트 코퍼스를 수백 차원의 벡터 스페이스(vector space)로 만듭니다. 기존 LSA(latent semantic analysis)에 비해 여러 장점이 있습니다.
+ 계산 비용이 적습니다. 정확도(accuracy)가 개선 됐습니다.  gensim 설치 pip install --upgrade gensim gensim api word2vec model 호출
+import gensim.downloader as api wv = api.</description>
+    </item>
     
     <item>
       <title>[한글학] 9품사 5언</title>

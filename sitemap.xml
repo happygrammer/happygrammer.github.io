@@ -3,6 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://happygrammer.github.io/</loc>
+    <lastmod>2020-02-03T23:33:53+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/nlp/</loc>
+    <lastmod>2020-02-03T23:33:53+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/nlp/word2vec/</loc>
+    <lastmod>2020-02-03T23:33:53+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://happygrammer.github.io/hangeul/part-of-speech/</loc>
     <lastmod>2020-02-02T23:03:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -17,21 +38,7 @@
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2020-02-02T23:03:00+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
     <loc>https://happygrammer.github.io/nlp/n-gram-model/</loc>
-    <lastmod>2020-01-31T01:21:05+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/nlp/</loc>
     <lastmod>2020-01-31T01:21:05+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

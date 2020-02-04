@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word2vec를 이용한 임베딩 // Happygrammer Blog</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Word2vec를 이용한 임베딩" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/word2vec/" />
+    
+
+    
+<script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer Blog</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/hangeul/">한글학</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">Word2vec를 이용한 임베딩</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/word2vec/" class="article-date">
+                <time datetime='2020-02-03T23:33:53.000&#43;03:00' itemprop="datePublished">2020-02-03</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p><strong>Word2vec</strong>은 워드 고품질의 워드 벡터를 생성하는 임베딩 태스크에 사용할 수 있는 모델입니다. 구글의 <a href="https://en.wikipedia.org/wiki/Tomas_Mikolov">Tomas Mikolov</a>이 만든 기술입니다. 2013년 이 모델의 특성은 layer가 2개인 뉴럴넷을 이용합니다. Word2vec을 실행하면 입력으로 대규모 텍스트 코퍼스를 수백 차원의 벡터 스페이스(vector space)로 만듭니다. 기존 LSA(latent semantic analysis)에 비해 여러 장점이 있습니다.</p>
+<ul>
+<li>계산 비용이 적습니다.</li>
+<li>정확도(accuracy)가 개선 됐습니다.</li>
+</ul>
+<h3 id="gensim-">gensim 설치</h3>
+<pre><code>pip install --upgrade gensim
+</code></pre><h3 id="gensim-api">gensim api</h3>
+<p>word2vec model 호출</p>
+<pre><code>import gensim.downloader as api
+wv = api.load('word2vec-google-news-300')
+</code></pre><p>Gensim 모델 확인</p>
+<pre><code>word2vec.Word2Vec([&quot;happy&quot;], size=5, window=1, negative=3, min_count=1)
+</code></pre><p>size는 워드 벡터 차원입니다. window는 현재 단어와 예측 단어의 최대 윈도우 사이즈입니다. negative는 얼마나 많은 노이즈 워드를 사용할지를 설정합니다. min_count는 무시할 단어가 있다면 min_count값을 설정합니다. min_count가 1이면 1개 이하로 출현한 단어는 무시라는 의미입니다.</p>
+<h3 id="gensim--word2vec-">gensim을 이용한 word2vec 임베딩</h3>
+<p>분석을 위해 전세계에서 가장 많이 팔렸다고 알려진 성경 코퍼스를 준비합니다.</p>
+<pre><code>from gensim.models import word2vec
+
+with open('./gensim/input/bible.txt', 'r') as f:
+     text = f.readlines()
+
+token = []
+for txt in text:
+    token.append(txt.split()[1:])
+
+embedding = word2vec.Word2Vec(token, size=10, window=5, negative=3, min_count=0)
+embedding.save('./gensim/model/window-5-bible_without_analysis.model')
+</code></pre><p>임베딩 모델을 ./gensim/bible.model에 저장했습니다. 해당 로드를 로드해 &ldquo;사랑&quot;이라는 어휘의 분석 결과를 확인해 보겠습니다.</p>
+<pre><code>from gensim.models import word2vec
+
+input = &quot;여호와는&quot;
+model = word2vec.Word2Vec.load('./gensim/model/window-5-bible_without_analysis.model')
+try:
+    arrSimilar = model.wv.most_similar(input)
+    print(arrSimilar)
+except:
+    print(&quot;탐색 불가&quot;)
+</code></pre><p>실행 결과</p>
+<pre><code>[('예수', 0.9934951663017273), ('구별하여', 0.992172122001648), ('이스라엘의', 0.9916245937347412), ('여호와의', 0.9914567470550537), ('찬양을', 0.9897100925445557), ('여호와를', 0.9891390800476074), ('우리', 0.9884810447692871), ('아버지와', 0.9881623387336731), ('앞에서', 0.9866857528686523), ('위하여', 0.9842418432235718)]
+</code></pre><h3 id="konlp--word2vec-">konlp를 이용한 word2vec 임베딩</h3>
+<p>워드 임베딩 품질을 위해 특수  형태소 분석, 특수문자 제거와 같은 전처리가 필요할 수 있습니다.</p>
+<p>konlp 설치</p>
+<pre><code>$ python3 -m pip install --upgrade pip
+$ python3 -m pip install konlpy # 파이썬 3.x 버전에서 실행
+</code></pre><p>mecab설치</p>
+<pre><code>bash &lt;(curl -s https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh)
+</code></pre><p>먼저 word2vec을 이용한 임베딩 벡터를 만들어 보겠습니다.</p>
+<pre><code>
+from gensim.models import word2vec
+from konlpy.tag import Kkma
+from konlpy.utils import pprint
+
+kkma = Kkma()
+
+with open('./gensim/input/bible.txt', 'r') as f:
+     text = f.readlines()
+
+token = []
+for txt in text:
+    refinedTxt = &quot; &quot;.join(txt.split()[1:])
+    print(refinedTxt)
+    token.append(kkma.nouns(refinedTxt))
+
+embedding = word2vec.Word2Vec(token, size=10, window=5, negative=3, min_count=0)
+embedding.save('./gensim/model/window-5-bible.model')
+</code></pre><p>만들어진 임베딩 벡터를 테스트 해보겠습니다.</p>
+<pre><code>from gensim.models import word2vec
+from konlpy.tag import Kkma
+from konlpy.utils import pprint
+
+kkma = Kkma()
+
+input = &quot;믿음&quot;
+input = &quot; &quot;.join(kkma.nouns(input))
+print(input)
+model = word2vec.Word2Vec.load('./gensim/model/bible.model')
+try:
+    arrSimilar = model.wv.most_similar(input)
+    print(arrSimilar)
+except:
+    print(&quot;탐색 불가&quot;)
+</code></pre><p>실행 결과</p>
+<pre><code>
+</code></pre>
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#gensim-">gensim 설치</a></li>
+        <li><a href="#gensim-api">gensim api</a></li>
+        <li><a href="#gensim--word2vec-">gensim을 이용한 word2vec 임베딩</a></li>
+        <li><a href="#konlp--word2vec-">konlp를 이용한 word2vec 임베딩</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/hangeul/part-of-speech/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">[한글학] 9품사 5언&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Happygrammer Blog
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

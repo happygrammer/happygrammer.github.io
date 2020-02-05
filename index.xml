@@ -12,14 +12,13 @@
     
     
     <item>
-      <title>결합 확률</title>
+      <title>결합 확률 분포</title>
       <link>https://happygrammer.github.io/math/probaility/joint-probability/</link>
       <pubDate>Wed, 05 Feb 2020 01:33:53 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/math/probaility/joint-probability/</guid>
-      <description>동적 던지기 동전을 던지면 앞면이 나올 수 있고 뒷면이 나올 수 있습니다. 동전이 앞면이면 랜덤 변수는 1이고, 뒷면이면 0입니다. 앞면(head0이든 뒷면(tail)이든 나올 확률은 1/2입니다. 여기서 앞면을 확률변수 A, 뒷면을 확률 변수 B라고 하겠습니다. 각 동전 던지기는 베르누이 시행(Bernoulli trial)이라 하며 베르누이 실행은 베르누이 분포(bernoulli distrubtion)을 따릅니다. 주변 확률 밀도 함수(marginal probability distribution)는 다음과 같습니다.
-$$P(A)=1/2 \quad \text{for} \quad A\in {0, 1};$$ $$P(B)=1/2 \quad \text{for} \quad B\in {0, 1}.$$
-실험 결과 결합 확률 밀도 함수 A와 B는 다음과 같습니다.</description>
+      <description>랜덤 변수 $$X, Y, &amp;hellip;,$$는 확률 공간(probaility space)에 정의됩니다. 여기서 $$X, Y$$는 확률 분포(probability distribution)을 의미합니다. 이들 확률 분포 $$X, Y$$에 속한 값은 이산 집합 내에 속하거나 특정 범위 내에 속합니다. 이때 두 랜덤 변수 $$X, Y$$는 이변수 분포(bivariate distribution)입니다.
+결합 확률 분포(joint probability distribution)는 결합 누적 분포 함수(joint cumulative distribution function) 또는 결합 확률 밀도 함수(joint probability density function )라고 부르기도 합니다. 결합 화률 분포는 두 분포를 찾는데 사용됩니다.</description>
     </item>
     
     <item>

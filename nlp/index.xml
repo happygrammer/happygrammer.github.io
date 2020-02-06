@@ -6,10 +6,20 @@
     <description>Recent content in Nlps on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 03 Feb 2020 23:33:53 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 05 Feb 2020 23:37:38 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/nlp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>텍스트 전처리</title>
+      <link>https://happygrammer.github.io/nlp/text-preprocessing/</link>
+      <pubDate>Wed, 05 Feb 2020 23:37:38 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/text-preprocessing/</guid>
+      <description>텍스트 전처리(text preprocessing)은 입력 데이터셋에 섞여 있는 불필요한 노이즈를 제거하거나 데이터를 일관성있게 만드는 정규화 과정을 포함합니다. 자연어 처리를 진행에 필수 과정으로 입니다. 일반적으로 전처리 단계에서 크게 두가지 타입의 태스크를 수행합니다.
+ 노이즈 제거(Noise removal) 텍스트 정규화(Normalization)  노이즈 제거는 불필요한 태그 제거, 특수 문자 제거, 공백 제거등 실질 데이터와 무관한 문자를 삭제해 데이터 처리를 용이하게 하는 과정입니다. 텍스트 정규화(Text normalization)는 계산량을 줄이기 위한 목적으로 대표적으로 오타 교정, 대소문자 치환, 숫자 치환, 불용어 삭제, 스테밍, 렘마티제이션을 처리 과정입니다.</description>
+    </item>
     
     <item>
       <title>Word2vec를 이용한 임베딩</title>

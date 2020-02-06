@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>텍스트 전처리 // Happygrammer Blog</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="텍스트 전처리" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/text-preprocessing/" />
+    
+
+    
+<script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer Blog</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/hangeul/">한글학</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">텍스트 전처리</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/text-preprocessing/" class="article-date">
+                <time datetime='2020-02-05T23:37:38.000&#43;03:00' itemprop="datePublished">2020-02-05</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p><strong>텍스트 전처리</strong>(text preprocessing)은 입력 데이터셋에 섞여 있는 불필요한 노이즈를 제거하거나 데이터를 일관성있게 만드는 정규화 과정을 포함합니다. 자연어 처리를 진행에 필수 과정으로 입니다. 일반적으로 전처리 단계에서 크게 두가지 타입의 태스크를 수행합니다.</p>
+<ul>
+<li>노이즈 제거(Noise removal)</li>
+<li>텍스트 정규화(Normalization)</li>
+</ul>
+<p>노이즈 제거는 불필요한 태그 제거, 특수 문자 제거, 공백 제거등 실질 데이터와 무관한 문자를 삭제해 데이터 처리를 용이하게 하는 과정입니다. 텍스트 정규화(Text normalization)는 계산량을 줄이기 위한 목적으로 대표적으로 오타 교정, 대소문자 치환, 숫자 치환,  불용어 삭제, 스테밍, 렘마티제이션을 처리 과정입니다.</p>
+<h2 id="1--">1. 노이즈 제거</h2>
+<h3 id="-">태그 제거</h3>
+<p>HTML 태그 제거는 Beautiful 스프를 이용하면 좋습니다. Beautiful는 파스 트리를 탐색해 XML, html에 대한 검색, 생성, 수정을 수행할 수 있습니다. 설치 방법은 간단합니다.</p>
+<p>우분투/데비안(python3)</p>
+<pre><code>apt-get install python3-bs4
+</code></pre><p>맥OS</p>
+<pre><code>pip install beautifulsoup4
+</code></pre><p>설치를 마치면 간단히 테스트해볼 수 있습니다. 예를 들어 soup에서 제공하는 pretty() 함수 기능은 아래와 같이 사용합니다.</p>
+<pre><code>from bs4 import BeautifulSoup
+
+html_doc = &quot;&quot;&quot;  
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Happygrammer's story&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;p class=&quot;title&quot;&gt;&lt;b&gt;Happygrammer's story&lt;/b&gt;&lt;/p&gt;
+&lt;p class=&quot;story&quot;&gt;Hello, Happygrammer World
+&lt;a href=&quot;http://happygrammer.com/hello&quot; class=&quot;sister&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,
+&lt;a href=&quot;http://example.com/happy&quot; class=&quot;sister&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;
+&quot;&quot;&quot;
+
+soup = BeautifulSoup(html_doc, 'html.parser')
+print(soup.prettify())
+</code></pre><p>html_doc 개체는 검색, 생성, 수정에 활용됩니다.</p>
+<pre><code>from bs4 import BeautifulSoup
+soup = BeautifulSoup(html_doc, 'html.parser')
+
+print(soup.prettify())
+soup.title
+# &lt;title&gt;The Dormouse's story&lt;/title&gt;
+
+soup.title.name
+# u'title'
+
+soup.title.string
+# u'The Dormouse's story'
+
+soup.title.parent.name
+# u'head'
+
+soup.p
+# &lt;p class=&quot;title&quot;&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;
+
+soup.p['class']
+# u'title'
+
+soup.a
+# &lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;
+
+soup.find_all('a')
+# [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]
+
+soup.find(id=&quot;link3&quot;)
+# &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;
+</code></pre><p>이때 hrml 태그를 제거한 텍스트를 얻으려면 &ldquo;html.parser&rdquo; 인자 값을 넘깁니다.</p>
+<pre><code>def removeHtmlTags(text):
+    soup = BeautifulSoup(text, &quot;html.parser&quot;)
+    txt = soup.get_text(separator=&quot; &quot;)
+    return txt
+</code></pre><h2 id="2--">2. 데이터 정규화</h2>
+<h3 id="--1">숫자 치환</h3>
+<table>
+<thead>
+<tr>
+<th>치환전</th>
+<th>치환후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>$ 300</td>
+<td>300 달러</td>
+</tr>
+<tr>
+<td>삼백만원</td>
+<td>300 만원</td>
+</tr>
+</tbody>
+</table>
+<h3 id="heading">스테밍</h3>
+<p>스테밍(stemming)은 어형 변화를 일으키는 접사(의존 형태소)를 제거하여 어간을 분리하는 처리입니다. 어간은 어근과 접사를 포함합니다. 예를 보겠습니다.</p>
+<table>
+<thead>
+<tr>
+<th>단어</th>
+<th>어간</th>
+<th>어미</th>
+<th>어근</th>
+<th>접사</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>간단하다</td>
+<td>덧부</td>
+<td>다</td>
+<td>붙</td>
+<td>덧, 이</td>
+</tr>
+</tbody>
+</table>
+<p>스테밍은 변형 단어들을 어근(root)으로 치환해 계산량을 줄이려는 목적이 있습니다. 한글에서 어근은 단어의 실질적인 의미로 조사 외의 8품사에만 어근이 존재합니다. 조사를 제외한 8품사는 <code>명사, 대명사, 수사, 동사, 형용사, 관형사, 부사, 감탄사</code> 가 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>단어</th>
+<th>출력(접두사)</th>
+<th>출력(어근)</th>
+<th>출력(접미사)</th>
+<th>출력(어미)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>간단하다</td>
+<td></td>
+<td>간단</td>
+<td>하</td>
+<td>다</td>
+</tr>
+<tr>
+<td>거무스름하다</td>
+<td></td>
+<td>거무스름</td>
+<td>하</td>
+<td>다</td>
+</tr>
+<tr>
+<td>그만하다</td>
+<td></td>
+<td>그만</td>
+<td>하</td>
+<td>다</td>
+</tr>
+<tr>
+<td>샛노랗다</td>
+<td>샛</td>
+<td>노랗</td>
+<td></td>
+<td>다</td>
+</tr>
+<tr>
+<td>짓밞히다</td>
+<td>짓</td>
+<td>밟</td>
+<td>히</td>
+<td>다</td>
+</tr>
+</tbody>
+</table>
+<p>스테밍을 처리할때 어근은 다른 형태소(접두사, 접미사, 어미)와 분리합니다. 어근에는 접미사가 붙는 경우가 많은데 역할이 어근에 붙어 의미를 더해주는 역할을 합니다.</p>
+<p>[스테밍 처리 생략]</p>
+<table>
+<thead>
+<tr>
+<th>단어</th>
+<th>어근</th>
+<th>접미사</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>지우개</td>
+<td>지우</td>
+<td>개</td>
+</tr>
+<tr>
+<td>먹이</td>
+<td>먹</td>
+<td>이</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1--">1. 노이즈 제거</a>
+      <ul>
+        <li><a href="#-">태그 제거</a></li>
+      </ul>
+    </li>
+    <li><a href="#2--">2. 데이터 정규화</a>
+      <ul>
+        <li><a href="#--1">숫자 치환</a></li>
+        <li><a href="#heading">스테밍</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/math/probaility/joint-probability/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">결합 확률 분포&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Happygrammer Blog
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

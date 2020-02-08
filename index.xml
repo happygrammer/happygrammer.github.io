@@ -6,7 +6,7 @@
     <description>Recent content on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 05 Feb 2020 23:37:38 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 07 Feb 2020 01:08:14 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>텍스트 전처리</title>
       <link>https://happygrammer.github.io/nlp/text-preprocessing/</link>
-      <pubDate>Wed, 05 Feb 2020 23:37:38 +0300</pubDate>
+      <pubDate>Fri, 07 Feb 2020 01:08:14 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/nlp/text-preprocessing/</guid>
       <description>텍스트 전처리(text preprocessing)은 입력 데이터셋에 섞여 있는 불필요한 노이즈를 제거하거나 데이터를 일관성있게 만드는 정규화 과정을 포함합니다. 자연어 처리를 진행에 필수 과정으로 입니다. 일반적으로 전처리 단계에서 크게 두가지 타입의 태스크를 수행합니다.

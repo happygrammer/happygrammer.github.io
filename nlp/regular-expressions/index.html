@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>정규식을 활용한 전처리 // Happygrammer Blog</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="정규식을 활용한 전처리" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/regular-expressions/" />
+    
+
+    
+<script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer Blog</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/hangeul/">한글학</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">정규식을 활용한 전처리</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/regular-expressions/" class="article-date">
+                <time datetime='2020-02-05T23:37:38.000&#43;03:00' itemprop="datePublished">2020-02-05</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>정규식(regular expressions) 프로그래밍 언어 내장된 문자열 처리를 위한 프로그래밍 언어입니다. 텍스트 데이터서 원하는 패턴을 찾거나, 찾은 패턴을 치환할때 사용할 수 있습니다. 예를 들어 이메일 주소, 전화번호, 우편번호 등과 같이 널리 사용되는 형식의 패턴을 추출 하거나 문자열 분리, 삭제, 치환 등의 텍스트 정제에 사용할 수 있습니다.</p>
+<h3 id="--">정규식 메타 문자열</h3>
+<p>메타 문자열은 정규식에서 문자열 매치 할 때 사용하는 문자열입니다. 다음과 같은 문자열이 있습니다.</p>
+<pre><code>. ^ $ * + ? { } [ ] \ | ( )
+</code></pre><h3 id="-">정규식 패턴</h3>
+<table>
+<thead>
+<tr>
+<th>정규식 패턴</th>
+<th>정규식 축약 패턴</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>[0-9]</td>
+<td>\d</td>
+<td>숫자(0-9)에 매칭합니다.</td>
+</tr>
+<tr>
+<td>[^0-9]</td>
+<td>\D</td>
+<td>숫자가 아닌 문자열에 매칭합니다.</td>
+</tr>
+<tr>
+<td>[ \t\n\r\f\v]</td>
+<td>\s</td>
+<td>모든 공백 문자와 매칭합니다.</td>
+</tr>
+<tr>
+<td>[^ \t\n\r\f\v]</td>
+<td>\S</td>
+<td>공백이 아닌 문자열에 매칭합니다.</td>
+</tr>
+<tr>
+<td>[a-zA-Z0-9_]</td>
+<td>\w</td>
+<td>알파벳, 숫자, 언더바 문자열에 매칭합니다.</td>
+</tr>
+<tr>
+<td>[^a-zA-Z0-9_]</td>
+<td>\W</td>
+<td>알파벳, 숫자, 언더바 문자열가 아닌 문자열에 매칭합니다.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="---1">정규식 내장 메서드</h3>
+<p>위에서 정의한 정규식 매칭시 사용할 수 있는 파이썬 메서드는 다음과 같습니다.</p>
+<table>
+<thead>
+<tr>
+<th align="left">Method/Attribute</th>
+<th align="left">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>match()</code></td>
+<td align="left">정규식을 문자열의 첫 문자부터 마지막 문자 까지 정확히 매칭되는지</td>
+</tr>
+<tr>
+<td align="left"><code>search()</code></td>
+<td align="left">정규식에 매칭되는 문자열을 탐색</td>
+</tr>
+<tr>
+<td align="left"><code>findall()</code></td>
+<td align="left">정규식에 매칭되는 모든 부분 문자열을 찾아 목록 혀태로 반환함</td>
+</tr>
+<tr>
+<td align="left"><code>finditer()</code></td>
+<td align="left">정규식에 매칭되는 모든 부분 문자열을 찾아 iterator로 반환함</td>
+</tr>
+</tbody>
+</table>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#--">정규식 메타 문자열</a></li>
+        <li><a href="#-">정규식 패턴</a></li>
+        <li><a href="#---1">정규식 내장 메서드</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/nlp/text-preprocessing/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            텍스트 전처리
+        </div>
+    </a>
+    
+    
+    <a href="/math/probaility/joint-probability/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">결합 확률 분포&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Happygrammer Blog
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

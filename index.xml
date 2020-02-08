@@ -22,6 +22,17 @@
     </item>
     
     <item>
+      <title>정규식을 활용한 전처리</title>
+      <link>https://happygrammer.github.io/nlp/regular-expressions/</link>
+      <pubDate>Wed, 05 Feb 2020 23:37:38 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/regular-expressions/</guid>
+      <description>정규식(regular expressions) 프로그래밍 언어 내장된 문자열 처리를 위한 프로그래밍 언어입니다. 텍스트 데이터서 원하는 패턴을 찾거나, 찾은 패턴을 치환할때 사용할 수 있습니다. 예를 들어 이메일 주소, 전화번호, 우편번호 등과 같이 널리 사용되는 형식의 패턴을 추출 하거나 문자열 분리, 삭제, 치환 등의 텍스트 정제에 사용할 수 있습니다.
+정규식 메타 문자열 메타 문자열은 정규식에서 문자열 매치 할 때 사용하는 문자열입니다. 다음과 같은 문자열이 있습니다.
+. ^ $ * + ? { } [ ] \ | ( ) 정규식 패턴    정규식 패턴 정규식 축약 패턴      [0-9] \d 숫자(0-9)에 매칭합니다.</description>
+    </item>
+    
+    <item>
       <title>결합 확률 분포</title>
       <link>https://happygrammer.github.io/math/probaility/joint-probability/</link>
       <pubDate>Wed, 05 Feb 2020 01:33:53 +0300</pubDate>

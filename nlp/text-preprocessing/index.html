@@ -78,12 +78,12 @@
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <p><strong>텍스트 전처리</strong>(text preprocessing)은 입력 데이터셋에 섞여 있는 불필요한 노이즈를 제거하거나 데이터를 일관성있게 만드는 정규화 과정을 포함합니다. 자연어 처리를 진행에 필수 과정으로 입니다. 일반적으로 전처리 단계에서 크게 두가지 타입의 태스크를 수행합니다.</p>
+            <p><strong>텍스트 전처리</strong>(text preprocessing)은 입력 데이터셋에 섞여 있는 불필요한 노이즈를 제거하거나 데이터를 일관성있게 만드는 정규화 과정을 포함합니다. 전처리는 크게 두 단계의 작업을 수행합니다.</p>
 <ul>
-<li>노이즈 제거(Noise removal)</li>
-<li>텍스트 정규화(Normalization)</li>
+<li>노이즈 제거</li>
+<li>텍스트 정규화</li>
 </ul>
-<p>노이즈 제거는 불필요한 태그 제거, 특수 문자 제거, 공백 제거등 실질 데이터와 무관한 문자를 삭제해 데이터 처리를 용이하게 하는 과정입니다. 텍스트 정규화(Text normalization)는 계산량을 줄이기 위한 목적으로 대표적으로 오타 교정, 대소문자 치환, 숫자 치환,  불용어 삭제, 스테밍, 렘마티제이션을 처리 과정입니다.</p>
+<p>노이즈 제거(Noise removal)는 불필요한 태그 제거, 특수 문자 제거, 구두점 제거, 공백 제거등 실질 데이터와 무관한 문자를 삭제해 단어나 문장 인식을 명확히 할 수 있도록 만드는 전 처리 단계입니다. 텍스트 정규화(Text normalization)는 계산량을 줄이기 위한 처리입니다. 텀 매트릭스의 차원 축소(dimensionally reduction)을 축소해 계산을 빠르고 효율적이도록 합니다. 텍스트 정규화의 예로 오타 교정, 대소문자 치환, 숫자 치환,  불용어 삭제, 스테밍, 렘마티제이션를 처리하는 과정입니다. 이러한 전 처리 과정이 이뤄지고 나면 단어 단위로 토큰화를 하거나, 문장 분리 등을 처리하게 됩니다.</p>
 <h2 id="1--">1. 노이즈 제거</h2>
 <h3 id="-">태그 제거</h3>
 <p>HTML 태그 제거는 Beautiful 스프를 이용하면 좋습니다. Beautiful는 파스 트리를 탐색해 XML, html에 대한 검색, 생성, 수정을 수행할 수 있습니다. 설치 방법은 간단합니다.</p>
@@ -143,8 +143,11 @@ soup.find(id=&quot;link3&quot;)
     soup = BeautifulSoup(text, &quot;html.parser&quot;)
     txt = soup.get_text(separator=&quot; &quot;)
     return txt
+</code></pre><h3 id="--1">구두점 제거</h3>
+<p>구두점 제거는 간단합니다.</p>
+<pre><code>out = &quot;&quot;.join(c for c in asking if c not in ('!','.',':'))
 </code></pre><h2 id="2--">2. 데이터 정규화</h2>
-<h3 id="--1">숫자 치환</h3>
+<h3 id="--2">숫자 치환</h3>
 <table>
 <thead>
 <tr>
@@ -269,11 +272,12 @@ soup.find(id=&quot;link3&quot;)
     <li><a href="#1--">1. 노이즈 제거</a>
       <ul>
         <li><a href="#-">태그 제거</a></li>
+        <li><a href="#--1">구두점 제거</a></li>
       </ul>
     </li>
     <li><a href="#2--">2. 데이터 정규화</a>
       <ul>
-        <li><a href="#--1">숫자 치환</a></li>
+        <li><a href="#--2">숫자 치환</a></li>
         <li><a href="#heading">스테밍</a></li>
       </ul>
     </li>
@@ -290,9 +294,15 @@ soup.find(id=&quot;link3&quot;)
     </div>
     <nav id="article-nav">
     
+    <a href="/hangeul/punctuation-mark/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            한글에서 사용하는 문장 부호 부호
+        </div>
+    </a>
     
-    <a href="/nlp/appendix/regular-expressions/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">전처리를 위한 정규식 정리&nbsp;<span>&gt;</span></div>
+    
+    <a href="/nlp/regular-expressions/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">자연어 처리를 위한 정규식&nbsp;<span>&gt;</span></div>
     </a>
     
 </nav>

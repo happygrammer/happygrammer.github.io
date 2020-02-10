@@ -6,10 +6,21 @@
     <description>Recent content on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 09 Feb 2020 10:03:15 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 10 Feb 2020 23:38:39 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>NLP 데이터셋 소개</title>
+      <link>https://happygrammer.github.io/nlp/dataset/</link>
+      <pubDate>Mon, 10 Feb 2020 23:38:39 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/dataset/</guid>
+      <description>SQuAD 최근에는 기계 독해를 평가하기 위한 SQuAD(The Stanford Question Answering Dataset)와 같은 위키피디아 기반 데이터 셋이 있습니다. 이 데이터셋은 기계 독해 알고리즘을 객관적으로 평가할 수 있는 데이터 셋으로 알고리즘의 우수성을 평가하기 위해 해리 보드를 운영하고 있습니다. 전체 데이터셋의 사이이즈는 학습셋은 40MB, 개발 셋은 4MB정도에 불과합니다.
+ https://rajpurkar.github.io/SQuAD-explorer/  SQuAD 2.0 데이터 셋의 구조는 다음과 같습니다.
+{ &amp;quot;version&amp;quot;: &amp;quot;v2.0&amp;quot;, &amp;quot;data&amp;quot;: [ { &amp;quot;title&amp;quot;: &amp;quot;Normans&amp;quot;, &amp;quot;paragraphs&amp;quot;: [ { &amp;quot;qas&amp;quot;: [ { &amp;quot;question&amp;quot;: &amp;quot;In what country is Normandy located?</description>
+    </item>
     
     <item>
       <title>한글에서 사용하는 문장 부호</title>

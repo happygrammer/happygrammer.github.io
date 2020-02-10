@@ -3,14 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://happygrammer.github.io/hangeul/</loc>
-    <lastmod>2020-02-09T10:03:15+03:00</lastmod>
+    <loc>https://happygrammer.github.io/</loc>
+    <lastmod>2020-02-10T23:38:39+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/</loc>
+    <loc>https://happygrammer.github.io/nlp/dataset/</loc>
+    <lastmod>2020-02-10T23:38:39+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/nlp/</loc>
+    <lastmod>2020-02-10T23:38:39+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/hangeul/</loc>
     <lastmod>2020-02-09T10:03:15+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -19,13 +33,6 @@
   <url>
     <loc>https://happygrammer.github.io/hangeul/punctuation-mark/</loc>
     <lastmod>2020-02-09T10:03:15+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/nlp/</loc>
-    <lastmod>2020-02-07T01:08:14+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -12,15 +12,15 @@
     
     
     <item>
-      <title>구글 센텐스피스</title>
-      <link>https://happygrammer.github.io/nlp/sentence-piece/</link>
+      <title>서브워드 모델</title>
+      <link>https://happygrammer.github.io/nlp/sub-words-model/</link>
       <pubDate>Tue, 11 Feb 2020 08:17:33 +0300</pubDate>
       
-      <guid>https://happygrammer.github.io/nlp/sentence-piece/</guid>
-      <description>구글 센텐스피스는 비지도 기반의 서브 워드 텍스트 토크나이저(unsupervised text tokenizer)이면서 디토크나이저(detokenizer)입니다. 센텐스피스는 입력 문장(unicode 가정)을 받아 언어에 의존하지 않은 서브 워드 모델을 학습할 수 있습니다. 토크나이저이면서 디토크나이저인 이유는 인코딩과 디코딩 처리를 하기 때문입니다.
-  인코딩 : 단어 목록을 입력으로 받으면, 각 단어의 서브 워드(sub-word)의 인덱스를 생성합니다.
-  디코딩 : 서브 워드 인덱스를 토큰으로 만들고 텍스트로 만듭니다.
-  인코딩은 서브워드 단위 유닛(subword unites)을 만들기 위한 세그멘테이션을 수행하는 과정입니다. 센텐스피스는 세그멘테이션을 위해 두가지 방식을 이용합니다.</description>
+      <guid>https://happygrammer.github.io/nlp/sub-words-model/</guid>
+      <description>서브워드 알고리즘 서브워드와 관련한 유명한 알고리즘은 다음 네가지가 있습니다.
+ Byte Pair Encoding (BPE) WordPiece Unigram Language Model SentencePiece  BPE Byte Pair Encoding (BPE)는 서브 워드 사전 구축에 사용되는 알고리즘입니다.
+WordPiece 워드 피스(WordPiece)는 일본어와 한국어의 음성 문제를 해결 하기 위해 나온 모델입니다.(2012년) 워드 피스는 BPE와 유사하며 차이점은 새로운 서브 워드를 만들 수 있다는 점입니다.
+Unigram 모델 쿠도 연주자가 소개한 방법입니다. 하나의 가정은 모든 서브워드는 독립적인 이며 서브 워드 시퀀스이 나타날 확률은 서브 워드 확률에 결정된다는 점입니다.</description>
     </item>
     
     <item>

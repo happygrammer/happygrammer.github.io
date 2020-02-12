@@ -67,6 +67,39 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/sentence-piece/">구글 센텐스피스</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/sentence-piece/" class="article-date">
+                        <time datetime='2020-02-11T08:17:33.000&#43;03:00' itemprop="datePublished">2020-02-11</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    구글 센텐스피스는 비지도 기반의 서브 워드 텍스트 토크나이저(unsupervised text tokenizer)이면서 디토크나이저(detokenizer)입니다. 센텐스피스는 입력 문장(unicode 가정)을 받아 언어에 의존하지 않은 서브 워드 모델을 학습할 수 있습니다. 토크나이저이면서 디토크나이저인 이유는 인코딩과 디코딩 처리를 하기 때문입니다.
+  인코딩 : 단어 목록을 입력으로 받으면, 각 단어의 서브 워드(sub-word)의 인덱스를 생성합니다.
+  디코딩 : 서브 워드 인덱스를 토큰으로 만들고 텍스트로 만듭니다.
+  인코딩은 서브워드 단위 유닛(subword unites)을 만들기 위한 세그멘테이션을 수행하는 과정입니다. 센텐스피스는 세그멘테이션을 위해 두가지 방식을 이용합니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/sentence-piece/">Read More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/nlp/dataset/">NLP 데이터셋 소개</a></h1>
                 </header>
                 
@@ -339,37 +372,6 @@ P(W)=P(w1,w2,w3,...,wn) 즉, n개의 단어를 하나의 시퀀스로 보고 단
                     </p>
                     <p class="article-more-link">
                         <a href="/nlp/language-models/">Read More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/nlp/intro-nlp/">자연어 처리란 무엇인가?</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/nlp/intro-nlp/" class="article-date">
-                        <time datetime='2020-01-29T00:37:57.000&#43;03:00' itemprop="datePublished">2020-01-29</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    자연어 처리는 컴퓨터가 사람의 언어를 이해하고 컴퓨터와 사람이 상호 작용할 수 있도록 돕는 기술입니다. 자연어 처리의 궁극적인 목표는 컴퓨터가 사람과 같은 언어지능(linguistic Intelligence)을 갖추도록 하는 것 입니다. 언어지능은 사람의 언어 이해하고 다시 사람의 언어로 표현할 수 있는 능력입니다. 컴퓨터가 사람의 언어를 이해하면 사람 처럼 주어진 문제를 해결 하거나 언어에 나타난 말들을 개념화해 생각할 수 있는 추상화 추론(abstract reasoning) 능력도 갖출 수 있게 됩니다.
-자연어와 인공어 자연어(natural languge)는 사람이 일상적으로 사용하는 언어이며 사람과 사람이 의사 소통을 위해 자연적으로 발생한 언어입니다.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/nlp/intro-nlp/">Read More</a>
                     </p>
                 </div>
 

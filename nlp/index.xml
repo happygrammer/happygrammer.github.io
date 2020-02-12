@@ -6,10 +6,22 @@
     <description>Recent content in Nlps on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Feb 2020 23:38:39 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2020 08:17:33 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/nlp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>구글 센텐스피스</title>
+      <link>https://happygrammer.github.io/nlp/sentence-piece/</link>
+      <pubDate>Tue, 11 Feb 2020 08:17:33 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/sentence-piece/</guid>
+      <description>구글 센텐스피스는 비지도 기반의 서브 워드 텍스트 토크나이저(unsupervised text tokenizer)이면서 디토크나이저(detokenizer)입니다. 센텐스피스는 입력 문장(unicode 가정)을 받아 언어에 의존하지 않은 서브 워드 모델을 학습할 수 있습니다. 토크나이저이면서 디토크나이저인 이유는 인코딩과 디코딩 처리를 하기 때문입니다.
+  인코딩 : 단어 목록을 입력으로 받으면, 각 단어의 서브 워드(sub-word)의 인덱스를 생성합니다.
+  디코딩 : 서브 워드 인덱스를 토큰으로 만들고 텍스트로 만듭니다.
+  인코딩은 서브워드 단위 유닛(subword unites)을 만들기 위한 세그멘테이션을 수행하는 과정입니다. 센텐스피스는 세그멘테이션을 위해 두가지 방식을 이용합니다.</description>
+    </item>
     
     <item>
       <title>NLP 데이터셋 소개</title>

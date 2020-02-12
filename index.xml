@@ -6,10 +6,22 @@
     <description>Recent content on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 10 Feb 2020 23:38:39 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 11 Feb 2020 08:17:33 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>구글 센텐스피스</title>
+      <link>https://happygrammer.github.io/nlp/sentence-piece/</link>
+      <pubDate>Tue, 11 Feb 2020 08:17:33 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/sentence-piece/</guid>
+      <description>구글 센텐스피스는 비지도 기반의 서브 워드 텍스트 토크나이저(unsupervised text tokenizer)이면서 디토크나이저(detokenizer)입니다. 센텐스피스는 입력 문장(unicode 가정)을 받아 언어에 의존하지 않은 서브 워드 모델을 학습할 수 있습니다. 토크나이저이면서 디토크나이저인 이유는 인코딩과 디코딩 처리를 하기 때문입니다.
+  인코딩 : 단어 목록을 입력으로 받으면, 각 단어의 서브 워드(sub-word)의 인덱스를 생성합니다.
+  디코딩 : 서브 워드 인덱스를 토큰으로 만들고 텍스트로 만듭니다.
+  인코딩은 서브워드 단위 유닛(subword unites)을 만들기 위한 세그멘테이션을 수행하는 과정입니다. 센텐스피스는 세그멘테이션을 위해 두가지 방식을 이용합니다.</description>
+    </item>
     
     <item>
       <title>NLP 데이터셋 소개</title>
@@ -123,6 +135,18 @@ P(W)=P(w1,w2,w3,...,wn) 즉, n개의 단어를 하나의 시퀀스로 보고 단
       
       <guid>https://happygrammer.github.io/nlp/postag-set/</guid>
       <description>POS tagging(part-of-speech tagging)은 형태소 분석 결과 분류된 품사를 태깅하는 작업을 의미합니다.여기서 품사는 단어의 공통 성질을 갈래 지어 놓은 이름을 말합니다. 태깅시 사용하는 품사에 대응하는 약속은 품사 태그(POS Tag : part-of-speech tag)라 하며 이들 품사 태그의 모음을 품사 태그 셋(tag set)이라고 합니다. 품사 부착 말뭉치(corpus)는 품사 태그가 부착된 말뭉치를 의미합니다. 고품질의 품사 부착 말뭉치의 규모가 커지면 언어 연구 진행이 용이해집니다. 이 문서에는 품사 태그셋을 소개하기에 앞서 한국어와 영어의 품사를 소개하고, 영어의 품사 태그셋과 한국어의 품사 태그셋(POS Tag Set)을 소개합니다.</description>
+    </item>
+    
+    <item>
+      <title>MAC 단축키 가이드</title>
+      <link>https://happygrammer.github.io/guide/mac/</link>
+      <pubDate>Sun, 19 Jan 2020 12:55:50 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/guide/mac/</guid>
+      <description>본 문서는 MAC 단축키를 소개하는 단축키 가이드입니다. 맥 OS를 이용하면서 가장 자주 이용할만한 단축키를 선별해서 소개하는데 목적이 있습니다.
+조합키 기호 맥에서 다른 키와 조합시 사용하는 조합키 기호입니다.
+command ⌘ shift ⇧ option ⌥ control ⌃
+단축키 목록    단축키 조합 설명     ⌘ + H 현재 창을 숨김   ⌘ + F3 모든 창을 숨김   ⌘ + TAB 창 사이 이동   ⌘ + W 크롬, 사파리 브라우저 사용시 탭 닫기   ^ + 방향키 열린창 이동   ⌘ + 번호키 크롬, 사파리 브라우저 사용시 해당 번호에 해당하는 탭으로 이동   ^ + ⇧ + TAB 현재창 종료   ⌘+⌥+i 크롬 소스코드 보기   ⌘+⌥+ESC 프로세스 강제 종료창 띄우기                </description>
     </item>
     
     <item>

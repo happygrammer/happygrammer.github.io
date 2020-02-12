@@ -4,20 +4,27 @@
   
   <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2020-02-10T23:38:39+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/nlp/dataset/</loc>
-    <lastmod>2020-02-10T23:38:39+03:00</lastmod>
+    <lastmod>2020-02-11T08:17:33+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://happygrammer.github.io/nlp/</loc>
+    <lastmod>2020-02-11T08:17:33+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/nlp/sentence-piece/</loc>
+    <lastmod>2020-02-11T08:17:33+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/nlp/dataset/</loc>
     <lastmod>2020-02-10T23:38:39+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -108,6 +115,20 @@
   </url>
   
   <url>
+    <loc>https://happygrammer.github.io/guide/</loc>
+    <lastmod>2020-01-19T12:55:50+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/guide/mac/</loc>
+    <lastmod>2020-01-19T12:55:50+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://happygrammer.github.io/papers/bert/</loc>
     <lastmod>2020-01-16T23:41:40+03:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -131,13 +152,6 @@
   <url>
     <loc>https://happygrammer.github.io/pytorch/</loc>
     <lastmod>2020-01-16T22:09:54+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/guide/</loc>
-    <lastmod>2020-01-16T01:17:18+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

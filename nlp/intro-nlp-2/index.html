@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>자연어 처리 과정 // Happygrammer Blog</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="자연어 처리 과정" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/intro-nlp-2/" />
+    
+
+    
+<script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer Blog</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/hangeul/">한글학</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">자연어 처리 과정</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/intro-nlp-2/" class="article-date">
+                <time datetime='2020-02-13T06:53:03.000&#43;03:00' itemprop="datePublished">2020-02-13</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>컴퓨터가 사람의 언어를 이해하기 위해 일반적으로 다음과 같은 처리 과정을 거칩니다.</p>
+<pre><code>텍스트 입력 → 형태소 분석 → 구문 분석 → 의미 분석 → 화용 분석 → 분석 결과 출력
+</code></pre><p><strong>형태소 분석</strong>(morphological analysis)은 자연어의 최소 의미인 형태소를 식별하는 언어 처리 과정입니다. <strong>구문 분석</strong>(syntax analysis)은 주어, 동사, 목적어등의 문장성분을 판별해 문장성분에 따른 문장 구조를 분석하는 과정입니다. 문장성분을 분석하기 위해 구문 분석기(parser)를 이용해 구문 분석을 수행합니다. 구문 분석 후 나타난 구조 애매성등의 해결이 필요하며, 구문 분석을 마치면 <strong>의미 분석</strong>(semantic analysis)단계를 진행합니다. 의미 분석은 형태소의 실재 의미가 무엇인지를 판별하는 과정입니다. 의미 분석과 관련한 작업의 예로 개체명 분석(named entity recognition)이 있습니다. 개체명 분석은 명, 지명, 기관명, 숫자 등과 같이 사전 정의된 카테고리로 태깅해 의미를 분석하는 작업을 가르킵니다. 이후 <strong>화용 분석</strong> 단계로 대명사가 지시하는 대용어(anaphora)가 무엇인지 찾아내고, 화자가 원하는 행위(speech act)가 무엇인지를 분석 하는 과정입니다. 이러한 과정을 거쳐 최종적으로 분석된 결과를 출력합니다.</p>
+<h3 id="-">형태소 분석</h3>
+<p>자연어 처리 과정은 자연어인 텍스트를 입력으로 받는데서 시작합니다. 형태소 분석**(morphological analysis)**은 자연어의 최소 의미인 형태소를 식별하는 언어 처리 과정입니다. 형태소 분석이 나온 배경을 알기 위해 형태론(morphorlogy)에 대해 살펴볼 필요가 있습니다. 형태론은 자연어에 나타난 문자의 형태를 세가지 관점으로 보고 있습니다.</p>
+<ul>
+<li>Lexeme 형태론</li>
+<li>word 기반 형태론</li>
+<li>Morpheme 형태론</li>
+</ul>
+<p>이 중 Morpheme 형태론의 관점에 대한 처리가 형태소 분석**(morphological analysis)**입니다.</p>
+<p>형태소 분석의 예시를 보겠습니다. 입력으로 자연어 텍스트가 주어지고 가장 작은 의미 단위인 형태소를 식별하는 예시입니다. 형태소 분석 결과를 얻기 위해 NLTK 결과를 이용했습니다.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>단어</th>
+<th>POS 태깅 결과</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>the manufacture of cars</td>
+<td>the/DT manufacture/NN of/IN cars/NNS</td>
+</tr>
+<tr>
+<td>2</td>
+<td>We manufacture memory products</td>
+<td>We/PRP manufacture/VBP memory/NN products/NNS</td>
+</tr>
+<tr>
+<td>3</td>
+<td>manufacture steel products</td>
+<td>manufacture/NN steel/NN products/NNS</td>
+</tr>
+</tbody>
+</table>
+<p>형태소 분석은 형태소 애매성(morphological ambiguity)을 해결하는 것이 중요합니다. 형태소 애매성의 예로 형태는 동일하지만 사용하는 품사가 다른 경우가 있습니다. manufacture는 명사로 생산이라는 의미지만, 동사로 제조하다, 생산하다라는 의미를 포함합니다. 위 예시에서 1, 2는 의미에 적절하게 태깅이 처리 되었습니다. 1의 예에서 manufacture는 생산(NN)이라고 분석하였습니다. 2의 예에서 manufacture는 동사로 사용되었습니다. 따라서 manufacture/VBP로 분석 되었습니다. 3번째의 케이스는 형태소 분석 오류를 일으켰습니다. manufacture가 생산하다라는 의미지만 명사로 분석 된 것 입니다. 형태소 분석 분야에서는 형태소 분석 오류를 줄이는 것이 필요합니다.</p>
+<h3 id="--1">구문 분석</h3>
+<p><strong>구문 분석</strong>(syntax analysis)은 주어, 동사, 목적어등의 문장성분을 판별해 문장성분에 따른 문장 구조를 분석하는 과정입니다. 문장성분을 분석하기 위해 구문 분석기(parser)를 이용해 구문 분석을 수행합니다. 구문 분석 후 나타난 구조 애매성등의 해결이 필요합니다.</p>
+<h3 id="--2">의미 분석</h3>
+<p><strong>의미 분석</strong>(semantic analysis)단계를 진행합니다. 의미 분석은 형태소의 실재 의미가 무엇인지를 판별하는 과정입니다. 의미 분석과 관련한 작업의 예로 개체명 분석(named entity recognition)이 있습니다. 개체명 분석은 명, 지명, 기관명, 숫자 등과 같이 사전 정의된 카테고리로 태깅해 의미를 분석하는 작업을 가르킵니다.</p>
+<h3 id="--3">화용 분석</h3>
+<p>대명사가 지시하는 대용어(anaphora)가 무엇인지 찾아내고, 화자가 원하는 행위(speech act)가 무엇인지를 분석 하는 과정입니다.</p>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-">형태소 분석</a></li>
+        <li><a href="#--1">구문 분석</a></li>
+        <li><a href="#--2">의미 분석</a></li>
+        <li><a href="#--3">화용 분석</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/nlp/sub-words-model/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">서브워드 모델&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Happygrammer Blog
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

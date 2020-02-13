@@ -6,10 +6,20 @@
     <description>Recent content on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 11 Feb 2020 08:17:33 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 13 Feb 2020 06:53:03 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>자연어 처리 과정</title>
+      <link>https://happygrammer.github.io/nlp/intro-nlp-2/</link>
+      <pubDate>Thu, 13 Feb 2020 06:53:03 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/intro-nlp-2/</guid>
+      <description>컴퓨터가 사람의 언어를 이해하기 위해 일반적으로 다음과 같은 처리 과정을 거칩니다.
+텍스트 입력 → 형태소 분석 → 구문 분석 → 의미 분석 → 화용 분석 → 분석 결과 출력 형태소 분석(morphological analysis)은 자연어의 최소 의미인 형태소를 식별하는 언어 처리 과정입니다. 구문 분석(syntax analysis)은 주어, 동사, 목적어등의 문장성분을 판별해 문장성분에 따른 문장 구조를 분석하는 과정입니다. 문장성분을 분석하기 위해 구문 분석기(parser)를 이용해 구문 분석을 수행합니다. 구문 분석 후 나타난 구조 애매성등의 해결이 필요하며, 구문 분석을 마치면 의미 분석(semantic analysis)단계를 진행합니다.</description>
+    </item>
     
     <item>
       <title>서브워드 모델</title>

@@ -6,10 +6,19 @@
     <description>Recent content on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Feb 2020 06:53:03 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 14 Feb 2020 01:10:05 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Towards a Human-like Open-Domain Chatbot 논문, 리서치 리뷰</title>
+      <link>https://happygrammer.github.io/papers/meena/</link>
+      <pubDate>Fri, 14 Feb 2020 01:10:05 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/papers/meena/</guid>
+      <description>Meena는 멀티턴 도메인 챗봇. end-to-end 방식의 데이터 학습 진행. public 도메인인 소셜 미디어 대화를 대사으로 하였음. 2.6B 파라메터 뉴럴넷. 다음 토큰의 perplexity가 최소화 되도록 학습됨. We also propose a human evaluation metric called Sensibleness and Specificity Average (SSA), which captures key elements of a human-like multi-turn conversation. Our experiments show strong correlation between perplexity and SSA. The fact that the best perplexity end-to-end trained Meena scores high on SSA (72% on multi-turn evaluation) suggests that a human-level SSA of 86% is potentially within reach if we can better optimize perplexity.</description>
+    </item>
     
     <item>
       <title>자연어 처리 과정</title>

@@ -4,7 +4,21 @@
   
   <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2020-02-13T06:53:03+03:00</lastmod>
+    <lastmod>2020-02-14T01:10:05+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/papers/</loc>
+    <lastmod>2020-02-14T01:10:05+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/papers/meena/</loc>
+    <lastmod>2020-02-14T01:10:05+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -137,13 +151,6 @@
   
   <url>
     <loc>https://happygrammer.github.io/papers/bert/</loc>
-    <lastmod>2020-01-16T23:41:40+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/papers/</loc>
     <lastmod>2020-01-16T23:41:40+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Towards a Human-like Open-Domain Chatbot 논문, 리서치 리뷰 // Happygrammer Blog</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Towards a Human-like Open-Domain Chatbot 논문, 리서치 리뷰" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/papers/meena/" />
+    
+
+    
+<script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer Blog</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/hangeul/">한글학</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">Towards a Human-like Open-Domain Chatbot 논문, 리서치 리뷰</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/papers/meena/" class="article-date">
+                <time datetime='2020-02-14T01:10:05.000&#43;03:00' itemprop="datePublished">2020-02-14</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>Meena는 멀티턴 도메인 챗봇. end-to-end 방식의 데이터 학습 진행. public 도메인인 소셜 미디어 대화를 대사으로 하였음. 2.6B 파라메터 뉴럴넷. 다음 토큰의 perplexity가 최소화 되도록 학습됨. We also propose a human evaluation metric called Sensibleness and Specificity Average (SSA), which captures key elements of a human-like multi-turn conversation. Our experiments show strong correlation between perplexity and SSA. The fact that the best perplexity end-to-end trained Meena scores high on SSA (72% on multi-turn evaluation) suggests that a human-level SSA of 86% is potentially within reach if we can better optimize perplexity. Additionally, the full version of Meena (with a filtering mechanism and tuned decoding) scores 79% SSA, 23% higher in absolute SSA than the existing chatbots we evaluated.</p>
+<h3 id="introduction">Introduction</h3>
+<p>we present Meena, a generative chatbot model that was trained end-to-end on 40B words mined and filtered from public domain social media conversations. With Meena, we push the limits of the end-to-end approach and show that a largescale low-perplexity model can be a good conversationalist. We use a s<strong>eq2seq model</strong> (Sutskever et al., 2014; Bahdanau et al., 2015) with the Evolved Transformer (So et al., 2019) as the main architecture. The model is trained on <strong>multi-turn conversations</strong> where the input sequence is all turns of the context (up to 7) and the output sequence is the response. Our best model has <strong>2.6B parameters</strong> and achieves a test perplexity of 10.2 based on a vocabulary of 8K <strong>BPE subwords</strong> (Sennrich et al., 2016).</p>
+<h3 id="meena-chatbot">Meena chatbot</h3>
+<p>Meena chatbot은 end-to-end 대화 모델이며 2개의 카테고리로 나뉨</p>
+<ul>
+<li>(1) complex models with human-designed components</li>
+<li>(2) 큰 뉴럴넷 모델(end-to-end 모델)은 일반 학습 프레임워크에 가까움. End-to-end은 유망하나 한계가 있음 (Gao et al., 2019a)</li>
+</ul>
+<p>An open question has been: in order to reach a point where a model can carry out high-quality, multi-turn conversations with humans, could we simply take an end-to-end model and make it bigger—by adding more training data and increasing its parameter count—or is it necessary to combine such a model with other components? In this section we describe the Meena model, the largest end-to-end model to enter the field so far. We believe it answers the open research question, by showing that a large end-toend model can generate almost humanlike chat responses in an open-domain setting. In this section, we will describe the training data, architecture, and decoding algorithm. We will also provide a few sample conversations that Meena has had with humans.</p>
+<h2 id="-">논문 링크</h2>
+<p><a href="https://arxiv.org/abs/2001.09977?fbclid=IwAR2-Ob6mlon0hqInSINRMmHDyo9Sigr4Y7rvlZFgaq-iuHOGP5k5NHPIUf4">https://arxiv.org/abs/2001.09977</a></p>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#meena-chatbot">Meena chatbot</a></li>
+      </ul>
+    </li>
+    <li><a href="#-">논문 링크</a></li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/nlp/intro-nlp-2/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">자연어 처리 과정&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Happygrammer Blog
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

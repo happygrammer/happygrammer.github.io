@@ -6,10 +6,43 @@
     <description>Recent content in Tensorflow2s on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 18 Feb 2020 07:39:29 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 18 Feb 2020 08:00:08 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/tensorflow2/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Serving 클라이언트 API</title>
+      <link>https://happygrammer.github.io/tensorflow2/serving-client-api/</link>
+      <pubDate>Tue, 18 Feb 2020 08:00:08 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow2/serving-client-api/</guid>
+      <description>RESTful API In addition to gRPC APIs TensorFlow ModelServer also supports RESTful APIs. This page describes these API endpoints and an end-to-end example on usage.
+The request and response is a JSON object. The composition of this object depends on the request type or verb. See the API specific sections below for details.
+In case of error, all APIs will return a JSON object in the response body with error as key and the error message as the value:</description>
+    </item>
+    
+    <item>
+      <title>Serving 서버 API</title>
+      <link>https://happygrammer.github.io/tensorflow2/serving-server-api/</link>
+      <pubDate>Tue, 18 Feb 2020 08:00:00 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow2/serving-server-api/</guid>
+      <description>TensorFlow 서빙 API 레퍼런스 tensorflow::serving
+   Classes      tensorflow::serving::AspiredVersionPolicy An interface for the policy to be applied for transitioning servable versions in a servable stream.   tensorflow::serving::AspiredVersionPolicy::ServableAction Action and the id of the servable associated with it.   tensorflow::serving::AspiredVersionsManager A manager that implements the Target&amp;lt;Loader&amp;gt; API which uses aspired-versions callbacks to dictate which servable versions to load.   tensorflow::serving::AspiredVersionsManager::Options Config options and pluggable objects that will be used by the AspiredVersionsManager.</description>
+    </item>
+    
+    <item>
+      <title>서빙 아키텍처 개요</title>
+      <link>https://happygrammer.github.io/tensorflow2/serving-architecture-overview/</link>
+      <pubDate>Tue, 18 Feb 2020 07:45:19 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow2/serving-architecture-overview/</guid>
+      <description>텐서 플로 서빙은 유영하며 머신러닝을 위한 고수준 서빙 모델입니다. 제품 환경을 고려해 디자인 됐습니다. 텐서 플로 서빙은 동일 서버 아키텍처와 API를 유지하고 새로운 알고리즘과 환경을 손쉽게 deploy있습니다. 텐서 플로 서빙은 텐서 플로 모델을 즉시 통합할 수 있고, 다른 타입의 모델과 데이터로 확장할 수 있습니다.
+키 컨셉 텐서 플로 서빙 아키텍처 이해를 위해서, 키 컨셉을 이해 할 필요가 있습니다.
+Servables
+Servables은 텐서 플로 서빙의 주요 개념입니다. Servables은 Servables은 클라이언트가 계산 할 때 사용하는 기본 개체입니다.</description>
+    </item>
     
     <item>
       <title>서빙 모델</title>
@@ -17,7 +50,7 @@
       <pubDate>Tue, 18 Feb 2020 07:39:29 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/tensorflow2/serving/</guid>
-      <description>텐서 플로 서빙은 유영하며 머신러닝을 위한 고수준 서빙 모델입니다. 제품 환경을 고려해 디자인 됐습니다. 텐서 플로 서빙은 동일 서버 아키텍처와 API를 유지하고 새로운 알고리즘과 실행을 손쉽게 deploy있습니다. 텐서 플로 서빙은 텐서 플로 모델을 즉시 통합할 수 있고, 다른 타입의 모델과 데이터로 확장할 수 있습니다.
+      <description>텐서 플로 서빙은 유영하며 머신러닝을 위한 고수준 서빙 모델입니다. 제품 환경을 고려해 디자인 됐습니다. 텐서 플로 서빙은 동일 서버 아키텍처와 API를 유지하고 새로운 알고리즘과 환경을 손쉽게 deploy있습니다. 텐서 플로 서빙은 텐서 플로 모델을 즉시 통합할 수 있고, 다른 타입의 모델과 데이터로 확장할 수 있습니다.
 텐서 플로 서빙의 자세한 개발 문서는 아래와 같습니다.
  Architecture Overview Server API REST Client API  </description>
     </item>

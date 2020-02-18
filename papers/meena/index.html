@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Towards a Human-like Open-Domain Chatbot 논문, 리서치 리뷰 // Happygrammer Blog</title>
+    <title>Meena 논문, 리서치 리뷰 // Happygrammer Blog</title>
 
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -10,7 +10,7 @@
     
     
 
-        <meta property="og:title" content="Towards a Human-like Open-Domain Chatbot 논문, 리서치 리뷰" />
+        <meta property="og:title" content="Meena 논문, 리서치 리뷰" />
     <meta property="og:description" content="" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en" />
@@ -66,7 +66,7 @@
     <div class="article-inner">
         
         <header class="article-header">
-            <h1 class="article-title" itemprop="name">Towards a Human-like Open-Domain Chatbot 논문, 리서치 리뷰</h1>
+            <h1 class="article-title" itemprop="name">Meena 논문, 리서치 리뷰</h1>
         </header>
         
         <div class="article-meta">
@@ -78,7 +78,8 @@
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <p>Meena는 멀티턴 도메인 챗봇. end-to-end 방식의 데이터 학습 진행. public 도메인인 소셜 미디어 대화를 대사으로 하였음. 2.6B 파라메터 뉴럴넷. 다음 토큰의 perplexity가 최소화 되도록 학습됨. We also propose a human evaluation metric called Sensibleness and Specificity Average (SSA), which captures key elements of a human-like multi-turn conversation. Our experiments show strong correlation between perplexity and SSA. The fact that the best perplexity end-to-end trained Meena scores high on SSA (72% on multi-turn evaluation) suggests that a human-level SSA of 86% is potentially within reach if we can better optimize perplexity. Additionally, the full version of Meena (with a filtering mechanism and tuned decoding) scores 79% SSA, 23% higher in absolute SSA than the existing chatbots we evaluated.</p>
+            <p>이 문서는 <a href="https://arxiv.org/abs/2001.09977">Meena 논문</a>의  연구 결과를 되짚어 보기 위한 리서치 리뷰 문서이며 새로운 연구 결과를 포함하고 있지 않습니다.</p>
+<p>Meena는 멀티턴 도메인 챗봇. end-to-end 방식의 데이터 학습 진행. public 도메인인 소셜 미디어 대화를 대사으로 하였음. 2.6B 파라메터 뉴럴넷. 다음 토큰의 perplexity가 최소화 되도록 학습됨. We also propose a human evaluation metric called Sensibleness and Specificity Average (SSA), which captures key elements of a human-like multi-turn conversation. Our experiments show strong correlation between perplexity and SSA. The fact that the best perplexity end-to-end trained Meena scores high on SSA (72% on multi-turn evaluation) suggests that a human-level SSA of 86% is potentially within reach if we can better optimize perplexity. Additionally, the full version of Meena (with a filtering mechanism and tuned decoding) scores 79% SSA, 23% higher in absolute SSA than the existing chatbots we evaluated.</p>
 <h3 id="introduction">Introduction</h3>
 <p>we present Meena, a generative chatbot model that was trained end-to-end on 40B words mined and filtered from public domain social media conversations. With Meena, we push the limits of the end-to-end approach and show that a largescale low-perplexity model can be a good conversationalist. We use a s<strong>eq2seq model</strong> (Sutskever et al., 2014; Bahdanau et al., 2015) with the Evolved Transformer (So et al., 2019) as the main architecture. The model is trained on <strong>multi-turn conversations</strong> where the input sequence is all turns of the context (up to 7) and the output sequence is the response. Our best model has <strong>2.6B parameters</strong> and achieves a test perplexity of 10.2 based on a vocabulary of 8K <strong>BPE subwords</strong> (Sennrich et al., 2016).</p>
 <h3 id="meena-chatbot">Meena chatbot</h3>

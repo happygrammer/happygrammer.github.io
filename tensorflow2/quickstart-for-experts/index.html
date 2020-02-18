@@ -136,7 +136,7 @@ model = MyModel()
 <pre><code>loss_object = tf.keras.losses.SparseCategoricalCrossentropy()
 
 optimizer = tf.keras.optimizers.Adam()
-</code></pre><p>loss 와 모델의 accuracy를 측정 되도록 측정이 epochs가 반복될 수 있도록 누적될 수 있게하고 전체적인 결과를 출려할 수 있게 설정합니다.</p>
+</code></pre><p>loss 와 모델의 accuracy를 측정 되도록 측정이 epochs가 반복될 수 있도록 누적될 수 있게하고 전체적인 결과를 출력할 수 있게 설정합니다.</p>
 <pre><code>train_loss = tf.keras.metrics.Mean(name='train_loss')
 train_accuracy = tf.keras.metrics.SparseCategoricalAccuracy(name='train_accuracy')
 

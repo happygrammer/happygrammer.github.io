@@ -4,7 +4,21 @@
   
   <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2020-02-14T01:10:05+03:00</lastmod>
+    <lastmod>2020-02-18T07:39:29+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/tensorflow2/</loc>
+    <lastmod>2020-02-18T07:39:29+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/tensorflow2/serving/</loc>
+    <lastmod>2020-02-18T07:39:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -194,13 +208,6 @@
   <url>
     <loc>https://happygrammer.github.io/nlp/wsd/</loc>
     <lastmod>2020-01-15T06:41:24+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/tensorflow2/</loc>
-    <lastmod>2020-01-15T06:40:34+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

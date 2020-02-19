@@ -6,10 +6,19 @@
     <description>Recent content in Nlps on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 13 Feb 2020 06:53:03 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 19 Feb 2020 07:01:31 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/nlp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>NLTK를 이용한 자연어 처리</title>
+      <link>https://happygrammer.github.io/nlp/nltk/</link>
+      <pubDate>Wed, 19 Feb 2020 07:01:31 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/nltk/</guid>
+      <description>NLTK(Natural Language Toolkit)는 언어 처리 기능을 제공하는 파이썬 라이브러리입니다. 손쉽게 이용할 수 있도록 모듈 형식으로 제공하고 있습니다. 이러한 모듈의 범주로 분류 토큰화(tokenization), 스테밍(stemming)와 같은 언어 전처리 모듈 부터 구문분석(parsing)과 같은 언어 분석, 클러스터링, 감정 분석(sentiment analysis), 태깅(tagging)과 같은 분석 모듈 시맨틱 추론(semantic reasoning)과 같이 보다 고차원 적인 추론 모듈도 제공하고 있습니다. 각 모듈에서 사용하는 알고리즘은 최소 2개 이상의 알고리즘을 제공하고 있어, 사용자가 원하는 알고리즘을 폭넓게 사용할 수 있도록 돕습니다. 예를 들어 분류 알고리즘의 경우 SVMs, 나이브 베이즈(Naive Bayes), 로지스틱 회귀(logistic regression)와 결정 트리(decision trees)를 제공하고 있고 이들 중 하나를 선택해 분류 알고리즘을 적용할 수 있습니다.</description>
+    </item>
     
     <item>
       <title>자연어 처리 과정</title>

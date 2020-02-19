@@ -4,7 +4,21 @@
   
   <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2020-02-18T08:00:08+03:00</lastmod>
+    <lastmod>2020-02-19T07:01:31+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/nlp/</loc>
+    <lastmod>2020-02-19T07:01:31+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/nlp/nltk/</loc>
+    <lastmod>2020-02-19T07:01:31+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -54,13 +68,6 @@
   <url>
     <loc>https://happygrammer.github.io/papers/</loc>
     <lastmod>2020-02-14T01:10:05+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/nlp/</loc>
-    <lastmod>2020-02-13T06:53:03+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

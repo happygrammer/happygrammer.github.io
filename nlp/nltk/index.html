@@ -115,11 +115,44 @@ print(&quot;개수 : {}&quot;.format(len(words)))
 <pre><code>단어 : ['Gen', '.', '1', ':', '1', 'In', 'the', 'beginning', ...]
 개수 : 1102788
 </code></pre><h3 id="heading">불용어</h3>
-<p>불용어(Stopwords)는 높은 빈도수의 어휘로 입니다. 불용어와 같은 고빈도 어휘들은 영어 뿐 아니라 대부분의 언어에 존재합니다. 불용어 활용의 예로 검색 엔진의 인덱싱 과정에서 불용어를 제거 함으로서 보다 효율적인 인덱싱(indexing)을 수행하게 합니다. NLTK에서는 자연어 처리 전처리에 필요한 용더로 불용어를 지원합니다. NLTK에서 지원하는 불용어는 별도 다운로드가 필요합니다.</p>
+<p>불용어(Stopwords)는 높은 빈도수로 사용되는 고빈도 어휘 입니다. 불용어와 같은 고빈도 어휘들은 영어 뿐 아니라 대부분의 언어에 존재합니다. 불용어 활용의 예로 검색 엔진의 인덱싱 과정에서 입니다. 검색 엔진에서는 색인어를 생성하는 과정을 인덱싱(indexing)이라 합니다. 인덱싱에서 역 인덱싱(inverted indexing)은 사용자 검색어의 관련 문서를 빠르게 찾을 수 있도록 하는 색인 구축 방식입니다. 예를 들어 구글 트렌드의 인기 검색어 그룹중 &ldquo;What is&hellip;&ldquo;와 관련한 1위 검색어는 &ldquo;What is Area 51&quot;였습니다. 역 인덱싱 방식으로 구축 하면 다음과 같습니다.</p>
+<table>
+<thead>
+<tr>
+<th align="center">단어</th>
+<th align="center">문서</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">What</td>
+<td align="center">문서 1, 문서 3, 문서 5</td>
+</tr>
+<tr>
+<td align="center">is</td>
+<td align="center">문서 2, 문서 3</td>
+</tr>
+<tr>
+<td align="center">Area 51</td>
+<td align="center">문서 5</td>
+</tr>
+</tbody>
+</table>
+<p>위 예시에서 What, is는 고빈도 어휘로 불용어입니다. 해당 단어를 인덱싱할 때 제거 한다면 인덱싱의 속도와 검색 효율성을 높일 수 있습니다. 자연어 처리에서 워드 임베딩 구축시 활용할 수 있습니다. Tomas Mikolov 연구자가 발표현 word2vec 알고리즘의 제안 <a href="https://papers.nips.cc/paper/5021-distributed-representations-of-words-and-phrases-and-their-compositionality.pdf">논문</a> 에 따르면 임베딩 구축시 고빈도 어휘 제거를 통해 2배~10배의 성능 향상과 정확율 향상이 있음을 밝혔습니다.</p>
+<p>NLTK에서는 자연어 처리 전처리에 필요한 용더로 불용어를 지원합니다. NLTK에서 지원하는 불용어는 별도 다운로드가 필요합니다.</p>
 <p>/nltk/stopwords-download.py</p>
 <pre><code>import nltk
 nltk.download('stopwords')
-</code></pre><p>다운로드 마치고 불용어 목록을 확인할 수 있습니다.</p>
+</code></pre><p>다운로드 마치고 나서 설치가 잘 되었는지 확인하겠습니다.</p>
+<p>/nltk/stopwords-language.py</p>
+<pre><code>from nltk.corpus import stopwords
+fileids = stopwords.fileids()
+print(&quot;지원 언어 개수 : {}&quot;.format(len(fileids)))
+print(&quot;지원 언어 목록 : {}&quot;.format(fileids))
+</code></pre><p>[실행결과]</p>
+<pre><code>지원 언어 개수 : 23
+지원 언어 목록 : ['arabic', 'azerbaijani', 'danish', 'dutch', 'english', 'finnish', 'french', 'german', 'greek', 'hungarian', 'indonesian', 'italian', 'kazakh', 'nepali', 'norwegian', 'portuguese', 'romanian', 'russian', 'slovene', 'spanish', 'swedish', 'tajik', 'turkish']
+</code></pre><p>한국어는 지원 언어 목록에 없는 것으로 확인할 수 있습니다. 영어에 대한 불용어 목록 확인은 다음과 같이 할 수 있습니다.</p>
 <pre><code>from nltk.corpus import stopwords
 listStopWords = stopwords.words('english')
 print(listStopWords)

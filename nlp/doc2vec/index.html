@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>서빙 모델 // Happygrammer Blog</title>
+    <title>Doc2vec를 이용한 문서의 벡터 변환 // Happygrammer Blog</title>
 
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -10,11 +10,11 @@
     
     
 
-        <meta property="og:title" content="서빙 모델" />
+        <meta property="og:title" content="Doc2vec를 이용한 문서의 벡터 변환" />
     <meta property="og:description" content="" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en" />
-    <meta property="og:url" content="https://happygrammer.github.io/tensorflow2/serving/" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/doc2vec/" />
     
 
     
@@ -66,33 +66,79 @@
     <div class="article-inner">
         
         <header class="article-header">
-            <h1 class="article-title" itemprop="name">서빙 모델</h1>
+            <h1 class="article-title" itemprop="name">Doc2vec를 이용한 문서의 벡터 변환</h1>
         </header>
         
         <div class="article-meta">
-            <a href="/tensorflow2/serving/" class="article-date">
-                <time datetime='2020-02-18T07:39:29.000&#43;03:00' itemprop="datePublished">2020-02-18</time>
+            <a href="/nlp/doc2vec/" class="article-date">
+                <time datetime='2020-02-23T17:19:48.000&#43;03:00' itemprop="datePublished">2020-02-23</time>
             </a>
             
             
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <p>텐서 플로 서빙은 유영하며 머신러닝을 위한 고수준 서빙 모델입니다. 제품 환경을 고려해 디자인 됐습니다. 텐서 플로 서빙은 동일 서버 아키텍처와 API를 유지하고 새로운 알고리즘과 환경을 손쉽게 deploy있습니다. 텐서 플로 서빙은  텐서 플로 모델을 즉시 통합할 수 있고, 다른 타입의 모델과 데이터로 확장할 수 있s습니다.</p>
-<p>텐서 플로 서빙의 자세한 개발 문서는 아래와 같습니다.</p>
-<ul>
-<li><a href="https://www.tensorflow.org/tfx/serving/architecture">Architecture Overview</a></li>
-<li><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/">Server API</a></li>
-<li><a href="https://www.tensorflow.org/tfx/serving/api_rest">REST Client API</a></li>
-</ul>
+            <p>Doc2Vec(Document Embedding with Paragraph Vectors)은 Word2Vec에서 확장된 알고리즘입니다. Doc2Vec은 다량의 코퍼스를 문서 임베딩시에 훌륭한 성능을 보여줍니다. Word2VecDoc2Vec과 Word2Vec이 무엇이 다른지 다음 표로 정리했습니다.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Word2Vec</th>
+<th>Doc2Vec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>년도</td>
+<td>2013년</td>
+<td><a href="https://arxiv.org/abs/1507.07998">2015년</a></td>
+</tr>
+<tr>
+<td>저자</td>
+<td><a href="https://en.wikipedia.org/wiki/Tomas_Mikolov">Tomas Mikolov</a> 와 동료들</td>
+<td><a href="https://arxiv.org/search/cs?searchtype=author&amp;query=Dai%2C+A+M">Andrew M. Dai</a> 와 동료들</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>word vector</td>
+<td>word vecotr + paragraph vector</td>
+</tr>
+<tr>
+<td>주요 모델</td>
+<td>CBOW<!-- raw HTML omitted -->Skip Gram</td>
+<td>PV-DM model<!-- raw HTML omitted -->PV-DBOW</td>
+</tr>
+</tbody>
+</table>
+<p>Doc2Vec은 기존 Word2Vec모델을 확장하기 위해 paragraph vector를 제안했습니다. paragraph vector는 기존 word vector(window 사이즈내 단어 고려)에 paragraph matrix를 합한 벡터가 입니다. 이러한 paragraph vector에 대한 모델이 PV-DM(Distributed Memory version of Paragraph Vector)입니다.</p>
+<p><img src="../doc2vec/PV-DM.png" alt=""></p>
+<p>이때, word vector를 제외하고 paragraph vector만을 이용해 학습을 진행하는 모델을 PV-DBOW(Distributed Bag of Words version of Paragraph Vector)라고 제안합니다. 이 모델은 word vector(문맥 단어)를 고려하지 않고 paragraph vector만을 사용해  단어 예측을 수행합니다.</p>
+<p><img src="../doc2vec/PV-DBOW.png" alt=""></p>
+<h3 id="gensim--doc2vec">GenSim을 이용한 Doc2Vec</h3>
+<pre><code>from gensim.test.utils import common_texts
+from gensim.models.doc2vec import Doc2Vec, TaggedDocument
 
+documents = [TaggedDocument(doc, [i]) for i, doc in enumerate(common_texts)]
+model = Doc2Vec(documents, vector_size=5, window=2, min_count=1, workers=4)
+inferred = model.infer_vector([&quot;system&quot;, &quot;response&quot;])
+sims = model.docvecs.most_similar([inferred])
+print(sims)
+</code></pre>
         </div>
 
         
         
         <div class="article-toc" >
             <h3>Contents</h3>
-            <nav id="TableOfContents"></nav>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#gensim--doc2vec">GenSim을 이용한 Doc2Vec</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
         </div>
         
         
@@ -104,15 +150,9 @@
     </div>
     <nav id="article-nav">
     
-    <a href="/tensorflow2/serving-architecture-overview/" id="article-nav-newer" class="article-nav-link-wrap">
-        <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            서빙 아키텍처 개요
-        </div>
-    </a>
     
-    
-    <a href="/papers/meena/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">Meena 논문, 리서치 리뷰&nbsp;<span>&gt;</span></div>
+    <a href="/nlp/nltk/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">NLTK를 이용한 자연어 처리&nbsp;<span>&gt;</span></div>
     </a>
     
 </nav>

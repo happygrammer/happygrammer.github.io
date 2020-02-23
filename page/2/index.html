@@ -67,6 +67,37 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/hangeul/punctuation-mark/">한글에서 사용하는 문장 부호</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/hangeul/punctuation-mark/" class="article-date">
+                        <time datetime='2020-02-09T10:03:15.000&#43;03:00' itemprop="datePublished">2020-02-09</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    문장 부호는 문장간의 관계나 문장 내의 논리 구조를 명시해 정확한 의미 전달에 필요한 부호입니다. 본 글은 2017에 고시된 한글 맞춤법 일부 개정안의 문장 부호들을 소개한 문장 부호 해설을 참고 하였습니다.
+문장 부호 표     의미 사용 예제     1. 마침표(.) 서술, 명령, 청유 등을 나타내는 문장 부호의 끝에 사용 제 손을 꼭 잡으세요.   2. 물음표(?) 의문문이나 의문을 나타내는 어구의 끝에 사용 점심 먹었어?
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/hangeul/punctuation-mark/">Read More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/nlp/text-preprocessing/">텍스트 전처리</a></h1>
                 </header>
                 
@@ -175,9 +206,8 @@
                 <div class="article-entry" itemprop="articleBody">
                     <p>
                         
-                    Word2vec은 워드 고품질의 워드 벡터를 생성하는 임베딩 태스크에 사용할 수 있는 모델입니다. 구글의 Tomas Mikolov이 만든 기술입니다. 2013년 이 모델의 특성은 layer가 2개인 뉴럴넷을 이용합니다. Word2vec을 실행하면 입력으로 대규모 텍스트 코퍼스를 수백 차원의 벡터 스페이스(vector space)로 만듭니다. 기존 LSA(latent semantic analysis)에 비해 여러 장점이 있습니다.
- 계산 비용이 적습니다. 정확도(accuracy)가 개선 됐습니다.  gensim 설치 pip install --upgrade gensim gensim api word2vec model 호출
-import gensim.downloader as api wv = api.
+                    Word2vec은 워드 고품질의 워드 벡터를 생성하는 임베딩 태스크에 사용할 수 있는 모델입니다. 구글의 Tomas Mikolov이 2013년에 논문으로 발표했습니다. 이 논문에서 소개하는 단어 예측 모델로 크게 CBOW와 Skip-gram을 소개합니다. CBOW는 Context 정보를 활용해 현재 단어를 예측 하는 모델이라면 Skip-gram은 현재 워드 주변의 단어를 예측하는 모델입니다. Word2vec을 실행하면 입력으로 대규모 텍스트 코퍼스를 수백 차원의 벡터 스페이스(vector space)로 만듭니다. 기존 LSA(latent semantic analysis)에 비해 여러 장점이 있습니다.
+ 계산 비용이 적습니다. 정확도(accuracy)가 개선 됐습니다.
                     </p>
                     <p class="article-more-link">
                         <a href="/nlp/word2vec/">Read More</a>
@@ -240,7 +270,7 @@ import gensim.downloader as api wv = api.
                 <div class="article-entry" itemprop="articleBody">
                     <p>
                         
-                    n-gram 모델은 자연어 처리, 정보 검색 등에서 활용이 되는 시퀀스 데이터 표현 방식입니다. 자연어 처리에서는 문서 또는 문장을 벡터로 변환해 자연어 처리의 여러 응용 분야에 활용할 수 있도록 합니다. 예를 들어 다음 단어를 예측해야 하는 오타 교정과 같은 분야에 활용될 수 있습니다. 정보 검색에서는 문서에 나타난 단어들의 분포들을 고려해 문서 간의 유사도 계산해 문서 분류(document classification)에 활용합니다. ngram에서 n은 연속된 단어의 개수를 의미합니다. 여기서 각 단어는 토큰(token)이라 하며 토큰 개수(n)에 따라 다음과 같이 부릅니다.
+                    Bag-Of-Word는 순서를 단어 순서를 고려하지 않고 출현 빈도만 고려합니다. Bag-Of-Words 관점에서 &ldquo;The dog bite you&quot;와 &ldquo;You bite the dog&quot;의 의미는 완전히 동일합니다. 이후 이러한 순서 적인 약점을 보완하기 위해 n-gram이 등장하게 됐습니다. n-gram 모델은 자연어 처리, 정보 검색 등에서 활용이 되는 시퀀스 데이터 표현 방식입니다. 자연어 처리에서는 문서 또는 문장을 벡터로 변환해 자연어 처리의 여러 응용 분야에 활용할 수 있도록 합니다. 예를 들어 다음 단어를 예측해야 하는 오타 교정과 같은 분야에 활용될 수 있습니다.
                     </p>
                     <p class="article-more-link">
                         <a href="/nlp/n-gram-model/">Read More</a>
@@ -337,39 +367,6 @@ P(W)=P(w1,w2,w3,...,wn) 즉, n개의 단어를 하나의 시퀀스로 보고 단
                     </p>
                     <p class="article-more-link">
                         <a href="/nlp/postag-set/">Read More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/guide/mac/">MAC 단축키 가이드</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/guide/mac/" class="article-date">
-                        <time datetime='2020-01-19T12:55:50.000&#43;03:00' itemprop="datePublished">2020-01-19</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    본 문서는 MAC 단축키를 소개하는 단축키 가이드입니다. 맥 OS를 이용하면서 가장 자주 이용할만한 단축키를 선별해서 소개하는데 목적이 있습니다.
-조합키 기호 맥에서 다른 키와 조합시 사용하는 조합키 기호입니다.
-command ⌘ shift ⇧ option ⌥ control ⌃
-단축키 목록 for MAC    단축키 조합 설명     ⌘ + H 현재 창을 숨김   ⌘ + F3 모든 창을 숨김   ⌘ + TAB 창 사이 이동   ⌘ + W 크롬, 사파리 브라우저 사용시 탭 닫기   ^ + 방향키 열린창 이동   ⌘ + 번호키 크롬, 사파리 브라우저 사용시 해당 번호에 해당하는 탭으로 이동   ^ + ⇧ + TAB 현재창 종료   ⌘+⌥+i 크롬 소스코드 보기   ⌘+⌥+ESC 프로세스 강제 종료창 띄우기   ⌘ + ` | 현재 프로그램 창 내에서 창전환 |             시스템 관리 메뉴 for MAC    맥 이름 윈도우 대응 역할     할성 상태 보기 작업 관리자 프로세스별 CPU, 메모리, 에너지, 디스크, 네트워크 사용율 보기                   
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/guide/mac/">Read More</a>
                     </p>
                 </div>
 

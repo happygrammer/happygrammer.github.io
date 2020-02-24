@@ -157,6 +157,13 @@
   </url>
   
   <url>
+    <loc>https://happygrammer.github.io/nlp/bow/</loc>
+    <lastmod>2020-01-31T01:21:05+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://happygrammer.github.io/nlp/n-gram-model/</loc>
     <lastmod>2020-01-31T01:21:05+03:00</lastmod>
     <changefreq>monthly</changefreq>

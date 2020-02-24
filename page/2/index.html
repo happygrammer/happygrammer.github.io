@@ -256,6 +256,37 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/bow/">Bag-Of-Words 모델</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/bow/" class="article-date">
+                        <time datetime='2020-01-31T01:21:05.000&#43;03:00' itemprop="datePublished">2020-01-31</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    Bag-Of-Words Bag-Of-Word는 순서를 단어 순서를 고려하지 않고 출현 빈도만 고려합니다. Bag-Of-Words 관점에서 &ldquo;the dog bite you&quot;와 &ldquo;you bite the dog&quot;는 어순은 다르지만 동일한 벡터로 표현 되어 동일한 문장으로 취급됩니다. 이들 두 문장에 대한 BoW를 만드는 방법은 두 단계로 진행합니다.
+ 데이터 준비 : 텍스트를 수집합니다. 그리고 토큰화(tokenize)를 합니다. 어휘 벡터 만들기 : 단어를 토큰화(tokenize) 하여 어휘(vocabulary 벡터(0으로 초기화된 zero 벡터)를 만듭니다. 단어가 문서에 있으면 1, 단어가 문서에 없으면 0으로 표시합니다.  {&quot;the&quot;:1, &quot;dog&quot;:1, &quot;bite&quot;:1 ,&quot;you&quot;,1} {&quot;the&quot;:1, &quot;dog&quot;:1, &quot;bite&quot;:1 ,&quot;you&quot;,1} BoW를 코드로 구현해 보겠습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/bow/">Read More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/nlp/n-gram-model/">n-gram 모델</a></h1>
                 </header>
                 
@@ -270,7 +301,7 @@
                 <div class="article-entry" itemprop="articleBody">
                     <p>
                         
-                    Bag-Of-Word는 순서를 단어 순서를 고려하지 않고 출현 빈도만 고려합니다. Bag-Of-Words 관점에서 &ldquo;The dog bite you&quot;와 &ldquo;You bite the dog&quot;의 의미는 완전히 동일합니다. 이후 이러한 순서 적인 약점을 보완하기 위해 n-gram이 등장하게 됐습니다. n-gram 모델은 자연어 처리, 정보 검색 등에서 활용이 되는 시퀀스 데이터 표현 방식입니다. 자연어 처리에서는 문서 또는 문장을 벡터로 변환해 자연어 처리의 여러 응용 분야에 활용할 수 있도록 합니다. 예를 들어 다음 단어를 예측해야 하는 오타 교정과 같은 분야에 활용될 수 있습니다.
+                    n-gram 모델 n-gram 모델은 자연어 처리, 정보 검색 등에서 활용이 되는 시퀀스 데이터 표현 방식입니다. 자연어 처리에서는 문서 또는 문장을 벡터로 변환해 자연어 처리의 여러 응용 분야에 활용할 수 있도록 합니다. 예를 들어 다음 단어를 예측해야 하는 오타 교정과 같은 분야에 활용될 수 있습니다. 정보 검색에서는 문서에 나타난 단어들의 분포들을 고려해 문서 간의 유사도 계산해 문서 분류(document classification)에 활용합니다. ngram에서 n은 연속된 단어의 개수를 의미합니다. 여기서 각 단어는 토큰(token)이라 하며 토큰 개수(n)에 따라 다음과 같이 부릅니다.
                     </p>
                     <p class="article-more-link">
                         <a href="/nlp/n-gram-model/">Read More</a>
@@ -337,36 +368,6 @@ P(W)=P(w1,w2,w3,...,wn) 즉, n개의 단어를 하나의 시퀀스로 보고 단
                     </p>
                     <p class="article-more-link">
                         <a href="/nlp/intro-nlp/">Read More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/nlp/postag-set/">품사와 품사 태그셋 소개</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/nlp/postag-set/" class="article-date">
-                        <time datetime='2020-01-22T00:46:58.000&#43;03:00' itemprop="datePublished">2020-01-22</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    POS tagging(part-of-speech tagging)은 형태소 분석 결과 분류된 품사를 태깅하는 작업을 의미합니다.여기서 품사는 단어의 공통 성질을 갈래 지어 놓은 이름을 말합니다. 태깅시 사용하는 품사에 대응하는 약속은 품사 태그(POS Tag : part-of-speech tag)라 하며 이들 품사 태그의 모음을 품사 태그 셋(tag set)이라고 합니다. 품사 부착 말뭉치(corpus)는 품사 태그가 부착된 말뭉치를 의미합니다. 고품질의 품사 부착 말뭉치의 규모가 커지면 언어 연구 진행이 용이해집니다. 이 문서에는 품사 태그셋을 소개하기에 앞서 한국어와 영어의 품사를 소개하고, 영어의 품사 태그셋과 한국어의 품사 태그셋(POS Tag Set)을 소개합니다.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/nlp/postag-set/">Read More</a>
                     </p>
                 </div>
 

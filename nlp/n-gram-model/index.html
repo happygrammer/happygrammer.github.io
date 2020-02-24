@@ -78,7 +78,8 @@
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <p>Bag-Of-Word는 순서를 단어 순서를 고려하지 않고 출현 빈도만 고려합니다. Bag-Of-Words 관점에서 &ldquo;The dog bite you&quot;와 &ldquo;You bite the dog&quot;의 의미는 완전히 동일합니다. 이후 이러한 순서 적인 약점을 보완하기 위해 n-gram이 등장하게 됐습니다.  <strong>n-gram</strong> 모델은 자연어 처리, 정보 검색 등에서 활용이 되는 시퀀스 데이터 표현 방식입니다. 자연어 처리에서는 문서 또는 문장을 벡터로 변환해 자연어 처리의 여러 응용 분야에 활용할 수 있도록 합니다. 예를 들어 다음 단어를 예측해야 하는 오타 교정과 같은 분야에 활용될 수 있습니다. 정보 검색에서는 문서에 나타난 단어들의 분포들을 고려해 문서 간의 유사도 계산해 <strong>문서 분류</strong>(document classification)에 활용합니다. ngram에서 n은 연속된 단어의 개수를 의미합니다. 여기서 각 단어는 토큰(token)이라 하며 토큰 개수(n)에 따라 다음과 같이 부릅니다.</p>
+            <h3 id="n-gram-">n-gram 모델</h3>
+<p><strong>n-gram</strong> 모델은 자연어 처리, 정보 검색 등에서 활용이 되는 시퀀스 데이터 표현 방식입니다. 자연어 처리에서는 문서 또는 문장을 벡터로 변환해 자연어 처리의 여러 응용 분야에 활용할 수 있도록 합니다. 예를 들어 다음 단어를 예측해야 하는 오타 교정과 같은 분야에 활용될 수 있습니다. 정보 검색에서는 문서에 나타난 단어들의 분포들을 고려해 문서 간의 유사도 계산해 <strong>문서 분류</strong>(document classification)에 활용합니다. ngram에서 n은 연속된 단어의 개수를 의미합니다. 여기서 각 단어는 토큰(token)이라 하며 토큰 개수(n)에 따라 다음과 같이 부릅니다.</p>
 <ul>
 <li>n=1 : 1-gram(unigram)</li>
 <li>n=2 : 2-gram(bigram)</li>
@@ -225,7 +226,7 @@ for i, vector in enumerate(oneGramVectors):
 <pre><code>동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세  :  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
 보전하세 길이 대한으로 사람 대한 화려강산 삼천리 무궁화 만세 우리나라 보우하사 하느님이 닳도록 마르고 백두산이 물과 동해  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 </code></pre><p>실행 결과에서 확인할 수 있듯이 n-gram의 n이 2이상 부터는 순서가 고려되기 때문에 동일 어휘가 사용된 두 문서라 할지라도 n-gram 벡터는 일치하지 않아 unigram에서 나타난 순서가 바뀌었을때의 문제를 해소할 수 있습니다</p>
-<h3 id="n-gram-">N-Gram의 문제</h3>
+<h3 id="n-gram--1">N-Gram의 문제</h3>
 <p>n-gram은 데이터 표현 방식이 단순 한 반면 크게 다음과 같은 문제가 있습니다.</p>
 <ul>
 <li>데이터 희소성(data sparsity) 문제</li>
@@ -242,11 +243,12 @@ for i, vector in enumerate(oneGramVectors):
   <ul>
     <li>
       <ul>
+        <li><a href="#n-gram-">n-gram 모델</a></li>
         <li><a href="#--">어휘 벡터 생성</a></li>
         <li><a href="#n-gram--">n-gram  모듈</a></li>
         <li><a href="#unigram-">unigram 벡터</a></li>
         <li><a href="#bigram-">bigram 벡터</a></li>
-        <li><a href="#n-gram-">N-Gram의 문제</a></li>
+        <li><a href="#n-gram--1">N-Gram의 문제</a></li>
       </ul>
     </li>
   </ul>
@@ -262,9 +264,9 @@ for i, vector in enumerate(oneGramVectors):
     </div>
     <nav id="article-nav">
     
-    <a href="/hangeul/part-of-speech/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/nlp/bow/" id="article-nav-newer" class="article-nav-link-wrap">
         <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            [한글학] 9품사 5언
+            Bag-Of-Words 모델
         </div>
     </a>
     

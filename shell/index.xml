@@ -6,22 +6,30 @@
     <description>Recent content in Shells on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jan 2020 07:15:14 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 28 Feb 2020 10:39:13 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/shell/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>[쉘스크립트] 날짜와 시간 처리</title>
+      <title>crontab을 이용한 스케쥴 관리</title>
+      <link>https://happygrammer.github.io/shell/crontab/</link>
+      <pubDate>Fri, 28 Feb 2020 10:39:13 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/shell/crontab/</guid>
+      <description>crontab 설정 # ┌───────────── min (0 - 59) # │ ┌────────────── hour (0 - 23) # │ │ ┌─────────────── day of month (1 - 31) # │ │ │ ┌──────────────── month (1 - 12) # │ │ │ │ ┌───────────────── day of week (0 - 6) (0 to 6는 일~토, 7=일) # │ │ │ │ │ # │ │ │ │ │ # * * * * * &amp;lt;실행할 커맨드&amp;gt; crontab 작업 리스트 $ crontab -l crontab 로그 확인 $ cat /var/log/cron crontab 설정 확인 $ cat /var/spool/cron/&amp;lt;user_id&amp;gt; crontab service 상태 확인과 재실행 $ service crond status crond (pid 2994)를 실행하고 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>날짜와 시간 처리</title>
       <link>https://happygrammer.github.io/shell/date-time/</link>
       <pubDate>Wed, 15 Jan 2020 07:15:14 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/shell/date-time/</guid>
-      <description>날짜 포맷 출력(기본 포맷) mm/dd/yy형식으로 날짜 출력
+      <description>시간 설정 $ date -s &amp;quot;2020-02-02 04:00:20&amp;quot; 날짜 포맷 출력(기본 포맷) mm/dd/yy형식으로 날짜 출력
 date +&amp;quot;%D&amp;quot; 날짜 포맷 출력(지정 포맷) yyyy-mm-dd 형식의 날짜 출력
 date &amp;quot;+%Y-%m-%d&amp;quot; echo date # 2020-01-14 시간 출력(기본 포맷) hh-mm-ss 형식의 시간 출력
-date +&amp;quot;%T&amp;quot; # 04:09:51 시간 출력(12시간 기준) date +&amp;quot;%r&amp;quot; # 04:09:51 AM 날짜와 시간 출력(기본 포맷) now=$(date) echo $no # 2020년 1월 15일 수요일 05시 19분 36초 MSK 날짜와 시간 출력(지정 포맷) yyyy-mm-dd_hh-mm-ss 형식으로 출력
-echo $(date +%F_%H-%M-%S) # 2020-01-15_05-12-24 시간 조건 분기(12시간 기준) 쉘 코드로 오전(AM), 오후(PM)에 대한 조건 분기는 다음과 같습니다.</description>
+date +&amp;quot;%T&amp;quot; # 04:09:51 시간 출력(12시간 기준) date +&amp;quot;%r&amp;quot; # 04:09:51 AM 날짜와 시간 출력(기본 포맷) now=$(date) echo $no # 2020년 1월 15일 수요일 05시 19분 36초 MSK 날짜와 시간 출력(지정 포맷) yyyy-mm-dd_hh-mm-ss 형식으로 출력</description>
     </item>
     
     <item>

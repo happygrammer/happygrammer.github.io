@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>오리온의 별 베텔게우스 // Happygrammer Blog</title>
+    <title>crontab을 이용한 스케쥴 관리 // Happygrammer Blog</title>
 
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
@@ -10,11 +10,11 @@
     
     
 
-        <meta property="og:title" content="오리온의 별 베텔게우스" />
+        <meta property="og:title" content="crontab을 이용한 스케쥴 관리" />
     <meta property="og:description" content="" />
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en" />
-    <meta property="og:url" content="https://happygrammer.github.io/astronomy/betelgeuse/" />
+    <meta property="og:url" content="https://happygrammer.github.io/shell/crontab/" />
     
 
     
@@ -66,34 +66,65 @@
     <div class="article-inner">
         
         <header class="article-header">
-            <h1 class="article-title" itemprop="name">오리온의 별 베텔게우스</h1>
+            <h1 class="article-title" itemprop="name">crontab을 이용한 스케쥴 관리</h1>
         </header>
         
         <div class="article-meta">
-            <a href="/astronomy/betelgeuse/" class="article-date">
-                <time datetime='2020-02-25T06:49:47.000&#43;03:00' itemprop="datePublished">2020-02-25</time>
+            <a href="/shell/crontab/" class="article-date">
+                <time datetime='2020-02-28T10:39:13.000&#43;03:00' itemprop="datePublished">2020-02-28</time>
             </a>
             
             
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <p><strong>베텔게우스</strong>(Betelgeuse)는 오리온자리의 좌상 꼭짓점에 위치해 있으며, 지름이 <strong>9억 6500만㎞</strong>로, 태양보다 800배 이상크다. 베텔게우스를 태양계에 두면 목성의 궤도까지 잡아먹을 정도이다.</p>
-<p><img src="../betelgeuse-orion.jpg" alt=""></p>
-<p>지구에서 650광년 떨어진 비교적 가까운 거리에 있으며, 망원경으로 표면 특징을 포착할 수 있는 몇 안 되는 별 중 하나이다. 별의 회전 속도가 시속 1만7700~5만3000㎞(미국천문학회 235차 회의에서 발표됨)라고 한다. 별의 밝기가 어두워져서 곧 초신성으로 폭발하게 될 것이 아닌지 하는 소식이 있다. 초신성이 폭발 했다면 650년 후에나 우주의 불꽃 놀이를 볼 수 있다.</p>
-<p><img src="../betelgeuse.jpg" alt=""></p>
-<ul>
-<li>신성 : 신성은 별의 껍질만 폭발한다. 따라서 한 별에서 신성 현상은 여러 차례 일어날 수 있다.</li>
-<li>초신성 : 보통 신성보다 1만 배 이상 밝으며, 별의 마지막 진화 단계이다. 초신성은 별 자체가 폭발해 사라지기 때문에 별의 장엄한 최후다. 급격한 폭발이 일어나 별이 밝다.</li>
-</ul>
-
+            <h3 id="crontab-">crontab 설정</h3>
+<pre><code># ┌───────────── min (0 - 59)
+# │ ┌────────────── hour (0 - 23)
+# │ │ ┌─────────────── day of month (1 - 31)
+# │ │ │ ┌──────────────── month (1 - 12)
+# │ │ │ │ ┌───────────────── day of week (0 - 6) (0 to 6는 일~토, 7=일)
+# │ │ │ │ │
+# │ │ │ │ │
+# * * * * * &lt;실행할 커맨드&gt;
+</code></pre><h3 id="crontab--">crontab 작업 리스트</h3>
+<pre><code>$ crontab -l
+</code></pre><h3 id="crontab---1">crontab 로그 확인</h3>
+<pre><code>$ cat /var/log/cron
+</code></pre><h3 id="crontab---2">crontab 설정 확인</h3>
+<pre><code>$ cat /var/spool/cron/&lt;user_id&gt;
+</code></pre><h3 id="crontab-service---">crontab service 상태 확인과 재실행</h3>
+<pre><code>$ service crond status
+crond (pid 2994)를 실행하고 있습니다.
+$ source ~/.bash_profile
+$ service crond {start|restart|stop}
+</code></pre><p>crontab 디버깅</p>
+<pre><code>10 12 * * 1-5 /usr/bin/perl /home/my/test.pl &gt; /home/my/error.log 2&gt;&amp;1
+</code></pre><p><code>&gt;</code>  : redirect</p>
+<p>2 : stderr</p>
+<p>1 : stdout</p>
+<p>즉, <code>2&gt;&amp;1</code>을 둠으로서 표준 출력과 표준 에러 출력을 <code>/home/my/error.log</code>파일에 출력하라는 의미로 볼 수 있습니다. 여기서 다음과 같이 순서를 뒤집을 수 없습니다.</p>
+<pre><code>2&gt;&amp;1 /home/my/error.log 
+</code></pre>
         </div>
 
         
         
         <div class="article-toc" >
             <h3>Contents</h3>
-            <nav id="TableOfContents"></nav>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#crontab-">crontab 설정</a></li>
+        <li><a href="#crontab--">crontab 작업 리스트</a></li>
+        <li><a href="#crontab---1">crontab 로그 확인</a></li>
+        <li><a href="#crontab---2">crontab 설정 확인</a></li>
+        <li><a href="#crontab-service---">crontab service 상태 확인과 재실행</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
         </div>
         
         
@@ -105,15 +136,9 @@
     </div>
     <nav id="article-nav">
     
-    <a href="/shell/crontab/" id="article-nav-newer" class="article-nav-link-wrap">
-        <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            crontab을 이용한 스케쥴 관리
-        </div>
-    </a>
     
-    
-    <a href="/nlp/doc2vec/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">Doc2vec를 이용한 문서의 벡터 변환&nbsp;<span>&gt;</span></div>
+    <a href="/astronomy/betelgeuse/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">오리온의 별 베텔게우스&nbsp;<span>&gt;</span></div>
     </a>
     
 </nav>

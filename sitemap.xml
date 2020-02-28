@@ -3,14 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://happygrammer.github.io/astronomy/</loc>
-    <lastmod>2020-02-25T06:49:47+03:00</lastmod>
+    <loc>https://happygrammer.github.io/shell/crontab/</loc>
+    <lastmod>2020-02-28T10:39:13+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://happygrammer.github.io/</loc>
+    <lastmod>2020-02-28T10:39:13+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/shell/</loc>
+    <lastmod>2020-02-28T10:39:13+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/astronomy/</loc>
     <lastmod>2020-02-25T06:49:47+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -249,13 +263,6 @@
   
   <url>
     <loc>https://happygrammer.github.io/shell/date-time/</loc>
-    <lastmod>2020-01-15T07:15:14+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/shell/</loc>
     <lastmod>2020-01-15T07:15:14+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

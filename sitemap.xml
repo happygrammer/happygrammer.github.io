@@ -3,14 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://happygrammer.github.io/shell/crontab/</loc>
-    <lastmod>2020-02-28T10:39:13+03:00</lastmod>
+    <loc>https://happygrammer.github.io/angular/angular-cli/</loc>
+    <lastmod>2020-02-29T18:15:02+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/angular/</loc>
+    <lastmod>2020-02-29T18:15:02+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://happygrammer.github.io/</loc>
+    <lastmod>2020-02-29T18:15:02+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/shell/crontab/</loc>
     <lastmod>2020-02-28T10:39:13+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

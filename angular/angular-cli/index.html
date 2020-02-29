@@ -121,34 +121,8 @@ Package                      Version
 @schematics/angular          9.0.4
 @schematics/update           0.900.4
 rxjs                         6.5.3
-</code></pre><p>만약 이미 Angular를 설치한 경우라면 Angular CLI 업데이트 진행이 필요합니다. 현재 Angular CLI 버전을 확인하겠습니다.</p>
-<pre><code>$ ng --version
-</code></pre><pre><code>     _                      _                 ____ _     ___
-    / \   _ __   __ _ _   _| | __ _ _ __     / ___| |   |_ _|
-   / △ \ | '_ \ / _` | | | | |/ _` | '__|   | |   | |    | |
-  / ___ \| | | | (_| | |_| | | (_| | |      | |___| |___ | |
- /_/   \_\_| |_|\__, |\__,_|_|\__,_|_|       \____|_____|___|
-                |___/
-    
-
-Angular CLI: 8.3.19
-Node: 12.13.1
-OS: darwin x64
-Angular: 
-... 
-
-Package                      Version
-------------------------------------------------------
-@angular-devkit/architect    0.803.19
-@angular-devkit/core         8.3.19
-@angular-devkit/schematics   8.3.19
-@schematics/angular          8.3.19
-@schematics/update           0.803.19
-rxjs                         6.4.0
-
-</code></pre><p>IVY 엔진 이용을 위해 업데이트를 진행하겠습니다. 이미 Angular CLI를 설치해둔 상태라면 uninstall을 합니다.</p>
-<pre><code>$ npm uninstall -g angular-cli
-</code></pre><h3 id="-">프로젝트 생성</h3>
+</code></pre><p>Ivy Workspacey라는 메시지가 표시됩니다.</p>
+<h3 id="-">프로젝트 생성</h3>
 <p>Angular CLI는 <code>ng </code> 명령어를 이용해 angular 프로젝트 생성, angular 코드 관리(컴포넌트, 모듈 등), angular 앱 배포를 지원합니다.  Angular CLI를 이용해 프 로젝트를 새로 추가하려면 다음 명령어를 입력합니다.</p>
 <pre><code>$ ng new &lt;앱명&gt;
 </code></pre><p>위 명령어를 입력하면 기본 골격에 해당하는 프로젝트가 추가됩니다. 추가될 때 프로젝트에 사용할 의존 모듈도 node_modules 디렉터리에 함께 설치됩니다. 프로젝트 추가가 끝나면 Angular CLI 기반 프 로젝트의 구성이 완료된 것입니다. 이제 프로젝트 폴더로 이동한 후 ng serve 명령어를 실행합니다.</p>

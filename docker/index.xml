@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dockers on Happygrammer Blog</title>
+    <link>https://happygrammer.github.io/docker/</link>
+    <description>Recent content in Dockers on Happygrammer Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Mar 2020 00:55:12 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/docker/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>도커에 Mariadb 설치</title>
+      <link>https://happygrammer.github.io/docker/mariadb/</link>
+      <pubDate>Sun, 01 Mar 2020 00:55:12 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/docker/mariadb/</guid>
+      <description>도커 실행 여부 체크 설치를 진행하기 전에 도커 실행 여부를 확인합니다. 도커가 실행중인 상태가 아니면 다음과 같은 예외 메시지가 출력됩니다.
+Using default tag: latest Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running? 지금 부터 mariadb를 다운로드 받아 설정 까지 진행하도록 하겠습니다.
+도커 이미지 다운로드 docker pull mariadb 컨테이너 실행 3306 port로 설정해 실행합니다.
+docker container run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 --name mariadb mariadb docker 볼륨을 /Users/Shared/data/mariadb로 설정합니다.</description>
+    </item>
+    
+    <item>
+      <title>Docker 명령어 소개</title>
+      <link>https://happygrammer.github.io/docker/docker/</link>
+      <pubDate>Wed, 19 Feb 2020 06:50:32 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/docker/docker/</guid>
+      <description>컨테이너 확인 docker container ls $ docker container ls CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 2463b80300ec mariadb &amp;quot;docker-entrypoint.s…&amp;quot; 13 seconds ago Up 12 seconds 0.0.0.0:3306-&amp;gt;3306/tcp mariadb  컨테이너 목록을 표시하는 명령어인 docker ps 는 오래전 방식입니다. 새로운 명령어 형식은 docker container &amp;lt;subcommand&amp;gt;입니다. 즉, docker container ls를 권장합니다. 이때 docker container ls는 docker container ps와 동일한 명령어입니다. 즉 아래 4개 명령어는 정확히 동일 기능을 수행하는 명령어입니다.  실행중인 컨테이너 정보를 표시하는 동일 명령어</description>
+    </item>
+    
+  </channel>
+</rss>

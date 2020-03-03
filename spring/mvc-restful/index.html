@@ -80,12 +80,12 @@
         <div class="article-entry" itemprop="articleBody">
             <h3 id="controller---mvc-">@Controller 어노테이션을 이용한 MVC 패턴</h3>
 <p>MVC는 @Controller에 기반해 작동하는 View 기반의 기술이며, REST는 @RestController 어노테이션을 이용해 객체 데이터 응답 기술입니다. 아래 그림은 전통적인 MVC 패턴 방식의 처리 과정을 보여주고 있습니다.</p>
-<p><img src="./controller.png" alt=""></p>
+<p><img src="../controller.png" alt=""></p>
 <p>스프링은 사용자 요청에 대해 Dispatcher Servlet는 최종 처리 결과로 View를 Return해줍니다. DispatchServlet은 아래 각 하위 요소들을 호출함으로서 클라이언트에 최종 http 응답을 만듭니다.  URI가 입력되는 Handler mapping을 이용해 컨트롤러로 연결해 줍니다. 컨트롤러에서는 MovelAndView 객체를 View Resolver로 반환합니다. View Resolver는 ModelAndView 객체를 이용해 View를 생성합니다. view 생성에 초점을 맞추고 있으므로 mime type에 따라 응답을 결정할 수 없습니다.</p>
 <h3 id="mim-type----responsebody-">mim type에 따라 응답을 만드는 @ResponseBody 어노테이션</h3>
 <p>@ResponseBody 어노테이션은 응답 값을 주어진 mime type 타입에 따라 HTTP 응답합니다. 내부적으로는 HttpMessageConverters가 응답 값을 mime type에 따라 최종 응답 값을 만듭니다.</p>
 <p>[그림] http 응답시 HttpMessageConverters를 통한 응답</p>
-<p><img src="./restcontroller.png" alt=""></p>
+<p><img src="../restcontroller.png" alt=""></p>
 <p>코드로 보면 @RequestMapping마다 하나의 @ResponseBody를 선언합니다. 예를 들어 member/hello.xml라는 요청에 대한 xml 응답은 아래와 같이 만듭니다.</p>
 <pre><code>package com.example.rest;
 ...

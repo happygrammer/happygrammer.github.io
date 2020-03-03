@@ -153,7 +153,12 @@ public class Application {
 <pre><code>http://localhost:8080/login
 </code></pre><p>만약 디폴트 포트인 8080을 8081로 변경하려면 애플리케이션 프로퍼티에 포트 설정을 합니다.</p>
 <pre><code>server.port=8081
-</code></pre><h4 id="---2">빈 이름 출력</h4>
+</code></pre><p>@SpringBootApplication는 다음 세가지를 합한 의미입니다.</p>
+<pre><code>@SpringBootConfiguration
+@ComponentScan
+@EnableAutoConfiguration
+</code></pre><p>@ComponentScan은  각종 @Component를 상속 받는 각종 애노테이션(@Configuration, @Repository, @Service, @Controller, @RestController )을 빈으로 인식해 스캔하는 역할을 합니다.</p>
+<h4 id="---2">빈 이름 출력</h4>
 <pre><code>package main;
 
 import java.util.Arrays;
@@ -398,9 +403,9 @@ public class MustacheController {
     </div>
     <nav id="article-nav">
     
-    <a href="/guide/git/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/spring/mvc-restful/" id="article-nav-newer" class="article-nav-link-wrap">
         <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            1시간 안에 Git 익히기
+            @Controller와 @RestController 어노테이션
         </div>
     </a>
     

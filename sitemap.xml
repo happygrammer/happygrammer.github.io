@@ -4,14 +4,21 @@
   
   <url>
     <loc>https://happygrammer.github.io/docker/</loc>
-    <lastmod>2020-03-01T00:55:12+03:00</lastmod>
+    <lastmod>2020-03-01T08:50:10+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2020-03-01T00:55:12+03:00</lastmod>
+    <lastmod>2020-03-01T08:50:10+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/docker/docker-compose/</loc>
+    <lastmod>2020-03-01T08:50:10+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -439,6 +446,13 @@
   <url>
     <loc>https://happygrammer.github.io/guide/git/</loc>
     <lastmod>2020-01-06T01:26:13+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/spring/mvc-restful/</loc>
+    <lastmod>2019-11-20T06:37:32+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -12,6 +12,16 @@
     
     
     <item>
+      <title>@Controller와 @RestController 어노테이션</title>
+      <link>https://happygrammer.github.io/spring/mvc-restful/</link>
+      <pubDate>Wed, 20 Nov 2019 06:37:32 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/spring/mvc-restful/</guid>
+      <description>@Controller 어노테이션을 이용한 MVC 패턴 MVC는 @Controller에 기반해 작동하는 View 기반의 기술이며, REST는 @RestController 어노테이션을 이용해 객체 데이터 응답 기술입니다. 아래 그림은 전통적인 MVC 패턴 방식의 처리 과정을 보여주고 있습니다.
+스프링은 사용자 요청에 대해 Dispatcher Servlet는 최종 처리 결과로 View를 Return해줍니다. DispatchServlet은 아래 각 하위 요소들을 호출함으로서 클라이언트에 최종 http 응답을 만듭니다. URI가 입력되는 Handler mapping을 이용해 컨트롤러로 연결해 줍니다. 컨트롤러에서는 MovelAndView 객체를 View Resolver로 반환합니다. View Resolver는 ModelAndView 객체를 이용해 View를 생성합니다.</description>
+    </item>
+    
+    <item>
       <title>Spring Boot 시작하기</title>
       <link>https://happygrammer.github.io/spring/spring-boot/</link>
       <pubDate>Wed, 20 Nov 2019 06:37:32 +0300</pubDate>

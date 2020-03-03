@@ -6,10 +6,22 @@
     <description>Recent content on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Mar 2020 00:55:12 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 01 Mar 2020 08:50:10 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>도커 컴포즈 소개</title>
+      <link>https://happygrammer.github.io/docker/docker-compose/</link>
+      <pubDate>Sun, 01 Mar 2020 08:50:10 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/docker/docker-compose/</guid>
+      <description>도커 컴포즈는 여러 컨테이너들의 상태를 관리하는 도구입니다. 일반적으로 도커에서 관리하는 컨테이너 상태는 다음과 같습니다.
+ created, restarting, running, removing, paused, exited, dead  이중 도커 컴포즈가 관리하는 상태는 다음과 같습니다. 도커 컴포즈는 도커 데스크탑 for MAC 설치시 이미 포함되어 있어 별도 설치를 하지 않아도 됩니다.
+도커 컴포즈 실행 도커 컴포즈는 여러 컨테이너의 실행을 docker-compose.yml 파일을 docker-compose up 명령어로 실행할 수 있게 합니다.
+docker-compose 파일에 서비스 정의 docker-compose.yml는 서비스를 정의하는 파일입니다. 도커 컴포즈에 정의한 서비스는 web과 redis입니다.</description>
+    </item>
     
     <item>
       <title>도커에 Mariadb 설치</title>
@@ -291,7 +303,7 @@ P(W)=P(w1,w2,w3,...,wn) 즉, n개의 단어를 하나의 시퀀스로 보고 단
       <description>본 문서는 MAC 단축키를 소개하는 단축키 가이드입니다. 맥 OS를 이용하면서 가장 자주 이용할만한 단축키를 선별해서 소개하는데 목적이 있습니다.
 조합키 기호 맥에서 다른 키와 조합시 사용하는 조합키 기호입니다.
 command ⌘ shift ⇧ option ⌥ control ⌃
-단축키 목록 for MAC    단축키 조합 설명     ⌘ + H 현재 창을 숨김   ⌘ + F3 모든 창을 숨김   ⌘ + TAB 창 사이 이동   ⌘ + W 크롬, 사파리 브라우저 사용시 탭 닫기   ^ + 방향키 열린창 이동   ⌘ + 번호키 크롬, 사파리 브라우저 사용시 해당 번호에 해당하는 탭으로 이동   ^ + ⇧ + TAB 현재창 종료   ⌘+⌥+i 크롬 소스코드 보기   ⌘+⌥+ESC 프로세스 강제 종료창 띄우기   ⌘ + ` | 현재 프로그램 창 내에서 창전환 |             시스템 관리 메뉴 for MAC    맥 이름 윈도우 대응 역할     할성 상태 보기 작업 관리자 프로세스별 CPU, 메모리, 에너지, 디스크, 네트워크 사용율 보기                   </description>
+단축키 목록 for MAC    단축키 조합 설명     ⌘ + H 현재 창을 숨김   ⌘ + F3 모든 창을 숨김   ⌘ + TAB 창 사이 이동   ⌘ + W 창 닫기 (⌥옵션 추가하면 전체 창 닫기)   ^ + 방향키 열린창 이동   ⌘ + 번호키 크롬, 사파리 브라우저 사용시 해당 번호에 해당하는 탭으로 이동   ^ + ⇧ + TAB 현재창 종료   ⌘+⌥+i 크롬 소스코드 보기   ⌘+⌥+ESC 프로세스 강제 종료창 띄우기   ⌘ + ` | 현재 프로그램 창 내에서 창전환 |             시스템 관리 메뉴 for MAC    맥 이름 윈도우 대응 역할     할성 상태 보기 작업 관리자 프로세스별 CPU, 메모리, 에너지, 디스크, 네트워크 사용율 보기                   </description>
     </item>
     
     <item>
@@ -528,6 +540,16 @@ A smooth sea never made a skilled mariner. </description>
       <description>Git은 분산 버전 관리 시스템으로 리눅스 토발즈가 만들었으며 파일의 변경사항을 추적하고 관리할 수 있습니다.
 1. Git 설치  GIt 설치 : https://git-scm.com/downloads Github : 깃허브는 Git을 지원하는 웹 호스팅 서비스 Github Desktop : https://desktop.github.com/, Github을 편리하게 이용할 수 있도록 만든 소프트웨어  2. Git을 이용한 형상 관리 http://nvie.com/posts/a-successful-git-branching-model/
 3. Git 쉘 명령어 기본 명령어  git init: 깃 저장소를 초기화한다. git help: 깃 명령어를 확인한다. git status: 저장소 상태 정보 표시(저장소에 존재하는 파일, 커밋이 필요한 변경 사항, 현재 브랜치 위치 등)  상태 상태라면 &amp;quot;your branch is up-to-date with &#39;origin/master&#39;&amp;quot;와 같이 표시    사용자 설정  git config &amp;ndash;global user.</description>
+    </item>
+    
+    <item>
+      <title>@Controller와 @RestController 어노테이션</title>
+      <link>https://happygrammer.github.io/spring/mvc-restful/</link>
+      <pubDate>Wed, 20 Nov 2019 06:37:32 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/spring/mvc-restful/</guid>
+      <description>@Controller 어노테이션을 이용한 MVC 패턴 MVC는 @Controller에 기반해 작동하는 View 기반의 기술이며, REST는 @RestController 어노테이션을 이용해 객체 데이터 응답 기술입니다. 아래 그림은 전통적인 MVC 패턴 방식의 처리 과정을 보여주고 있습니다.
+스프링은 사용자 요청에 대해 Dispatcher Servlet는 최종 처리 결과로 View를 Return해줍니다. DispatchServlet은 아래 각 하위 요소들을 호출함으로서 클라이언트에 최종 http 응답을 만듭니다. URI가 입력되는 Handler mapping을 이용해 컨트롤러로 연결해 줍니다. 컨트롤러에서는 MovelAndView 객체를 View Resolver로 반환합니다. View Resolver는 ModelAndView 객체를 이용해 View를 생성합니다.</description>
     </item>
     
     <item>

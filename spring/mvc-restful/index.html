@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>@Controller와 @RestController 어노테이션</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="@Controller와 @RestController 어노테이션" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/spring/mvc-restful/" />
+    
+
+    
+<script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer Blog</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/hangeul/">한글학</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">@Controller와 @RestController 어노테이션</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/spring/mvc-restful/" class="article-date">
+                <time datetime='2019-11-20T06:37:32.000&#43;03:00' itemprop="datePublished">2019-11-20</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="controller---mvc-">@Controller 어노테이션을 이용한 MVC 패턴</h3>
+<p>MVC는 @Controller에 기반해 작동하는 View 기반의 기술이며, REST는 @RestController 어노테이션을 이용해 객체 데이터 응답 기술입니다. 아래 그림은 전통적인 MVC 패턴 방식의 처리 과정을 보여주고 있습니다.</p>
+<p><img src="./controller.png" alt=""></p>
+<p>스프링은 사용자 요청에 대해 Dispatcher Servlet는 최종 처리 결과로 View를 Return해줍니다. DispatchServlet은 아래 각 하위 요소들을 호출함으로서 클라이언트에 최종 http 응답을 만듭니다.  URI가 입력되는 Handler mapping을 이용해 컨트롤러로 연결해 줍니다. 컨트롤러에서는 MovelAndView 객체를 View Resolver로 반환합니다. View Resolver는 ModelAndView 객체를 이용해 View를 생성합니다. view 생성에 초점을 맞추고 있으므로 mime type에 따라 응답을 결정할 수 없습니다.</p>
+<h3 id="mim-type----responsebody-">mim type에 따라 응답을 만드는 @ResponseBody 어노테이션</h3>
+<p>@ResponseBody 어노테이션은 응답 값을 주어진 mime type 타입에 따라 HTTP 응답합니다. 내부적으로는 HttpMessageConverters가 응답 값을 mime type에 따라 최종 응답 값을 만듭니다.</p>
+<p>[그림] http 응답시 HttpMessageConverters를 통한 응답</p>
+<p><img src="./restcontroller.png" alt=""></p>
+<p>코드로 보면 @RequestMapping마다 하나의 @ResponseBody를 선언합니다. 예를 들어 member/hello.xml라는 요청에 대한 xml 응답은 아래와 같이 만듭니다.</p>
+<pre><code>package com.example.rest;
+...
+
+@Controller
+@RequestMapping(&quot;member&quot;)
+public class MemberController {
+    
+    @RequestMapping(value = &quot;/{name}.xml&quot;, method = RequestMethod.GET, produces = &quot;application/xml&quot;)
+    public @ResponseBody Member getMemberInfo(@PathVariable String name) {
+       ... 
+       return member;
+    }
+}
+</code></pre><h3 id="restcontroller---rest-">@RestController 어노테이션을 이용한 REST 응답</h3>
+<p>@RestController 어노테이션은 스프링 4에서 소개된 어노테이션입니다. @Controller와 @ResponseBody 어노테이션을 합친 역할을 합니다.</p>
+<pre><code>@RestController = @Controller + @ResponseBody
+</code></pre><p>@ResponseBody가 있어 mime type에 따라 @Controller 처럼 view를 만들 수 도 있고, json 객체 쓰기 응답을 할 수 있습니다. 디폴트 어노테이션이므로 별도 어노테이션으로 선언하지 않아도 됩니다.  그런데 @RestController의 목적상 view 응답 보다는 object/pojo 기반 응답을 주목적으로 합니다.</p>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#controller---mvc-">@Controller 어노테이션을 이용한 MVC 패턴</a></li>
+        <li><a href="#mim-type----responsebody-">mim type에 따라 응답을 만드는 @ResponseBody 어노테이션</a></li>
+        <li><a href="#restcontroller---rest-">@RestController 어노테이션을 이용한 REST 응답</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/guide/git/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            1시간 안에 Git 익히기
+        </div>
+    </a>
+    
+    
+    <a href="/spring/spring-boot/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Spring Boot 시작하기&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Happygrammer Blog
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

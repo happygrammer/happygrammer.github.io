@@ -92,6 +92,22 @@
 <li>SQuAD v1.1 question answering Test F1 to 93.2 (1.5 point absolute improvement)</li>
 <li>SQuAD v2.0 Test F1 to 83.1 (5.1 point absolute improvement).</li>
 </ul>
+<h2 id="1-">1. 소개</h2>
+<p>pre-trained 모델은 하위 응용 태스크 들에 적용할 수 있습니다. pre-trained의 두가지 방식은 다음과 같습니다.</p>
+<ul>
+<li>feature-based : ELMO</li>
+<li>fine tuning : GPT(Generative Pre-trained Transformer)</li>
+</ul>
+<p>fined tuning한다는 것은 사전 학습된 파라메터을 이용해서 하위 응용 태스크들에 적용할 수 있습니다.</p>
+<p>pre-trained 표상에 대해서 생각해 보겠습니다. OpenAI GPT 연구에서 보면 left-to-right 아키텍처를 이용했습니다. 모든 토큰이 이전 토큰을 참조하는 방식입니다. 이러한 동작들은 트랜스포머의 셀프 어텐션 레이어에서 이뤄집니다. 이전 토큰 만을 고려하는 방식(uni directional한 방법)은 한계가 있습니다. 이전 토큰만을 참조하는 방식은, SQuAD question answering(Rajpurkar et al., 2016)에서 양 방향을 참조 하는 방식으로 변화 됐습니다.</p>
+<p>여기까지는 pre-trained 모델에 대한 설명을 하였습니다. 이 논문에서는 파인 튜닝 기반의 접근에 기반한 BERT를 제안하고 있습니다. BERT는 이름에서 확인할 수 있듯이 토큰 참조를 수행할 때 양방향으로 수행합니다. 즉,  트랜스포머 레이어에서 양방향 인코더 표상(Bidirectional Encoder Representations) 방식으로 사전 학습 방식을 추구하고 있습니다. BERT의 pre training 추구하는 바는 MLM(masked language model)입니다. MLM은 1953년에 Cloze 연구자의 연구에서 영감을 받은 방식입니다. MLM은 예측 가능한 문맥 단어를 고려하는 방식입니다. MLM은 left-to-right의 토큰을 참조해 학습하는 기존 pre-training 모델과 달리, MLM은 입력 토큰열의 몇개에 해당하는 토큰을 마스크 처리하고, 문맥의 어휘 정보를 고려해 마스크 처리된 토큰이 무엇인지를 예측하고, 여기에 더해 left의 토큰들과 right의 토큰들의 문맥 정보 까지를 함께 고려합니다. 이러한 방식은 &ldquo;deep bidirectional transformer&quot;라고 합니다.</p>
+<p>마스크 언어 모델에 더해서, 한 가지 더 고려하고 있는 점이 있습니다. 바로, 다음 문장 예측(next sentence prediction) 태스크입니다. 다음 문장 예측 태스크는 사전 학습시 현재 문장과 다음 문장의 쌍을 함께 표상해 사전 학습을 수행하는 처리입니다.</p>
+<h2 id="2--">2. 관련 연구</h2>
+<p>pre-training시 일반화된 언어 표상과 관련한 태스크는 역사가 오래 됐습니다. 간단하게 인기 많았던 접근들을 다시 살펴 보도록 하겠습니다.</p>
+<h3 id="21-feature-based-">2.1 feature-based 접근</h3>
+<p>사전 학습된 단어 임베딩은 현대의 NLP 시스템에 통합 될 수 있습니다. 스크래치로 부터 출발해 학습한, 임베딩에 대한 중요한 개선과 관련한 논문이 있습니다. 이러한 접근은 sentence 임베딩 or 문단 임베딩에 일반화 되었습니다. 전통저으로 단어 임베딩은 다운 스트림 모델의 feature를 사용해 학습합니다. ELMO (Peters et al., 2017)의 예를 보겠습니다. ELMo 기존과 달리 새로운 방식의 일반화된 워드 임베딩 연구입니다.  이 연구에서는 문맥 구분의 특징(context sensitive feature) 추출 방법을 제안했습니다. ELMO는 NLP 벤치 마크에서 state-of-art의 성능을 보여줬습니다. 이러한 성능을 보여줬던 분야가 SQuAD 데이터를 이용한 Question Answering 태스크를 포함하고 있습니다.</p>
+<h3 id="22-fine-tuning-">2.2 Fine-tuning 접근</h3>
+<p>최근 유행하는 트랜스퍼 러닝은 fine tuning을 하기 전에, <code>사전 학습 모델을 supervised 다운 스트림 태스크에 적용</code>하는 것 입니다. supervised 다운 스트림 태스크에 적용하게 될때의 장점은, 다운 스트림 태스크 학습시 모든 파라메터를 학습하지 않고, 몇개의 파라메터에 대해서만 학습 하면 됩니다. 이러한 장점들이 있기 때문에, OpenAI GTP(Radford et al., 2018)는 sentence level task에서 이전 state-of-the arts를 달성할 수 있었습니다.</p>
 <h2 id="3-bert--">3. BERT 구현 설명</h2>
 <p>버트 모델은 크게 두단계로 이뤄져 있습니다.</p>
 <ul>
@@ -132,6 +148,13 @@
     <li>
       <ul>
         <li><a href="#bert-pre-training-of-deep-bidirectional-transformers-for-language-understanding">BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding</a></li>
+      </ul>
+    </li>
+    <li><a href="#1-">1. 소개</a></li>
+    <li><a href="#2--">2. 관련 연구</a>
+      <ul>
+        <li><a href="#21-feature-based-">2.1 feature-based 접근</a></li>
+        <li><a href="#22-fine-tuning-">2.2 Fine-tuning 접근</a></li>
       </ul>
     </li>
     <li><a href="#3-bert--">3. BERT 구현 설명</a>

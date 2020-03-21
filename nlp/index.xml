@@ -49,7 +49,7 @@
       <description>서브워드 알고리즘 서브워드와 관련한 유명한 알고리즘은 다음 네가지가 있습니다.
  Byte Pair Encoding (BPE) WordPiece Unigram Language Model SentencePiece  BPE BPE(Byte Pair Encoding)는 서브 워드 사전 구축에 사용되는 알고리즘은 다음 그림과 같습니다.
 WordPiece 워드 피스(WordPiece)는 일본어와 한국어의 음성 문제를 해결 하기 위해 나온 모델입니다.(2012년) 워드 피스는 BPE와 유사하며 차이점은 새로운 서브 워드를 만들 수 있다는 점입니다.
-Unigram 모델 쿠도 연주자가 소개한 방법입니다. 하나의 가정은 모든 서브워드는 독립적인 이며 서브 워드 시퀀스이 나타날 확률은 서브 워드 확률에 결정된다는 점입니다.</description>
+Unigram 모델 쿠도 연구자가 소개한 모델입니다. 이 모델이 가정 하는 것은 모든 서브워드는 독립적인 이며 서브 워드 시퀀스이 나타날 확률은 서브 워드 확률에 결정된다는 점입니다.</description>
     </item>
     
     <item>

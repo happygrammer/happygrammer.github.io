@@ -82,9 +82,9 @@
 <pre><code>sudo su -
 </code></pre><h2 id="-os--">맥 OS에서 아파치 시작</h2>
 <pre><code>apachectl start
-</code></pre><p><a href="http://localhost/">http://localhost</a> 접속해 서버가 시작 했는지 확인합니다.</p>
+</code></pre><p><a href="http://localhost/">http://localhost</a> 접속해 서버 페이지 접속이 가능한지 확인합니다.</p>
 <h2 id="-os-php-">맥 OS에서 PHP 시작</h2>
-<p>서버는 시작 했지만 PHP 페이지는 출력되지 않습니다. PHP 페이지를 출력하려면 아파치 설정을 수정해야 합니다. 먼저 아파치 설정을 백업해 둡니다. 앞으로 설정이 바뀌더라도 디폴트 설정이 무엇인지 참고할 때 사용할 수 있습니다.</p>
+<p>서버 페이지가 표시 됐다면 서버 시작은 정상적으로 수행된 것 입니다. 서버가 정상적으로 정상적으로 시작 됐더라도 별도 설정을 하지 않으면 PHP 페이지는 출력되지 않습니다. PHP 페이지를 출력하려면 아파치 설정을 수정해야 합니다. 먼저 아파치 설정을 백업해 둡니다. 앞으로 설정이 바뀌더라도 디폴트 설정이 무엇인지 참고할 때 사용할 수 있습니다.</p>
 <pre><code>cd /etc/apache2/
 cp httpd.conf httpd.conf.Catalina
 </code></pre><p>vi를 이용해 아파치 설정을 수정합니다.</p>
@@ -95,6 +95,11 @@ cp httpd.conf httpd.conf.Catalina
 <pre><code>apachectl restart
 </code></pre><p><a href="http://php.net/manual/en/function.phpinfo.php"><code>phpinfo()</code></a> 를 출력하는 페이지를 만들어 보겠습니다. 먼저 DocumentRoot가 어디에 있는지 확인해 보겠습니다. 맥 OS를 사용중 이라면 <code>/Library/WebServer/Documents</code>에 해당하는 위치입니다.</p>
 <pre><code>grep DocumentRoot httpd.conf
+</code></pre><p>실행 결과</p>
+<pre><code>$ grep DocumentRoot httpd.conf
+# DocumentRoot: The directory out of which you will serve your
+DocumentRoot &quot;/Library/WebServer/Documents&quot;
+    # access content that does not live under the DocumentRoot.
 </code></pre><p><code>phpinfo()</code> 페이지를 만들겠습니다.</p>
 <pre><code>echo '&lt;?php phpinfo();' &gt; /Library/WebServer/Documents/phpinfo.php
 </code></pre><p>http://localhost/phpinfo.php 접속해 확인합니다.</p>

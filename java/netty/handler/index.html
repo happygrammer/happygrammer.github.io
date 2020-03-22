@@ -78,8 +78,7 @@
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <h3 id="heading">채널이란?</h3>
-<p>채널은 IO 동작(파일, 소켓)을 수행할 수 있는 연결 상태를 의미합니다. Netty에서는 채널 핸들러를 이용해 관심사 분리를 수행합니다.</p>
+            <p>채널은 IO 동작(파일, 소켓)을 수행할 수 있는 연결 상태를 의미합니다. Netty에서는 채널 핸들러를 이용해 관심사 분리를 수행합니다.</p>
 <h4 id="--">채널 핸들러 종류</h4>
 <table>
 <thead>
@@ -139,45 +138,45 @@
 </tbody>
 </table>
 <h4 id="---">서버 비즈니스 코드 개발</h4>
-<p>netty는 callback과 future라는 컨셉을 이용한다. 이 때문에 이벤트 타입(event types)에 따라 다르게 반응한다.</p>
+<p>netty는 callback과 future라는 컨셉을 이용한다. 이 때문에 이벤트 타입(event types)에 따라 다르게 반응합니다.</p>
 <pre><code>@Sharable                                                                  #1
 public class EchoServerHandler extends ChannelInboundHandlerAdapter {
-      @Override
+      @Override  #2
       public void channelRead(ChannelHandlerContext ctx, Object msg) {
            System.out.println(ìServer received: ì + msg);
-           ctx.write(msg)                                                  #2
+           ctx.write(msg)                                                 
       }
-      @Override
+      @Override #3
       public void channelReadComplete(ChannelHandlerContext ctx) {
            ctx.writeAndFlush(Unpooled.EMPTY_BUFFER)
-                   .addListener(ChannelFutureListener.CLOSE);             #3
+                   .addListener(ChannelFutureListener.CLOSE);             
 			}
-      @Override
+      @Override  #4
       public void exceptionCaught(ChannelHandlerContext ctx,Throwable cause) {
-					cause.printStracktrace(); #4
-					ctx.close(); #5
+					cause.printStracktrace();
+					ctx.close();
 			}
 }
-</code></pre><p><code>channelRead</code>와 <code>channelReadComplete</code>, <code>exceptionCaught</code> 메서드 모두는 오버라이든을 수행하고 있다.</p>
+</code></pre><p><code>#1</code>에서 @Sharable 어노테이션은 여러 채널에서 Handler를 공유 할 수 있음을 나타냅니다. <code>#2</code>는 메시지가 들어올때마다 호출되는 메소드입니다. <code>#3</code>은 channelRead 메소드가 처리 완료 되었다는 것을 핸들러에게 통보 처리를 하고 있습니다. #4는 읽기 작업중 오류가 발생 했을때 호출 됩니다. 참고할 만한 전체 예시는 <a href="https://github.com/netty/netty/blob/4.0/example/src/main/java/io/netty/example/http/helloworld/HttpHelloWorldServerHandler.java">HttpHelloWorldServerHandler.java</a> 내용을 참고 합니다.</p>
 <h4 id="---1">서버 로직 개발</h4>
 <pre><code>@Sharable                                                                  #1
 public class EchoClientHandler extends SimpleChannelInboundHandlerAdapter&lt;ByteBuf&gt; {
 
-      
+
 			@Override
-      public void channelActive(ChannelHandlerContext ctx) {
-          ctx.write(Unpooled.copiedBuffer(ìNetty rocks!ì, CharsetUtil.UTF_8);   #2
-      }
-      @Override
-      public void channelRead0(ChannelHandlerContext ctx, ByteBuf in) {
-          System.out.println(ìClient received: ì + ByteBufUtil
-          .hexDump(in.readBytes(in.readableBytes())));                          #3
-      }
-      @Override
-      public void exceptionCaught(ChannelHandlerContext ctx,Throwable cause) {    #4
-        cause.printStracktrace();
-      	ctx.close();
-      }
+	  public void channelActive(ChannelHandlerContext ctx) {
+	      ctx.write(Unpooled.copiedBuffer(ìNetty rocks!ì, CharsetUtil.UTF_8);   #2
+	  }
+	  @Override
+	  public void channelRead0(ChannelHandlerContext ctx, ByteBuf in) {
+	      System.out.println(ìClient received: ì + ByteBufUtil
+	      .hexDump(in.readBytes(in.readableBytes())));                          #3
+	  }
+	  @Override
+	  public void exceptionCaught(ChannelHandlerContext ctx,Throwable cause) {    #4
+	    cause.printStracktrace();
+	  	ctx.close();
+	  }
 
 }
 </code></pre>
@@ -191,7 +190,7 @@ public class EchoClientHandler extends SimpleChannelInboundHandlerAdapter&lt;Byt
   <ul>
     <li>
       <ul>
-        <li><a href="#heading">채널이란?</a></li>
+        <li></li>
         <li><a href="#channelinboundhandler-">ChannelInboundHandler 메소드</a></li>
       </ul>
     </li>

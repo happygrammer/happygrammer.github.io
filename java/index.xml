@@ -6,10 +6,20 @@
     <description>Recent content in Javas on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 15 Jan 2020 06:35:19 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 22 Mar 2020 10:10:24 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/java/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Netty 채널 소개와 채널 핸들러</title>
+      <link>https://happygrammer.github.io/java/netty/handler/</link>
+      <pubDate>Sun, 22 Mar 2020 10:10:24 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/java/netty/handler/</guid>
+      <description>채널이란? 채널은 IO 동작(파일, 소켓)을 수행할 수 있는 연결 상태를 의미합니다. Netty에서는 채널 핸들러를 이용해 관심사 분리를 수행합니다.
+채널 핸들러 종류    종류      Inbound Handler 입력 데이터(in bound)에 대한 변경 상태를 감시하고 처리하는 역할을 하는 핸들러   Outbound Handler 출력 데이터(out bound)에 대한 동작을 가로채 처리하는 역할을 하는 핸들러    ChannelInboundHandler 메소드    종류 설명     channelRegistered(&amp;hellip;) 채널이 이벤트 루프에 등록됐을때 호출됨   channelUnregistered(&amp;hellip;) 채널이 생성 됐지만, 이벤트 루프에 등록되지 않았을때 호출됨   channelActive(&amp;hellip;) 채널이 활성화 됐을때(peer와 연결됐을때) 호출됨.</description>
+    </item>
     
     <item>
       <title>ProcessBuilder 클래스 - 운영체제 프로세스 생성</title>

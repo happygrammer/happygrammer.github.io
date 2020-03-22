@@ -89,7 +89,7 @@
 cp httpd.conf httpd.conf.Catalina
 </code></pre><p>vi를 이용해 아파치 설정을 수정합니다.</p>
 <pre><code>vi httpd.conf
-</code></pre><p>아래 라인에 해당하는 내용을 커멘트를 제거합니다. (#를 제거)</p>
+</code></pre><p>아래 라인에 해당하는 줄의 커멘트를 제거합니다. (#를 제거)</p>
 <pre><code>LoadModule php7_module libexec/apache2/libphp7.so
 </code></pre><p>아파치를 재시작합니다.</p>
 <pre><code>apachectl restart
@@ -126,6 +126,12 @@ DocumentRoot &quot;/Library/WebServer/Documents&quot;
         
     </div>
     <nav id="article-nav">
+    
+    <a href="/java/netty/handler/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Netty 채널 소개와 채널 핸들러
+        </div>
+    </a>
     
     
     <a href="/docker/docker-compose/" id="article-nav-older" class="article-nav-link-wrap">

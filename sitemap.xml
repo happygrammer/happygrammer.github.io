@@ -3,14 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://happygrammer.github.io/guide/</loc>
-    <lastmod>2020-03-21T21:15:12+03:00</lastmod>
+    <loc>https://happygrammer.github.io/</loc>
+    <lastmod>2020-03-22T10:10:24+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/</loc>
+    <loc>https://happygrammer.github.io/java/</loc>
+    <lastmod>2020-03-22T10:10:24+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/java/netty/handler/</loc>
+    <lastmod>2020-03-22T10:10:24+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/guide/</loc>
     <lastmod>2020-03-21T21:15:12+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -369,13 +383,6 @@
   <url>
     <loc>https://happygrammer.github.io/python3/python3/</loc>
     <lastmod>2020-01-15T06:35:54+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/java/</loc>
-    <lastmod>2020-01-15T06:35:19+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

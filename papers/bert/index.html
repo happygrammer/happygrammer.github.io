@@ -131,9 +131,9 @@
 <p><img src="../bert/2.png" alt="your image"></p>
 <p>Figure 2: BERT 입력 표현에 대한 그림으로, 입력 임베딩은 토큰 임베딩의 합이며(세그멘테이션 임베딩과 포지션 임베딩을 고려)</p>
 <h2 id="31-pre-training-bert">3.1 Pre-training BERT</h2>
-<p>Unlike Peters et al. (2018a) and Radford et al. (2018), we do not use traditional left-to-right or right-to-left language models to pre-train BERT. Instead, we pre-train BERT using two unsupervised tasks, described in this section. This step is presented in the left part of Figure 1.</p>
+<p>피터스(2018a)와 래드포드(2018)와 달리, 우리는 BERT의 pre-train을 위해 전통적인 언어 모델(left-to-right 또는 right-to-left )을 이용하지 않았습니다. 대신에, 우리는 pre-train BERT는 두개의 비교사 unsupervised 태스크를 이용했습니다. 이번 섹션에서 소개하겠습니다. 이 단계는 그림1의 가장 왼쪽 그림과 같습니다.</p>
 <h3 id="task-1-masked-lm">Task #1: Masked LM</h3>
-<p>Intuitively, it is reasonable to believe that a deep bidirectional model is strictly more powerful than either a left-to-right model or the shallow concatenation of a left-toright and a right-to-left model.</p>
+<p>직관적으로 보면, deep bidirectional model이  left-to-right model 또는 right-to-left 모델 보다 파워풀한 방법입니다. 아쉽게도 standard conditional 언어 모델은 left-to-right, right-to-left 방식으로 훈련하였습니다. <code>deep bidirectional representation</code>을 훈련하기 위해, 입력 토큰열중 일정 퍼센테이지 정도를 랜덤으로 마스킹 처리했습니다. 그런 다음 마스킹 토큰의 입력 토큰이 무엇인지를 예측 하도록 했습니다. 이러한 절차는 &ldquo;masked LM&quot;을 참조하고 있습니다. 이 경우에는, 마지막 히든 벡터는 마스킹 토큰과 일치합니다. 그리고 마지막 히든 벡터는 출력시 어휘들에 대한 <code>soft max</code>가 반영됩니다.</p>
 <h3 id="task-2-next-sentence-prediction-nsp">Task #2: Next Sentence Prediction (NSP)</h3>
 <p>Many important downstream tasks such as Question Answering (QA) and Natural Language Inference (NLI) are based on understanding the relationship between two sentences, which is not directly captured by language modeling.</p>
 <h2 id="32-fine-tuning-bert">3.2 Fine-tuning BERT</h2>

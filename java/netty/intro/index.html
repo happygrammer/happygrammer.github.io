@@ -113,14 +113,14 @@
 <li>sync() : I/O 작업 대기중 실패 하면 실패 이유 반환</li>
 </ul>
 <h2 id="2-">2. 콜백</h2>
+<p>예) 새로운 연결이 발생하면 channelActive 함수가 호출됩니다.</p>
 <pre><code>@Sharable                                                                 
 public class EchoClientHandler extends SimpleChannelInboundHandlerAdapter&lt;ByteBuf&gt; {			@Override
 	  public void channelActive(ChannelHandlerContext ctx) {
 	      ctx.write(Unpooled.copiedBuffer(ìNetty rocks!ì, CharsetUtil.UTF_8);
 	  }
 }
-</code></pre><p>새로은 연결이 발생하면 channelActive 함수가 호출됩니다.</p>
-<h2 id="3-">3. 퓨처</h2>
+</code></pre><h2 id="3-">3. 퓨처</h2>
 <p>작업 완료후 애플리케이션에 종료 알람을 해줍니다.</p>
 <pre><code>@Override
 public void channelReadComplete(ChannelHandlerContext ctx) {

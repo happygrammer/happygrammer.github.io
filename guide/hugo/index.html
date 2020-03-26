@@ -124,7 +124,15 @@ cd public
 git add .
 git commit -m &quot;commit&quot;
 git push -u origin master
-</code></pre>
+</code></pre><h3 id="html-">HTML 출력</h3>
+<p>HTML 태그를 사용하려 할때 hugo는 safe하지 않다고 판단해 아래와 같이 &ldquo;raw HTML omitted&rdquo; 주서으로 치환을 수행합니다.</p>
+<pre><code class="language-ᆨhtml" data-lang="ᆨhtml">&lt;p&gt;...&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;...&lt;/p&gt;
+</code></pre><p>이러한 경우는 hugo 설정에서 <code>unsafe</code> 값을 true로 해주면, safe 모드가 해제 되어 html 태그를 사용할 수 있게 됩니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[<span style="color:#a6e22e">markup</span>.<span style="color:#a6e22e">goldmark</span>.<span style="color:#a6e22e">renderer</span>]
+<span style="color:#a6e22e">unsafe</span> = <span style="color:#66d9ef">true</span>
+</code></pre></div>
         </div>
 
         
@@ -142,6 +150,7 @@ git push -u origin master
         <li><a href="#heading-1">템플릿</a></li>
         <li><a href="#hugo-">Hugo 명령어</a></li>
         <li><a href="#---3">정적 사이트 배포하기</a></li>
+        <li><a href="#html-">HTML 출력</a></li>
       </ul>
     </li>
   </ul>

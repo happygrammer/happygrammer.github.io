@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Papers on Happygrammer Blog</title>
+    <link>https://happygrammer.github.io/paper/</link>
+    <description>Recent content in Papers on Happygrammer Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    
+	<atom:link href="https://happygrammer.github.io/paper/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+  </channel>
+</rss>

@@ -6,10 +6,20 @@
     <description>Recent content on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 29 Mar 2020 18:50:40 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 02 Apr 2020 07:56:10 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>한글 준말의 규칙성</title>
+      <link>https://happygrammer.github.io/hangeul/abbreviations/</link>
+      <pubDate>Thu, 02 Apr 2020 07:56:10 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/hangeul/abbreviations/</guid>
+      <description>준말 준말은 긴말을 의미가 왜곡되지 않으면서 줄인말입니다. 낱말에서 소리가 탈락 되는 위치는 첫소리, 중간 소리, 끝소리, 앞뒤소리가 있습니다.
+ 첫소리 탈락 예 : 배 안 윗 냄새 - 배 ㄴ 앳 냄새 - 배냇냄새 중간 소리 탈락 예 : 바깥-사돈 - 바ㅌ-사돈 - 밭사돈 끝소리 탈락  어제-저녁 - 어ㅈ 저녁 - 엊저녁 그것 은 - 그거-은 - 그건 허송하지 - 허송치 깨끗하지 - 깨끗지 섭섭하지 - 섭섭지 (한글 맞춤법 40항)  ㄱ,ㄷ,ㅂ 소리가 나는 경우는 &amp;lsquo;하&#39;가 탈락됩니다.</description>
+    </item>
     
     <item>
       <title>텐서플로우 아키텍처</title>
@@ -434,9 +444,8 @@ date +&amp;quot;%T&amp;quot; # 04:09:51 시간 출력(12시간 기준) date +&am
       <pubDate>Wed, 15 Jan 2020 06:39:54 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/hangeul/hangeul-spelling/</guid>
-      <description>이 글은 한글 맞춤법 어문 규정 중요 내용을 소개 하고 한글의 이해를 높이고자 하는 목적으로 작성되었습니다.
-1. 한글 표기의 원칙 한글 맞춤법은 한글을 문자로 표기할때의 관례(convention)이자 약속입니다. 한글 맞춤법의 원칙은 표준어를 소리대로 적되, 어법에 맞도록 함을 원칙(제 1항)으로 합니다. 제 1항에서 제시한 한글 표기의 원칙은 ‘소리대로 적는다&#39;입니다. 왜냐하면 한글은 소리를 문자로 표기하는 표음 문자(表音文字)이기 때문입니다. 표음 문자는 음소 문자와 음절 문자로 나뉩니다.
- 음소 문자 음절 문자  음소 문자 한글은 음소 문자(音素文字)입니다.</description>
+      <description>한글 맞춤법은 말과 글을 올바로 사용하게 만들어, 정보를 올바로 공유할 수 있게 하고 개인과 공동체 내의 의사 소통을 원만하게합니다. 본 문서는 자주 사용될 법한 일반적인 한글 맞춤법의 필수 원칙과 예시들을 소개하는데 있습니다. 이 글은 한글 맞춤법 어문 규정 중요 내용을 소개 하고 한글의 이해를 높이고자 하는 목적으로 작성되었습니다.
+1. 한글 표기의 원칙 한글 맞춤법은 한글을 문자로 표기할때의 관례(convention)이자 약속입니다. 한글 맞춤법의 원칙은 표준어를 소리대로 적되, 어법에 맞도록 함을 원칙(제 1항)으로 합니다.</description>
     </item>
     
     <item>

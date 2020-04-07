@@ -67,6 +67,41 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/vocabulary/nlp/">머신러닝 용어</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/vocabulary/nlp/" class="article-date">
+                        <time datetime='2020-04-07T00:15:52.000&#43;03:00' itemprop="datePublished">2020-04-07</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    본 문서는 자연어처리/머신러닝 용어 목록을 소개합니다.
+  BERT
+ 양방향 언어 모델 구글 브레인이 개발한 트랜스 포머 기반의 모델. 페이스북은 RoBERTa라는 새로운 알고리즘을 개발했다.    Bootstrapping
+ 부스팅이라고도 불림, 샘플 데이터에서 랜덤 샘플링해 학습셋을 늘리는 방법으로, 정규 분포 성질을 가정함 크기가 동일한 n개의 샘플셋으로 구성함    CTRL
+ GPT-2보다 약간 더 큰 알고리즘으로, 글 스타일을 제어 가능    ELMo(Embeddings from Language Model)
+ 2018년에 제안된 모델, 사전 훈련 언어 모델을 이용 문맥을 고려해 임베딩(Contextualized Word Embedding)  순방향, 역방향 RNN의 언어 모두를 고려한 biLM(Bidirectional Language Model)을 이용함      Fine tuning
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/vocabulary/nlp/">Read More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/worth/statistics/">한국의 경제 지표</a></h1>
                 </header>
                 
@@ -339,39 +374,6 @@ docker-compose 파일에 서비스 정의 docker-compose.yml는 서비스를 정
                     </p>
                     <p class="article-more-link">
                         <a href="/docker/docker-compose/">Read More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/docker/mariadb/">도커에 Mariadb 설치</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/docker/mariadb/" class="article-date">
-                        <time datetime='2020-03-01T00:55:12.000&#43;03:00' itemprop="datePublished">2020-03-01</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    도커 실행 여부 체크 설치를 진행하기 전에 도커 실행 여부를 확인합니다. 도커가 실행중인 상태가 아니면 다음과 같은 예외 메시지가 출력됩니다.
-Using default tag: latest Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running? 지금 부터 mariadb를 다운로드 받아 설정 까지 진행하도록 하겠습니다.
-도커 이미지 다운로드 docker pull mariadb 컨테이너 실행 3306 port로 설정해 실행합니다.
-docker container run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 --name mariadb mariadb docker 볼륨을 /Users/Shared/data/mariadb로 설정합니다.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/docker/mariadb/">Read More</a>
                     </p>
                 </div>
 

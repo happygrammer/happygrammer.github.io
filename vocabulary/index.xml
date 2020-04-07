@@ -18,11 +18,10 @@
       
       <guid>https://happygrammer.github.io/vocabulary/nlp/</guid>
       <description>본 문서는 자연어처리/머신러닝 용어 목록을 소개합니다.
-  BERT
+  Auto Regressive
+ AR(순차적인 데이터 처리) 이러한 관점에서 ELmo, GPT를 AR 계열로 볼 수 있음    BERT
  양방향 언어 모델 구글 브레인이 개발한 트랜스 포머 기반의 모델. 페이스북은 RoBERTa라는 새로운 알고리즘을 개발했다.    Bootstrapping
- 부스팅이라고도 불림, 샘플 데이터에서 랜덤 샘플링해 학습셋을 늘리는 방법으로, 정규 분포 성질을 가정함 크기가 동일한 n개의 샘플셋으로 구성함    CTRL
- GPT-2보다 약간 더 큰 알고리즘으로, 글 스타일을 제어 가능    ELMo(Embeddings from Language Model)
- 2018년에 제안된 모델, 사전 훈련 언어 모델을 이용 문맥을 고려해 임베딩(Contextualized Word Embedding)  순방향, 역방향 RNN의 언어 모두를 고려한 biLM(Bidirectional Language Model)을 이용함      Fine tuning</description>
+ 부스팅이라고도 불림, 샘플 데이터에서 랜덤 샘플링해 학습셋을 늘리는 방법으로, 정규 분포 성질을 가정함 크기가 동일한 n개의 샘플셋으로 구성함    CTRL</description>
     </item>
     
   </channel>

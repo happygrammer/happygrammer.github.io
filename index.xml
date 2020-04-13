@@ -18,10 +18,9 @@
       
       <guid>https://happygrammer.github.io/vocabulary/nlp/</guid>
       <description>본 문서는 자연어처리/머신러닝 용어 목록을 소개합니다.
-  Auto Regressive
- AR(순차적인 데이터 처리) 이러한 관점에서 ELmo, GPT를 AR 계열로 볼 수 있음    BERT
- 양방향 언어 모델 구글 브레인이 개발한 트랜스 포머 기반의 모델. 페이스북은 RoBERTa라는 새로운 알고리즘을 개발했다.    Bootstrapping
- 부스팅이라고도 불림, 샘플 데이터에서 랜덤 샘플링해 학습셋을 늘리는 방법으로, 정규 분포 성질을 가정함 크기가 동일한 n개의 샘플셋으로 구성함    CTRL</description>
+  Auto ML(Automated machine learning)
+ 엔지니어의 도움 없이도 머신 러닝 모델을 생성할 수 있는 머신러닝 솔루션 &amp;ldquo;Data 처리, Feature 엔지니어링, Feature 추출, Feature 선택&amp;quot;의 자동화 지원 관련 솔루션  Google Cloud Platform - Cloud AutoML Google Cloud Platform - AutoML NLP Azure - Azure Machine Learning AWS - Amazon SageMaker      Auto Regressive
+ AR(순차적인 데이터 처리) 이러한 관점에서 ELmo, GPT를 AR 계열로 볼 수 있음    BERT</description>
     </item>
     
     <item>

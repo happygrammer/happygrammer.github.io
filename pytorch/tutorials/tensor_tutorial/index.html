@@ -80,7 +80,7 @@
         <div class="article-entry" itemprop="articleBody">
             <p>파이썬 기반의 과학 컴퓨팅 패키지이로 두가지 특징이 있습니다.</p>
 <ul>
-<li>GPU 파워를 사용해 Numpy를 대체 합니다.</li>
+<li>GPU 파워를 사용해 <code>Numpy</code>를 대체 합니다.</li>
 <li>딥러닝 연구 플랫폼이며 유연함과 속도를 제공합니다.</li>
 </ul>
 <h3 id="heading">텐서</h3>
@@ -89,6 +89,7 @@
 import torch
 </code></pre><p>NOTE</p>
 <p>초기화 하지 않은 매트릭스를 선언했고, 사용 되기 전에 알려지지 않은 값을 포함합니다. 초기화 되지 않은 매트릭가 생성되면,  초기화 값된 메트리스가 메모리에 할당됩니다.</p>
+<h4 id="-">빈텐서 생성</h4>
 <p><a href="https://pytorch.org/docs/stable/torch.html#torch.empty">empty</a> 메서드를 이용해 5x3 매트릭스를 구축합니다. 초기화 되어 있지 않습니다.:</p>
 <pre><code>x = torch.empty(5, 3)
 print(x)
@@ -98,7 +99,8 @@ print(x)
         [0., 0., 0.],
         [0., 0., 0.],
         [0., 0., 0.]])
-</code></pre><p><a href="https://pytorch.org/docs/stable/torch.html#torch.rand">rand 메서드</a>를 이용해 랜덤값으로 초기화된 매트릭스 x를 구축합니다:</p>
+</code></pre><h4 id="rand-">rand 메서드</h4>
+<p><a href="https://pytorch.org/docs/stable/torch.html#torch.rand">rand 메서드</a>를 이용해 랜덤값으로 초기화된 매트릭스 x를 구축합니다:</p>
 <pre><code>x = torch.rand(5, 3)
 print(x)
 </code></pre><p>출력:</p>
@@ -154,7 +156,7 @@ tensor([[ 2.0873,  0.5724,  3.2169],
 <p><code>torch.Size</code> 는 튜플입니다. 그래서 모든 튜플 연산자를 지원합니다.</p>
 <h3 id="operations">Operations</h3>
 <p><a href="https://pytorch.org/docs/master/torch.html">연산자</a>를 위한 여러 구문이 있습니다. 다음 예제에서 더하기 연산을 살펴 보겠습니다.</p>
-<p>더하기 연산 문법</p>
+<h4 id="--">더하기 연산 문법</h4>
 <pre><code>y = torch.rand(5, 3)
 print(x + y)
 </code></pre><p>출력:</p>
@@ -163,7 +165,7 @@ print(x + y)
         [ 0.4420, -0.8375, -1.5139],
         [-0.8007, -0.8512, -0.1808],
         [ 0.9704, -0.9864,  2.2123]])
-</code></pre><p>더하기 연산 문법2</p>
+</code></pre><h4 id="--2">더하기 연산 문법2</h4>
 <pre><code>print(torch.add(x, y))
 </code></pre><p>출력:</p>
 <pre><code>tensor([[ 2.2760,  0.8943,  3.6728],
@@ -171,7 +173,8 @@ print(x + y)
         [ 0.4420, -0.8375, -1.5139],
         [-0.8007, -0.8512, -0.1808],
         [ 0.9704, -0.9864,  2.2123]])
-</code></pre><p>인자로 출력 텐서를 전달할 수 있습니다.</p>
+</code></pre><h4 id="---">인자로 출력 텐서를 전달</h4>
+<p>인자로 출력 텐서를 전달할 수 있습니다.</p>
 <pre><code>result = torch.empty(5, 3)
 torch.add(x, y, out=result)
 print(result)
@@ -181,7 +184,8 @@ print(result)
         [ 0.4420, -0.8375, -1.5139],
         [-0.8007, -0.8512, -0.1808],
         [ 0.9704, -0.9864,  2.2123]])
-</code></pre><p>In-place 연산자로, 모든 연산자 마지막에는 &lsquo;_&lsquo;가 붙습니다.</p>
+</code></pre><h4 id="in-place-">In-place 연산자</h4>
+<p>In-place 연산자로, 모든 연산자 마지막에는 &lsquo;_&lsquo;가 붙습니다.</p>
 <pre><code># adds x to y
 y.add_(x)
 print(y)
@@ -196,14 +200,15 @@ print(y)
 <pre><code>print(x[:, 1])
 </code></pre><p>출력:</p>
 <pre><code>tensor([ 0.5724, -0.1102, -0.8689, -1.1049, -1.1887])
-</code></pre><p>리사이징:  텐서를 resize/reshape 하려면 ,  <code>torch.view</code>를 이용합니다:</p>
+</code></pre><h4 id="torchview-resize">torch.view로 resize</h4>
+<p>리사이징:  텐서를 resize/reshape 하려면 ,  <code>torch.view</code>를 이용합니다.</p>
 <pre><code>x = torch.randn(4, 4)
 y = x.view(16)
-z = x.view(-1, 8)  # the size -1 is inferred from other dimensions
+z = x.view(-1, 8)  # -1이라고 입력하면 8차원인 행이 몇개가 필요한지를 자동으로 계산한다. 자동으로 계산해 2가됨
 print(x.size(), y.size(), z.size())
 </code></pre><p>출력:</p>
 <pre><code>torch.Size([4, 4]) torch.Size([16]) torch.Size([2, 8])
-</code></pre><p>하나의 텐서 요소를 가진다면,  <code>.item()</code> 를 사용해 Python 숫자 값을 얻습니다.</p>
+</code></pre><p>하나의 텐서 요소를 가진다면,  <code>.item()</code> 를 사용해 Python 숫자 값을 얻습니다. 예를 들어 loss 값을 추출할 때 .item()를 사용할 수 있습니다.</p>
 <pre><code>x = torch.randn(1)
 print(x)
 print(x.item())
@@ -217,7 +222,7 @@ print(x.item())
 <h3 id="numpy-">NumPy 브릿지</h3>
 <p>Torch Tensor을 NumPy 배열로 변경이 가능합니다.</p>
 <p>Torch Tensor 와 NumPy 배열은 기본 메모리 위치를 공유해(Torch 텐서가 CPU에 처리된다면), 하나를 변경하면 다른 것도 변경이 됩니다.</p>
-<h4 id="torch--numpy--">Torch 텐서를 NumPy 배열로 변환</h4>
+<h4 id="torch--to-numpy--">Torch 텐서 to NumPy 배열로 변환</h4>
 <pre><code>a = torch.ones(5)
 print(a)
 </code></pre><p>출력:</p>
@@ -234,7 +239,7 @@ print(b)
 <pre><code>tensor([2., 2., 2., 2., 2.])
 [2. 2. 2. 2. 2.]
 </code></pre><h4 id="numpy--torch--">NumPy 배열을 Torch 텐서로 변환</h4>
-<p>Torch Tensor가 np 배열을 어떻게 자동으로 변경하는지를 확인해 보겠습니다.</p>
+<p>Torch Tensor가 np 배열을 자동으로 변경할 때 <code>from_numpy</code>를 이용합니다.</p>
 <pre><code>import numpy as np
 a = np.ones(5)
 b = torch.from_numpy(a)
@@ -246,6 +251,7 @@ print(b)
 tensor([2., 2., 2., 2., 2.], dtype=torch.float64)
 </code></pre><p>CPU위에서 동작하는 텐서는  <a href="https://pytorch.org/docs/stable/tensors.html">CharTensor</a>를 제외합니다. CharTensor는 Numpy로 변경하는 역할을합니다.</p>
 <h3 id="cuda-">CUDA 텐서</h3>
+<h4 id="to-">.to 메서드</h4>
 <p>텐서는 .to 메서드를 사용해 어떤 장치로도 이동될 수 있습니다.</p>
 <pre><code># let us run this cell only if CUDA is available
 # We will use ``torch.device`` objects to move tensors in and out of GPU

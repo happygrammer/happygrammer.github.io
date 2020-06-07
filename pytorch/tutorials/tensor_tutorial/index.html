@@ -111,7 +111,7 @@ print(x)
         [0.9860, 0.7645, 0.5177]])
 </code></pre><p>0으로 채워진 매트릭스를 구축합니다. <a href="https://pytorch.org/docs/stable/tensor_attributes.html#torch.torch.dtype">dtype(Data Type)</a>은 long입니다.:</p>
 <ul>
-<li>역자 주 : dtype은 크게 숫자과 문자형으로 나뉩니다.
+<li>역자 주 : dtype은 크게 숫자형과 문자형으로 나뉩니다.
 <ul>
 <li>숫자형은 bool 자료형(booleans, bool), 정수형 (integers, int), 부호 없는 정수형 (unsigned integers , uint), 부동소수형 (floating point, float), 복소수형 (complex)가 있습니다.</li>
 <li>문자형은 string뿐입니다.</li>
@@ -225,7 +225,8 @@ print(x.item())
 print(a)
 </code></pre><p>출력:</p>
 <pre><code>tensor([1., 1., 1., 1., 1.])
-b = a.numpy()
+</code></pre><p>이때 numpy()라는 메서드를 호출하면 즉시 텐서에서 Numpy 배열로 변환 된다는 것을 확인할 수 있습니다.</p>
+<pre><code>b = a.numpy()
 print(b)
 </code></pre><p>출력:</p>
 <pre><code>[1. 1. 1. 1. 1.]

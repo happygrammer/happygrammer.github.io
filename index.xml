@@ -6,10 +6,20 @@
     <description>Recent content on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Jun 2020 14:35:56 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 07 Jun 2020 15:00:03 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>[Rust] 데이터 타입</title>
+      <link>https://happygrammer.github.io/rust/data_types/</link>
+      <pubDate>Sun, 07 Jun 2020 15:00:03 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/rust/data_types/</guid>
+      <description>Rust는 두개의 서브 데이터 타입이 있습니다. scalar와 compound입니다. Rust는 정적 타입 언어(statically typed language)입니다. 따라서 값을 기반으로 타입을 추론할 수 있지만, 모든 변수에 대한 타입을 알아야 컴파일이 가능합니다.
+Scalar Types Integer Types    Length Signed Unsigned     8-bit i8 u8   16-bit i16 u16   32-bit i32 u32   64-bit i64 u64   128-bit i128 u128   arch isize usize    Floating-Point Types fn main() { let x = 2.</description>
+    </item>
     
     <item>
       <title>[Rust] 설치하기</title>

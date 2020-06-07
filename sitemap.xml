@@ -3,21 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://happygrammer.github.io/rust/install/</loc>
-    <lastmod>2020-06-07T14:35:56+03:00</lastmod>
+    <loc>https://happygrammer.github.io/rust/data_types/</loc>
+    <lastmod>2020-06-07T15:00:03+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2020-06-07T14:35:56+03:00</lastmod>
+    <lastmod>2020-06-07T15:00:03+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://happygrammer.github.io/rust/</loc>
+    <lastmod>2020-06-07T15:00:03+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/rust/install/</loc>
     <lastmod>2020-06-07T14:35:56+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

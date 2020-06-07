@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[Rust] 데이터 타입</title>
+
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="[Rust] 데이터 타입" />
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/rust/data_types/" />
+    
+
+    
+<script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer Blog</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/hangeul/">한글학</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">[Rust] 데이터 타입</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/rust/data_types/" class="article-date">
+                <time datetime='2020-06-07T15:00:03.000&#43;03:00' itemprop="datePublished">2020-06-07</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>Rust는 두개의 서브 데이터 타입이 있습니다. <code>scalar</code>와 <code>compound</code>입니다. Rust는 정적 타입 언어(statically typed language)입니다. 따라서 값을 기반으로 타입을 추론할 수 있지만, 모든 변수에 대한 타입을 알아야 컴파일이 가능합니다.</p>
+<h2 id="scalar-types">Scalar Types</h2>
+<h3 id="integer-types">Integer Types</h3>
+<table>
+<thead>
+<tr>
+<th>Length</th>
+<th>Signed</th>
+<th>Unsigned</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>8-bit</td>
+<td><code>i8</code></td>
+<td><code>u8</code></td>
+</tr>
+<tr>
+<td>16-bit</td>
+<td><code>i16</code></td>
+<td><code>u16</code></td>
+</tr>
+<tr>
+<td>32-bit</td>
+<td><code>i32</code></td>
+<td><code>u32</code></td>
+</tr>
+<tr>
+<td>64-bit</td>
+<td><code>i64</code></td>
+<td><code>u64</code></td>
+</tr>
+<tr>
+<td>128-bit</td>
+<td><code>i128</code></td>
+<td><code>u128</code></td>
+</tr>
+<tr>
+<td>arch</td>
+<td><code>isize</code></td>
+<td><code>usize</code></td>
+</tr>
+</tbody>
+</table>
+<h3 id="floating-point-types">Floating-Point Types</h3>
+<pre><code>fn main() {
+    let x = 2.0; // f64
+
+    let y: f32 = 3.0; // f32
+}
+</code></pre><h3 id="numeric-operation">Numeric Operation</h3>
+<pre><code>fn main() {
+    // addition
+    let sum = 1 + 2;
+    println!(&quot;{}&quot;,sum);
+
+    // subtraction
+    let difference = 10.1 - 0.2;
+    println!(&quot;{}&quot;,difference);
+
+    // multiplication
+    let multiplication = 10 * 20;
+    println!(&quot;{}&quot;,multiplication);
+
+    // division
+    let division = 50.5 / 30.5;
+    println!(&quot;{}&quot;,division);
+
+    // remainder
+    let remainder = 53 % 5;
+    println!(&quot;{}&quot;,remainder);
+}
+</code></pre><p>실행 결과</p>
+<pre><code>$ rustc main.rs
+$ ./main
+3
+9.9
+200
+1.6557377049180328
+3
+</code></pre><h2 id="compound-types">Compound Types</h2>
+<p>하나의 타입이 여러 타입이 합쳐진 타입입니다. 크게 Tuple Type과 Array Type이 있습니다.</p>
+<h3 id="tuple-type">Tuple Type</h3>
+<pre><code>fn main() {
+    let tup: (i32, f64, u8) = (500, 6.4, 1);
+}
+</code></pre><h3 id="array-type">Array Type</h3>
+<pre><code>fn main() {
+    let a = [1, 2, 3, 4, 5];
+}
+</code></pre>
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <h3>Contents</h3>
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#scalar-types">Scalar Types</a>
+      <ul>
+        <li><a href="#integer-types">Integer Types</a></li>
+        <li><a href="#floating-point-types">Floating-Point Types</a></li>
+        <li><a href="#numeric-operation">Numeric Operation</a></li>
+      </ul>
+    </li>
+    <li><a href="#compound-types">Compound Types</a>
+      <ul>
+        <li><a href="#tuple-type">Tuple Type</a></li>
+        <li><a href="#array-type">Array Type</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v6.0&appId=2329733600657924&autoLogAppEvents=1"></script>
+	<div class="fb-comments" data-href="https://happygrammer.github.io/rust/data_types/" data-width="800" data-numposts="5"></div>
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/rust/install/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">[Rust] 설치하기&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    <div class="outer">
+        <div id="footer-info" class="inner">
+            &copy; 2020 Happygrammer Blog
+        </div>
+    </div>
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

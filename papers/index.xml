@@ -28,7 +28,8 @@
       
       <guid>https://happygrammer.github.io/papers/meena/</guid>
       <description>이 문서는 Meena 논문의 연구 결과를 되짚어 보기 위한 리서치 리뷰 문서이며 새로운 연구 결과를 포함하고 있지 않습니다.
-Meena는 멀티턴 도메인 챗봇. end-to-end 방식의 데이터 학습 진행. public 도메인인 소셜 미디어 대화를 대사으로 하였음. 2.6B 파라메터 뉴럴넷. 다음 토큰의 perplexity가 최소화 되도록 학습됨. We also propose a human evaluation metric called Sensibleness and Specificity Average (SSA), which captures key elements of a human-like multi-turn conversation. Our experiments show strong correlation between perplexity and SSA.</description>
+Meena는 멀티턴 도메인 챗봇. end-to-end 방식의 데이터 학습 진행. public 도메인인 소셜 미디어 대화를 대상으로 하였음. 341 GB의 텍스트를 학습하였고 26억(2.6 billions)  파라메터를 사용한 뉴럴넷입니다. 다음 토큰의 perplexity가 최소화 되도록 학습됨.
+낮은 perplexity는 샘플에 대해 잘 설명할 수 있는 확률분포를 가졌음을 의미함 OpenAI GPT-2에 비해 1.7배 모델이 크고, 8.5배의 학습 데이터를 사용하였습니다.</description>
     </item>
     
     <item>

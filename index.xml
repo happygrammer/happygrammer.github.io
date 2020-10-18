@@ -6,10 +6,22 @@
     <description>Recent content on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 07 Jun 2020 15:00:03 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 18 Oct 2020 09:02:50 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>JAVA 멀티 스레드 프로그래밍</title>
+      <link>https://happygrammer.github.io/java/multithreading/</link>
+      <pubDate>Sun, 18 Oct 2020 09:02:50 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/java/multithreading/</guid>
+      <description>프로세스는 여러 명령어들의 하나의 실행 단위이다. 스레드는 하나의 프로세스에 존재하는 여러 개의 실행 단위이다. 하나의 스레드 실행은 싱글 스레드라 하며, 여러 스레드의 실행은 멀티 스레드라고 한다.
+Thread Class 방식 vs Runnable 방식 thread class 방식은 Thread 클래스를 상속해 스레드를 실행하는 방법이고 Runnable 방식은 Runnable 인터페이스를 상속해
+1. Thread Class 방식 Thread 클래스를 상속해 스레드를 실행하는 예제이다.
+class TestThreadByThreadClass extends Thread { public void run() { System.out.println(&amp;#34;스레드 실행중&amp;#34;); } public static void main(String args[]) { TestThreadByThreadClass thread = new TestThreadByThreadClass(); thread.</description>
+    </item>
     
     <item>
       <title>[Rust] 데이터 타입</title>
@@ -686,15 +698,6 @@ A smooth sea never made a skilled mariner. 이 블로그의 주제  IT와 삶의
       <guid>https://happygrammer.github.io/spring/spring-boot/</guid>
       <description>스프링 부트는 쉽게 제품 등급의 독립형 스프링 기반 애플리케이션을 만들 수 있습니다. 대부분의 스프링 부트 애플리케케이션은 적은 설정을 필요로 합니다.
 특징  독립형 애플리케이셩 생성 내장 톰캣, 제티 포함. (WAR파일 배포 불필요) 스타터는 단순한 빌드 설정을 이용합니다. Spring 및 타사 의존 라이브러리를 자동으로 설정 되도록 합니다. 운영에 필요한 health 체크, 외부 설정 등의 기능을 제공합니다. 코드를 생성하거나 XML 설정을 요구 하지 않습니다.  스프링 부트 소개 이 문서는 레퍼런스 문서의 번역 문서입니다.</description>
-    </item>
-    
-    <item>
-      <title></title>
-      <link>https://happygrammer.github.io/java/multi-thread/</link>
-      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
-      
-      <guid>https://happygrammer.github.io/java/multi-thread/</guid>
-      <description></description>
     </item>
     
   </channel>

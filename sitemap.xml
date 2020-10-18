@@ -570,6 +570,11 @@
   </url>
   
   <url>
+    <loc>https://happygrammer.github.io/java/multi-thread/</loc>
+    <priority>0</priority>
+  </url>
+  
+  <url>
     <loc>https://happygrammer.github.io/categories/</loc>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

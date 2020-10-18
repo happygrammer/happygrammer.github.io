@@ -688,5 +688,14 @@ A smooth sea never made a skilled mariner. 이 블로그의 주제  IT와 삶의
 특징  독립형 애플리케이셩 생성 내장 톰캣, 제티 포함. (WAR파일 배포 불필요) 스타터는 단순한 빌드 설정을 이용합니다. Spring 및 타사 의존 라이브러리를 자동으로 설정 되도록 합니다. 운영에 필요한 health 체크, 외부 설정 등의 기능을 제공합니다. 코드를 생성하거나 XML 설정을 요구 하지 않습니다.  스프링 부트 소개 이 문서는 레퍼런스 문서의 번역 문서입니다.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://happygrammer.github.io/java/multi-thread/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://happygrammer.github.io/java/multi-thread/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

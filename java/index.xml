@@ -43,5 +43,14 @@
 자바 JDK 7 이상에서는 이러한 문제점을 해결 하고자 Proccess Builder 클래스가 소개됩니다. 이 클래스는 운영체제 프로세스 생성할 때 사용합니다. Process Builder 클래스 인스턴스에는 프로세스를 제어할 때 필요한 유용한 속성을 제어합니다. 예를 들어 start() 메서드는 입력 받은 커맨드를 실행해 새로운 프로세스를 생성 합니다.</description>
     </item>
     
+    <item>
+      <title></title>
+      <link>https://happygrammer.github.io/java/multi-thread/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://happygrammer.github.io/java/multi-thread/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>

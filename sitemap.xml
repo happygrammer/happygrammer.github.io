@@ -3,8 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://happygrammer.github.io/guide/</loc>
+    <lastmod>2020-11-21T09:09:47+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2020-10-18T09:02:50+03:00</lastmod>
+    <lastmod>2020-11-21T09:09:47+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/guide/oop/</loc>
+    <lastmod>2020-11-21T09:09:47+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -138,13 +152,6 @@
   <url>
     <loc>https://happygrammer.github.io/java/netty/intro/</loc>
     <lastmod>2020-03-21T21:29:30+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/guide/</loc>
-    <lastmod>2020-03-21T21:15:12+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

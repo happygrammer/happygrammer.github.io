@@ -13,10 +13,10 @@
     
     <item>
       <title>견고한 코드를 작성하는 기술</title>
-      <link>https://happygrammer.github.io/guide/oop/</link>
+      <link>https://happygrammer.github.io/guide/code-design/</link>
       <pubDate>Sat, 21 Nov 2020 09:09:47 +0300</pubDate>
       
-      <guid>https://happygrammer.github.io/guide/oop/</guid>
+      <guid>https://happygrammer.github.io/guide/code-design/</guid>
       <description>코드 작성 원칙  DRY (Don&#39;t Repeat Yourself)  한번 이상 동일하거나 유사한 코드를 작성하지 말라. &amp;lsquo;Once and Only Once&amp;rsquo;   SCP (Speaking Code Principle)  코드는 그 목적과 상호교류해야 함. 코드에 있는 주석은 코드가 그 목적과 비효율적으로 상호교류함을 나타낼 수 있음.   TDA (Tell, Don&#39;t Ask)  객체에게 정보를 요구하지 말고 그냥 행위하도록 시키라. &amp;lsquo;Law of Demeter&amp;rsquo;와 유사 데이터 생성 객체(구현을 숨기고, 정보 은닉, 캡슐화)로만 일임 하고 구체적인 타입입이나 값을 넘기는 일이 없도록 한다.</description>
     </item>
     

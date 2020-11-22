@@ -273,6 +273,7 @@ a.article-title:hover,
 .article-entry ol ol {
   margin-top: 0;
   margin-bottom: 0;
+  line-height: 1.5em;
 }
 .article-entry ul {
   list-style: disc;
@@ -473,7 +474,7 @@ a.article-title:hover,
 }
 .article-entry p,
 .article-entry table {
-  line-height: 2em;
+  line-height: 1.7em;
   margin: 1.4em 0;
 }
 .article-entry h1,

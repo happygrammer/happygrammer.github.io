@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Javas on Happygrammer Blog</title>
+    <title>Javas on Happygrammer</title>
     <link>https://happygrammer.github.io/java/</link>
-    <description>Recent content in Javas on Happygrammer Blog</description>
+    <description>Recent content in Javas on Happygrammer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 18 Oct 2020 09:02:50 +0300</lastBuildDate>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Maths on Happygrammer Blog</title>
+    <title>Maths on Happygrammer</title>
     <link>https://happygrammer.github.io/math/</link>
-    <description>Recent content in Maths on Happygrammer Blog</description>
+    <description>Recent content in Maths on Happygrammer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 05 Feb 2020 01:33:53 +0300</lastBuildDate>

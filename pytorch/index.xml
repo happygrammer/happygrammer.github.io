@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Pytorches on Happygrammer Blog</title>
+    <title>Pytorches on Happygrammer</title>
     <link>https://happygrammer.github.io/pytorch/</link>
-    <description>Recent content in Pytorches on Happygrammer Blog</description>
+    <description>Recent content in Pytorches on Happygrammer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Thu, 16 Jan 2020 22:09:54 +0300</lastBuildDate>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Shells on Happygrammer Blog</title>
+    <title>Shells on Happygrammer</title>
     <link>https://happygrammer.github.io/shell/</link>
-    <description>Recent content in Shells on Happygrammer Blog</description>
+    <description>Recent content in Shells on Happygrammer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 28 Feb 2020 10:39:13 +0300</lastBuildDate>

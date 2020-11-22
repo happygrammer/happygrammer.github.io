@@ -212,24 +212,24 @@ a.article-title:hover,
 }
 .article-entry h2 {
   font-size: 1.5em;
-  margin-top: 2em;
+  margin-top: 1.5em;
 }
 .article-entry h3 {
   font-size: 1.3em;
-  margin-top: 2em;
+  margin-top: 1em;
 }
 .article-entry h4 {
   font-size: 1.2em;
-  margin-top: 2em;
+  margin-top: 1em;
 }
 .article-entry h5 {
   font-size: 1em;
-  margin-top: 2em;
+  margin-top: 1em;
 }
 .article-entry h6 {
   font-size: 1em;
   color: #939393;
-  margin-top: 2em;
+  margin-top: 1em;
 }
 .article-entry hr {
   border: 1px dashed #ddd;

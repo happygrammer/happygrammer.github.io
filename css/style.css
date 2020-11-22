@@ -484,7 +484,7 @@ a.article-title:hover,
 .article-entry h6 {
   font-weight: 600;
   line-height: 1.4em;
-  margin: 2em 0em 1em 0em;
+  margin: 2em 0em 0em 0em;
 }
 .article-entry ul,
 .article-entry ol,

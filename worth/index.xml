@@ -6,10 +6,22 @@
     <description>Recent content in Worths on Happygrammer Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 05 Apr 2020 17:49:27 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 22 Nov 2020 21:19:37 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/worth/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>더 이상 단순할 수 없을 만큼 단순하게</title>
+      <link>https://happygrammer.github.io/worth/simple/</link>
+      <pubDate>Sun, 22 Nov 2020 21:19:37 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/worth/simple/</guid>
+      <description>코드는 ‘쉽고 단순해야’ 좋다. Simple Code, Plain Code
+몇개의 문법과 몇개의 작동 원리만 알면 프로그래밍의 80%는 소화할 수 있다. 논문이나 전문 분야에서도 그대로 적용된다.
+  Everything should be made as simple as possible, but no simpler 모든 것은 더 단순하게 할 수 없을 만큼 가능한 한 단순하게 해야한다.
+  If you can’t explain it simply, you don&#39;t understand it well enough 단순하게 설명할 수 없다면 제대로 이해하지 하지 못한 것이다.</description>
+    </item>
     
     <item>
       <title>한국의 경제 지표</title>

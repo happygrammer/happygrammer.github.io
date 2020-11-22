@@ -271,9 +271,8 @@ a.article-title:hover,
 .article-entry ol ul,
 .article-entry ul ol,
 .article-entry ol ol {
-  margin-top: 0;
-  margin-bottom: 0;
-  height: 1.5em;
+  margin-top: 15px;
+  margin-bottom: 15px;
 }
 .article-entry ul {
   list-style: disc;

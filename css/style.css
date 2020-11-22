@@ -812,7 +812,7 @@ a.article-title:hover,
 }
 .article-entry pre,
 .article-entry .highlight {
-  margin: 0;
+  margin: 2em 0em;
   font-size: 14px;
   background: #23241f;
   padding: 15px 0;

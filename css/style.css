@@ -484,13 +484,13 @@ a.article-title:hover,
 .article-entry h6 {
   font-weight: 800;
   line-height: 1.4em;
-  margin: 1.5em 0em 1.5em 0em;
+  margin: 2em 0em 1em 0em;
 }
 .article-entry ul,
 .article-entry ol,
 .article-entry dl {
-  margin-top: 1.4em;
-  margin-bottom: 1.4em;
+  margin-top: 1.7em;
+  margin-bottom: 1.7em;
 }
 .article-entry img,
 .article-entry video {

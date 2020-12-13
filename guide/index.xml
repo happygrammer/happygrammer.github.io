@@ -17,7 +17,7 @@
       <pubDate>Sat, 21 Nov 2020 09:09:47 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/guide/code-design/</guid>
-      <description>Code Principle  DRY (Don&#39;t Repeat Yourself) : 한번 이상 동일하거나 유사한 코드를 작성하지 말라. &amp;lsquo;Once and Only Once&amp;rsquo; SCP (Speaking Code Principle) : 코드는 그 목적과 상호교류해야 함 TDA (Tell, Don&#39;t Ask) : 객체에게 정보를 요구하지 말고 그냥 행위하도록 시키라. &amp;lsquo;Law of Demeter&amp;rsquo;와 유사  데이터 생성 객체(구현 정보 은닉, 캡슐화)로만 하고, 구체적인 타입이나 값은 넘기지 않는다. 객체의 속성 보다는 행동에 집중한다.   SOC (Separation Of Concerns)  하나의 클래스 내에 여러 관심사를 혼합시키지 마라.</description>
+      <description>Code Principle  DRY (Don&#39;t Repeat Yourself)  한번 이상 동일하거나 유사한 코드를 작성하지 말라. &amp;lsquo;Once and Only Once&amp;rsquo;   SCP (Speaking Code Principle)  코드는 그 목적과 상호교류해야 한다.   TDA (Tell, Don&#39;t Ask)  객체에게 정보를 요구하지 말고 그냥 행위하도록 시키라. (&#39;Law of Demeter&amp;rsquo;와 유사) 데이터 생성 객체(구현 정보 은닉, 캡슐화)로만 하고, 구체적인 타입이나 값은 넘기지 않는다. 객체의 속성 보다는 행동에 집중한다.   SOC (Separation Of Concerns)  하나의 클래스 내에 여러 관심사를 혼합시키지 마라.</description>
     </item>
     
     <item>

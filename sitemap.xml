@@ -164,14 +164,14 @@
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/tensorflow2/</loc>
+    <loc>https://happygrammer.github.io/tensorflow/</loc>
     <lastmod>2020-03-29T18:50:40+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/tensorflow2/tf-architecture/</loc>
+    <loc>https://happygrammer.github.io/tensorflow/tf-architecture/</loc>
     <lastmod>2020-03-29T18:50:40+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -304,28 +304,28 @@
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/tensorflow2/serving-client-api/</loc>
+    <loc>https://happygrammer.github.io/tensorflow/serving-client-api/</loc>
     <lastmod>2020-02-18T08:00:08+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/tensorflow2/serving-server-api/</loc>
+    <loc>https://happygrammer.github.io/tensorflow/serving-server-api/</loc>
     <lastmod>2020-02-18T08:00:00+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/tensorflow2/serving-architecture-overview/</loc>
+    <loc>https://happygrammer.github.io/tensorflow/serving-architecture-overview/</loc>
     <lastmod>2020-02-18T07:45:19+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/tensorflow2/serving/</loc>
+    <loc>https://happygrammer.github.io/tensorflow/serving/</loc>
     <lastmod>2020-02-18T07:39:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -493,7 +493,7 @@
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/tensorflow2/keras/regression/</loc>
+    <loc>https://happygrammer.github.io/tensorflow/keras/regression/</loc>
     <lastmod>2020-01-15T06:40:34+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -549,21 +549,21 @@
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/tensorflow2/text_classification_with_hub/</loc>
+    <loc>https://happygrammer.github.io/tensorflow/text_classification_with_hub/</loc>
     <lastmod>2020-01-15T06:34:47+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/tensorflow2/keras/classification/</loc>
+    <loc>https://happygrammer.github.io/tensorflow/keras/classification/</loc>
     <lastmod>2020-01-15T06:34:03+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/tensorflow2/quickstart-for-experts/</loc>
+    <loc>https://happygrammer.github.io/tensorflow/quickstart-for-experts/</loc>
     <lastmod>2020-01-15T06:32:43+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -591,7 +591,7 @@
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/tensorflow2/quickstart-for-beginners/</loc>
+    <loc>https://happygrammer.github.io/tensorflow/quickstart-for-beginners/</loc>
     <lastmod>2020-01-15T06:29:13+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

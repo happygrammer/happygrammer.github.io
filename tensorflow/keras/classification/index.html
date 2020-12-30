@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Classification</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    <meta name="description" content="Happygrammer Blog">
+    
+
+        <meta property="og:title" content="Classification" />
+    
+    <meta property="og:description" content="" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/tensorflow/keras/classification/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    
+<script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/hangeul/">Hangul</a>
+                
+                <a class="main-nav-link" href="/ml/">ML</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/tensorflow">Tensorflow</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">Classification</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/tensorflow/keras/classification/" class="article-date">
+                <time datetime='2020-01-15T06:34:03.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>텐서플로우 튜토리얼(<a href="https://www.tensorflow.org/tutorials/quickstart/advanced?hl=ko">https://www.tensorflow.org/tutorials/quickstart/advanced?hl=ko</a>) 한국어 번역 문서입니다.</p>
+<h3 id="-----">분류기의 기본 : 옷 데이터 분류하기</h3>
+<p>이번 가이드는 옷 이미지(스니커즈나 셔츠) 분류할 수 있는 뉴럴넷 모델을 학습해 보겠습니다. 바로 이해가 되지 않을 수 있지만, 텐서플로우 예제를 보고 빠르게 살펴 보겠습니다. 이 가이드는 <a href="https://www.tensorflow.org/guide/keras">tf.keras</a>, 라는 고수준 API를 이용해 모델을 학습합니다.</p>
+<pre><code>from __future__ import absolute_import, division, print_function, unicode_literals
+
+# TensorFlow and tf.keras
+import tensorflow as tf
+from tensorflow import keras
+
+# Helper libraries
+import numpy as np
+import matplotlib.pyplot as plt
+
+print(tf.__version__)
+2.0.0
+</code></pre><h3 id="-mnist--">패션 MNIST 데이터셋 임포트</h3>
+<p>이 가이드는 Fashion MNIST](<a href="https://github.com/zalandoresearch/fashion-mnist">https://github.com/zalandoresearch/fashion-mnist</a>) 데이터셋을 이용합니다. 이 데이터셋에는 70,000장의 흑백 이미지가 있고, 이들 이미지는 10개의 카테고리입니다. 저해상도(28 by 28 pixels) 이미지 이며 다음과 같습니다.</p>
+<p><img src="https://tensorflow.org/images/fashion-mnist-sprite.png" alt="img"></p>
+<p><strong>그림 1.</strong> <a href="https://github.com/zalandoresearch/fashion-mnist">패션-MNIST 샘플</a> (by Zalando, MIT License).</p>
+<p>패션 MNIST는 컴퓨터 비전 분야의 종종 “Hello, World&quot;에 해당하는 <a href="http://yann.lecun.com/exdb/mnist/">MNIST</a> 데이터셋입니다. 이 데이터셋은 손글씨숫자(0, 1, 2, etc.)에 대한 이미지입니다. 이 가이드는 예제 다양성을 고려하여 패션 MNIST 데이터셋을 이용하며 일반 MNIST보다 어렵습니다. 두 데이터셋은 상대적으로 크기가 작으며, 다양한 알고리즘 검증 작업에 사용할 수 있습니다. 코드를 테스트하고 디버그 하기 좋습니다.</p>
+<p>6만장의 이미지로 뉴럴 네트워크를 학습며, 1만장의 이미지는 분류 정확도 측정에 사용합니다. 패션 MNIST는 텐서플로우에서 바로 임포트해 사용할 수 있습니다.</p>
+<pre><code>fashion_mnist = keras.datasets.fashion_mnist
+
+(train_images, train_labels), (test_images, test_labels) = fashion_mnist.load_data()
+</code></pre><h3 id="explore-the-data">Explore the data</h3>
+<p>모델 학습 전에 데이터셋 포맷에 대해 알아 보겠습니다. 60000만개의 이미지는 학습이미지로 사용하며, 각 이미지는 28 x 28 픽셀입니다.:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train_images<span style="color:#f92672">.</span>shape
+(<span style="color:#ae81ff">60000</span>, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">28</span>)
+</code></pre></div><p>마찬가지로 60,000 레이블이 학습셋이 있습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">len(train_labels)
+<span style="color:#ae81ff">60000</span>
+</code></pre></div><p>각 레이블은 0과 9사이 범위의 숫자입니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train_labels
+array([<span style="color:#ae81ff">9</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">.</span><span style="color:#f92672">.</span><span style="color:#f92672">.</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">5</span>], dtype<span style="color:#f92672">=</span>uint8)
+</code></pre></div><p>10,000 이미지는 테스트셋입니다. 각 이미지는 28x28 픽셀입니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test_images<span style="color:#f92672">.</span>shape
+(<span style="color:#ae81ff">10000</span>, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">28</span>)
+</code></pre></div><p>그리고 테스트셋은 10000 이미지 레이블을 포함합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">len(test_labels)
+<span style="color:#ae81ff">10000</span>
+</code></pre></div><h3 id="-">데이터 처리</h3>
+<p>데이터는 네트워크 학습전에 전처리가 반드시 필요합니다. 만약 학습 셋에서 이미지를 검사하면 픽셀값은 0에서 255값 사이 범위내입니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>figure()
+plt<span style="color:#f92672">.</span>imshow(train_images[<span style="color:#ae81ff">0</span>])
+plt<span style="color:#f92672">.</span>colorbar()
+plt<span style="color:#f92672">.</span>grid(False)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="https://www.tensorflow.org/tutorials/keras/classification_files/output_m4VEw8Ud9Quh_0.png" alt="png"></p>
+<p>이러한 값은 신경 네트워크 모델을 만들기 전에 0부터 1까지의 범위로 스케일합니다. 그렇게 하려면 값을 255로 나눕니다. 학습셋과 테스트셋을 동일한 방식으로 사전 처리합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">train_images <span style="color:#f92672">=</span> train_images <span style="color:#f92672">/</span> <span style="color:#ae81ff">255.0</span>
+
+test_images <span style="color:#f92672">=</span> test_images <span style="color:#f92672">/</span> <span style="color:#ae81ff">255.0</span>
+</code></pre></div><p>데이터가 올바른 형식이고 네트워크를 구축 하고 학습할 준비가 되었는지 확인하려면, 학습셋의 25개의 이미지를 표시할 수 있고, 각 이미지 아래에 클래스 이름이 표시 되는지 확인합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">10</span>,<span style="color:#ae81ff">10</span>))
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(<span style="color:#ae81ff">25</span>):
+    plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">5</span>,i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+    plt<span style="color:#f92672">.</span>xticks([])
+    plt<span style="color:#f92672">.</span>yticks([])
+    plt<span style="color:#f92672">.</span>grid(False)
+    plt<span style="color:#f92672">.</span>imshow(train_images[i], cmap<span style="color:#f92672">=</span>plt<span style="color:#f92672">.</span>cm<span style="color:#f92672">.</span>binary)
+    plt<span style="color:#f92672">.</span>xlabel(class_names[train_labels[i]])
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="https://www.tensorflow.org/tutorials/keras/classification_files/output_oZTImqg_CaW1_0.png" alt="png"></p>
+<h3 id="--1">모델 빌드</h3>
+<p>뉴럴 네터워크를 빌드할 때 레이어 설정이 필요하고, 이후 모델을 컴파일합니다.</p>
+<h4 id="--2">레이어 설정</h4>
+<p>뉴럴넷 레이어를 설정하겠습니다. 레이터는 데이터에 나타난 표현을 추출합니다. 대부분의 딥러닝은 간단한 레이어의 연결로 구성됩니다. 레이어 설정시 <a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense"><code>tf.keras.layers.Dense</code></a>로 학습에 사용하는 파라메터를 설정합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model <span style="color:#f92672">=</span> keras<span style="color:#f92672">.</span>Sequential([
+    keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Flatten(input_shape<span style="color:#f92672">=</span>(<span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">28</span>)),
+    keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">128</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">relu</span><span style="color:#e6db74">&#39;</span>),
+    keras<span style="color:#f92672">.</span>layers<span style="color:#f92672">.</span>Dense(<span style="color:#ae81ff">10</span>, activation<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">softmax</span><span style="color:#e6db74">&#39;</span>)
+])
+</code></pre></div><p>첫번째 네트워크에 (<a href="https://www.tensorflow.org/api_docs/python/tf/keras/layers/Flatten"><code>tf.keras.layers.Flatten</code></a>) 2차원에서 1차원으로 변경합니다.(28x28픽셀 =&gt; 784픽셀). 이 레이어는 이미지에 픽셀 행을 분리 하고 정렬 하는 역할을 수행하며, 학습에 필요한 매개변수를 이용하지도 않으며, 단지 데이터 포맷만 변경할 뿐입니다.</p>
+<p>픽셀을 펼칩니다. 데이터는 2개의 [ tf.keras.layers.Dense<code>](https://www.tensorflow.org/api_docs/python/tf/keras/layers/Dense) 레이어로 설정했으며, 완전 연결(fully connected)되어 있습니다. 첫번째 </code>Dense` 레이어는 128 노드(뉴런) 입니다. 두번째 레이어는 10개 노드인 소프트 맥스 레이어입니다. 이층은 10개 확률을 반환하며 확률 합계는 1입니다.</p>
+<ul>
+<li>역자주 : <code>소프트 맥스 레이어</code> 는 멀티 화률값 예측에 사용하며, 출력 노드에는 0~1 숫자값을 출력하는 <code>소프트 맥스 함수</code>를 사용함.</li>
+</ul>
+<h4 id="--3">컴파일 모델</h4>
+<p>모델 학습 전에 설정이 좀 더 필요합니다. 다음은 모델 컴파일 단계입니다.:</p>
+<ul>
+<li>Loss 함수 —이 측정 함수 모델 학습시의 정확도를 측정하며, loss가 최소화 되고, 모델 학습이 잘 되도록 제어</li>
+<li>Optimizer —데이터에 대한 모델 업데이트를 할지를 결정</li>
+<li><em>Metrics</em> —학습이나 테스팅 단계에서 모니터링 accuracy를 사용mfz.</li>
+</ul>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model<span style="color:#f92672">.</span>compile(optimizer<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">adam</span><span style="color:#e6db74">&#39;</span>,
+              loss<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">sparse_categorical_crossentropy</span><span style="color:#e6db74">&#39;</span>,
+              metrics<span style="color:#f92672">=</span>[<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">accuracy</span><span style="color:#e6db74">&#39;</span>])
+</code></pre></div><h4 id="--4">모델 학습키기</h4>
+<p>신경망을 학습할 때 다음과단계가 요구 됩니다.:</p>
+<ol>
+<li>Feed the training data to the model. In this example, the training data is in the <code>train_images</code> and <code>train_labels</code> arrays.</li>
+<li>The model learns to associate images and labels.</li>
+<li>You ask the model to make predictions about a test set—in this example, the <code>test_images</code> array. Verify that the predictions match the labels from the <code>test_labels</code> array.</li>
+</ol>
+<p>To start training, call the <code>model.fit</code> method—so called because it “fits” the model to the training data:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">model<span style="color:#f92672">.</span>fit(train_images, train_labels, epochs<span style="color:#f92672">=</span><span style="color:#ae81ff">10</span>)
+Train on <span style="color:#ae81ff">60000</span> samples
+Epoch <span style="color:#ae81ff">1</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+<span style="color:#ae81ff">60000</span><span style="color:#f92672">/</span><span style="color:#ae81ff">60000</span> [<span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">5</span>s <span style="color:#ae81ff">85</span>us<span style="color:#f92672">/</span>sample <span style="color:#f92672">-</span> loss: <span style="color:#ae81ff">0.4978</span> <span style="color:#f92672">-</span> accuracy: <span style="color:#ae81ff">0.8245</span>
+Epoch <span style="color:#ae81ff">2</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+<span style="color:#ae81ff">60000</span><span style="color:#f92672">/</span><span style="color:#ae81ff">60000</span> [<span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">4</span>s <span style="color:#ae81ff">69</span>us<span style="color:#f92672">/</span>sample <span style="color:#f92672">-</span> loss: <span style="color:#ae81ff">0.3798</span> <span style="color:#f92672">-</span> accuracy: <span style="color:#ae81ff">0.8624</span>
+Epoch <span style="color:#ae81ff">3</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+<span style="color:#ae81ff">60000</span><span style="color:#f92672">/</span><span style="color:#ae81ff">60000</span> [<span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">4</span>s <span style="color:#ae81ff">62</span>us<span style="color:#f92672">/</span>sample <span style="color:#f92672">-</span> loss: <span style="color:#ae81ff">0.3411</span> <span style="color:#f92672">-</span> accuracy: <span style="color:#ae81ff">0.8762</span>
+Epoch <span style="color:#ae81ff">4</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+<span style="color:#ae81ff">60000</span><span style="color:#f92672">/</span><span style="color:#ae81ff">60000</span> [<span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">4</span>s <span style="color:#ae81ff">61</span>us<span style="color:#f92672">/</span>sample <span style="color:#f92672">-</span> loss: <span style="color:#ae81ff">0.3164</span> <span style="color:#f92672">-</span> accuracy: <span style="color:#ae81ff">0.8838</span>
+Epoch <span style="color:#ae81ff">5</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+<span style="color:#ae81ff">60000</span><span style="color:#f92672">/</span><span style="color:#ae81ff">60000</span> [<span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">4</span>s <span style="color:#ae81ff">61</span>us<span style="color:#f92672">/</span>sample <span style="color:#f92672">-</span> loss: <span style="color:#ae81ff">0.2956</span> <span style="color:#f92672">-</span> accuracy: <span style="color:#ae81ff">0.8902</span>
+Epoch <span style="color:#ae81ff">6</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+<span style="color:#ae81ff">60000</span><span style="color:#f92672">/</span><span style="color:#ae81ff">60000</span> [<span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">4</span>s <span style="color:#ae81ff">64</span>us<span style="color:#f92672">/</span>sample <span style="color:#f92672">-</span> loss: <span style="color:#ae81ff">0.2815</span> <span style="color:#f92672">-</span> accuracy: <span style="color:#ae81ff">0.8955</span>
+Epoch <span style="color:#ae81ff">7</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+<span style="color:#ae81ff">60000</span><span style="color:#f92672">/</span><span style="color:#ae81ff">60000</span> [<span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">4</span>s <span style="color:#ae81ff">65</span>us<span style="color:#f92672">/</span>sample <span style="color:#f92672">-</span> loss: <span style="color:#ae81ff">0.2691</span> <span style="color:#f92672">-</span> accuracy: <span style="color:#ae81ff">0.9009</span>
+Epoch <span style="color:#ae81ff">8</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+<span style="color:#ae81ff">60000</span><span style="color:#f92672">/</span><span style="color:#ae81ff">60000</span> [<span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">4</span>s <span style="color:#ae81ff">62</span>us<span style="color:#f92672">/</span>sample <span style="color:#f92672">-</span> loss: <span style="color:#ae81ff">0.2579</span> <span style="color:#f92672">-</span> accuracy: <span style="color:#ae81ff">0.9029</span>
+Epoch <span style="color:#ae81ff">9</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+<span style="color:#ae81ff">60000</span><span style="color:#f92672">/</span><span style="color:#ae81ff">60000</span> [<span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">4</span>s <span style="color:#ae81ff">63</span>us<span style="color:#f92672">/</span>sample <span style="color:#f92672">-</span> loss: <span style="color:#ae81ff">0.2485</span> <span style="color:#f92672">-</span> accuracy: <span style="color:#ae81ff">0.9062</span>
+Epoch <span style="color:#ae81ff">10</span><span style="color:#f92672">/</span><span style="color:#ae81ff">10</span>
+<span style="color:#ae81ff">60000</span><span style="color:#f92672">/</span><span style="color:#ae81ff">60000</span> [<span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span><span style="color:#f92672">==</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">4</span>s <span style="color:#ae81ff">60</span>us<span style="color:#f92672">/</span>sample <span style="color:#f92672">-</span> loss: <span style="color:#ae81ff">0.2388</span> <span style="color:#f92672">-</span> accuracy: <span style="color:#ae81ff">0.9100</span>
+
+<span style="color:#f92672">&lt;</span>tensorflow<span style="color:#f92672">.</span>python<span style="color:#f92672">.</span>keras<span style="color:#f92672">.</span>callbacks<span style="color:#f92672">.</span>History at <span style="color:#ae81ff">0x7fefe642a860</span><span style="color:#f92672">&gt;</span>
+</code></pre></div><p>모델 학습을 진행하고 나면, 손실과 정확도의 측정 결과가 표시됩니다. 이 모델은 학습 데이터에 대한 정확도가 약 0.88%입니다.</p>
+<h4 id="--5">정확도 평가하기</h4>
+<p>다음으로 학습된 모델을 테스트 데이터셋에 적용해 보겠습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test_loss, test_acc <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>evaluate(test_images,  test_labels, verbose<span style="color:#f92672">=</span><span style="color:#ae81ff">2</span>)
+
+<span style="color:#66d9ef">print</span>(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">Test accuracy:</span><span style="color:#e6db74">&#39;</span>, test_acc)
+<span style="color:#ae81ff">10000</span><span style="color:#f92672">/</span><span style="color:#ae81ff">1</span> <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>s <span style="color:#f92672">-</span> loss: <span style="color:#ae81ff">0.2934</span> <span style="color:#f92672">-</span> accuracy: <span style="color:#ae81ff">0.8830</span>
+
+Test accuracy: <span style="color:#ae81ff">0.883</span>
+</code></pre></div><p>테스트 셋의 정확도를 학습 셋의 정확도에 비해 다소 낮음을 확인할 수 있습니다. 이 차이는 학습 정확도와 테스트 정확도간의 차이로 오버피팅에 해당합니다. 오버피팅은 학습 데이터에 나타나지 않은 새로운 입력으로 인한 성능 저하입니다.</p>
+<h4 id="heading">예측하기</h4>
+<p>모델 학습을 할때, 어떤 이미지에 대한 예측율(predictions)을 이용할 수 있어야 합니다.</p>
+<pre><code>predictions = model.predict(test_images)
+</code></pre><p>모델은 학습셋의 각 이미지에 대해 라벨을 예측했습니다. 첫번째 예측(prediction)을 보겠습니다.</p>
+<pre><code>predictions[0]
+array([1.06123218e-06, 8.76374884e-09, 4.13958730e-07, 9.93547733e-09,
+       2.39135318e-07, 2.61428091e-03, 2.91701099e-07, 6.94991834e-03,
+       1.02351805e-07, 9.90433693e-01], dtype=float32)
+</code></pre><p>배열에는 10개의 예측과 관련한 신뢰도(<strong>confidence</strong>) 숫자를 포함합니다.</p>
+<ul>
+<li>역자주 : <strong>신뢰도</strong>는 라벨의 분류를 얼마나 신뢰할 수 있는지에 대한 확률값입니다.</li>
+</ul>
+<p>가장 높은 신뢰도에 대한 라벨을 확인해 보겠습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>argmax(predictions[<span style="color:#ae81ff">0</span>])
+<span style="color:#ae81ff">9</span>
+</code></pre></div><p>모델은 발목 부츠(ankle boot) 또는 <code>class_names[9]</code>라고 확신하고 있습니다. 테스트 라벨을 보면 이 분류는 정확함을 확인할 수 있습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">test_labels[<span style="color:#ae81ff">0</span>]
+<span style="color:#ae81ff">9</span>
+</code></pre></div><p>클래스 10개에 대한 그래프를 확인 하려면 다음 예제를 작성해야 합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#66d9ef">def</span> <span style="color:#a6e22e">plot_image</span>(i, predictions_array, true_label, img):
+  predictions_array, true_label, img <span style="color:#f92672">=</span> predictions_array, true_label[i], img[i]
+  plt<span style="color:#f92672">.</span>grid(False)
+  plt<span style="color:#f92672">.</span>xticks([])
+  plt<span style="color:#f92672">.</span>yticks([])
+
+  plt<span style="color:#f92672">.</span>imshow(img, cmap<span style="color:#f92672">=</span>plt<span style="color:#f92672">.</span>cm<span style="color:#f92672">.</span>binary)
+
+  predicted_label <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>argmax(predictions_array)
+  <span style="color:#66d9ef">if</span> predicted_label <span style="color:#f92672">==</span> true_label:
+    color <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">blue</span><span style="color:#e6db74">&#39;</span>
+  <span style="color:#66d9ef">else</span>:
+    color <span style="color:#f92672">=</span> <span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">red</span><span style="color:#e6db74">&#39;</span>
+
+  plt<span style="color:#f92672">.</span>xlabel(<span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">{} {:2.0f}</span><span style="color:#e6db74">%</span><span style="color:#e6db74"> ({})</span><span style="color:#e6db74">&#34;</span><span style="color:#f92672">.</span>format(class_names[predicted_label],
+                                <span style="color:#ae81ff">100</span><span style="color:#f92672">*</span>np<span style="color:#f92672">.</span>max(predictions_array),
+                                class_names[true_label]),
+                                color<span style="color:#f92672">=</span>color)
+
+<span style="color:#66d9ef">def</span> <span style="color:#a6e22e">plot_value_array</span>(i, predictions_array, true_label):
+  predictions_array, true_label <span style="color:#f92672">=</span> predictions_array, true_label[i]
+  plt<span style="color:#f92672">.</span>grid(False)
+  plt<span style="color:#f92672">.</span>xticks(range(<span style="color:#ae81ff">10</span>))
+  plt<span style="color:#f92672">.</span>yticks([])
+  thisplot <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>bar(range(<span style="color:#ae81ff">10</span>), predictions_array, color<span style="color:#f92672">=</span><span style="color:#e6db74"></span><span style="color:#e6db74">&#34;</span><span style="color:#e6db74">#777777</span><span style="color:#e6db74">&#34;</span>)
+  plt<span style="color:#f92672">.</span>ylim([<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>])
+  predicted_label <span style="color:#f92672">=</span> np<span style="color:#f92672">.</span>argmax(predictions_array)
+
+  thisplot[predicted_label]<span style="color:#f92672">.</span>set_color(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">red</span><span style="color:#e6db74">&#39;</span>)
+  thisplot[true_label]<span style="color:#f92672">.</span>set_color(<span style="color:#e6db74"></span><span style="color:#e6db74">&#39;</span><span style="color:#e6db74">blue</span><span style="color:#e6db74">&#39;</span>)
+</code></pre></div><p>0번째 이미지의 prediction 배열을 보겠습니다. 정확히 라벨을 예측하면 파랑색, 오분류라면 빨강색으로 표시합니다. 숫자(100을 벗어남)는 예측된 라벨의 퍼센테이지입니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">3</span>))
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>)
+plot_image(i, predictions[i], test_labels, test_images)
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>)
+plot_value_array(i, predictions[i],  test_labels)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="https://www.tensorflow.org/tutorials/keras/classification_files/output_HV5jw-5HwSmO_0.png" alt="png"></p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">i <span style="color:#f92672">=</span> <span style="color:#ae81ff">12</span>
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">6</span>,<span style="color:#ae81ff">3</span>))
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">1</span>)
+plot_image(i, predictions[i], test_labels, test_images)
+plt<span style="color:#f92672">.</span>subplot(<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>,<span style="color:#ae81ff">2</span>)
+plot_value_array(i, predictions[i],  test_labels)
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="https://www.tensorflow.org/tutorials/keras/classification_files/output_Ko-uzOufSCSe_0.png" alt="png"></p>
+<p>몇개의 이미지를 그려보겠습니다. 모델은 매우 확실한 경우에도 잘못 예측할 수 있음을 유의해야합니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Plot the first X test images, their predicted labels, and the true labels.</span>
+<span style="color:#75715e"># Color correct predictions in blue and incorrect predictions in red.</span>
+num_rows <span style="color:#f92672">=</span> <span style="color:#ae81ff">5</span>
+num_cols <span style="color:#f92672">=</span> <span style="color:#ae81ff">3</span>
+num_images <span style="color:#f92672">=</span> num_rows<span style="color:#f92672">*</span>num_cols
+plt<span style="color:#f92672">.</span>figure(figsize<span style="color:#f92672">=</span>(<span style="color:#ae81ff">2</span><span style="color:#f92672">*</span><span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>num_cols, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>num_rows))
+<span style="color:#66d9ef">for</span> i <span style="color:#f92672">in</span> range(num_images):
+  plt<span style="color:#f92672">.</span>subplot(num_rows, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>num_cols, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">1</span>)
+  plot_image(i, predictions[i], test_labels, test_images)
+  plt<span style="color:#f92672">.</span>subplot(num_rows, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>num_cols, <span style="color:#ae81ff">2</span><span style="color:#f92672">*</span>i<span style="color:#f92672">+</span><span style="color:#ae81ff">2</span>)
+  plot_value_array(i, predictions[i], test_labels)
+plt<span style="color:#f92672">.</span>tight_layout()
+plt<span style="color:#f92672">.</span>show()
+</code></pre></div><p><img src="https://www.tensorflow.org/tutorials/keras/classification_files/output_hQlnbqaw2Qu__0.png" alt="png"></p>
+<p>마침네, 학습 모델을 단일 이미지에 대한 예측에 사용할 수 있게 되었습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># Grab an image from the test dataset.</span>
+img <span style="color:#f92672">=</span> test_images[<span style="color:#ae81ff">1</span>]
+
+<span style="color:#66d9ef">print</span>(img<span style="color:#f92672">.</span>shape)
+(<span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">28</span>)
+</code></pre></div><p><a href="https://www.tensorflow.org/api_docs/python/tf/keras"><code>tf.keras</code></a> 모델은 배치 수행시, 이미지 라벨 예측 성능을 최적화 하는데 사용합니다. (단일 이미지라도 리스트에 추가 필요)</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python"><span style="color:#75715e"># 단일 이미지라도 배치에 추가해야함.</span>
+img <span style="color:#f92672">=</span> (np<span style="color:#f92672">.</span>expand_dims(img,<span style="color:#ae81ff">0</span>))
+
+<span style="color:#66d9ef">print</span>(img<span style="color:#f92672">.</span>shape)
+(<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">28</span>, <span style="color:#ae81ff">28</span>)
+</code></pre></div><p>이미지의 라벨을 정확히 예측할 수 있는지 보겠습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">predictions_single <span style="color:#f92672">=</span> model<span style="color:#f92672">.</span>predict(img)
+
+<span style="color:#66d9ef">print</span>(predictions_single)
+[[<span style="color:#ae81ff">1.4175281e-04</span> <span style="color:#ae81ff">8.5218921e-14</span> <span style="color:#ae81ff">9.9798274e-01</span> <span style="color:#ae81ff">1.7262291e-11</span> <span style="color:#ae81ff">1.3707496e-03</span>
+  <span style="color:#ae81ff">1.4081123e-14</span> <span style="color:#ae81ff">5.0472573e-04</span> <span style="color:#ae81ff">6.2876434e-17</span> <span style="color:#ae81ff">3.6248435e-09</span> <span style="color:#ae81ff">1.8519042e-13</span>]]
+plot_value_array(<span style="color:#ae81ff">1</span>, predictions_single[<span style="color:#ae81ff">0</span>], test_labels)
+_ <span style="color:#f92672">=</span> plt<span style="color:#f92672">.</span>xticks(range(<span style="color:#ae81ff">10</span>), class_names, rotation<span style="color:#f92672">=</span><span style="color:#ae81ff">45</span>)
+</code></pre></div><p><img src="https://www.tensorflow.org/tutorials/keras/classification_files/output_6Ai-cpLjO-3A_0.png" alt="png"></p>
+<p><code>model.predict</code> 는 리스트에 있는 하나의 리스트를 반환합니다. 데이터의 배치에서 각 이미지는 하나의 리스트입니다. 모델은 다음과 같이 라벨을 예측했습니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-python" data-lang="python">np<span style="color:#f92672">.</span>argmax(predictions_single[<span style="color:#ae81ff">0</span>])
+<span style="color:#ae81ff">2</span>
+</code></pre></div>
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-----">분류기의 기본 : 옷 데이터 분류하기</a></li>
+        <li><a href="#-mnist--">패션 MNIST 데이터셋 임포트</a></li>
+        <li><a href="#explore-the-data">Explore the data</a></li>
+        <li><a href="#-">데이터 처리</a></li>
+        <li><a href="#--1">모델 빌드</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v6.0&appId=2329733600657924&autoLogAppEvents=1"></script>
+	<div class="fb-comments" data-href="https://happygrammer.github.io/tensorflow/keras/classification/" data-width="800" data-numposts="5"></div>
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/tensorflow/text_classification_with_hub/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            영화 리뷰 텍스트 분류
+        </div>
+    </a>
+    
+    
+    <a href="/tensorflow/quickstart-for-experts/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">전문가용 텐서플로우 2 튜토리얼&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

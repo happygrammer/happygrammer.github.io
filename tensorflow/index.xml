@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tensorflows on Happygrammer</title>
+    <link>https://happygrammer.github.io/tensorflow/</link>
+    <description>Recent content in Tensorflows on Happygrammer</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 29 Mar 2020 18:50:40 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/tensorflow/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>텐서플로우 아키텍처</title>
+      <link>https://happygrammer.github.io/tensorflow/tf-architecture/</link>
+      <pubDate>Sun, 29 Mar 2020 18:50:40 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow/tf-architecture/</guid>
+      <description>텐서플로우는 큰 규모의 분산 기반의 학습과 추론을 고려해 설계 됐습니다. 새로운 기계 학습 알고리즘이 나오더라도 이를 지원할 수 있으며, 시스템 레벨의 최적화도 지원합니다. 다음 그림은 텐서플로우의 아키텍처입니다.
+왼쪽은 텐서플로우를 구성하는 컴포넌트들에 대한 그림이며, 오른쪽은 텐서 플로우가 어떠한 방식으로 컴포넌트간의 데이터를 주고 받으면서 실행 되는지를 나타내는 그림입니다.</description>
+    </item>
+    
+    <item>
+      <title>Serving 클라이언트 API</title>
+      <link>https://happygrammer.github.io/tensorflow/serving-client-api/</link>
+      <pubDate>Tue, 18 Feb 2020 08:00:08 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow/serving-client-api/</guid>
+      <description>RESTful API In addition to gRPC APIs TensorFlow ModelServer also supports RESTful APIs. This page describes these API endpoints and an end-to-end example on usage.
+The request and response is a JSON object. The composition of this object depends on the request type or verb. See the API specific sections below for details.
+In case of error, all APIs will return a JSON object in the response body with error as key and the error message as the value:</description>
+    </item>
+    
+    <item>
+      <title>Serving 서버 API</title>
+      <link>https://happygrammer.github.io/tensorflow/serving-server-api/</link>
+      <pubDate>Tue, 18 Feb 2020 08:00:00 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow/serving-server-api/</guid>
+      <description>TensorFlow 서빙 API 레퍼런스 tensorflow::serving
+   Classes      tensorflow::serving::AspiredVersionPolicy An interface for the policy to be applied for transitioning servable versions in a servable stream.   tensorflow::serving::AspiredVersionPolicy::ServableAction Action and the id of the servable associated with it.   tensorflow::serving::AspiredVersionsManager A manager that implements the Target&amp;lt;Loader&amp;gt; API which uses aspired-versions callbacks to dictate which servable versions to load.   tensorflow::serving::AspiredVersionsManager::Options Config options and pluggable objects that will be used by the AspiredVersionsManager.</description>
+    </item>
+    
+    <item>
+      <title>서빙 아키텍처 개요</title>
+      <link>https://happygrammer.github.io/tensorflow/serving-architecture-overview/</link>
+      <pubDate>Tue, 18 Feb 2020 07:45:19 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow/serving-architecture-overview/</guid>
+      <description>텐서 플로 서빙은 유영하며 머신러닝을 위한 고수준 서빙 모델입니다. 제품 환경을 고려해 디자인 됐습니다. 텐서 플로 서빙은 동일 서버 아키텍처와 API를 유지하고 새로운 알고리즘과 환경을 손쉽게 deploy있습니다. 텐서 플로 서빙은 텐서 플로 모델을 즉시 통합할 수 있고, 다른 타입의 모델과 데이터로 확장할 수 있습니다.
+키 컨셉 텐서 플로 서빙 아키텍처 이해를 위해서, 키 컨셉을 이해 할 필요가 있습니다.
+Servables
+Servables은 텐서 플로 서빙의 주요 개념입니다. Servables은 Servables은 클라이언트가 계산 할 때 사용하는 기본 개체입니다.</description>
+    </item>
+    
+    <item>
+      <title>서빙 모델</title>
+      <link>https://happygrammer.github.io/tensorflow/serving/</link>
+      <pubDate>Tue, 18 Feb 2020 07:39:29 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow/serving/</guid>
+      <description>텐서 플로 서빙은 유영하며 머신러닝을 위한 고수준 서빙 모델입니다. 제품 환경을 고려해 디자인 됐습니다. 텐서 플로 서빙은 동일 서버 아키텍처와 API를 유지하고 새로운 알고리즘과 환경을 손쉽게 deploy있습니다. 텐서 플로 서빙은 텐서 플로 모델을 즉시 통합할 수 있고, 다른 타입의 모델과 데이터로 확장할 수 있s습니다.
+텐서 플로 서빙의 자세한 개발 문서는 아래와 같습니다.
+ Architecture Overview Server API REST Client API  </description>
+    </item>
+    
+    <item>
+      <title>연비 예측을 위한 회귀 분석</title>
+      <link>https://happygrammer.github.io/tensorflow/keras/regression/</link>
+      <pubDate>Wed, 15 Jan 2020 06:40:34 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow/keras/regression/</guid>
+      <description>회귀 문제(regression problem)의 목표는 연속 출력값을 예측하는 것 입니다. 클래스 목록에서 클래스를 선택하는 것이 목표입니다. (사진을 인식해 사과 인지 오렌지를 식별함).
+이 노트 북은 고전적인 Auto MPG 데이터셋을 사용하여 모델을 만들고 있는 1970년대 후반부터 1980년데 전반까지의 자동차 연비 예측을 수행합니다. 이를 수행할 목적으로, 저 시기동안 많은 자동차들의 설명(description)을 가지고 구축한 모델을 제공합니다. 이 설명은 다음의 속성을 포함합니다. 예) 실린더, 변위(displacement), 마력(horsepower), 무게
+이 예제는 tf.keras API를 사용합니다. 자세한 가이드를 보시면 this guide 글을 보세요.</description>
+    </item>
+    
+    <item>
+      <title>영화 리뷰 텍스트 분류</title>
+      <link>https://happygrammer.github.io/tensorflow/text_classification_with_hub/</link>
+      <pubDate>Wed, 15 Jan 2020 06:34:47 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow/text_classification_with_hub/</guid>
+      <description>이글은 text_classification_with_hub 한국어 번역 문서입니다.
+ Run in Google Colab View source on GitHub Download notebook  노트북은 리뷰 텍스트를 이용해 영화 리뷰을 긍정인지 부정인지를 분류하는 이진 분류를 수행합니다. 머신러닝 문제에 넓게 적용되는 중요한 예제입니다. 튜토리얼은 텐서플로우 허브와 케라스를 이용해 트랜스퍼 러닝(transfer learning)의 기본 응용 방법을 설명합니다.
+ 역자주 : 트랜스퍼 러닝은 사전 학습 모델(pre-trained mode)을 재사용하여 응용 모델을 구축하는 방법  IMDB 데이터셋 은 5만개의 영화 리뷰(Internet Movie Database)를 포함하고 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>Classification</title>
+      <link>https://happygrammer.github.io/tensorflow/keras/classification/</link>
+      <pubDate>Wed, 15 Jan 2020 06:34:03 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow/keras/classification/</guid>
+      <description>텐서플로우 튜토리얼(https://www.tensorflow.org/tutorials/quickstart/advanced?hl=ko) 한국어 번역 문서입니다.
+분류기의 기본 : 옷 데이터 분류하기 이번 가이드는 옷 이미지(스니커즈나 셔츠) 분류할 수 있는 뉴럴넷 모델을 학습해 보겠습니다. 바로 이해가 되지 않을 수 있지만, 텐서플로우 예제를 보고 빠르게 살펴 보겠습니다. 이 가이드는 tf.keras, 라는 고수준 API를 이용해 모델을 학습합니다.
+from __future__ import absolute_import, division, print_function, unicode_literals # TensorFlow and tf.keras import tensorflow as tf from tensorflow import keras # Helper libraries import numpy as np import matplotlib.</description>
+    </item>
+    
+    <item>
+      <title>전문가용 텐서플로우 2 튜토리얼</title>
+      <link>https://happygrammer.github.io/tensorflow/quickstart-for-experts/</link>
+      <pubDate>Wed, 15 Jan 2020 06:32:43 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow/quickstart-for-experts/</guid>
+      <description>텐서플로우 튜토리얼(https://www.tensorflow.org/tutorials/quickstart/advanced) 한국어 번역 문서입니다.
+전문가용 텐서플로우 2 튜토리얼 Google Colaboratory에 노트북 파일이 있습니다. 이 사이트는 파이썬 노트북 파이을 브라우저에서 바로 실행해 볼 수 있어 텐서플로우를 이해하는데 도움을 줍니다. 튜토리얼을 진행해 보겠습니다.
+ Colab에서 파이썬 런타임에 접속합니다. 메뉴바의 오른쪽에 위치한 CONNECT을 선택합니다. 메뉴에서 Runtime &amp;gt; Run all을 선택합니다.  텐서플로우 패키지 설치와 임포트 텐서플로우 2 패키지를 다운로드 받고 설치를 진행하고, 텐서플로우를 프로그램으로 임포트합니다.
+from __future__ import absolute_import, division, print_function, unicode_literals import tensorflow as tf from tensorflow.</description>
+    </item>
+    
+    <item>
+      <title>텐서플로우 2 입문자용 튜토리얼</title>
+      <link>https://happygrammer.github.io/tensorflow/quickstart-for-beginners/</link>
+      <pubDate>Wed, 15 Jan 2020 06:29:13 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorflow/quickstart-for-beginners/</guid>
+      <description>텐서플로우 튜토리얼(https://www.tensorflow.org/tutorials/quickstart/beginner) 한국어 번역 문서입니다.
+텐서플로우 2 입문 튜토리얼  Google Colab에서 실행 GitHub 소스 보기 노트북 다운로드  케라스를 사용한 짧은 소개  이미지를 분류하는 뉴럴 네트워크(neural network)를 빌드합니다. 빌드된 뉴럴 네트워크를 이용해 학습(Train)을 진행합니다. 마지막으로, 모델의 정확도(accuracy)를 평가합니다.  Google Colaboratory에 노트북 파일이 있습니다. 이 사이트는 파이썬 노트북 파이을 브라우저에서 바로 실행해 볼 수 있어 텐서플로우를 이해하는데 도움을 줍니다. 튜토리얼을 진행해 보겠습니다.
+ Colab에서 파이썬 런타임에 접속합니다. 메뉴바의 오른쪽에 위치한 CONNECT을 선택합니다.</description>
+    </item>
+    
+  </channel>
+</rss>

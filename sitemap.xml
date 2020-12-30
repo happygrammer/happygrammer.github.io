@@ -4,14 +4,21 @@
   
   <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2020-12-30T23:28:57+03:00</lastmod>
+    <lastmod>2020-12-31T00:24:37+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://happygrammer.github.io/ml/</loc>
-    <lastmod>2020-12-30T23:28:57+03:00</lastmod>
+    <lastmod>2020-12-31T00:24:37+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/ml/data/</loc>
+    <lastmod>2020-12-31T00:24:37+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

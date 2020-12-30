@@ -6,10 +6,21 @@
     <description>Recent content on Happygrammer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 30 Dec 2020 16:47:03 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 30 Dec 2020 23:28:57 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>RNN 모델을 확장한 LSTM</title>
+      <link>https://happygrammer.github.io/ml/lstm/</link>
+      <pubDate>Wed, 30 Dec 2020 23:28:57 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ml/lstm/</guid>
+      <description>LSTM은 RNN 아키텍처를 근간으로 하는 모델이다. RNN(recurrent network) 모델은 입력층-은닉층-출력층으로 이어지는 순방향 신경망(feed-forward network)인데 LSTM은 feedback 연결을 포함하고 있어 순환 신경망인 특성이 있다.
+LSTM에는 새로운 입력이 주어지면 셀(cell)이라는 공간에 단어의 상태를 저장한다. 셀은 입력을 담당하는 인풋 게이트, 출력을 담당하는 아웃풋 게이트, 상태를 잊기 위해 망각 게이트(forget gate)의 역할을 수행한다.
+입력들 중에서 중요 상태 여부에 따라 잊을지 말지를 결정해 주어야 한다. 입력 게이트는 입력 상태의 크기를 결정하며, 망각 게이트는 입력 파라메터에 기억된 상태 파라메터를 곱해 잊을지 말지에 대한 결정을 한다.</description>
+    </item>
     
     <item>
       <title>Linux 권한 관리</title>

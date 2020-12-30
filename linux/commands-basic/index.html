@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Linux 기본 관리 명령어</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    <meta name="description" content="Happygrammer Blog">
+    
+
+        <meta property="og:title" content="Linux 기본 관리 명령어" />
+    
+    <meta property="og:description" content="" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/linux/commands-basic/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    
+<script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/hangeul/">Hangul</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">Linux 기본 관리 명령어</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/linux/commands-basic/" class="article-date">
+                <time datetime='2020-12-30T12:21:00.000&#43;03:00' itemprop="datePublished">2020-12-30</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="-">앨리어스 사용</h3>
+<p>시스템 앨리어스 확인</p>
+<pre><code>$ alias
+</code></pre><p>디렉터리만 조회하는 명령어는 다음과 같다.</p>
+<pre><code>$ ls -l | grep &quot;^d&quot;
+</code></pre><p>위 명령어는 <code>lsd</code>라는 앨리어스로 등록할 수 있다.</p>
+<pre><code>$ alias lsd='ls -l | grep &quot;^&quot;'
+</code></pre><p>아파치 서버를 시작하거나 종료하는 앨리어스를 등록해 두면 편하다.</p>
+<pre><code>$ alias apachestop='/etc/rc.d/init.d/httpd stop'
+$ alias apachstart='/etc/rc.d/init.d/httpd start'
+</code></pre><p>명령어 저장해 노하우를 저장할 수 있다.</p>
+<pre><code>$ script &lt;script&gt;
+Script started, output file is typescript
+bash-3.2$
+</code></pre><p>위 명령어를 입력하면 스크립트가 실행된다.</p>
+<pre><code>exit
+</code></pre><p>위 명령어를 입력하면 typescript 파일에 입력한 명령어가 저장된다.</p>
+<h3 id="--1">시스템 종료</h3>
+<p>시스템 종료 명령어 중 halt명령어를 이용하면 /var/log/wtmp에 시스템 종료 기록을 남길 수 있다. 종료 과정에 sync 작업도 포함되어 있있다.</p>
+<pre><code>$ halt
+</code></pre><p>만약 sync 작업을 원치 않을 경우 -n 옵션을 줄 수 있다. 시스템 부팅 메시지는 다음 파일에서 확인이 가능하다.</p>
+<pre><code>$ more /var/log/dmesg
+</code></pre><h3 id="--2">라우팅 테이블</h3>
+<p>라이팅 테이블 확인은 route 명령어 또는 netstat 명령어를 사용한다.</p>
+<pre><code>$ netstat -nr
+Internet:
+Destination        Gateway            Flags        Refs      Use   Netif Expire
+default            192.168.219.1      UGSc           91        0     en0       
+127                127.0.0.1          UCS             0        0     lo0       
+127.0.0.1          127.0.0.1          UH              2   620406     lo0       
+169.254            link#9             UCS             1        0     en0      !
+192.168.219        link#9             UCS             1        0     en0      !
+192.168.219.1/32   link#9             UCS             1        0     en0      !
+192.168.219.1      0:27:1c:de:1d:f2   UHLWIir        32       82     en0   1129
+192.168.219.21     98:93:cc:24:a1:a2  UHLWI           0      799     en0   1165
+192.168.219.157/32 link#9             UCS             0        0     en0      !
+224.0.0/4          link#9             UmCS            2        0     en0      !
+224.0.0.251        1:0:5e:0:0:fb      UHmLWI          0        0     en0       
+239.255.255.250    1:0:5e:7f:ff:fa    UHmLWI          0     3272     en0       
+255.255.255.255/32 link#9             UCS             0        0     en0      !
+</code></pre><p>netstat 옵션 중에서 -p 옵션은 &ndash;program과 같으며 실행되고 있는 각 프로그램과 PID정보를 출력하며, -n은 &ndash;numeric과 같으며 10진수 수치정보로 결과를 출력해준다. -l은 &ndash;listening과 같으며 현재 listen되고 있는 소켓정보를 출력한다. -an 옵션은 시스테이 응답 가능한 서비스가 무엇인지를 표시할 수 있다.</p>
+<pre><code>$ netstat -an | grep LISTEN
+tcp46      0      0  *.8080                 *.*                    LISTEN     
+tcp46      0      0  *.8088                 *.*                    LISTEN     
+tcp46      0      0  *.80                   *.*                    LISTEN     
+tcp4       0      0  *.7070                 *.*                    LISTEN     
+tcp6       0      0  fe80::aede:48ff:.49156 *.*                    LISTEN     
+tcp6       0      0  fe80::aede:48ff:.49155 *.*                    LISTEN     
+tcp6       0      0  fe80::aede:48ff:.49154 *.*                    LISTEN     
+tcp6       0      0  fe80::aede:48ff:.49153 *.*                    LISTEN
+</code></pre><p>외부 서버와 통신이 가능한지를 확인하는 명령어로 ping이 있다.</p>
+<pre><code>$ ping 192.168.0.1
+</code></pre><p>ping이 가능하면 외부 서버와 통신이 가능한 상태로 볼 수 있다. 만약 3번의 ping으로 제한하려면 &ldquo;-c 3&quot;라고 옵션을 주면된다.</p>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-">앨리어스 사용</a></li>
+        <li><a href="#--1">시스템 종료</a></li>
+        <li><a href="#--2">라우팅 테이블</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v6.0&appId=2329733600657924&autoLogAppEvents=1"></script>
+	<div class="fb-comments" data-href="https://happygrammer.github.io/linux/commands-basic/" data-width="800" data-numposts="5"></div>
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/worth/simple/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">단순함에 대한 명언들&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

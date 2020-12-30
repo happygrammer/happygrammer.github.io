@@ -82,12 +82,11 @@
                 <div class="article-entry" itemprop="articleBody">
                     <p>
                         
-                    앨리어스 사용 시스템 앨리어스 확인
+                    앨리어스 사용 alias는 명령어를 대체하는 명령어이다. 명령어를 축약해 사용자의 정의 명령어를 정의할 수 있다. alias라고 입력하면 시스템이 정의한 alias 명령어를 확인할 수 있다.
 $ alias 디렉터리만 조회하는 명령어는 다음과 같다.
 $ ls -l | grep &quot;^d&quot; 위 명령어는 lsd라는 앨리어스로 등록할 수 있다.
 $ alias lsd='ls -l | grep &quot;^&quot;' 아파치 서버를 시작하거나 종료하는 앨리어스를 등록해 두면 편리하다.
 $ alias apachestop='/etc/rc.d/init.d/httpd stop' $ alias apachstart='/etc/rc.d/init.d/httpd start' script 명령어를 이용하면 명령어를 기록할 수 있다.
-$ script &lt;script&gt; Script started, output file is typescript bash-3.2$ 위 명령어를 입력하면 스크립트가 실행된다. typescript 파일이 아닌 파일명을 지정할 때는 &lt;script&gt;에 파일명을 입력한다.
                     </p>
                     <p class="article-more-link">
                         <a href="/linux/commands-basic/">More</a>

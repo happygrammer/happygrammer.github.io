@@ -119,7 +119,7 @@ default            192.168.219.1      UGSc           91        0     en0
 224.0.0.251        1:0:5e:0:0:fb      UHmLWI          0        0     en0       
 239.255.255.250    1:0:5e:7f:ff:fa    UHmLWI          0     3272     en0       
 255.255.255.255/32 link#9             UCS             0        0     en0      !
-</code></pre><p>netstat 옵션 중에서 -p 옵션은 &ndash;program과 같으며 실행되고 있는 각 프로그램과 PID정보를 출력하며, <code>-n</code>은 <code>--numeric</code>과 같으며 10진수 수치 정보로 결과를 출력해준다. <code>-l</code>은 <code>--listening</code>과 같으며 현재 listen되고 있는 소켓정보를 출력한다. <code>-an</code> 옵션은 시스테이 응답 가능한 서비스가 무엇인지를 표시할 수 있다.</p>
+</code></pre><p>netstat 옵션 중에서 <code>-p 옵션</code>은 <code>--program</code>과 같으며 실행되고 있는 각 프로그램과 프로세스 ID(PID) 정보를 출력하며, <code>-n</code>은 <code>--numeric</code>과 같으며 10진수 수치 정보로 결과를 출력해준다. <code>-l</code>은 <code>--listening</code>과 같으며 현재 listen되고 있는 소켓정보를 출력한다. <code>-an</code> 옵션은 시스템이 응답 가능한 프로그램이 무엇인지 표시할 수 있다.</p>
 <pre><code>$ netstat -an | grep LISTEN
 tcp46      0      0  *.8080                 *.*                    LISTEN     
 tcp46      0      0  *.8088                 *.*                    LISTEN     

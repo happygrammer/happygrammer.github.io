@@ -21,9 +21,8 @@
 $ alias 디렉터리만 조회하는 명령어는 다음과 같다.
 $ ls -l | grep &amp;quot;^d&amp;quot; 위 명령어는 lsd라는 앨리어스로 등록할 수 있다.
 $ alias lsd=&#39;ls -l | grep &amp;quot;^&amp;quot;&#39; 아파치 서버를 시작하거나 종료하는 앨리어스를 등록해 두면 편하다.
-$ alias apachestop=&#39;/etc/rc.d/init.d/httpd stop&#39; $ alias apachstart=&#39;/etc/rc.d/init.d/httpd start&#39; 명령어 저장해 노하우를 저장할 수 있다.
-$ script &amp;lt;script&amp;gt; Script started, output file is typescript bash-3.2$ 위 명령어를 입력하면 스크립트가 실행된다.
-exit 위 명령어를 입력하면 typescript 파일에 입력한 명령어가 저장된다.</description>
+$ alias apachestop=&#39;/etc/rc.d/init.d/httpd stop&#39; $ alias apachstart=&#39;/etc/rc.d/init.d/httpd start&#39; script 명령어를 이용하면 명령어를 기록할 수 있다.
+$ script &amp;lt;script&amp;gt; Script started, output file is typescript bash-3.2$ 위 명령어를 입력하면 스크립트가 실행된다. 종료 할때는 exit를 입력한다.</description>
     </item>
     
     <item>

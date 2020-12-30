@@ -89,13 +89,13 @@
 </code></pre><p>아파치 서버를 시작하거나 종료하는 앨리어스를 등록해 두면 편하다.</p>
 <pre><code>$ alias apachestop='/etc/rc.d/init.d/httpd stop'
 $ alias apachstart='/etc/rc.d/init.d/httpd start'
-</code></pre><p>명령어 저장해 노하우를 저장할 수 있다.</p>
+</code></pre><p><code>script</code> 명령어를 이용하면 명령어를 기록할 수 있다.</p>
 <pre><code>$ script &lt;script&gt;
 Script started, output file is typescript
 bash-3.2$
-</code></pre><p>위 명령어를 입력하면 스크립트가 실행된다.</p>
+</code></pre><p>위 명령어를 입력하면 스크립트가 실행된다.  종료 할때는 exit를 입력한다.</p>
 <pre><code>exit
-</code></pre><p>위 명령어를 입력하면 typescript 파일에 입력한 명령어가 저장된다.</p>
+</code></pre><p>위 명령어를 입력하면 typescript 파일에 입력한 명령어가 저장할 수 있다.</p>
 <h3 id="--1">시스템 종료</h3>
 <p>시스템 종료 명령어 중 halt명령어를 이용하면 /var/log/wtmp에 시스템 종료 기록을 남길 수 있다. 종료 과정에 sync 작업도 포함되어 있있다.</p>
 <pre><code>$ halt

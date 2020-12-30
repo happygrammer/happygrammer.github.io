@@ -145,6 +145,31 @@ public void channelReadComplete(ChannelHandlerContext ctx) {
 </li>
 </ul>
 <h3 id="heading"></h3>
+<h3 id="channelinboundhandler">ChannelInboundHandler</h3>
+<ul>
+<li>
+<p>channelRegistred : Channel이 EventLoop에 등록되고 입출력을 처리할 수 있으면 호출됨</p>
+</li>
+<li>
+<p>channelUnregistered : Channel이 EventLoop에서 등록 해제되고 입출력을 처리할 수 없으면 호출됨</p>
+</li>
+<li>
+<p>channelActive : Channel의 연결과 바인딩이 완료되어 활성화되면 호출됨</p>
+</li>
+<li>
+<p>channelInActive : Channel이 활성 상태에서 벗어나 로컬 피어에 대한 연결이 해제되면 호출됨</p>
+</li>
+<li>
+<p>channelRead : Channel에서 데이터를 읽을 때 호출됨</p>
+</li>
+<li>
+<p>channelReadComplete : Channel에서 읽기 작업이 완료되면 호출됨</p>
+</li>
+<li>
+<p>channelWritabilityChanged : Channel의 기록 가능 상태가 변경되면 호출됨</p>
+</li>
+</ul>
+<p>OutOfMemoryError를 방지하기 위해 너무 빠르게 기록되지 않게하거나, Channel이 기록 가능한 상태가 되면 기록을 재개할 수 있다.  Channel의 isWritable() 메서드를 호출해 해당 채널의 기록 가능 여부를 감지할 수 있다. 기록 가능 여부를 결정하는 임계값은 Channel.config().setWriteHighWaterMark() Channel.config().setWriteLowWaterMark() 메서드로 설정한다. userEventTriggered : POJO가 ChannelPipeline을 통해 전달돼서 ChannelboundHandler.fireUserEventTriggered()가 트리거되면 호출됨</p>
 <h5 id="----">심플 채널 인바우드 핸들러 예</h5>
 <pre><code>public class ServerHandler extend SimpleChannelInboundHandler&lt;HttpObject&gt; {
 
@@ -180,6 +205,7 @@ private HttpPostRequestDecoder httpDecoder;
     <li><a href="#4--">4. 이벤트와 핸들러</a>
       <ul>
         <li><a href="#heading"></a></li>
+        <li><a href="#channelinboundhandler">ChannelInboundHandler</a></li>
       </ul>
     </li>
   </ul>

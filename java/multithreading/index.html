@@ -81,7 +81,7 @@
         <div class="article-entry" itemprop="articleBody">
             <p><code>프로세스</code>는 여러 명령어들의 하나의 실행 단위이다. 스레드는 하나의 프로세스에 존재하는 여러 개의 실행 단위이다. 하나의 스레드 실행은 싱글 스레드라 하며, 여러 스레드의 실행은 멀티 스레드라고 한다.</p>
 <h2 id="thread-class--vs-runnable-">Thread Class 방식 vs Runnable 방식</h2>
-<p>thread class 방식은 Thread 클래스를 상속해 스레드를 실행하며, Runnable 방식은 Runnable 인터페이스를 구현해서 실행하는 방식입니다.</p>
+<p>thread class 방식은 Thread 클래스를 상속해 스레드를 실행하며, Runnable 방식은 Runnable 인터페이스를 구현해서 실행하는 방식이다.</p>
 <h3 id="1-thread-class-">1. Thread Class 방식</h3>
 <p>Thread 클래스를 상속해 스레드를 실행하는 예제이다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-java" data-lang="java"><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">TestThreadByThreadClass</span> <span style="color:#66d9ef">extends</span> Thread <span style="color:#f92672">{</span>
@@ -112,7 +112,7 @@
 </code></pre><h2 id="-">멀티 스레딩</h2>
 <p>멀티 스레딩은 동시성(concurrency)와 병렬성(parallelism) 성질이 존재할 수 있다. 동시성은 단일 프로세서상에서 멀티 스레드가 번갈아 가면서 실행되는 성질을 의미하며, 병렬성은 멀티 코어상에서 실행되는 멀티 스레드이다.</p>
 <p><img src="../parallelism.png" alt=""></p>
-<p>단일 프로세서에 실행되는 멀티 스레드는 병렬성(parallel)로 실행되는 착각을 주기도 한다. 프로세서는 스위칭 알고리즘에 따라 우선 순위를 조정한다. 진정한 병렬 실행은 다중 코어에 기반한 멀티 스레딩입니다. 멀티 프로세스가 중요한 이유는 프로세서의 최대 속도를 사용하기 위함입니다. 병렬성의 경우 데이터 연산량이 많은 AI 프로그래밍에서도 중요한 요소가 되었다. 이 때 각 프로세스에서 멀티 스레드를 실행하게 하는 것이필요하다.</p>
+<p>단일 프로세서에 실행되는 멀티 스레드는 병렬성(parallel)로 실행되는 착각을 주기도 한다. 프로세서는 스위칭 알고리즘에 따라 우선 순위를 조정한다. 진정한 병렬 실행은 다중 코어에 기반한 멀티 스레딩이다. 멀티 프로세스가 중요한 이유는 프로세서의 최대 속도를 사용하기 위함이다. 병렬성의 경우 데이터 연산량이 많은 AI 프로그래밍에서도 중요한 요소가 되었다. 이 때 각 프로세스에서 멀티 스레드를 실행하게 하는 것이필요하다.</p>
 <h3 id="1-thread-">1. Thread 우선순위</h3>
 <p>멀티 스레딩시 각 스레드 우선순위를 1~10의 값으로 priority를 지정할 수 있다.</p>
 <pre><code>thread.setPriority(Thread.MAX_PRIORITY); // 우선순위 값은 10이다.

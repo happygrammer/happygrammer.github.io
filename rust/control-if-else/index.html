@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>중의성의 종류와 중의성 해소</title>
+    <title>Rust if 조건문</title>
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -9,12 +9,12 @@
     <meta name="description" content="Happygrammer Blog">
     
 
-        <meta property="og:title" content="중의성의 종류와 중의성 해소" />
+        <meta property="og:title" content="Rust if 조건문" />
     
     <meta property="og:description" content="" />    
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en" />
-    <meta property="og:url" content="https://happygrammer.github.io/hangeul/ambiguitymd/" />
+    <meta property="og:url" content="https://happygrammer.github.io/rust/control-if-else/" />
     
     <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
     <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
@@ -73,40 +73,55 @@
     <div class="article-inner">
         
         <header class="article-header">
-            <h1 class="article-title" itemprop="name">중의성의 종류와 중의성 해소</h1>
+            <h1 class="article-title" itemprop="name">Rust if 조건문</h1>
         </header>
         
         <div class="article-meta">
-            <a href="/hangeul/ambiguitymd/" class="article-date">
-                <time datetime='2020-05-17T21:07:45.000&#43;03:00' itemprop="datePublished">2020-05-17</time>
+            <a href="/rust/control-if-else/" class="article-date">
+                <time datetime='2020-12-31T09:39:24.000&#43;03:00' itemprop="datePublished">2020-12-31</time>
             </a>
             
             
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <p><code>중의성</code>은 하나의 언어 표현이 둘 이상의 의미로 해석될 수 있는 언어의 특성을 의미합니다. <code>중의성</code>은 어휘 중의성과 구조 중의성으로 구분됩니다.</p>
-<h3 id="-">어휘 중의성</h3>
-<ol>
-<li>동음 이의어 : 차를 준비했다. 1) 자동차를 의미하지만 2) 마시는 차를 의미하기도 한다.</li>
-<li>다의어 : 오늘 아침 1) 아침에 일어 났어 2) 아침 먹고 나왔어</li>
-</ol>
-<p>&lsquo;동음이의어(同音異義語; homonym)&lsquo;는 소리 같은 단어로, 어원도 다릅니다. 예를 들어 &lsquo;차'는 마시는 차를 의미하기도 하지만, 소리가는 동일하지만 어원 자체가 다른  운송 수단인 &lsquo;차'를 의미하기도 합니다. 반면, &lsquo;다의어(多義語; polysemy)&lsquo;는 같은 어원에서 파생되어 여러 뜻이 있는 단어를 말합니다. 예를 들어 &lsquo;아침때'를 가르키는 의미에서 파생된 의미로 아침 식사를 의미하기도 합니다.</p>
-<h3 id="--1">구조 중의성</h3>
-<p>통사적 관계에서 나타나는 중의성입니다.</p>
-<ol>
-<li>검은 우산을 쓰고 걷고 있는 아버지와 아들</li>
-<li>나를 기분 좋게 하는 여름과 태양</li>
-</ol>
-<p>첫 번째 예제에서 검은 우산을 쓰고 걷고 있는 사람이 아버지인지, 또는 아버지와 아들 모두인지 단정할 수 없습니다. 두 번째 예제에서도 마찬가지로, 나를 기분 좋게  하는 대상이 여름인지, 여름과 태양 모두를 가르치는지 단정할 수 없습니다.</p>
-<h3 id="--2">중의성 해소</h3>
-<ol>
-<li>의미제약 : 배를 먹었다. 배를 탔다. 배가 아프다.</li>
-<li>지식활용 : 바다 위의 배가 멋지다.</li>
-<li>운율고려 : 철수가 서울에 갔어?(의문문), 철수가 서울에 갔어.(평서문)</li>
-</ol>
-<p>세 가지 방식입니다. 첫 번째는 의미제약의 방법입니다. 배와 관련해 배가 어떤 배 인지를 구분하기 위해 동사 표현을 붙여 배의 의미를 제약하면 중의성을 해소 할 수 있습니다. 두 번째로 지식을 활용하는 방법입니다. 배는 바다 위에 떠 가는 특성이 있어, 운송수단으로 이해할 수 있습니다. 세 번째로 운율적 요소를 고려할 수 있습니다. &ldquo;철수가 서울에 갔어?&quot;(의문문)라고 물어본다면 서울에 갔는지, 안 갔는지에 대한 사실을 알 수 없습니다. 그러나 &ldquo;철수가 서울에 갔어.&quot;(평서문)라고 물어본다면 철수가 서울에 갔다는 의미로 이해할 수 있습니다.</p>
+            <h3 id="if-">if 문</h3>
+<p>if 문은 조건이 참인지 거짓인지를 판단하고 분기를 수행합니다.</p>
+<pre><code>fn main() {
+    let n = 1;
 
+    if n &lt; 0 {
+        print!(&quot;{}는 음수 입니다.&quot;, n);
+    } else if n &gt; 0 {
+        print!(&quot;{}은 양수 입니다.&quot;, n);
+    } else {
+        print!(&quot;{}은 0입니다.&quot;, n);
+    }
+}
+</code></pre><p>실행 결과</p>
+<pre><code>1은 양수 입니다.
+</code></pre><h3 id="-">조건부 할당</h3>
+<p>변수에 초깃값을 할당 할때 다른 언어와 유사하게 삼항 연산자를 이용할 수 있다.</p>
+<pre><code>let n = 1;
+let is_positive = if n &gt; 0 { true } else { false }; // true
+</code></pre><p>위 삼항 연산자는 연산자의 조건이 참과 거짓으로 제한되어 3개 이상의 조건 기술은 깊이 2 이상의 조건 문이 필요하다.</p>
+<pre><code>let n = 1;
+let is_positive2 = if n &gt;= 0 { if n&gt;0 {true} else{false} } else { false }; // true
+</code></pre><p>rust는 3개 이상의 조건을 고려해 초기값을 할당을 위해 <code>if, else if, else</code> 구문을 지원한다.</p>
+<pre><code>fn main() {
+    let n = 1;
+    let result = if n &lt; 0 {
+        format!(&quot;{}은 음수 입니다.&quot;, n)
+    } else if n &gt; 0 {
+        format!(&quot;{}은 양수 입니다.&quot;, n)
+    } else {
+        format!(&quot;{}은 0 입니다.&quot;, n)
+    };
+    println!(&quot;{}&quot;,result);
+}
+</code></pre><p>실행 결과</p>
+<pre><code>1은 양수 입니다.
+</code></pre>
         </div>
 
         
@@ -116,9 +131,8 @@
   <ul>
     <li>
       <ul>
-        <li><a href="#-">어휘 중의성</a></li>
-        <li><a href="#--1">구조 중의성</a></li>
-        <li><a href="#--2">중의성 해소</a></li>
+        <li><a href="#if-">if 문</a></li>
+        <li><a href="#-">조건부 할당</a></li>
       </ul>
     </li>
   </ul>
@@ -129,7 +143,7 @@
 
 	<div id="fb-root"></div>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v6.0&appId=2329733600657924&autoLogAppEvents=1"></script>
-	<div class="fb-comments" data-href="https://happygrammer.github.io/hangeul/ambiguitymd/" data-width="800" data-numposts="5"></div>
+	<div class="fb-comments" data-href="https://happygrammer.github.io/rust/control-if-else/" data-width="800" data-numposts="5"></div>
 
         
 
@@ -138,15 +152,9 @@
     </div>
     <nav id="article-nav">
     
-    <a href="/rust/install/" id="article-nav-newer" class="article-nav-link-wrap">
-        <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            Rust 설치하기
-        </div>
-    </a>
     
-    
-    <a href="/vocabulary/nlp/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">자연어처리/머신러닝 용어집&nbsp;<span>&gt;</span></div>
+    <a href="/ml/data/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">머신러닝 데이터 관리&nbsp;<span>&gt;</span></div>
     </a>
     
 </nav>

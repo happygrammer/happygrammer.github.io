@@ -4,7 +4,21 @@
   
   <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2020-12-31T00:24:37+03:00</lastmod>
+    <lastmod>2020-12-31T09:39:24+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/rust/control-if-else/</loc>
+    <lastmod>2020-12-31T09:39:24+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/rust/</loc>
+    <lastmod>2020-12-31T09:39:24+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -95,13 +109,6 @@
   
   <url>
     <loc>https://happygrammer.github.io/rust/data_types/</loc>
-    <lastmod>2020-06-07T15:00:03+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/rust/</loc>
     <lastmod>2020-06-07T15:00:03+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

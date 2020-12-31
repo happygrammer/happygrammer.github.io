@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>[Rust] 설치하기</title>
+    <title>Rust 설치하기</title>
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -9,7 +9,7 @@
     <meta name="description" content="Happygrammer Blog">
     
 
-        <meta property="og:title" content="[Rust] 설치하기" />
+        <meta property="og:title" content="Rust 설치하기" />
     
     <meta property="og:description" content="" />    
     <meta property="og:type" content="website" />
@@ -73,7 +73,7 @@
     <div class="article-inner">
         
         <header class="article-header">
-            <h1 class="article-title" itemprop="name">[Rust] 설치하기</h1>
+            <h1 class="article-title" itemprop="name">Rust 설치하기</h1>
         </header>
         
         <div class="article-meta">
@@ -85,9 +85,9 @@
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <p>리눅스, 맥OS 환경이면 명령 인터페이스 1줄로 Rust 설치가 가능합니다.</p>
-<h3 id="rust--">Rust 설치 명령어</h3>
-<p>Rust 설치는 <code>rustup</code>를 다운로드 하여 설치합니다.</p>
+            <p>리눅스, 맥OS 환경이면 명령 인터페이스 1줄로 Rust 설치가 가능하다.</p>
+<h3 id="rust--">Rust 설치 명령</h3>
+<p>Rust 설치는 <code>rustup</code>를 다운로드 하여 설치 하는 명령어이다.</p>
 <pre><code>curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 </code></pre><h3 id="-">설치 과정</h3>
 <pre><code>Welcome to Rust!
@@ -129,7 +129,7 @@ Current installation options:
 1) Proceed with installation (default)
 2) Customize installation
 3) Cancel installation
-</code></pre><p>설치 옵션 중에서 디폴트 옵션인 <code>1</code>번을 선택합니다.</p>
+</code></pre><p>설치 옵션 중에서 디폴트 옵션인 <code>1</code>번을 선택한다.</p>
 <pre><code>info: profile set to 'default'
 info: default host triple is x86_64-apple-darwin
 info: syncing channel updates for 'stable-x86_64-apple-darwin'
@@ -163,31 +163,48 @@ environment variable. Next time you log in this will be done
 automatically.
 
 To configure your current shell run source $HOME/.cargo/env
-</code></pre><h3 id="-path-">시스템 Path 설정</h3>
-<p>설치 완료후 PATH를 수동으로 설정해 줍니다.</p>
+</code></pre><h3 id="-path">시스템 Path</h3>
+<p>설치 완료후 PATH를 수동으로 설정한다.</p>
 <pre><code>$ source $HOME/.cargo/env
-</code></pre><p>이때 ~/.bash_profile에 PATH를 추가해 시스템 PATH에 등록 되도록 합니다.</p>
+</code></pre><p>이때 ~/.bash_profile에 PATH를 추가해 시스템 PATH에 등록 한다.</p>
 <pre><code>$ export PATH=&quot;$HOME/.cargo/bin:$PATH&quot;
 </code></pre><h3 id="rust-">Rust 업데이트</h3>
-<p>Rust를 업데이트 하려면 rustup 명령어를 통해 쉽게 업데이트할 수 있습니다.</p>
+<p>Rust를 업데이트 하려면 rustup 명령어를 통해 쉽게 업데이트할 수 있다.</p>
 <pre><code>$ rustup update
-</code></pre><p>rustup은 Rust의 인스톨러 명령어입니다.($HOME/.cargo/bin/rustup 디렉터리에 위치함)</p>
+</code></pre><p>rustup은 Rust의 인스톨러 명령어다.($HOME/.cargo/bin/rustup 디렉터리에 위치함)</p>
 <pre><code>The Rust toolchain installer
 
 USAGE:
     rustup [FLAGS] [+toolchain] &lt;SUBCOMMAND&gt;
-</code></pre><h3 id="hello-world-">Hello World 출력</h3>
-<p>설치가 완료 되었다면 Rust를 컴파일 하여 <code>hello, world!</code>를 출력하도록 하겠습니다.</p>
-<p>[main.rs]</p>
+</code></pre><h3 id="hello-world">Hello World</h3>
+<p>설치가 완료 되었다면 Rust를 컴파일 하여 <code>hello, world!</code>를 출력 하고자 한다.</p>
+<pre><code>$ cargo new helloworld --bin
+     Created binary (application) `helloworld` package
+</code></pre><p>위 전달 오션에서 <code>-bin</code>는 바이너리 생성용 옵션이며 <code>-lib</code>는 라이브러리 생성용 옵션이다. 프로젝트 생성 후 다음과 같이 프로젝트가 구성된다.</p>
+<pre><code>./helloworld/Cargo.toml
+./helloworld/src/main.rs
+</code></pre><p>일단 hello world를 출력한다.</p>
+<pre><code>$ cargo build
+   Compiling helloworld v0.1.0 (/Users/smarthome/Documents/RustTutorial/ch2/helloworld)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.42s
+dialogui-MacBookPro:helloworld smarthome$ cargo run
+    Finished dev [unoptimized + debuginfo] target(s) in 0.00s
+     Running `target/debug/helloworld`
+Hello, world!
+</code></pre><p>이때 Cargo.toml는 패키징 설정 파일 역할을 한다.</p>
+<pre><code>[package]
+name = &quot;helloworld&quot;
+version = &quot;0.1.0&quot;
+authors = [&quot;happygrammer &lt;happygrammer.dev@gmail.com&gt;&quot;]
+edition = &quot;2018&quot;
+
+[dependencies]
+</code></pre><p>[main.rs]</p>
 <pre><code>fn main() {
     println!(&quot;Hello, world!&quot;);
 }
-</code></pre><p>컴파일 후 실행</p>
-<pre><code>$ rustc main.rs
-$ ./main
-Hello, world!
-</code></pre><h3 id="-rust-">윈도우에서 Rust 설치</h3>
-<p>윈도우에서 Rust를 설치 하려면 <a href="https://www.rust-lang.org/tools/install">https://www.rust-lang.org/tools/install</a>의 안내를 따릅니다.</p>
+</code></pre><h3 id="rust--1">Rust 설치(윈도우)</h3>
+<p>윈도우에서 Rust를 설치 하려면 <a href="https://www.rust-lang.org/tools/install">https://www.rust-lang.org/tools/install</a>의 안내를 따른다.</p>
 
         </div>
 
@@ -198,12 +215,12 @@ Hello, world!
   <ul>
     <li>
       <ul>
-        <li><a href="#rust--">Rust 설치 명령어</a></li>
+        <li><a href="#rust--">Rust 설치 명령</a></li>
         <li><a href="#-">설치 과정</a></li>
-        <li><a href="#-path-">시스템 Path 설정</a></li>
+        <li><a href="#-path">시스템 Path</a></li>
         <li><a href="#rust-">Rust 업데이트</a></li>
-        <li><a href="#hello-world-">Hello World 출력</a></li>
-        <li><a href="#-rust-">윈도우에서 Rust 설치</a></li>
+        <li><a href="#hello-world">Hello World</a></li>
+        <li><a href="#rust--1">Rust 설치(윈도우)</a></li>
       </ul>
     </li>
   </ul>
@@ -225,7 +242,7 @@ Hello, world!
     
     <a href="/rust/data_types/" id="article-nav-newer" class="article-nav-link-wrap">
         <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            [Rust] 데이터 타입
+            Rust 데이터 타입
         </div>
     </a>
     

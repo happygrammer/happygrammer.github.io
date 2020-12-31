@@ -3,8 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://happygrammer.github.io/dev-methodologies/</loc>
+    <lastmod>2020-12-31T11:00:24+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2020-12-31T09:39:24+03:00</lastmod>
+    <lastmod>2020-12-31T11:00:24+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/dev-methodologies/kanban-and-scrum/</loc>
+    <lastmod>2020-12-31T11:00:24+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Rust if 조건문</title>
+    <title>애자일 칸반과 스크럼</title>
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -9,12 +9,12 @@
     <meta name="description" content="Happygrammer Blog">
     
 
-        <meta property="og:title" content="Rust if 조건문" />
+        <meta property="og:title" content="애자일 칸반과 스크럼" />
     
     <meta property="og:description" content="" />    
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="en" />
-    <meta property="og:url" content="https://happygrammer.github.io/rust/control-if-else/" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev-methodologies/kanban-and-scrum/" />
     
     <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
     <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
@@ -73,77 +73,77 @@
     <div class="article-inner">
         
         <header class="article-header">
-            <h1 class="article-title" itemprop="name">Rust if 조건문</h1>
+            <h1 class="article-title" itemprop="name">애자일 칸반과 스크럼</h1>
         </header>
         
         <div class="article-meta">
-            <a href="/rust/control-if-else/" class="article-date">
-                <time datetime='2020-12-31T09:39:24.000&#43;03:00' itemprop="datePublished">2020-12-31</time>
+            <a href="/dev-methodologies/kanban-and-scrum/" class="article-date">
+                <time datetime='2020-12-31T11:00:24.000&#43;03:00' itemprop="datePublished">2020-12-31</time>
             </a>
             
             
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <h3 id="if-">if 문</h3>
-<p>if 문은 조건이 참인지 거짓인지를 판단하고 분기를 수행한다.</p>
-<pre><code>fn main() {
-    let n = 1;
+            <p>칸반과 스크럼은 프로젝트 목적 달성을 위해 사용하는 <code>프로세스 도구</code>이다. 적시생산시스템(Just in time)에서는 칸반을 이용한다. 칸반은 순서가 정해진 공정에서 작업의 순서를 통제하는데 사용된다. 칸반이란 일본어로 카드나 눈에 보이는 기록이라는 것을 뜻한다. 칸반과 스크럼의 차이는 다음과 같다.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>스크럼</th>
+<th>칸반</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>지켜야할 규범 개수</td>
+<td>적다</td>
+<td>많다</td>
+</tr>
+<tr>
+<td>역할 구분</td>
+<td>제품 책임자(Product Owner), 스크럼 마스터(Project Master), 제품 개발팀(Team)으로 구분</td>
+<td>없음</td>
+</tr>
+<tr>
+<td>작업 추가</td>
+<td>어려움</td>
+<td>가능</td>
+</tr>
+<tr>
+<td>스프린트 필수여부</td>
+<td>O - 백로그들을 모아 스프린트(2~4주)를 프로젝트 종료시 까지 N번 수행</td>
+<td>X - 스프린트 수행 여부는 팀이 결정한다.</td>
+</tr>
+<tr>
+<td>백로그 우선순위 규정</td>
+<td>O</td>
+<td>X</td>
+</tr>
+<tr>
+<td>일의 양 결정</td>
+<td>O - 스프린트 마다 일의 양이 결정됨</td>
+<td>X</td>
+</tr>
+</tbody>
+</table>
+<p>지켜야할 규범 개수는 <code>RUP &gt;&gt;&gt; XP &gt;스크럼 &gt; 칸반</code>순이다. 간트 차트의 맹점은 작업 단위에 이슈 여부가 있는지 확인이 되지 않는다는 점이다. 이렇게 되면 간트 차트에 등록된 태스크는 완료 되지 않은 상태로 존재한다. 칸반 보드는 이러한 문제를 해결 책이 된다.</p>
+<p><img src="./kanban-board-example.png" alt=""></p>
+<p>칸반은 게시판은 크게 TO-DO, DOING, DONE으로 이루어져 있고 일의 흐름을 시각적으로 파악할 수 있게 돕는다.  소프트웨어 기반으로 할 수 있지만 포스트잇을 이용할 수 도 있다.</p>
 
-    if n &lt; 0 {
-        print!(&quot;{}는 음수 입니다.&quot;, n);
-    } else if n &gt; 0 {
-        print!(&quot;{}은 양수 입니다.&quot;, n);
-    } else {
-        print!(&quot;{}은 0입니다.&quot;, n);
-    }
-}
-</code></pre><p>실행 결과</p>
-<pre><code>1은 양수 입니다.
-</code></pre><h3 id="-">조건부 할당</h3>
-<p>변수에 초깃값을 할당 할때 다른 언어와 유사하게 삼항 연산자를 이용할 수 있다.</p>
-<pre><code>let n = 1;
-let is_positive = if n &gt; 0 { true } else { false }; // true
-</code></pre><p>위 삼항 연산자는 연산자의 조건이 참과 거짓으로 제한되어 3개 이상의 조건 기술은 깊이 2 이상의 조건 문이 필요하다.</p>
-<pre><code>let n = 1;
-let is_positive2 = if n &gt;= 0 { if n&gt;0 {true} else{false} } else { false }; // true
-</code></pre><p>rust는 3개 이상의 조건을 고려해 초기값을 할당을 위해 <code>if, else if, else</code> 구문을 지원한다.</p>
-<pre><code>fn main() {
-    let n = 1;
-    let result = if n &lt; 0 {
-        format!(&quot;{}은 음수 입니다.&quot;, n)
-    } else if n &gt; 0 {
-        format!(&quot;{}은 양수 입니다.&quot;, n)
-    } else {
-        format!(&quot;{}은 0 입니다.&quot;, n)
-    };
-    println!(&quot;{}&quot;,result);
-}
-</code></pre><p>실행 결과</p>
-<pre><code>1은 양수 입니다.
-</code></pre>
         </div>
 
         
         
         <div class="article-toc" >
-            <nav id="TableOfContents">
-  <ul>
-    <li>
-      <ul>
-        <li><a href="#if-">if 문</a></li>
-        <li><a href="#-">조건부 할당</a></li>
-      </ul>
-    </li>
-  </ul>
-</nav>
+            <nav id="TableOfContents"></nav>
         </div>
         
         
 
 	<div id="fb-root"></div>
 	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v6.0&appId=2329733600657924&autoLogAppEvents=1"></script>
-	<div class="fb-comments" data-href="https://happygrammer.github.io/rust/control-if-else/" data-width="800" data-numposts="5"></div>
+	<div class="fb-comments" data-href="https://happygrammer.github.io/dev-methodologies/kanban-and-scrum/" data-width="800" data-numposts="5"></div>
 
         
 
@@ -152,15 +152,9 @@ let is_positive2 = if n &gt;= 0 { if n&gt;0 {true} else{false} } else { false };
     </div>
     <nav id="article-nav">
     
-    <a href="/dev-methodologies/kanban-and-scrum/" id="article-nav-newer" class="article-nav-link-wrap">
-        <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            애자일 칸반과 스크럼
-        </div>
-    </a>
     
-    
-    <a href="/ml/data/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">머신러닝 데이터 관리&nbsp;<span>&gt;</span></div>
+    <a href="/rust/control-if-else/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Rust if 조건문&nbsp;<span>&gt;</span></div>
     </a>
     
 </nav>

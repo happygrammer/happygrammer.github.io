@@ -157,7 +157,7 @@ linker = 'x86_64-w64-mingw32-gcc'
 # cross 컴파일을 했으으므로 현재 OS에서 실행 불가.
 # cargo run --target=x86_64-pc-windows-gnu;
 </code></pre><p>최종적으로 다음 위치에 윈도우 실행 파일인 exe 파일이 생성된다.</p>
-<pre><code>./target/x86_64-pc-windows-gnu/debug/&lt;프로그램명&gt;.txt
+<pre><code>./target/x86_64-pc-windows-gnu/debug/&lt;프로그램명&gt;.exe
 </code></pre><h2 id="linux-">Linux용으로 빌드</h2>
 <p>brew를 이용해 의존 파일을 설치한다.</p>
 <pre><code class="language-none" data-lang="none">$ brew install FiloSottile/musl-cross/musl-cross  // 필자는 약 15분 소요됨.

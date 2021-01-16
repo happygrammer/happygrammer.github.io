@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Rust 크로스 컴파일 방법 (Linux/Windows)</title>
+      <title>Rust에서 툴체인 설정을 이용한 크로스 컴파일 방법</title>
       <link>https://happygrammer.github.io/rust/problem/cross-compile/</link>
       <pubDate>Sat, 16 Jan 2021 18:34:29 +0300</pubDate>
       

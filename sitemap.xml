@@ -3,14 +3,42 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://happygrammer.github.io/dev-methodologies/</loc>
-    <lastmod>2020-12-31T11:00:24+03:00</lastmod>
+    <loc>https://happygrammer.github.io/</loc>
+    <lastmod>2021-01-16T18:34:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/</loc>
+    <loc>https://happygrammer.github.io/rust/problem/cross-compile/</loc>
+    <lastmod>2021-01-16T18:34:29+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/rust/</loc>
+    <lastmod>2021-01-16T18:34:29+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/essay/</loc>
+    <lastmod>2020-12-31T16:03:20+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/essay/information-hidding/</loc>
+    <lastmod>2020-12-31T16:03:20+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/dev-methodologies/</loc>
     <lastmod>2020-12-31T11:00:24+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -25,13 +53,6 @@
   
   <url>
     <loc>https://happygrammer.github.io/rust/control-if-else/</loc>
-    <lastmod>2020-12-31T09:39:24+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/rust/</loc>
     <lastmod>2020-12-31T09:39:24+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

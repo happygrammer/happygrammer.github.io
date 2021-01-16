@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rust 크로스 컴파일 방법 (Linux/Windows)</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    <meta name="description" content="Happygrammer Blog">
+    
+
+        <meta property="og:title" content="Rust 크로스 컴파일 방법 (Linux/Windows)" />
+    
+    <meta property="og:description" content="" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/rust/problem/cross-compile/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    
+<script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/hangeul/">Hangul</a>
+                
+                <a class="main-nav-link" href="/ml/">ML</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+                <a class="main-nav-link" href="/tensorflow">Tensorflow</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">Rust 크로스 컴파일 방법 (Linux/Windows)</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/rust/problem/cross-compile/" class="article-date">
+                <time datetime='2021-01-16T18:34:29.000&#43;03:00' itemprop="datePublished">2021-01-16</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>특정 OS에서 개발한 프로그램을 다른 OS 환경에서 실행 하고 싶은 경우가 있다. 이를 위해서는 rustup이라는 명령어를 이용해서 OS 환경에 맞는 툴체인을 설정해 빌드 해야 한다.</p>
+<h2 id="rustup--">rustup 명령어 알아보기</h2>
+<p><code>rustup</code> 명령어를 이용해 크로스 컴파일을 위한 툴체인 설정을 다룰 수 있다.</p>
+<pre><code>&lt;channel&gt;[-&lt;date&gt;][-&lt;host&gt;]
+
+&lt;channel&gt;       = stable|beta|nightly|&lt;major.minor&gt;|&lt;major.minor.patch&gt;
+&lt;date&gt;          = YYYY-MM-DD
+&lt;host&gt;          = &lt;target-triple&gt;
+</code></pre><p>rustup 명령어를 이용하면 툴체인 채널을 stable, beta, nightly 중에 하나로 설정할 수 있다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">$</span> rustup <span style="color:#66d9ef">override</span> set stable <span style="color:#75715e">// 사용자 repo에 stable 채널 툴체인으로 설정
+</span><span style="color:#75715e"></span><span style="color:#75715e">$</span> rustup <span style="color:#66d9ef">override</span> set nightly <span style="color:#75715e">// 사용자 repo에 nightly 채널 툴체인으로 설정
+</span></code></pre></div><p>만약 사용자 환경의 디폴트 툴체인 채널을 변경하고자 한다면 <code>default</code>라는 옵션으로 디폴트 툴체인 채널을 설정할 수 있다.</p>
+<pre><code>$ rustup default nightly // nightly 툴체인
+$ rustup default stable // stable 툴체인
+</code></pre><p>다음 명령어로 툴체인 채널을 확인할 수 있다.</p>
+<pre><code>$ rustup show
+</code></pre><p>component 옵션으로 툴체인 설치 관리를 수행할 수 있다.</p>
+<pre><code>SUBCOMMANDS:
+    list      List installed and available components
+    add       Add a component to a Rust toolchain
+    remove    Remove a component from a Rust toolchain
+    help      Prints this message or the help of the given subcommand(s)
+</code></pre><p>이중 2번째 인자로 list 옵션을 전달하면 설치 가능한 툴체인 목록을 확인할 수 있다.</p>
+<pre><code>$ rustup component list
+cargo-x86_64-apple-darwin (installed)
+clippy-x86_64-apple-darwin (installed)
+llvm-tools-preview-x86_64-apple-darwin
+miri-x86_64-apple-darwin
+rls-x86_64-apple-darwin
+rust-analysis-x86_64-apple-darwin
+rust-analyzer-preview-x86_64-apple-darwin
+...
+</code></pre><h2 id="windows-">Windows용으로 빌드</h2>
+<p>다음 명령어는 Window용으로 빌드를 위한 <code>x86_64-pc-windows-gnu</code> 를 설치할 수 있다.</p>
+<pre><code class="language-ç" data-lang="ç">$ rustup target add x86_64-pc-windows-gnu
+$ brew install mingw-w64
+</code></pre><p><code>x86_64-pc-windows-gnu</code> 채널을 설치하고 나서 mingw-w64 설치를 진행한다. 이때 <code>./cargo/config</code> 설정은 다음과 같다.</p>
+<pre><code>[target.x86_64-pc-windows-gnu]
+linker = 'x86_64-w64-mingw32-gcc'
+</code></pre><p>빌드와 실행을 해본다.</p>
+<pre><code>$ cargo build --target=x86_64-pc-windows-gnu;
+# cross 컴파일을 했으으므로 현재 OS에서 실행 불가.
+# cargo run --target=x86_64-pc-windows-gnu;
+</code></pre><p>최종적으로 다음 위치에 윈도우 실행 파일인 exe 파일이 생성된다.</p>
+<pre><code>./target/x86_64-pc-windows-gnu/debug/&lt;프로그램명&gt;.txt
+</code></pre><h2 id="linux-">Linux용으로 빌드</h2>
+<p>brew를 이용해 의존 파일을 설치한다.</p>
+<pre><code class="language-none" data-lang="none">$ brew install FiloSottile/musl-cross/musl-cross  // 필자는 약 15분 소요됨.
+$ brew install gcc
+$ brew cleanup
+</code></pre><p>rustup 명령어를 이용해 target을 추가한다.</p>
+<pre><code>$ rustup target add x86_64-unknown-linux-musl
+#rustup target add x86_64-unknown-linux-musl --toolchain=nightly
+$ rustup toolchain install stable-x86_64-unknown-linux-musl // 삭제는 install 대신 uninstall 이용
+</code></pre><p>이때 빌드 설정은 다음과 같다. <code>./cargo/config</code></p>
+<pre><code>[target.x86_64-unknown-linux-musl]
+linker = &quot;x86_64-linux-musl-gcc&quot;
+</code></pre><p>그리고 빌드와 실행을 해본다.</p>
+<pre><code>$ cargo build --target=x86_64-unknown-linux-musl
+# cross 컴파일을 했으으므로 현재 OS에서 실행 불가.
+# cargo run --target=x86_64-unknown-linux-musl
+</code></pre><p>최종적으로 다음 위치에 리눅스 실행 파일이 생성된다. 리눅스 용으로 빌드 했으므로 확장자가 존재하지 않는다.</p>
+<pre><code>./target/target/x86_64-unknown-linux-musl/debug/&lt;프로그램명&gt;
+</code></pre><h2 id="heading"></h2>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#rustup--">rustup 명령어 알아보기</a></li>
+    <li><a href="#windows-">Windows용으로 빌드</a></li>
+    <li><a href="#linux-">Linux용으로 빌드</a></li>
+    <li><a href="#heading"></a></li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v6.0&appId=2329733600657924&autoLogAppEvents=1"></script>
+	<div class="fb-comments" data-href="https://happygrammer.github.io/rust/problem/cross-compile/" data-width="800" data-numposts="5"></div>
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/essay/information-hidding/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">정보 은닉과 추상화&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

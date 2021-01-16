@@ -6,10 +6,22 @@
     <description>Recent content in Rusts on Happygrammer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 31 Dec 2020 09:39:24 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 16 Jan 2021 18:34:29 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/rust/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust 크로스 컴파일 방법 (Linux/Windows)</title>
+      <link>https://happygrammer.github.io/rust/problem/cross-compile/</link>
+      <pubDate>Sat, 16 Jan 2021 18:34:29 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/rust/problem/cross-compile/</guid>
+      <description>특정 OS에서 개발한 프로그램을 다른 OS 환경에서 실행 하고 싶은 경우가 있다. 이를 위해서는 rustup이라는 명령어를 이용해서 OS 환경에 맞는 툴체인을 설정해 빌드 해야 한다.
+rustup 명령어 알아보기 rustup 명령어를 이용해 크로스 컴파일을 위한 툴체인 설정을 다룰 수 있다.
+&amp;lt;channel&amp;gt;[-&amp;lt;date&amp;gt;][-&amp;lt;host&amp;gt;] &amp;lt;channel&amp;gt; = stable|beta|nightly|&amp;lt;major.minor&amp;gt;|&amp;lt;major.minor.patch&amp;gt; &amp;lt;date&amp;gt; = YYYY-MM-DD &amp;lt;host&amp;gt; = &amp;lt;target-triple&amp;gt; rustup 명령어를 이용하면 툴체인 채널을 stable, beta, nightly 중에 하나로 설정할 수 있다.
+$ rustup override set stable // 사용자 repo에 stable 채널 툴체인으로 설정 $ rustup override set nightly // 사용자 repo에 nightly 채널 툴체인으로 설정 만약 사용자 환경의 디폴트 툴체인 채널을 변경하고자 한다면 default라는 옵션으로 디폴트 툴체인 채널을 설정할 수 있다.</description>
+    </item>
     
     <item>
       <title>Rust if 조건문</title>

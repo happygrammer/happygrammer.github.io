@@ -151,14 +151,14 @@ $ rustup toolchain install nightly
 </code></pre><p>그러나 현재 플랫폼과 리눅스 용으로 크로스 컴파일을 위해서 <code>stable-x86_64-unknown-linux-musl</code> 툴체인을 설치해야 한다.</p>
 <pre><code>$ rustup target add x86_64-unknown-linux-musl
 $ rustup toolchain install stable-x86_64-unknown-linux-musl // 삭제는 install 대신 uninstall 이용
-</code></pre><p>이때 빌드 설정은 다음과 같다. <code>./cargo/config</code></p>
+</code></pre><p>이때 빌드 설정 파일의 경로는  <code>./cargo/config</code>에 위치한다.</p>
 <pre><code>[target.x86_64-unknown-linux-musl]
 linker = &quot;x86_64-linux-musl-gcc&quot;
-</code></pre><p>마지막으로 빌드를 수행한다.</p>
+</code></pre><p>위 config 파일에 <code>x86_64-unknown-linux-musl</code> 을 target으로 빌드를 할 수ㅇ ㅣ다.</p>
 <pre><code>$ cargo build --target=x86_64-unknown-linux-musl
 # cross 컴파일을 했으으므로 현재 맥OS 환경에서 리눅스로 컴파일딘 파일 실행 불가
 # cargo run --target=x86_64-unknown-linux-musl
-</code></pre><p>최종적으로 다음 위치에 리눅스 실행 파일이 생성된다. 리눅스 용으로 빌드 했으므로 확장자가 존재하지 않는다.</p>
+</code></pre><p>최종적으로 다음 위치에 리눅스 실행 파일이 생성된다. 현재 플랫폼이 Mac OS 환경이므로 리눅스 플랫폼을 타겟으로 빌드된 프로그램은 현재 환경에서 실행 되지 않으며, 리눅스 용으로 빌드 했으므로 윈도우용 빌드 결과와 달리 확장자가 존재하지 않는다.</p>
 <pre><code>./target/target/x86_64-unknown-linux-musl/debug/&lt;프로그램명&gt;
 </code></pre><h2 id="windows-">Windows용으로 빌드</h2>
 <p>Windows용으로 크로스 컴파일을 진행 해고자 한다. 다음 명령어는 Window용 GCC인 <a href="http://mingw-w64.org/">mingw-w64</a>를 설치한다.</p>

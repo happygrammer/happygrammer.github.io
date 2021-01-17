@@ -154,7 +154,7 @@ $ rustup toolchain install stable-x86_64-unknown-linux-musl // 삭제는 install
 </code></pre><p>이때 빌드 설정 파일의 경로는  <code>./cargo/config</code>에 위치한다.</p>
 <pre><code>[target.x86_64-unknown-linux-musl]
 linker = &quot;x86_64-linux-musl-gcc&quot;
-</code></pre><p>위 config 파일에 <code>x86_64-unknown-linux-musl</code> 을 target으로 빌드를 할 수ㅇ ㅣ다.</p>
+</code></pre><p>위 config 파일에 <code>x86_64-unknown-linux-musl</code> 을 target으로 빌드를 할 수 있다.</p>
 <pre><code>$ cargo build --target=x86_64-unknown-linux-musl
 # cross 컴파일을 했으으므로 현재 맥OS 환경에서 리눅스로 컴파일딘 파일 실행 불가
 # cargo run --target=x86_64-unknown-linux-musl

@@ -183,12 +183,12 @@ $ rustup toolchain install stable-x86_64-unknown-linux-musl // 삭제는 install
 linker = &quot;x86_64-linux-musl-gcc&quot;
 </code></pre><p>위에서 설치한 target을 지정해 빌드 하려면 <code>--taget</code> 옵션을 이용한다.</p>
 <pre><code>$ cargo build --target=x86_64-unknown-linux-musl
-# cross 컴파일을 했으으므로 현재 맥OS 환경에서 리눅스로 컴파일딘 파일 실행 불가
-# cargo run --target=x86_64-unknown-linux-musl
 </code></pre><p>최종적으로 다음 위치에 리눅스 실행 파일이 생성된다.</p>
 <pre><code>./target/target/x86_64-unknown-linux-musl/debug/&lt;프로그램명&gt;
-</code></pre><p>현재 플랫폼이 Mac OS 환경이므로 리눅스 플랫폼을 타겟으로 빌드된 프로그램은 현재 환경에서 실행 되지 않으며, 리눅스 용으로 빌드 했으므로 윈도우용 빌드와 달리 확장자가 존재하지 않는다.</p>
-<h2 id="windows-">Windows용으로 빌드</h2>
+</code></pre><p>현재 플랫폼이 Mac OS 환경이므로 리눅스 플랫폼을 타겟으로 빌드된 프로그램은 현재 환경에서 실행 되지 않으며 리눅스 용으로 빌드 했으므로 윈도우용 빌드와 달리 확장자가 존재하지 않는다.</p>
+<pre><code># cross 컴파일을 했으으므로 현재 맥OS 환경에서 리눅스로 컴파일딘 파일 실행 불가
+# cargo run --target=x86_64-unknown-linux-musl
+</code></pre><h2 id="windows-">Windows용으로 빌드</h2>
 <p>Windows용으로 크로스 컴파일을 진행 하고자 한다. 다음 명령어는 맥OS에서 윈도우용 GCC인 <a href="http://mingw-w64.org/">mingw-w64</a>를 설치하는 명령어이다.</p>
 <pre><code class="language-ç" data-lang="ç">$ brew install mingw-w64
 </code></pre><p>mingw-w64 설치 후 target과 관련한 Rust 표준 라이브러리를 설치를 수행한다.</p>
@@ -198,10 +198,11 @@ linker = &quot;x86_64-linux-musl-gcc&quot;
 linker = 'x86_64-w64-mingw32-gcc'
 </code></pre><p>이어서 <code>cargo build -target</code> 명령어를 이용해 windows 플랫폼을 target으로 빌드를 수행할 수 있다.</p>
 <pre><code>$ cargo build --target=x86_64-pc-windows-gnu;
-# cross 컴파일을 했으으므로 현재 OS에서 실행 불가.
-# cargo run --target=x86_64-pc-windows-gnu; // x86_64-pc-windows-gnu로 빌드된 실행 파일 실행
 </code></pre><p>최종적으로 빌드 결과는 사용자 repo기준으로 아래 경로에 윈도우 실행 파일인 <code>&lt;프로그램명&gt;.exe </code>파일이 생성된다.</p>
 <pre><code>./target/x86_64-pc-windows-gnu/debug/&lt;프로그램명&gt;.exe
+</code></pre><p>현재 플랫폼이 아닌 Windows 플랫폼에서만 실행이 가능하다.</p>
+<pre><code># cross 컴파일을 했으으므로 현재 OS에서 실행 불가.
+# cargo run --target=x86_64-pc-windows-gnu; // x86_64-pc-windows-gnu로 빌드된 실행 파일 실행
 </code></pre><h2 id="heading"></h2>
 
         </div>

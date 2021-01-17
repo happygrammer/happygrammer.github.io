@@ -170,18 +170,18 @@ rust-analyzer-preview-x86_64-apple-darwin
 <p>맥OS 환경에서 Linux 용으로 컴파일 하기 위해 맥 OS 패키지 관리 도구인 홈브류 명령어를 이용해 musl-cross를 설치한다.</p>
 <pre><code class="language-none" data-lang="none">$ brew install FiloSottile/musl-cross/musl-cross  // 약 15분 소요
 $ brew install gcc // gcc 설치
-$ brew cleanup // 최신 패키지 제외한 나머지 패키지 정리
-</code></pre><p><code>~/.cargo/config/</code> 에 target이 추가 된다..</p>
+# $ brew cleanup // 최신 패키지 제외한 나머지 패키지 정리(필요시)
+</code></pre><p>위 설치 진행 후 <code>~/.cargo/config/</code> 에 target 정보가 추가된다.</p>
 <pre><code>[target.x86_64-unknown-linux-musl]
 linker = &quot;x86_64-linux-musl-gcc&quot;
-</code></pre><p>rustup 명령어를 이용해 툴체인 설치를 진행한다. 앞서 언급한 대로 툴체인은 릴리즈 채널에 따라 stable, beta, nightly 방식으로 설치 한다. 현재 플랫폼 기준으로 stable, beta, nightly를 구분해 툴체인을 설치하려면 다음 명령어를 이용한다.</p>
+</code></pre><p>rustup 명령어를 이용해 툴체인 설치를 진행한다. 앞서 언급한 대로 툴체인은 릴리즈 채널에 따라 stable, beta, nightly 방식으로 설치 한다. 현재 플랫폼 기준으로 stable, beta, nightly를 구분해 툴체인을 설치하려면 다음 명령어를 이용할 수 있다.</p>
 <pre><code>$ rustup toolchain install stable
 $ rustup toolchain install beta
 $ rustup toolchain install nightly
 </code></pre><p>그러나 현재 플랫폼과 리눅스 용으로 크로스 컴파일을 위해서 <code>stable-x86_64-unknown-linux-musl</code> 툴체인을 설치해야 한다.</p>
 <pre><code>$ rustup target add x86_64-unknown-linux-musl
 $ rustup toolchain install stable-x86_64-unknown-linux-musl // 삭제는 install 대신 uninstall 이용
-</code></pre><p><code>rustup target add</code> 는 add 하려는 대상의 target과 관련한 Rust 표준 라이브러리를 설치를 수행한다. <code>rustup toolchain install</code> 는 사용자가 지정한 툴체인을 설치는 설치를 수행된다.  특정 target을 기준으로 빌드를 하려면 <code>--taget</code> 옵션을 이용한다.</p>
+</code></pre><p>먼저 <code>rustup target add</code> 명령어를 이용해 <code>x86_64-unknown-linux-musl</code> target과 관련한 Rust 표준 라이브러리를 설치를 수행한다. 이어서 <code>rustup toolchain install</code> 명령어를 이용해 명시한 target을 기준으로 툴체인 설치를 수행한다.  위에서 설치한 target을 지정해 빌드 하려면 <code>--taget</code> 옵션을 이용한다.</p>
 <pre><code>$ cargo build --target=x86_64-unknown-linux-musl
 # cross 컴파일을 했으으므로 현재 맥OS 환경에서 리눅스로 컴파일딘 파일 실행 불가
 # cargo run --target=x86_64-unknown-linux-musl

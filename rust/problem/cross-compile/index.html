@@ -180,15 +180,29 @@ rls-x86_64-apple-darwin
 rust-analysis-x86_64-apple-darwin
 rust-analyzer-preview-x86_64-apple-darwin
 ...
+</code></pre><p>툴체인은 실재 다음에 해당하는 로컬 경로에 설치된다.</p>
+<pre><code>ls /Users/&lt;사용자계정명&gt;/.rustup/toolchains
+nightly-x86_64-apple-darwin             stable-x86_64-pc-windows-gnu            stable-x86_64-unknown-linux-gnu
+stable-x86_64-apple-darwin              stable-x86_64-pc-windows-msvc           stable-x86_64-unknown-linux-musl
 </code></pre><h2 id="linux-">Linux용으로 빌드</h2>
 <p>맥OS 환경에서 Linux 용으로 컴파일 하기 위해 맥 OS 패키지 관리 도구인 홈브류 명령어를 이용해 <a href="https://github.com/FiloSottile/homebrew-musl-cross">musl-cross</a>를 설치한다. musl-cross는 FiloSottile 개발자가 공개한 맥 OS에서 사용 가능한 리눅스 크로스 컴파일러이다.</p>
 <pre><code class="language-none" data-lang="none">$ brew install FiloSottile/musl-cross/musl-cross  // 약 15분 소요
 $ brew install gcc // gcc 설치
 # $ brew cleanup // 최신 패키지 제외한 나머지 패키지 정리(필요시)
 </code></pre><p>rustup 명령어를 이용해 툴체인 설치를 진행한다. 현재 플랫폼과 리눅스 용으로 크로스 컴파일을 위해서 <code>stable-x86_64-unknown-linux-musl</code> 툴체인을 설치해야 한다.</p>
+<pre><code>$ rustup toolchain install stable-x86_64-unknown-linux-musl // 삭제는 install 대신 uninstall 이용
+$ rustup target add x86_64-unknown-linux-musl
+</code></pre><p>Rust는 기본적으로 정적 링킹 방식으로 사용자 코드를 컴파일 하며, 표준 라이브러리를 사용할때 동적 링킹 방식(Dynamic linking)으로 라이브러리를 호출해 컴파일 한다. 만약 리눅스로 포팅하려 한다면 <a href="https://www.musl-libc.org/intro.html">MUSL Lib</a>를 기반으로한 정적 링킹 방식을 고려해 컴파일을 해야 한다. 리눅스용 컴파일을 위해 먼저 <code>rustup target add</code> 명령어를 이용해 <code>x86_64-unknown-linux-musl</code>가 활성 툴체인 목록에 추가됨을 확인할 수 있다.</p>
 <pre><code>$ rustup target add x86_64-unknown-linux-musl
-$ rustup toolchain install stable-x86_64-unknown-linux-musl // 삭제는 install 대신 uninstall 이용
-</code></pre><p>Rust는 기본적으로 정적 링킹 방식으로 사용자 코드를 컴파일 하며, 표준 라이브러리를 사용할때 동적 링킹 방식(Dynamic linking)으로 라이브러리를 호출해 컴파일 한다. 만약 리눅스로 포팅하려 한다면 <a href="https://www.musl-libc.org/intro.html">MUSL Lib</a>를 기반으로한 정적 링킹 방식을 고려해 컴파일을 해야 한다. 리눅스용 컴파일을 위해 먼저 <code>rustup target add</code> 명령어를 이용해 <code>x86_64-unknown-linux-musl</code> target과 관련한 Rust 표준 라이브러리를 설치를 수행한다. 이어서 <code>rustup toolchain install</code> 명령어를 이용해 명시한 target을 기준으로 툴체인 설치를 수행한다. 위 설치 진행 후 <code>~/.cargo/config/</code> 에 target 정보가 추가된다.</p>
+...
+
+installed targets for active toolchain
+--------------------------------------
+
+x86_64-apple-darwin
+x86_64-pc-windows-gnu
+x86_64-unknown-linux-musl // 추가됨
+</code></pre><p>이어서 <code>rustup toolchain install</code> 명령어를 이용해 명시한 target을 기준으로 툴체인 설치를 수행한다. 위 설치 진행 후 <code>[project]/.cargo/config/</code> 에 target 정보가 추가된다.</p>
 <pre><code>[target.x86_64-unknown-linux-musl]
 linker = &quot;x86_64-linux-musl-gcc&quot;
 </code></pre><p>설치가 완료되면 아래와 같이  <code>--taget</code> 옵션을 지정해 빌드 할 수 있다.</p>
@@ -203,7 +217,17 @@ linker = &quot;x86_64-linux-musl-gcc&quot;
 <pre><code class="language-ç" data-lang="ç">$ brew install mingw-w64
 </code></pre><p>mingw-w64 설치 후 target과 관련한 Rust 표준 라이브러리를 설치를 수행한다.</p>
 <pre><code>$ rustup target add x86_64-pc-windows-gnu
-</code></pre><p>해당 GCC를 연결 하기 위한 <code>~/.cargo/config/</code> 에 다음과 같은 target 내용이 추가 된다.</p>
+</code></pre><p>위 명령어를 수행하고 active 툴체인 목록에 정상적으로 추가되었는지 확인한다.</p>
+<pre><code>$ rustup show
+...
+
+installed targets for active toolchain
+--------------------------------------
+
+x86_64-apple-darwin
+x86_64-pc-windows-gnu // 추가 되었음을 확인
+x86_64-unknown-linux-musl
+</code></pre><p>위 명령어를 실행하고 나면 GCC를 연결을 위한 <code>[project]/.cargo/config/</code> 설정이 추가된다.</p>
 <pre><code>[target.x86_64-pc-windows-gnu]
 linker = 'x86_64-w64-mingw32-gcc'
 </code></pre><p>이어서 <code>cargo build -target</code> 명령어를 이용해 windows 플랫폼을 target으로 빌드를 수행할 수 있다.</p>

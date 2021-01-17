@@ -178,7 +178,7 @@ $ rustup toolchain install nightly
 </code></pre><p>그러나 현재 플랫폼과 리눅스 용으로 크로스 컴파일을 위해서 <code>stable-x86_64-unknown-linux-musl</code> 툴체인을 설치해야 한다.</p>
 <pre><code>$ rustup target add x86_64-unknown-linux-musl
 $ rustup toolchain install stable-x86_64-unknown-linux-musl // 삭제는 install 대신 uninstall 이용
-</code></pre><p>Rust는 기본적으로 정적 링킹 방식으로 사용자 코드를 컴파일 하며, 표준 라이브러리를 사용할때 동적 링킹 방식(Dynamic linking)으로 라이브러리를 호출하게 된다. 만약 리눅스로 포팅하려 한다면 <a href="https://www.musl-libc.org/intro.html">MUSL Lib</a>를 기반으로한 정적 링킹 방식을 고려해야 한다. 먼저 <code>rustup target add</code> 명령어를 이용해 <code>x86_64-unknown-linux-musl</code> target과 관련한 Rust 표준 라이브러리를 설치를 수행한다. 이어서 <code>rustup toolchain install</code> 명령어를 이용해 명시한 target을 기준으로 툴체인 설치를 수행한다. 위 설치 진행 후 <code>~/.cargo/config/</code> 에 target 정보가 추가된다.</p>
+</code></pre><p>Rust는 기본적으로 정적 링킹 방식으로 사용자 코드를 컴파일 하며, 표준 라이브러리를 사용할때 동적 링킹 방식(Dynamic linking)으로 라이브러리를 호출하게 된다. 만약 리눅스로 포팅하려 한다면 <a href="https://www.musl-libc.org/intro.html">MUSL Lib</a>를 기반으로한 정적 링킹 방식을 고려해야 한다. 먼저 리눅스용 컴파일을 위해 <code>rustup target add</code> 명령어를 이용해 <code>x86_64-unknown-linux-musl</code> target과 관련한 Rust 표준 라이브러리를 설치를 수행한다. 이어서 <code>rustup toolchain install</code> 명령어를 이용해 명시한 target을 기준으로 툴체인 설치를 수행한다. 위 설치 진행 후 <code>~/.cargo/config/</code> 에 target 정보가 추가된다.</p>
 <pre><code>[target.x86_64-unknown-linux-musl]
 linker = &quot;x86_64-linux-musl-gcc&quot;
 </code></pre><p>위에서 설치한 target을 지정해 빌드 하려면 <code>--taget</code> 옵션을 이용한다.</p>

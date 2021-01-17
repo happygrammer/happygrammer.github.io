@@ -166,13 +166,13 @@ linker = &quot;x86_64-linux-musl-gcc&quot;
 </code></pre><p><code>x86_64-pc-windows-gnu</code> 채널을 설치하고 나서 mingw-w64 설치를 진행한다. 이때 <code>./cargo/config</code> 설정은 다음과 같다.</p>
 <pre><code>[target.x86_64-pc-windows-gnu]
 linker = 'x86_64-w64-mingw32-gcc'
-</code></pre><p>config를 설정했으므로 해당 config에 지정된 target을 이용해 빌드와 실행을 해본다.</p>
+</code></pre><p>config를 설정했으므로 해당 config에 지정된 target 설정한다.</p>
 <pre><code>$ rustup target add x86_64-pc-windows-gnu
-</code></pre><p>이어서 windows 플랫폼으로 빌드를 수행한다.</p>
+</code></pre><p>이어서 windows 플랫폼으로 빌드르 수행한다.</p>
 <pre><code>$ cargo build --target=x86_64-pc-windows-gnu;
 # cross 컴파일을 했으으므로 현재 OS에서 실행 불가.
 # cargo run --target=x86_64-pc-windows-gnu;
-</code></pre><p>최종적으로 다음 위치에 윈도우 실행 파일인 exe 파일이 생성된다.</p>
+</code></pre><p>최종적으로 아래와 같은 상대 경로에 빌드된 결과로 윈도우 실행 파일인 exe 파일이 생성된다.</p>
 <pre><code>./target/x86_64-pc-windows-gnu/debug/&lt;프로그램명&gt;.exe
 </code></pre><h2 id="heading"></h2>
 

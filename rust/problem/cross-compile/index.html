@@ -202,7 +202,7 @@ installed targets for active toolchain
 x86_64-apple-darwin
 x86_64-pc-windows-gnu
 x86_64-unknown-linux-musl // 추가됨
-</code></pre><p>이어서 <code>rustup toolchain install</code> 명령어를 이용해 명시한 target을 기준으로 툴체인 설치를 수행한다. 위 설치 진행 후 <code>[project]/.cargo/config/</code> 에 target 정보가 추가된다.</p>
+</code></pre><p>이어서 <code>rustup toolchain install</code> 명령어를 이용해 명시한 target을 기준으로 툴체인 설치를 수행한다. 위 설치 진행 후 <code>[project]/.cargo/config/</code> 에 target 정보가 추가한다.</p>
 <pre><code>[target.x86_64-unknown-linux-musl]
 linker = &quot;x86_64-linux-musl-gcc&quot;
 </code></pre><p>설치가 완료되면 아래와 같이  <code>--taget</code> 옵션을 지정해 빌드 할 수 있다.</p>
@@ -227,7 +227,7 @@ installed targets for active toolchain
 x86_64-apple-darwin
 x86_64-pc-windows-gnu // 추가 되었음을 확인
 x86_64-unknown-linux-musl
-</code></pre><p>위 명령어를 실행하고 나면 GCC를 연결을 위한 <code>[project]/.cargo/config/</code> 설정이 추가된다.</p>
+</code></pre><p>위 명령어를 실행하고 나면 GCC를 연결을 위한 <code>[project]/.cargo/config/</code> 설정이 추가한다.</p>
 <pre><code>[target.x86_64-pc-windows-gnu]
 linker = 'x86_64-w64-mingw32-gcc'
 </code></pre><p>이어서 <code>cargo build -target</code> 명령어를 이용해 windows 플랫폼을 target으로 빌드를 수행할 수 있다.</p>

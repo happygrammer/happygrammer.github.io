@@ -193,7 +193,7 @@ $ rustup toolchain install stable-x86_64-unknown-linux-musl // 삭제는 install
 linker = &quot;x86_64-linux-musl-gcc&quot;
 </code></pre><p>설치가 완료되면 아래와 같이  <code>--taget</code> 옵션을 지정해 빌드 할 수 있다.</p>
 <pre><code>$ cargo build --target=x86_64-unknown-linux-musl
-</code></pre><p>최종적으로 다음 위치에 리눅스 실행 파일이 생성된다.</p>
+</code></pre><p>최종적으로 다음 위치에 리눅스에서 동작하는 실행 파일이 생성된다.</p>
 <pre><code>./target/target/x86_64-unknown-linux-musl/debug/&lt;프로그램명&gt;
 </code></pre><p>현재 플랫폼이 Mac OS 환경이므로 리눅스 플랫폼을 타겟으로 빌드된 프로그램은 현재 환경에서 실행 되지 않으며 리눅스 용으로 빌드 했으므로 윈도우용 빌드와 달리 확장자가 존재하지 않는다.</p>
 <pre><code># cross 컴파일을 했으으므로 현재 맥OS 환경에서 리눅스로 컴파일딘 파일 실행 불가

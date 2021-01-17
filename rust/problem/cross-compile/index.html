@@ -117,6 +117,7 @@ SUBCOMMANDS:
     help           Prints this message or the help of the given subcommand(s)
 </code></pre><p>서브커맨드 옵션중에 <code>override 옵션</code>은 사용자 환경에 맞게 툴체인을 자동으로 결정할때 사용하는 옵션이다. 툴체인 설정이 잘 못 되었을때 아래 override 옵션으로 툴체인 설정을 초기화할 때 사용할 수 있다. <a href="https://github.com/rust-lang/rust/blob/master/RELEASES.md">러스트는 릴리즈</a> 채널에 따라 <code>Nightly</code>, <code>Beta</code>, <code>Stable</code>로 나뉜다. <code>Stable</code> 은 6주를 주기로 릴리즈 되며 <code>Beta</code>는 차기 <code>Stable</code> 릴리즈 전에 배포된다. <code>Nightly</code>는 매일 밤 릴리즈가 된다. 러스트 개발자는 대부분 <code>Stable</code> 채널을 이용한다. <code>override</code> 옵션은 툴체인을 자동으로 결정하기 위한 명령어이다.</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-rust" data-lang="rust"><span style="color:#75715e">$</span> rustup <span style="color:#66d9ef">override</span> set stable <span style="color:#75715e">// 사용자 repo에 stable 채널 툴체인으로 설정(대부분 stable을 사용)
+</span><span style="color:#75715e"></span><span style="color:#75715e">$</span> rustup <span style="color:#66d9ef">override</span> set beta <span style="color:#75715e">// 사용자 repo에 beta 채널 툴체인으로 설정
 </span><span style="color:#75715e"></span><span style="color:#75715e">$</span> rustup <span style="color:#66d9ef">override</span> set nightly <span style="color:#75715e">// 사용자 repo에 nightly 채널 툴체인으로 설정
 </span></code></pre></div><p>만약 사용자 환경의 디폴트 툴체인을 채널별로 설정하고자 한다면  <code>default</code> 옵션을 이용해 디폴트 툴체인을 설정할 수 있다.</p>
 <pre><code>$ rustup default stable // stable 툴체인
@@ -190,7 +191,7 @@ $ rustup toolchain install stable-x86_64-unknown-linux-musl // 삭제는 install
 </code></pre><p>Rust는 기본적으로 정적 링킹 방식으로 사용자 코드를 컴파일 하며, 표준 라이브러리를 사용할때 동적 링킹 방식(Dynamic linking)으로 라이브러리를 호출해 컴파일 한다. 만약 리눅스로 포팅하려 한다면 <a href="https://www.musl-libc.org/intro.html">MUSL Lib</a>를 기반으로한 정적 링킹 방식을 고려해 컴파일을 해야 한다. 리눅스용 컴파일을 위해 먼저 <code>rustup target add</code> 명령어를 이용해 <code>x86_64-unknown-linux-musl</code> target과 관련한 Rust 표준 라이브러리를 설치를 수행한다. 이어서 <code>rustup toolchain install</code> 명령어를 이용해 명시한 target을 기준으로 툴체인 설치를 수행한다. 위 설치 진행 후 <code>~/.cargo/config/</code> 에 target 정보가 추가된다.</p>
 <pre><code>[target.x86_64-unknown-linux-musl]
 linker = &quot;x86_64-linux-musl-gcc&quot;
-</code></pre><p>위에서 설치한 target을 지정해 빌드 하려면 <code>--taget</code> 옵션을 이용한다.</p>
+</code></pre><p>설치가 완료되면 아래와 같이  <code>--taget</code> 옵션을 지정해 빌드 할 수 있다.</p>
 <pre><code>$ cargo build --target=x86_64-unknown-linux-musl
 </code></pre><p>최종적으로 다음 위치에 리눅스 실행 파일이 생성된다.</p>
 <pre><code>./target/target/x86_64-unknown-linux-musl/debug/&lt;프로그램명&gt;

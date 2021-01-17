@@ -164,7 +164,7 @@ linker = &quot;x86_64-linux-musl-gcc&quot;
 <h2 id="windows-">Windows용으로 빌드</h2>
 <p>Windows용으로 크로스 컴파일을 진행 하고자 한다. 다음 명령어는 맥OS에서 윈도우용 GCC인 <a href="http://mingw-w64.org/">mingw-w64</a>를 설치하는 명령어이다.</p>
 <pre><code class="language-ç" data-lang="ç">$ brew install mingw-w64
-</code></pre><p><code>x86_64-pc-windows-gnu</code> 채널을 설치하고 나서 mingw-w64 설치를 진행한다. 이때 <code>./cargo/config</code> 설정은 다음과 같다.</p>
+</code></pre><p>mingw-w64 설치 후 해당 GCC를 연결 하기 위한 <code>./cargo/config</code> 설정 내용은 다음과 같다.</p>
 <pre><code>[target.x86_64-pc-windows-gnu]
 linker = 'x86_64-w64-mingw32-gcc'
 </code></pre><p>config를 설정했으므로 해당 config에 지정된 target 설정한다.</p>

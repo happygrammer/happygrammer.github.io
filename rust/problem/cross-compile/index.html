@@ -122,11 +122,19 @@ SUBCOMMANDS:
 <pre><code>$ rustup default stable // stable 툴체인
 $ rustup default beta // beta 툴체인
 $ rustup default nightly // nightly 툴체인
-</code></pre><p>앞서 언급한 대로 툴체인은 릴리즈 채널에 따라 stable, beta, nightly 방식으로 설치 한다. 현재 플랫폼 기준으로 stable, beta, nightly를 구분해 툴체인을 설치하려면 다음 명령어를 이용할 수 있다.</p>
+</code></pre><p>앞서 언급한 대로 툴체인은 릴리즈 채널에 따라 stable, beta, nightly 방식으로 설치 한다. 현재 플랫폼 기준으로 stable, beta, nightly를 구분해 툴체인 설치하려면 다음 명령어를 이용할 수 있다.</p>
 <pre><code>$ rustup toolchain install stable
 $ rustup toolchain install beta
 $ rustup toolchain install nightly
-</code></pre><p>다음 명령어로 설치된 툴체인 목록을 확인할 수 있다.</p>
+</code></pre><p>설치된 툴체인 목록이 무엇이고, 디폴트 툴체인에 대한 목록을 간략히 확인 하려면 다음 명령어를 입력한다.</p>
+<pre><code>$ rustup toolchain list
+stable-x86_64-apple-darwin
+stable-x86_64-pc-windows-gnu
+stable-x86_64-pc-windows-msvc
+stable-x86_64-unknown-linux-gnu
+stable-x86_64-unknown-linux-musl
+nightly-x86_64-apple-darwin (default)
+</code></pre><p>만약 설치된 툴체인들에 대한 전반적인 목록과 활성 상태 목록을 확인 하고자 한다면  show 옵션만 붙인다.</p>
 <pre><code>$ rustup show
 Default host: x86_64-apple-darwin
 rustup home:  /Users/&lt;사용자계정홈&gt;/.rustup

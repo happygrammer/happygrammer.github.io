@@ -196,7 +196,7 @@ $ rustup toolchain install stable-x86_64-unknown-linux-musl // 삭제는 install
 linker = 'x86_64-w64-mingw32-gcc'
 </code></pre><p>mingw-w64 설치 후 target과 관련한 Rust 표준 라이브러리를 설치를 수행한다.</p>
 <pre><code>$ rustup target add x86_64-pc-windows-gnu
-</code></pre><p>이어서 <code>cargo build</code> 명령어를 이용해 windows 플랫폼을 target으로 빌드를 수행할 수 있다.</p>
+</code></pre><p>이어서 <code>cargo build -target</code> 명령어를 이용해 windows 플랫폼을 target으로 빌드를 수행할 수 있다.</p>
 <pre><code>$ cargo build --target=x86_64-pc-windows-gnu;
 # cross 컴파일을 했으으므로 현재 OS에서 실행 불가.
 # cargo run --target=x86_64-pc-windows-gnu; // x86_64-pc-windows-gnu로 빌드된 실행 파일 실행

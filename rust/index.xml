@@ -6,10 +6,19 @@
     <description>Recent content in Rusts on Happygrammer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 16 Jan 2021 18:34:29 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 31 Jan 2021 00:08:17 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/rust/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Rust 입문용 치트시트</title>
+      <link>https://happygrammer.github.io/rust/cheat-seat/</link>
+      <pubDate>Sun, 31 Jan 2021 00:08:17 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/rust/cheat-seat/</guid>
+      <description>Rust 입문용 치트시트(Chat Shet)를 제작하게 되어 공유 드립니다. 개선이 필요한 점은 댓글 부탁 드립니다. 다운로드</description>
+    </item>
     
     <item>
       <title>Rust 크로스 컴파일 방법</title>

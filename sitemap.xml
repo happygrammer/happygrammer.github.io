@@ -4,7 +4,21 @@
   
   <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2021-01-30T22:30:35+03:00</lastmod>
+    <lastmod>2021-01-31T00:08:17+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/rust/cheat-seat/</loc>
+    <lastmod>2021-01-31T00:08:17+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/rust/</loc>
+    <lastmod>2021-01-31T00:08:17+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -25,13 +39,6 @@
   
   <url>
     <loc>https://happygrammer.github.io/rust/problem/cross-compile/</loc>
-    <lastmod>2021-01-16T18:34:29+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/rust/</loc>
     <lastmod>2021-01-16T18:34:29+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

@@ -10,7 +10,14 @@
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/dependency-tag-set/</loc>
+    <loc>https://happygrammer.github.io/nlp/</loc>
+    <lastmod>2021-01-30T22:30:35+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/nlp/dependency-tag-set/</loc>
     <lastmod>2021-01-30T22:30:35+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -333,13 +340,6 @@
   
   <url>
     <loc>https://happygrammer.github.io/nlp/doc2vec/</loc>
-    <lastmod>2020-02-23T17:19:48+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/nlp/</loc>
     <lastmod>2020-02-23T17:19:48+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

@@ -60,8 +60,8 @@ command ⌘ shift ⇧ option ⌥ control ⌃
       <pubDate>Wed, 15 Jan 2020 06:35:54 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/guide/perl/</guid>
-      <description>Perl은 고수준의 동적 타입 언어로 csh, Pascal, BASIC-PLUS, PHP, Python 등과 비교되는 언어다. Perl은 쉘 스크립트로 기원했기에 다른 스크립트나 다른 프로그램을 엮어 주는 글루 코드(glue code) 언어로 시스템 관리에도 적합한 언어이다. C, sed, awk 그리고 sh와 같은 언어나 프로그램들의 가장 좋은 점들을 취합한 언어이기도 하다. sed, awk, sh를 사용하여 문제를 풀기 어렵다면 Perl이 대안이 된다. 이외에도 다음과 같은 특징이 있다.
- 거의 모든 운영체제에 설치되어 있다. 무료이다. 사용하기 쉬운 언어이다. 텍스트 데이터 처리가 쉽다.</description>
+      <description>본 포스팅에서 사용한 예제는 다운로드 가능하다. Perl은 고수준의 동적 타입 언어로 csh, Pascal, BASIC-PLUS, PHP, Python 등과 비교되는 언어다. Perl은 쉘 스크립트로 기원했기에 다른 스크립트나 다른 프로그램을 엮어 주는 글루 코드(glue code) 언어로 시스템 관리에도 적합한 언어이다. C, sed, awk 그리고 sh와 같은 언어나 프로그램들의 가장 좋은 점들을 취합한 언어이기도 하다. sed, awk, sh를 사용하여 문제를 풀기 어렵다면 Perl이 대안이 된다. 이외에도 다음과 같은 특징이 있다.
+ 거의 모든 운영체제에 설치되어 있다.</description>
     </item>
     
     <item>

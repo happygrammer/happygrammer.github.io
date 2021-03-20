@@ -3,8 +3,22 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://happygrammer.github.io/guide/git-workflow-diagram/</loc>
+    <lastmod>2021-03-21T02:13:54+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/guide/</loc>
+    <lastmod>2021-03-21T02:13:54+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2021-01-31T00:08:17+03:00</lastmod>
+    <lastmod>2021-03-21T02:13:54+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
@@ -131,13 +145,6 @@
   <url>
     <loc>https://happygrammer.github.io/worth/simple/</loc>
     <lastmod>2020-11-22T21:19:37+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/guide/</loc>
-    <lastmod>2020-11-21T09:09:47+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

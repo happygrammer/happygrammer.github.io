@@ -6,10 +6,19 @@
     <description>Recent content in Guides on Happygrammer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sat, 21 Nov 2020 09:09:47 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 21 Mar 2021 02:13:54 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/guide/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Git Workflow Diagram</title>
+      <link>https://happygrammer.github.io/guide/git-workflow-diagram/</link>
+      <pubDate>Sun, 21 Mar 2021 02:13:54 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/guide/git-workflow-diagram/</guid>
+      <description>Git Workflow Diagram 만들게 되어 공유 드립니다. 개선이 필요한 점은 댓글 부탁 드립니다.</description>
+    </item>
     
     <item>
       <title>견고한 코드 설계의 원칙들</title>

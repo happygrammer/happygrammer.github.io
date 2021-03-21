@@ -6,10 +6,20 @@
     <description>Recent content on Happygrammer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Mar 2021 02:13:54 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 21 Mar 2021 22:58:56 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>우주의 이해</title>
+      <link>https://happygrammer.github.io/astronomy/universe/</link>
+      <pubDate>Sun, 21 Mar 2021 22:58:56 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/astronomy/universe/</guid>
+      <description>빅뱅우주론 빅뱅우주론은 13.7 억년전 한점으로 부터 폭발했고, 확장되어 왔다. 우주의 역사를 이해하는 기본적인 핵심은 빛의 속력이 일정하다는 것이다. 1초 지구를 7바퀴 반을 돈다. 빛이 1년간 날아가는 거리는 광년이다. 10억년전, 50억년전의 우주를 보고 있다.
+변화하는 우주 우주는 끈임없이 자기 모습을 변화해간다. 모든 별은 생겨나고 자라나고 죽어간다. 일정한 순명을 가지고 있다. 천문학 연구에 의하면, 별들의 수명은 수백만년 ~ 수백억년에 이른다. 밤하늘에 존재하는 별 탄생하는별, 죽어가는 별, 죽어서 별의 잔재들을 확인할 수 있다. 별들을 보면 별의 일생을 논리적으로 이해할 수 있다.</description>
+    </item>
     
     <item>
       <title>Git Workflow Diagram</title>

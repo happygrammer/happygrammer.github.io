@@ -93,7 +93,7 @@
 	sudoedit: /: not a regular file
 </code></pre><p>&lsquo;sudoedit: /: not a regular file&rsquo; 이라고 출력되었다면 취약점에 노출 되었다고 볼 수 있다. 위 치약점을 해결 하려면 sudo 업데이트가 필요하다.</p>
 <pre><code> yum install -y sudo
-</code></pre><p>만약 업데이트 할 수 있는 sudo를 찾을 수 없다면 sudo 패키지를 내려 받아 yum을 이용해 인스톨을 수행한다.</p>
+</code></pre><p>만약 업데이트 할 수 있는 sudo를 찾을 수 없다면 취약점이 해결된 최신의 <a href="sudo.ws/download.html">sudo</a> 패키지를 내려 받아 yum을 이용해 인스톨을 수행한다.</p>
 <pre><code>wget https://github.com/sudo-project/sudo/releases/download/SUDO_1_9_6p1/sudo-1.9.6-2.el6.x86_64.rpm
 yum localinstall sudo-1.9.6-2.el6.x86_64.rpm
 </code></pre><h3 id="-">관련 사이트</h3>

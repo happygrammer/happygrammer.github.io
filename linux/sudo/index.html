@@ -83,9 +83,11 @@
 <ul>
 <li>취약점 코드 - <a href="https://blog.qualys.com/vulnerabilities-research/2021/01/26/cve-2021-3156-heap-based-buffer-overflow-in-sudo-baron-samedit">CVE-2021-3156</a> (취약점 명칭은 <code>Baron Samedit</code>라고 명명됨)</li>
 </ul>
-<p>권한 없는 로컬 사용자가 인증 없이 root 권한 획득을 할 수 있다. 취약점이 있는 버전은 다음과 같다.</p>
+<p>권한 없는 로컬 사용자가 인증 없이 root 권한 획득을 할 수 있다. 취약점이 있는 sudo 버전은 다음과 같다.</p>
 <pre><code>1.8.2 ~ 1.8.31p2
 1.9.0 ~ 1.9.5p1
+</code></pre><p>sudo 버전은 다음 명령어로 확인할 수 있다.</p>
+<pre><code>$ sudo -V
 </code></pre><p>sudo에 취약점이 있는지를 확인하고 싶다면 다음 명령어를 입력해 확인할 수 있다.</p>
 <pre><code>$ sudoedit -s /
 	sudoedit: /: not a regular file

@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>코드 리뷰 어떻게 할 것인가</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="코드 리뷰 어떻게 할 것인가" />
+    
+    <meta property="og:description" content="" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/guide/code-review/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    
+<script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">코드 리뷰 어떻게 할 것인가</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/guide/code-review/" class="article-date">
+                <time datetime='2021-04-09T23:29:22.000&#43;03:00' itemprop="datePublished">2021-04-09</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>코드리뷰는 코드 구조의 일관성이 깨지거나 안정성이 떨어지는 상황에서 진행할 수 있다.</p>
+<h3 id="--">코드리뷰 진행 방식</h3>
+<p>코드 구조에 관해서는 코드 스타일을 지키는지를 점검한다. 팀마다 컨벤션을 정의할 수 있으며 구글의 코드 <a href="https://github.com/google/styleguide">스타일 가이드</a> 는 참고 할만하다. 구글의 경우 다음과 같은 방식으로 코드 리뷰를 진행한다.</p>
+<ul>
+<li>
+<p>change list가 준비되면 p4mail이나 gerrit같은 코드 리뷰 시스템으로 리뷰를 신청한다.</p>
+</li>
+<li>
+<p>코드리뷰 시스템에, 리뷰를 신청하면, reviewer에게로 이메일이 날라가게 되고, reviwer가 comment를 남기는 방식으로 작성하게 된다.</p>
+</li>
+<li>
+<p>코드리뷰는 24시간 안에 하는 것을 원칙으로 한다</p>
+</li>
+<li>
+<p>주요 로직에 대해서는 unit test가 모두 있어야 한다.</p>
+</li>
+<li>
+<p>실험적인 코드, 혹은 버려질 가능성이 있는 코드는 code quality보다, 속도의 중요성을 높인다.</p>
+</li>
+<li>
+<p>불필요한 공백은 모두 없앴다.</p>
+</li>
+<li>
+<p>스타일은 사람마다 다르기 때문에, comment가 code quality를 향상 시키려는 것인지, 스타일 문제인지를 생각해본다.</p>
+</li>
+</ul>
+<h3 id="-">코드리뷰 문서</h3>
+<p>코드리뷰는 누구라도 이해할 수 있게 다음 형식을 유지한다.</p>
+<pre><code>Title	
+Feature/Bug-fix 건인지 알 수 있도록 합니다.
+어떤 목적인지 간략하게 적도록 합니다.
+어떤 이슈와 연결된 건인지 알 수 있도록 합니다.
+Description
+
+어떤 로직을 추가/수정했는지를 작성합니다.
+어떻게 추가/수정했는지를 작성합니다
+</code></pre>
+<p>[작성예]</p>
+<pre><code>Title - [fix] 소켓 API 버전 처리 (JND-3986)
+Description
+1. @Version 커스텀 어노테이션 추가
+2. Version 없는 Event 에 Version 필드 추가, @Version어노테이션 부여
+3. SocketObject -&gt; EventObject 로 파싱하는 로직 공통 메소드로 분리
+4. 파싱 후 바로 반환하지 않고 Version Valid 로직 추가
+
+class JandiSocketServiceModel {
+    T getObject(Object, T) // 파싱 공통 메소드
+    boolean validVersion(Object) // version 확인
+}
+</code></pre>
+<h3 id="--1">리뷰 항목</h3>
+<pre><code>성능 개선 개발 : 시간복잡도
+신규 feature 개발 : 잠재적인 오류에 대한 검출
+리팩토링 : '테스트코드나 구조'에 대한 물음
+신규 기술 도입 : 해당 '기술의 로직'과 그에 대한 물음
+기타 : 변수명과 같은 '코드 컨벤션'을 하기도 합니다. 실제 빌드를 해서 동작을 시켜보고 이해하기도 합니다.
+</code></pre>
+<h3 id="--2">코드리뷰 코멘트</h3>
+<p>코드리뷰 통과후 브랜치에 대한 통합을 진행한다.</p>
+<pre><code>OO 보다는 XX 가 더 나은 것 같아요.
+XX 는 OO 부분을 참고해서 이용하면 되요.
+OO 는 XX 에 의해서 문제되지 않을까요?
+XX 를 하려다가 OO 로 했는데 어떻게 생각하세요?
+</code></pre>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#--">코드리뷰 진행 방식</a></li>
+        <li><a href="#-">코드리뷰 문서</a></li>
+        <li><a href="#--1">리뷰 항목</a></li>
+        <li><a href="#--2">코드리뷰 코멘트</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v6.0&appId=2329733600657924&autoLogAppEvents=1"></script>
+	<div class="fb-comments" data-href="https://happygrammer.github.io/guide/code-review/" data-width="800" data-numposts="5"></div>
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/papers/conference/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            AI 관련 컨퍼런스와 학술지
+        </div>
+    </a>
+    
+    
+    <a href="/linux/sudo/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Sudo 권한 획득(CVE-2021-3156) 취약점 조치방법&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

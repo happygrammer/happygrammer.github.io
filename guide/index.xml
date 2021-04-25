@@ -6,10 +6,23 @@
     <description>Recent content in Guides on Happygrammer</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 21 Mar 2021 02:13:54 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 09 Apr 2021 23:29:22 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/guide/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>코드 리뷰 어떻게 할 것인가</title>
+      <link>https://happygrammer.github.io/guide/code-review/</link>
+      <pubDate>Fri, 09 Apr 2021 23:29:22 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/guide/code-review/</guid>
+      <description>코드리뷰는 코드 구조의 일관성이 깨지거나 안정성이 떨어지는 상황에서 진행할 수 있다.
+코드리뷰 진행 방식 코드 구조에 관해서는 코드 스타일을 지키는지를 점검한다. 팀마다 컨벤션을 정의할 수 있으며 구글의 코드 스타일 가이드 는 참고 할만하다. 구글의 경우 다음과 같은 방식으로 코드 리뷰를 진행한다.
+  change list가 준비되면 p4mail이나 gerrit같은 코드 리뷰 시스템으로 리뷰를 신청한다.
+  코드리뷰 시스템에, 리뷰를 신청하면, reviewer에게로 이메일이 날라가게 되고, reviwer가 comment를 남기는 방식으로 작성하게 된다.
+  코드리뷰는 24시간 안에 하는 것을 원칙으로 한다</description>
+    </item>
     
     <item>
       <title>Git Workflow Diagram</title>

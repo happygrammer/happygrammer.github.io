@@ -68,6 +68,70 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/word2vec/">Word2vec를 이용한 임베딩</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/word2vec/" class="article-date">
+                        <time datetime='2020-02-03T23:33:53.000&#43;03:00' itemprop="datePublished">2020-02-03</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    Word2vec은 워드 고품질의 워드 벡터를 생성하는 임베딩 태스크에 사용할 수 있는 모델입니다. 구글의 Tomas Mikolov이 2013년에 논문으로 발표했습니다. 이 논문에서 소개하는 단어 예측 모델로 크게 CBOW와 Skip-gram을 소개합니다. CBOW는 Context 정보를 활용해 현재 단어를 예측 하는 모델이라면 Skip-gram은 현재 워드 주변의 단어를 예측하는 모델입니다. Word2vec을 실행하면 입력으로 대규모 텍스트 코퍼스를 수백 차원의 벡터 스페이스(vector space)로 만듭니다. 기존 LSA(latent semantic analysis)에 비해 여러 장점이 있습니다.
+ 계산 비용이 적습니다. 정확도(accuracy)가 개선 됐습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/word2vec/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/hangeul/part-of-speech/">한글 9품사 5언</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/hangeul/part-of-speech/" class="article-date">
+                        <time datetime='2020-02-02T23:03:00.000&#43;03:00' itemprop="datePublished">2020-02-02</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    품사(part-of-speech)는 공통 성질이 비슷한 분류이며 한글에서는 9품사로 나뉩니다.
+명사, 대명사, 수사, 동사, 형용사, 관형사, 부사, 조사, 감탄사 그리고 위 9품사는 문장내의 역할에 따라 5언으로 나뉩니다.
+체언, 용언, 수식언, 관계언, 독립언 5언의 역할과 품사 구성은 아래와 같습니다.
+   언 역할 품사     체언 문장에서 주어나 목적어 등의 용도로 쓰이는 역할 명사, 대명사, 수사   용언 문장에서 주어의 서술 용도로 쓰이는 역할 동사, 형용사   수식언 문장에서 다른 말을 꾸며주는 역할 관형사, 부사   관계언 체언 뒤에 붙어 문법 관계를 나타내 주거나, 특별한 의미를 더해주는 역할 조사   독립언 감정을 나타내는 역할 감탄사    
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/hangeul/part-of-speech/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/nlp/bow/">Bag-Of-Words 모델</a></h1>
                 </header>
                 
@@ -316,71 +380,6 @@ from __future__ import print_function import torch NOTE
             </div>
         </article>
         
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/guide/clean-code/">클린코드를 위한 중요 원칙 5가지</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/guide/clean-code/" class="article-date">
-                        <time datetime='2020-01-16T01:17:18.000&#43;03:00' itemprop="datePublished">2020-01-16</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    클린코드를 위한 중요 원칙 5가지가지가 무엇인지에 대해 살펴 보고자 한다.
-1. 네이밍 컨벤션 준수 구글의 자바 가이드 와 같은 사례를 참조 하면 좋다. 관례적으로 네이밍 컨벤션은 다음과 같은 원칙을 따르는 것이 좋다.
- 클래스명은 명사를 사용하며 의미가 드러나는 이름을 짓는다. 변수는 의도가 드러나는 작성한다. 메서드는 객체의 동작을 의미하므로 동사를 사용하여 이름을 짓는다. 멤버 벼수, 인자명, 로컬 변수명은 lowerCamelCase 방식을 따른다. 상수 변수명은 CONTANT_CASE 방식을 이용한다.  // Constants static final int NUMBER = 5; static final ImmutableList NAMES = ImmutableList.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/guide/clean-code/">More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/shell/date-time/">날짜와 시간 처리</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/shell/date-time/" class="article-date">
-                        <time datetime='2020-01-15T07:15:14.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    시간 설정 $ date -s &quot;2020-02-02 04:00:20&quot; 날짜 포맷 출력(기본 포맷) mm/dd/yy형식으로 날짜 출력
-date +&quot;%D&quot; 날짜 포맷 출력(지정 포맷) yyyy-mm-dd 형식의 날짜 출력
-date &quot;+%Y-%m-%d&quot; echo date # 2020-01-14 시간 출력(기본 포맷) hh-mm-ss 형식의 시간 출력
-date +&quot;%T&quot; # 04:09:51 시간 출력(12시간 기준) date +&quot;%r&quot; # 04:09:51 AM 날짜와 시간 출력(기본 포맷) now=$(date) echo $no # 2020년 1월 15일 수요일 05시 19분 36초 MSK 날짜와 시간 출력(지정 포맷) yyyy-mm-dd_hh-mm-ss 형식으로 출력
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/shell/date-time/">More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
 
         
 
@@ -419,6 +418,10 @@ date +&quot;%T&quot; # 04:09:51 시간 출력(12시간 기준) date +&quot;%r&qu
     
     
     <a href="/page/8/">8</a>
+    
+    
+    
+    <a href="/page/9/">9</a>
     
     
 

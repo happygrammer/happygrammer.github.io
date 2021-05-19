@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>분산처리 시스템 소개</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="분산처리 시스템 소개" />
+    
+    <meta property="og:description" content="" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/distributed-system/abou/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    
+<script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">분산처리 시스템 소개</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/distributed-system/abou/" class="article-date">
+                <time datetime='2021-05-18T23:47:08.000&#43;03:00' itemprop="datePublished">2021-05-18</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="--">분산처리 시스템 소개</h3>
+<p>분산처리 시스템은 여러 시스템 간의 동작을 일관성 있게 처리해 마치 하나의 프로세스가 하는 처리하는 것처럼 수행하는 시스템이다. 하나의 서버에 결집되어 있는 서버의 자원과 기능을 여러 서버에 분산 시켜 상호 협력함으로써 처리 성능과 신뢰성을 높이는 데 목적이 있다. 분산처리 시스템은 다음과 같은 목표가 있다.</p>
+<ul>
+<li>신뢰성(robustness) : 서버 응답 장애가 발생하지 않도록 함</li>
+<li>가용성(availability) : 서비스를 항상 제공할 수 있어야함</li>
+<li>동시성(concurrency) : 많은 사용자가 동시에 요청이 오더라도 처리할 수 있어야 한다.</li>
+<li>투명성(transparent) : 내부 동작을 클라이언트에 숨겨야 한다.</li>
+<li>보안(security) : 해커의 위험으로부터 보호해야 한다.</li>
+</ul>
+<h3 id="heading">투명성</h3>
+<p>투명성에 대해서 살펴보자, &lsquo;투명성'은 내용이 있지만 없는 것처럼 처리하는 성질이다. 즉, 서버 내부에는 데이터의 이동, 삭제, 복사 등과 같은 동작이 존재할 수 있지만외부에서 볼 때는 내부에서 처리 과정을 알 수 없도록 숨기는 성질을 의미한다. 분산 처리 시스템은 다음과 같은 점들에 대해 투명성을 유지할 수 있어야 한다.</p>
+<ul>
+<li>위치 : 데이터 위치가 어디에 있는지를 숨긴다.</li>
+<li>이동 : 데이터가 다른 위치로 이동되었는지를 숨긴다</li>
+<li>복제 : 데이터가 복제되었는지를 숨긴다.</li>
+</ul>
+<h3 id="--acid-">분산처리 시스템의 ACID 보장</h3>
+<p>분산 시스템에서 네트워크는 100%로 신뢰할 수 없기 때문에 이러한 상황에 대해서도 안정적인 처리가 가능하도록 DB의 ACID와 같은 성질을 제공할 수 있어야한다.</p>
+<ul>
+<li>원자성 Atomic : 트랜잭션이 성공하거나 실패되어야한다. 부분적으로 실행 되어 성공하는 경우가 없어야한다.</li>
+<li>일관성 Consistent : 트랜잭션 반영이 성공했다면 일관성 있게 상태를 유지할 수 있어야한다.</li>
+<li>독립성 Isolated : 동시에 트랜잭션이 발생하더라도 트랙잭션 간에 성호 간섭을 주면 안된다.</li>
+<li>지속성 Durable : 반영된 내용은 별도 변경 요청이 없는한 영구적으로 유지될 수 있어야한다.</li>
+</ul>
+<h3 id="---">분산처리 시스템의 아키텍처 스타일</h3>
+<p>분산처리 시스템은 호출을 처리하는 방식에 따라 다음과 같은 아키텍처 스타일을 고려할 수 있다.</p>
+<ul>
+<li>레이어 아키텍처 : 하위 레이어의 컴포넌트를 호출해 처리하는 방식</li>
+<li>객체 기반 아키텍처 :  RPC 기반으로 원격 컴포넌트 간에 호출을 통해 구성하는 방식</li>
+<li>데이터 중심 아키텍처 : 파일 시스템을 공유해 처리하는 방식이다. 웹 애플리케이션에서 사용</li>
+<li>이벤트 기반 아키텍처 : 이벤트가 게시(publish) 되면 미들웨어는 이벤트를 구독(subscribe)하는 방식(Event Bus기반)</li>
+</ul>
+<h3 id="---1">분산처리 시스템의 구성</h3>
+<p>분산 처리 시스템은 서버 간의 결합을 통해 동작하는 시스템이다. 이들 서버 구성에 따라 다음과 같은 서버 아키텍처를 구성할 수 있다.</p>
+<ul>
+<li>클러스터링 컴퓨팅 : 같은 네트워크 내에서 단일 마스터 노드가 존재하며 병렬 처리를 수행</li>
+<li>그리드 컴퓨팅 : 다른 네트워크 간에 공동 작업을 처리를 수행해 대규모 연산을 처리함</li>
+</ul>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#--">분산처리 시스템 소개</a></li>
+        <li><a href="#heading">투명성</a></li>
+        <li><a href="#--acid-">분산처리 시스템의 ACID 보장</a></li>
+        <li><a href="#---">분산처리 시스템의 아키텍처 스타일</a></li>
+        <li><a href="#---1">분산처리 시스템의 구성</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v6.0&appId=2329733600657924&autoLogAppEvents=1"></script>
+	<div class="fb-comments" data-href="https://happygrammer.github.io/distributed-system/abou/" data-width="800" data-numposts="5"></div>
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/distributed-system/fault-tolerance/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            장애 허용 시스템
+        </div>
+    </a>
+    
+    
+    <a href="/papers/conference/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">AI 관련 컨퍼런스와 출판물&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

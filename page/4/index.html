@@ -68,6 +68,71 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/netty/intro/">Netty 핵심 컴포넌트</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/netty/intro/" class="article-date">
+                        <time datetime='2020-03-21T21:29:30.000&#43;03:00' itemprop="datePublished">2020-03-21</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    네티는 자바 기반의 비동기 기반의 네트워크 프레임 워크입니다. 네티는 애플, 트위터, 페이스북, 구글, 인스타그램 등을 포함한 사용자 커뮤니티를 포함해 발전하고 있습니다. 네티는 JAVA 1.6 이상에서 외부 의존성 없이 동작 가능합니다.
+1. 채널 채널은 NIO의 기본 구조입니다. 네티는 싱글 쓰레드도 생성된 1개의 셀렉터가 N개의 채널을 관리합니다.
+ Thread -&gt; Select -&gt; {채널1, 채널2, 채널3, &hellip;}  셀렉터는 이벤트 리스너 역할을 수행합니다. 클라이언트 요청이 들어 왔거나, 데이터가 도착했을 경우 셀렉터에 알립니다.
+[셀렉터를 이용한 Non-blocking I/O]
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/netty/intro/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/guide/php/installing-apache-php-on-macos/">맥 OS에서 아파치, PHP 시작 설정</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/guide/php/installing-apache-php-on-macos/" class="article-date">
+                        <time datetime='2020-03-21T21:15:12.000&#43;03:00' itemprop="datePublished">2020-03-21</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    퍼미션 문제가 발생할 수 있어 루트 사용자로 권한을 변경합니다.
+sudo su - 맥 OS에서 아파치 시작 apachectl start http://localhost 접속해 서버 페이지 접속이 가능한지 확인합니다.
+맥 OS에서 PHP 시작 서버 페이지가 표시 됐다면 서버 시작은 정상적으로 수행된 것 입니다. 서버가 정상적으로 정상적으로 시작 됐더라도 별도 설정을 하지 않으면 PHP 페이지는 출력되지 않습니다. PHP 페이지를 출력하려면 아파치 설정을 수정해야 합니다. 먼저 아파치 설정을 백업해 둡니다. 앞으로 설정이 바뀌더라도 디폴트 설정이 무엇인지 참고할 때 사용할 수 있습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/guide/php/installing-apache-php-on-macos/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/docker/docker-compose/">도커 컴포즈 소개</a></h1>
                 </header>
                 
@@ -308,69 +373,6 @@ Angular CLI 소개와 설치 지금 소개하려는 Angular CLI(Angular Command 
                     </p>
                     <p class="article-more-link">
                         <a href="/docker/docker/">More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/tensorflow/serving-client-api/">Serving 클라이언트 API</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/tensorflow/serving-client-api/" class="article-date">
-                        <time datetime='2020-02-18T08:00:08.000&#43;03:00' itemprop="datePublished">2020-02-18</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    RESTful API In addition to gRPC APIs TensorFlow ModelServer also supports RESTful APIs. This page describes these API endpoints and an end-to-end example on usage.
-The request and response is a JSON object. The composition of this object depends on the request type or verb. See the API specific sections below for details.
-In case of error, all APIs will return a JSON object in the response body with error as key and the error message as the value:
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/tensorflow/serving-client-api/">More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/tensorflow/serving-server-api/">Serving 서버 API</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/tensorflow/serving-server-api/" class="article-date">
-                        <time datetime='2020-02-18T08:00:00.000&#43;03:00' itemprop="datePublished">2020-02-18</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    TensorFlow 서빙 API 레퍼런스 tensorflow::serving
-   Classes      tensorflow::serving::AspiredVersionPolicy An interface for the policy to be applied for transitioning servable versions in a servable stream.   tensorflow::serving::AspiredVersionPolicy::ServableAction Action and the id of the servable associated with it.   tensorflow::serving::AspiredVersionsManager A manager that implements the Target&lt;Loader&gt; API which uses aspired-versions callbacks to dictate which servable versions to load.   tensorflow::serving::AspiredVersionsManager::Options Config options and pluggable objects that will be used by the AspiredVersionsManager.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/tensorflow/serving-server-api/">More</a>
                     </p>
                 </div>
 

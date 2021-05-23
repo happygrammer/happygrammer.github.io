@@ -82,8 +82,8 @@
                 <div class="article-entry" itemprop="articleBody">
                     <p>
                         
-                    장애 허용 시스템(Fault Tolerance System)은 하나의 컴포넌트가 fault가 발생하더라도 시스템 운영에 영향을 주지 않도록 해야한다. 이를 위해 다음과 같은 점을 고려할 수 있다.
- 서버 이중화 : Replicaton(병렬로 수행) 추가, Redundancy(장애 발생시 보조 시스템으로 활용) 추가 구성 복구 처리 : 롤백(roll-back) 또는 롤포워드(roll-forward) 복구  이때 이러한 특정 체크 포인트로 복구 하는 처리는 몇번을 하더라도 동일한 작동이 되도록 멱등(idempotent)이 보장 되어야 한다. 장애 허용 시스템은 인명이나 재산에 필수적인 자동차, 철도, 조산, 원자력 등의 분야에 적용이 될 수 있다.
+                    장애 허용 시스템(Fault Tolerance System)은 하나의 컴포넌트가 fault가 발생해도 시스템 운영에 영향을 주지 않도록 설계된 시스템이다. 다음과 같은 점을 고려할 수 있다.
+ 서버 이중화 : 복제 서버를 두어 fault tolearnce에 대비한다. Replicaton(병렬로 수행) 추가, Redundancy(장애 발생시 보조 시스템으로 활용) 추가 구성 복구 처리 : 롤백(roll-back) 또는 롤포워드(roll-forward) 복구  이때 이러한 특정 체크 포인트로 복구 하는 처리는 몇번을 하더라도 동일한 작동이 되도록 멱등(idempotent)이 보장 되어야 한다. 장애 허용 시스템은 인명이나 재산에 필수적인 자동차, 철도, 조산, 원자력 등의 분야에 적용이 될 수 있다.
                     </p>
                     <p class="article-more-link">
                         <a href="/distributed-system/fault-tolerance/">More</a>

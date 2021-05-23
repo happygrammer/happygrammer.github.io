@@ -89,8 +89,15 @@
 <p>데이터 유실을 대비해 복제 서버(replica)를 둘 필요가 있다. 복제서버를 두면 대역 폭이 증가해 성능을 개선시킬 수 있다. 데이터 중심의 일치 모델(Data centric Consistency Model)에서는 복제 서버는 분산 데이터 저장소(Distributed data. tore)를 공유해 사용할 수 있다. 이때 업데이트가 일어나게 되고 분산 저장소에서는 읽기/쓰기에 따른 일관성(Consistency)유지 되어야한다.</p>
 <p><code>순차적 일관성(Sequential Consistency)</code>은 P1에 Write(a), P2에 Write(b)를 수행한다고 했을때 읽기 동작은 P3나 P4에서나 동일한 시퀀스 순서를 유지해 R(b), R(a)로 읽든지, R(a), R(b) 순서로 읽든지 해야 한다. <code>인과적 일관성(Causal consistency)</code>은 쓰기와 읽기라는 인과 관계만 일치하면 되는 일관성이다. P1에 W(a), P2에 W(b)라고 한 경우(concurrent write의 순서는 고려 하지 않음)는 읽기 동작을 수행하는 P3와 P4는 어떤 순서로 읽기도 상관 없다. P3가 R(a), R(b) 순서로 읽고  P4는 R(b), R(a)로 읽어도 무관하다. 즉 인과적 관련 명령(<strong>causally</strong>-related operations)을 보장해야하다.</p>
 <p><img src="../causal-consistency.png" alt=""></p>
-<h3 id="--">클라이언트와 서버간의 신뢰</h3>
-<p>분산 처리 시스템은 Point to Point 기반의 통신을 수행한다(TCP 프로토콜 기반). TCP 통신에 오류가 있다면 Server Crashe가 발생한것이다. 즉 클라이언트가 Request를 보냈다면 서버는 요청을 받아 처리하며 크래시 없는 응답을 할 수 있어야한다. 이때 응답을 하지 못했다면 서버 크래시가 발생한 것이다.(505 에러와 같은 응답을 내보내는 상황)</p>
+<h3 id="--">복제 지연 문제</h3>
+<p>큰 데이터를 복제하는 경우 복제 지연 문제가 발생할 수 있다. 결과적 일관성(Eventual Consistency)을 고려할 수 있다. 결과적 일관성은 단기적으로 일관성을 일치만 최종적 일관성을 유지할 수 있는 방식이다. 최종적으로 일관성이 유지 되어 반영될 수 있는 내용이지만 최종적으로 반영 되지 않아 반영이 되지 않는 현상을 볼 수 있다. 이러한 경우 쓰기에 대한 블록을 나누고 P1이 write(a) P2가 write(b)로 단조 쓰기(monotonic write) 수행하고 나면 P3는 read(a), read(b)순으로 읽을 수 있다. NoSQL과 같은 분산 DB의 결과 이러한 결과적 일관성을 지원한다.</p>
+<h3 id="---1">클라이언트와 서버간의 신뢰</h3>
+<p>분산 처리 시스템은 Point to Point 기반의 통신을 수행한다(TCP 프로토콜 기반). TCP 통신에 오류가 있다면 Server Crash가 발생한것이다. 즉 클라이언트가 Request를 보냈다면 서버는 요청을 받아 처리하며 크래시 없는 응답을 할 수 있어야한다. 이때 응답을 하지 못했다면 서버 크래시가 발생한 것이다.(505 에러와 같은 응답을 내보내는 상황)</p>
+<h3 id="heading">더읽어보기</h3>
+<ul>
+<li>designing data-intensive applications</li>
+<li>distributed systems principles and paradigms</li>
+</ul>
 
         </div>
 
@@ -102,7 +109,9 @@
     <li>
       <ul>
         <li><a href="#sequential-consistency-vs-causal-consistency">Sequential consistency vs Causal consistency</a></li>
-        <li><a href="#--">클라이언트와 서버간의 신뢰</a></li>
+        <li><a href="#--">복제 지연 문제</a></li>
+        <li><a href="#---1">클라이언트와 서버간의 신뢰</a></li>
+        <li><a href="#heading">더읽어보기</a></li>
       </ul>
     </li>
   </ul>

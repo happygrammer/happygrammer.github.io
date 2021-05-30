@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>프로젝트 진행을 방해하는 스코프 크리프에 대한 대처 방안</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="프로젝트 진행을 방해하는 스코프 크리프에 대한 대처 방안" />
+    
+    <meta property="og:description" content="" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/column/scope-triangle/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    
+<script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">Happygrammer</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+            </nav>
+            <nav id="sub-nav">
+                <div id="search-form-wrap">
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            <h1 class="article-title" itemprop="name">프로젝트 진행을 방해하는 스코프 크리프에 대한 대처 방안</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/column/scope-triangle/" class="article-date">
+                <time datetime='2021-05-30T09:46:03.000&#43;03:00' itemprop="datePublished">2021-05-30</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>어느 프로젝트나 &lsquo;품질&rsquo;, &lsquo;비용&rsquo;, &lsquo;시간'라는 요소가 프로젝트 성공에 영향을 미친다. 이러한 요소들간의 관계를 보여주는 것이 스코프 삼각형(Scope Triangle)이다. 스코프 삼각형은 프로젝트의 성공 요인들에 대한 트레이드 오프 관계가 존재함을 나타낸다.</p>
+<p><img src="../scope-triangle.png" alt=""></p>
+<p>스코프 삼각형에서 <code>시간</code>은 프로젝트의 가용 시간이고, <code>비용</code>은 프로젝트에서 사용 가능한 자원의 양을 나타낸다. <code>품질</code>은 프로젝트가 성공하기 위해 달성해야 하는 목표에 해당한다. 프로젝트를 성공적으로 수행하기 위해 세 요소는 적절히 조정이 될 필요가 있다. 어느 요소 지나치게 축소되거나 확대되면 <code>스코프 크리프(scope creep) </code>가 발생한다. <code>스코프 크리프 </code>는 범위(scope)가 슬금 슬금(creep) 확대 된다는 의미로, <code>추가적인 자원이나 일정 조정 없이 일이 추가되면서 프로젝트 범위가 확대되는 문제</code>를 의미한다.</p>
+<p>스코프 크리프의 대표적인 예로 품질을 높인다는 목적으로 많은 기능을 추가하는 것이다. 새로운 기능 추가가 많아진다는 것은 프로젝트의 목표나 기능이 정확히 정의되지 않았음을 의미한다. 또 다른 예로 <code>골드 플레이팅(gold plating)</code> 현상이다. <code>골드 플레이팅</code>은 금박을 입힌다는 뜻으로, 고객의 요구수준을 넘어서 과도하게 프로젝트 품질을 높이려는 시도이다.</p>
+<p>스코프 크리프에 대한 대응 방안은 세 가지 요소들의 강조점을 옮겨가며 절충하는 결정을 내리는 것이다.</p>
+<ul>
+<li>
+<ol>
+<li>품질 낮춤 : 핵심 기능 외의 기능은 버림</li>
+</ol>
+</li>
+<li>
+<ol start="2">
+<li>비용 투입 : 추가적인 비용(인력 등)을 투입</li>
+</ol>
+</li>
+<li>
+<ol start="3">
+<li>시간 지연 : 프로젝트를 지연 시킴</li>
+</ol>
+</li>
+</ul>
+<p>스코프 크리프로 인해 기능이 계속 늘어나  <code>시간이 부족한 경우</code>는 품질을 보장할 수 있는 <code>핵심 기능만 남기고 불필요한 기능은 다음 릴리즈에 포함</code>하는 것이다. 그래야 프로젝트를 정해진 시간 안에 출시할 수 있다. 만약 추가된 기능이 품질에 결정적인 영향을 미쳐서 포기할 수 없는 상황이라면 추가적인 인력을 투입하고 프로젝트 기간을 연장하는 방식이 필요하다.</p>
+
+        </div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents"></nav>
+        </div>
+        
+        
+
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v6.0&appId=2329733600657924&autoLogAppEvents=1"></script>
+	<div class="fb-comments" data-href="https://happygrammer.github.io/column/scope-triangle/" data-width="800" data-numposts="5"></div>
+
+        
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/distributed-system/fault-tolerance/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">장애 허용 시스템&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

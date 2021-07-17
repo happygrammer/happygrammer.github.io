@@ -101,7 +101,7 @@ bash-3.2$
 <pre><code>$ halt
 </code></pre><p>만약 sync 작업을 원치 않을 경우 -n 옵션을 줄 수 있다. 시스템 부팅 메시지는 <code>dmesg</code> 파일에서 확인 가능하다.</p>
 <pre><code>$ more /var/log/dmesg
-</code></pre><h3 id="--2">라우팅 테이블</h3>
+</code></pre><h2 id="--">라우팅 테이블 확인</h2>
 <p>라이팅 테이블 확인은 route 명령어 또는 netstat 명령어를 사용한다.</p>
 <pre><code>$ netstat -nr
 Internet:
@@ -144,9 +144,9 @@ tcp6       0      0  fe80::aede:48ff:.49153 *.*                    LISTEN
       <ul>
         <li><a href="#-">앨리어스 사용</a></li>
         <li><a href="#--1">시스템 종료</a></li>
-        <li><a href="#--2">라우팅 테이블</a></li>
       </ul>
     </li>
+    <li><a href="#--">라우팅 테이블 확인</a></li>
   </ul>
 </nav>
         </div>
@@ -164,9 +164,9 @@ tcp6       0      0  fe80::aede:48ff:.49153 *.*                    LISTEN
     </div>
     <nav id="article-nav">
     
-    <a href="/linux/permissions/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/linux/iptables_firewalld/" id="article-nav-newer" class="article-nav-link-wrap">
         <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            Linux 권한 관리
+            방화벽 설정 관리 iptables, firewalld
         </div>
     </a>
     

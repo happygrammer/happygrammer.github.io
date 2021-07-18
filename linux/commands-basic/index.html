@@ -84,6 +84,8 @@
 <pre><code>$ alias
 </code></pre><p>디렉터리만 조회하는 명령어는 다음과 같다.</p>
 <pre><code>$ ls -l | grep &quot;^d&quot;
+</code></pre><p>용량이 큰 대상부터 출력하는 명령은 다음과 같다.</p>
+<pre><code>$ ls - al | sort -rk 5 # 5열(-k)을 기준으로 용량이 큰것 것(-r) 부터 출력
 </code></pre><p>위 명령어는 <code>lsd</code>라는 앨리어스로 등록할 수 있다.</p>
 <pre><code>$ alias lsd='ls -l | grep &quot;^&quot;'
 </code></pre><p>아파치 서버를 시작하거나 종료하는 명령어를 앨리어스를 등록해 두면 편리하다.</p>

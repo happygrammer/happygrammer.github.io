@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>NLP 데이터셋 소개</title>
+    <title>NLP 데이터셋 소개(SQuAD, KoQuAD, WikiQA Corpus, KLUE)</title>
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -9,7 +9,7 @@
     
     
 
-        <meta property="og:title" content="NLP 데이터셋 소개" />
+        <meta property="og:title" content="NLP 데이터셋 소개(SQuAD, KoQuAD, WikiQA Corpus, KLUE)" />
     
     <meta property="og:description" content="" />    
     <meta property="og:type" content="website" />
@@ -67,7 +67,7 @@
     <div class="article-inner">
         
         <header class="article-header">
-            <h1 class="article-title" itemprop="name">NLP 데이터셋 소개</h1>
+            <h1 class="article-title" itemprop="name">NLP 데이터셋 소개(SQuAD, KoQuAD, WikiQA Corpus, KLUE)</h1>
         </header>
         
         <div class="article-meta">
@@ -80,11 +80,44 @@
         </div>
         <div class="article-entry" itemprop="articleBody">
             <h3 id="squad">SQuAD</h3>
-<p>최근에는 기계 독해를 평가하기 위한 SQuAD(The Stanford Question Answering Dataset)와 같은 위키피디아 기반 데이터 셋이 있습니다. 이 데이터셋은 기계 독해 알고리즘을 객관적으로 평가할 수 있는 데이터 셋으로 알고리즘의 우수성을 평가하기 위해 리더 보드를 운영하고 있습니다. 전체 데이터셋의 사이이즈는 학습셋은 40MB, 개발 셋은 4MB정도에 불과합니다.</p>
+<p>최근에는 기계 독해를 평가하기 위한 SQuAD(The Stanford Question Answering Dataset)와 같은 위키피디아 기반 데이터 셋이 있다. 이 데이터셋은 기계 독해 알고리즘을 객관적으로 평가할 수 있는 <code>벤치마크</code> 데이터 셋으로 알고리즘의 우수성을 평가하기 위해 리더 보드를 운영하고 있다. 전체 데이터셋의 사이이즈는 학습셋=<a href="https://rajpurkar.github.io/SQuAD-explorer/dataset/train-v2.0.json">40MB</a>, 개발셋=<a href="https://rajpurkar.github.io/SQuAD-explorer/dataset/dev-v2.0.json">4MB</a>정도이다.</p>
 <ul>
 <li><a href="https://rajpurkar.github.io/SQuAD-explorer/">https://rajpurkar.github.io/SQuAD-explorer/</a></li>
 </ul>
-<p>SQuAD 2.0 데이터 셋의 구조는 다음과 같습니다.</p>
+<p>SQuAD 2.0 데이터 셋의 구조는 다음과 같다.</p>
+<pre><code>{
+  &quot;version&quot;: &quot;v2.0&quot;, // SQuAD 버전 정보
+  &quot;data&quot;: [
+    {
+      &quot;title&quot;: &quot;Normans&quot;, // 출처 문서의 제목
+      &quot;paragraphs&quot;: [
+        {
+          &quot;qas&quot;: [
+            {
+              &quot;question&quot;: &quot;In what country is Normandy located?&quot;, // 질문
+              &quot;id&quot;: &quot;56ddde6b9a695914005b9628&quot;,  // 질문 id
+              &quot;answers&quot;: [
+                {
+                  &quot;text&quot;: &quot;France&quot;, // 답변 텍스트
+                  &quot;answer_start&quot;: 159 // 지문에서의 답변 위치(offset 기준)
+                },
+                {
+                  &quot;text&quot;: &quot;France&quot;,
+                  &quot;answer_start&quot;: 159
+                }
+              ],
+              &quot;is_impossible&quot;: false  // 정답이 있는 질문은 true, 없는 질문은 false
+            }
+          ]
+        },
+        {
+          &quot;context&quot;: &quot;The Normans (Norman: Nourmands; French: Normands; Latin: Normanni) were the people who in the 10th and 11th centuries gave their name to Normandy ....&quot;
+        }
+      ]
+    }
+  ]
+}
+</code></pre><p>실재 Dev Set v2.0에 포함된 <code>id=56ddde6b9a695914005b9628</code>의 예시는 아래와 같다.</p>
 <pre><code>{
   &quot;version&quot;: &quot;v2.0&quot;,
   &quot;data&quot;: [
@@ -115,20 +148,235 @@
                 }
               ],
               &quot;is_impossible&quot;: false
+            },
+            {
+              &quot;question&quot;: &quot;When were the Normans in Normandy?&quot;,
+              &quot;id&quot;: &quot;56ddde6b9a695914005b9629&quot;,
+              &quot;answers&quot;: [
+                {
+                  &quot;text&quot;: &quot;10th and 11th centuries&quot;,
+                  &quot;answer_start&quot;: 94
+                },
+                {
+                  &quot;text&quot;: &quot;in the 10th and 11th centuries&quot;,
+                  &quot;answer_start&quot;: 87
+                },
+                {
+                  &quot;text&quot;: &quot;10th and 11th centuries&quot;,
+                  &quot;answer_start&quot;: 94
+                },
+                {
+                  &quot;text&quot;: &quot;10th and 11th centuries&quot;,
+                  &quot;answer_start&quot;: 94
+                }
+              ],
+              &quot;is_impossible&quot;: false
+            },
+            {
+              &quot;question&quot;: &quot;From which countries did the Norse originate?&quot;,
+              &quot;id&quot;: &quot;56ddde6b9a695914005b962a&quot;,
+              &quot;answers&quot;: [
+                {
+                  &quot;text&quot;: &quot;Denmark, Iceland and Norway&quot;,
+                  &quot;answer_start&quot;: 256
+                },
+                {
+                  &quot;text&quot;: &quot;Denmark, Iceland and Norway&quot;,
+                  &quot;answer_start&quot;: 256
+                },
+                {
+                  &quot;text&quot;: &quot;Denmark, Iceland and Norway&quot;,
+                  &quot;answer_start&quot;: 256
+                },
+                {
+                  &quot;text&quot;: &quot;Denmark, Iceland and Norway&quot;,
+                  &quot;answer_start&quot;: 256
+                }
+              ],
+              &quot;is_impossible&quot;: false
+            },
+            {
+              &quot;question&quot;: &quot;Who was the Norse leader?&quot;,
+              &quot;id&quot;: &quot;56ddde6b9a695914005b962b&quot;,
+              &quot;answers&quot;: [
+                {
+                  &quot;text&quot;: &quot;Rollo&quot;,
+                  &quot;answer_start&quot;: 308
+                },
+                {
+                  &quot;text&quot;: &quot;Rollo&quot;,
+                  &quot;answer_start&quot;: 308
+                },
+                {
+                  &quot;text&quot;: &quot;Rollo&quot;,
+                  &quot;answer_start&quot;: 308
+                },
+                {
+                  &quot;text&quot;: &quot;Rollo&quot;,
+                  &quot;answer_start&quot;: 308
+                }
+              ],
+              &quot;is_impossible&quot;: false
+            },
+            {
+              &quot;question&quot;: &quot;What century did the Normans first gain their separate identity?&quot;,
+              &quot;id&quot;: &quot;56ddde6b9a695914005b962c&quot;,
+              &quot;answers&quot;: [
+                {
+                  &quot;text&quot;: &quot;10th century&quot;,
+                  &quot;answer_start&quot;: 671
+                },
+                {
+                  &quot;text&quot;: &quot;the first half of the 10th century&quot;,
+                  &quot;answer_start&quot;: 649
+                },
+                {
+                  &quot;text&quot;: &quot;10th&quot;,
+                  &quot;answer_start&quot;: 671
+                },
+                {
+                  &quot;text&quot;: &quot;10th&quot;,
+                  &quot;answer_start&quot;: 671
+                }
+              ],
+              &quot;is_impossible&quot;: false
+            },
+            {
+              &quot;plausible_answers&quot;: [
+                {
+                  &quot;text&quot;: &quot;Normans&quot;,
+                  &quot;answer_start&quot;: 4
+                }
+              ],
+              &quot;question&quot;: &quot;Who gave their name to Normandy in the 1000's and 1100's&quot;,
+              &quot;id&quot;: &quot;5ad39d53604f3c001a3fe8d1&quot;,
+              &quot;answers&quot;: [],
+              &quot;is_impossible&quot;: true
+            },
+            {
+              &quot;plausible_answers&quot;: [
+                {
+                  &quot;text&quot;: &quot;Normandy&quot;,
+                  &quot;answer_start&quot;: 137
+                }
+              ],
+              &quot;question&quot;: &quot;What is France a region of?&quot;,
+              &quot;id&quot;: &quot;5ad39d53604f3c001a3fe8d2&quot;,
+              &quot;answers&quot;: [],
+              &quot;is_impossible&quot;: true
+            },
+            {
+              &quot;plausible_answers&quot;: [
+                {
+                  &quot;text&quot;: &quot;Rollo&quot;,
+                  &quot;answer_start&quot;: 308
+                }
+              ],
+              &quot;question&quot;: &quot;Who did King Charles III swear fealty to?&quot;,
+              &quot;id&quot;: &quot;5ad39d53604f3c001a3fe8d3&quot;,
+              &quot;answers&quot;: [],
+              &quot;is_impossible&quot;: true
+            },
+            {
+              &quot;plausible_answers&quot;: [
+                {
+                  &quot;text&quot;: &quot;10th century&quot;,
+                  &quot;answer_start&quot;: 671
+                }
+              ],
+              &quot;question&quot;: &quot;When did the Frankish identity emerge?&quot;,
+              &quot;id&quot;: &quot;5ad39d53604f3c001a3fe8d4&quot;,
+              &quot;answers&quot;: [],
+              &quot;is_impossible&quot;: true
             }
-          ]
+          ],
+          &quot;context&quot;: &quot;The Normans (Norman: Nourmands; French: Normands; Latin: Normanni) were the people who in the 10th and 11th centuries gave their name to Normandy, a region in France. They were descended from Norse (\&quot;Norman\&quot; comes from \&quot;Norseman\&quot;) raiders and pirates from Denmark, Iceland and Norway who, under their leader Rollo, agreed to swear fealty to King Charles III of West Francia. Through generations of assimilation and mixing with the native Frankish and Roman-Gaulish populations, their descendants would gradually merge with the Carolingian-based cultures of West Francia. The distinct cultural and ethnic identity of the Normans emerged initially in the first half of the 10th century, and it continued to evolve over the succeeding centuries.&quot;
         }
       ]
     }
   ]
 }
 </code></pre><h3 id="koquad">KoQuAD</h3>
-<p>KoQuAD(The Korean Question Answering Dataset)는 LG CNS가 공개한 Machine Reading Comprehension 데이터셋 입니다. 현재는 koQuAD 2.0 버전이 공개 되었습니다. koQuAD 2.0은 질문답변 2만 쌍을 포함한 총 10만쌍 이상 규모입니다. 이들 질문답변 쌍을 수집하기 위해 한국어 위키피디아 페이지 뷰 15만건과 임로 선된 5만의 문서를 수집이 되었습니다. koQuAD의 질문은 텍스트<p>, 표 <table> 리스트 <ul>, <ol>, <dl> 태그의 텍스트를 추출하였고 답변은 크라우드 소싱 방식으로 8만쌍이 태깅 되어 있습니다. 그리고 2만 쌍은 korQuAD 1.0으로 부터 변환 되었습니다.</p>
+<p>KoQuAD(The Korean Question Answering Dataset)는 LG CNS가 공개한 Machine Reading Comprehension 데이터셋 이다. 현재는 koQuAD 2.0 버전이 공개 되었다. koQuAD 2.0은 질문답변 2만 쌍을 포함한 총 10만쌍 이상 규모이다. 이들 질문답변 쌍을 수집하기 위해 한국어 위키피디아 페이지 뷰 15만건과 임로 선된 5만의 문서를 수집이 되었다. koQuAD의 질문은 텍스트<p>, 표 <table> 리스트 <ul>, <ol>, <dl> 태그의 텍스트를 추출하였고 답변은 크라우드 소싱 방식으로 8만쌍이 태깅 되어 있다. 그리고 2만 쌍은 korQuAD 1.0으로 부터 변환 되었다.</p>
 <ul>
 <li><a href="https://korquad.github.io/">https://korquad.github.io/</a></li>
 </ul>
 <h3 id="wikiqa-corpus">WikiQA Corpus</h3>
-<p>이 코퍼스는 대중적으로 이용가능한 질의 응답 쌍의 코퍼스입니다. 오픈 도메인 질의 응답 연구에 사용할 수 있습니다.rr</p>
+<p>이 코퍼스는 대중적으로 이용가능한 질의 응답 쌍의 코퍼스이다. 오픈 도메인 질의 응답 연구에 사용할 수 있다.</p>
+<h3 id="klue">KLUE</h3>
+<p><a href="https://github.com/KLUE-benchmark/KLUE">KLUE</a>(Korean Langauge Understanding Evaluation)는 한국어 NLP를 위한 벤치마크 데이터셋 입니다. 한국어 언어 모델를 평가할 수 있는 표준 셋 구축을 목표로 개발 됐다. KLUE 벤치마크 데이터셋은 8개의 주제로 분류된 데이터셋이다.</p>
+<table>
+<thead>
+<tr>
+<th>셋 주제</th>
+<th>약어</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>주제 분류</td>
+<td>Topic Classification (TC)</td>
+</tr>
+<tr>
+<td>문장 텍스트 유사성</td>
+<td>Sentence Textual Similarity (STS)</td>
+</tr>
+<tr>
+<td>자연어 추론</td>
+<td>Natural Language Inference (NLI)</td>
+</tr>
+<tr>
+<td>개체명 인식</td>
+<td>Named Entity Recognition (NER)</td>
+</tr>
+<tr>
+<td>관계 추출</td>
+<td>Relation Extraction (RE)</td>
+</tr>
+<tr>
+<td>의존 구문 분석</td>
+<td>(Part-Of-Speech) + Dependency Parsing (DP)</td>
+</tr>
+<tr>
+<td>기계독해</td>
+<td>Machine Reading Comprehension (MRC)</td>
+</tr>
+<tr>
+<td>대화 상태 추적</td>
+<td>Dialogue State Tracking (DST)</td>
+</tr>
+</tbody>
+</table>
+<p>이중 KLUE의 기계 독해 관련한 학습 데이터 셋은 답변이 포함된 지문(Context)과 질문(Question)과 답변(Answer)로 구성된다. 기계 독해 셋의 경우 한국어 위키피디아에서 기본적으로 수집을 하였고, 한국 경제 신문(<a href="https://www.hankyung.com/">https://www.hankyung.com/</a>)과 ACROFAN(<a href="https://kr.acrofan.com/">https://kr.acrofan.com/</a>) 을 출처로 두고 있고, 학습 목적으로 사용하도록 크레이에이티브 커먼즈 라이선스( <code>CC BY-SA </code>) 계약 하에 특정 조건에 따라 저작물 배포를 허용하는 방식의 계약이 체결되었다. KLUE에서 구축한 기계 독해 벤치마크 데이터셋의 <a href="https://raw.githubusercontent.com/KLUE-benchmark/KLUE/main/klue_benchmark/klue-mrc-v1/klue-mrc-v1_dev.json">예시</a>는 다음과 같다.</p>
+<pre><code>{
+   &quot;title&quot;:&quot;노란우산공제 소득공제 계속 받는다&quot;,
+   &quot;paragraphs&quot;:[
+      {
+         &quot;context&quot;:&quot;노란우산공제 부금에 대한 소득공제 혜택이 계속 유지된다. 노란우산공제는 소기업·소상공인들을 위한 노후 퇴직 대비용 보험상품으로, 부금 한도도 월 70만원에서 100만원으로 늘어날 전망이다.5일 중소기업중앙회와 기획재정부에 따르면 국회는 지난 1일 열린 본회의에서 이 같은 내용을 담고 있는 조세특례제한법 개정안을 처리했다.정부는 지난해 8월 발표한 세제 개편안에서 노란우산공제 부금도 소득공제에서 세액공제 항목(12%)으로 바꾼다는 방침을 밝혔으나, 국회 논의 과정에서 이 상품이 소기업·소상공인들의 생활 안정과 퇴직에 필수적인 상품이라는 점을 인정받아 계속 부금에 대한 소득공제 혜택을 유지키로 결정됐다. 노란우산공제 상품 가입자는 월 5만~70만원씩 부금을 넣을 수 있고, 부금에 대해 연 300만원까지 소득공제 혜택을 받고 있다. 또 공제상품 부금에 대해서는 파산 시에도 압류 대상에서 제외된다.정부는 이달 중 시행령을 고쳐 공제부금 불입한도도 현행 월 70만원에서 100만원으로 확대할 계획으로 알려졌다. 중기중앙회 관계자는 “교육비나 의료비 연금저축 등 수많은 소득공제 항목이 세액공제 대상으로 바뀌어 혜택이 줄게 됐지만 노란우산공제의 경우는 혜택이 오히려 늘게 됐다”며 “가입 확대를 위한 노력을 더욱 배가하겠다”고 말했다.2007년 도입한 노란우산공제에는 지난해 말 현재 총 37만9000명의 소기업·소상공인들이 가입해 1조7160억원의 부금을 조성했다.&quot;,
+         &quot;qas&quot;:[ // 질문과 태깅된 답변 정보
+            {
+               &quot;question&quot;:&quot;이달 중 수정될 시행령에 나올 공제부금의 월 납부한도는 얼마인가?&quot;,
+               &quot;answers&quot;:[
+                  {
+                     &quot;text&quot;:&quot;100만원&quot;,
+                     &quot;answer_start&quot;:488
+                  }
+               ],
+               &quot;question_type&quot;:1,
+               &quot;is_impossible&quot;:false,
+               &quot;guid&quot;:&quot;klue-mrc-v1_dev_01862&quot;
+            }
+         ]
+      }
+   ],
+   &quot;news_category&quot;:&quot;중기 의료&quot;,
+   &quot;source&quot;:&quot;hankyung&quot;
+}
+</code></pre><p>KLUE의 기계 독해 벤치마크셋은 SQuAD 2.0의 구조를 따르고 있지만, <code>news_category</code>와 <code>source</code>와 같이 신규 속성을 포함하고 있다.</p>
+<h3 id="heading">참고</h3>
+<ul>
+<li>[1] KLUE: Korean Language Understanding Evaluation, <a href="https://arxiv.org/pdf/2105.09680.pdf">https://arxiv.org/pdf/2105.09680.pdf</a></li>
+</ul>
 
         </div>
 
@@ -142,6 +390,8 @@
         <li><a href="#squad">SQuAD</a></li>
         <li><a href="#koquad">KoQuAD</a></li>
         <li><a href="#wikiqa-corpus">WikiQA Corpus</a></li>
+        <li><a href="#klue">KLUE</a></li>
+        <li><a href="#heading">참고</a></li>
       </ul>
     </li>
   </ul>

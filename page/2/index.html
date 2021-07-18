@@ -371,9 +371,9 @@ $ who -H USER LINE WHEN user console Nov 27 07:09 user ttys000 Dec 8 23:25 user 
                         
                     앨리어스 사용 alias는 명령어를 대체하는 명령어이다. 명령어를 축약해 사용자의 정의 명령어를 정의할 수 있다. alias라고 입력하면 시스템이 정의한 alias 명령어를 확인할 수 있다.
 $ alias 디렉터리만 조회하는 명령어는 다음과 같다.
-$ ls -l | grep &quot;^d&quot; 위 명령어는 lsd라는 앨리어스로 등록할 수 있다.
+$ ls -l | grep &quot;^d&quot; 용량이 큰 대상부터 출력하는 명령은 다음과 같다.
+$ ls - al | sort -rk 5 # 5열(-k)을 기준으로 용량이 큰것 것(-r) 부터 출력 위 명령어는 lsd라는 앨리어스로 등록할 수 있다.
 $ alias lsd='ls -l | grep &quot;^&quot;' 아파치 서버를 시작하거나 종료하는 명령어를 앨리어스를 등록해 두면 편리하다.
-$ alias apachestop='/etc/rc.d/init.d/httpd stop' $ alias apachstart='/etc/rc.d/init.d/httpd start' script 명령어를 이용하면 명령어를 기록할 수 있다.
                     </p>
                     <p class="article-more-link">
                         <a href="/linux/commands-basic/">More</a>

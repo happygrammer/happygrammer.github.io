@@ -1,0 +1,31 @@
+Script started on Wed Dec 30 12:29:18 2020
+[?1034hbash-3.2$ korea[K[K[K[K[Kks 0k[K[K[K[K[Kks [K[K[Kls -l
+total 152
+-rw-r--r--   1 smarthome  staff      0  1 15  2020 404.html
+-rw-r--r--   1 smarthome  staff   2577  3 29  2020 Gruntfile.js
+drwxr-xr-x   5 smarthome  staff    160  2  3  2020 _default
+drwxr-xr-x   3 smarthome  staff     96  1 15  2020 archetypes
+-rw-r--r--@  1 smarthome  staff   5710  2  4  2020 clean-code.md
+-rw-r--r--   1 smarthome  staff   1248 11 23 00:04 config.toml
+drwxr-xr-x  25 smarthome  staff    800 12 30 12:21 content
+drwxr-xr-x   2 smarthome  staff     64  1 15  2020 data
+-rw-r--r--   1 smarthome  staff     21 12 22 23:20 hugo-commands.txt
+-rw-r--r--   1 smarthome  staff   2995  1 15  2020 index.html
+drwxr-xr-x   3 smarthome  staff     96  3 29  2020 layouts
+drwxr-xr-x  95 smarthome  staff   3040  3 29  2020 node_modules
+-rw-r--r--   1 smarthome  staff  28772  3 29  2020 package-lock.json
+-rw-r--r--   1 smarthome  staff    345  3 29  2020 package.json
+drwxr-xr-x  11 smarthome  staff    352  2  3  2020 partials
+drwxr-xr-x  37 smarthome  staff   1184  8 31  1754 public
+-rwxr-xr-x@  1 smarthome  staff    245  1 15  2020 push.command
+-rw-r--r--   1 smarthome  staff    203  1 20  2020 push.sh
+drwxr-xr-x   3 smarthome  staff     96  1 15  2020 resources
+drwxr-xr-x   3 smarthome  staff     96  1 16  2020 static
+drwxr-xr-x   3 smarthome  staff     96  1 15  2020 taxonomy
+drwxr-xr-x   3 smarthome  staff     96 11 21 13:10 themes
+-rw-r--r--   1 smarthome  staff    212 12 30 12:27 typescript
+-rw-r--r--   1 smarthome  staff     43 12 30 12:29 typescript2.txt
+bash-3.2$ exit
+exit
+
+Script done on Wed Dec 30 12:29:27 2020

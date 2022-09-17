@@ -1,0 +1,56 @@
+baseURL = "https://happygrammer.github.io/"
+languageCode = "en-us"
+title = "happyg"
+theme = "hugo-theme-minos"
+[menu]
+
+  [[menu.main]]
+    identifier = "About"
+    name = "About"
+    pre = "<i class='fa fa-heart'></i>"
+    url = "/about/"
+    weight = -110
+
+  [[menu.main]]
+    name = "Rust"
+    post = "<span class='alert'>New!</span>"
+    pre = "<i class='fa fa-road'></i>"
+    url = "/rust"
+    weight = -100
+
+  [[menu.main]]
+    name = "NLP"
+    post = "<span class='alert'>New!</span>"
+    pre = "<i class='fa fa-road'></i>"
+    url = "/nlp/"
+    weight = -100
+
+  [[menu.main]]
+    name = "Guide"
+    post = "<span class='alert'>New!</span>"
+    pre = "<i class='fa fa-road'></i>"
+    url = "/guide/"
+    weight = -100
+
+[sitemap]
+  changefreq = "monthly"
+  filename = "sitemap.xml"
+  priority = 0.5
+
+[markup.goldmark.renderer]
+  unsafe = true
+
+[outputFormats.Algolia]
+ baseName = "algolia"
+ isPlainText = true
+ mediaType = "application/json"
+ notAlternative = true
+
+[params]
+  ogimage = "https://happygrammer.github.io/thumnail.jpg"
+  sitename = "Happygrammer"
+  description =""
+
+[params.algolia]
+ vars = ["title", "summary", "date", "publishdate", "expirydate", "permalink"]
+ params = ["categories", "tags"]

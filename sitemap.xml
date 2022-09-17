@@ -45,6 +45,13 @@
   </url>
   
   <url>
+    <loc>https://happygrammer.github.io/guide/initialize-git-repository/</loc>
+    <lastmod>2021-12-01T01:26:13+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://happygrammer.github.io/worth/</loc>
     <lastmod>2021-11-24T22:14:45+09:00</lastmod>
     <changefreq>monthly</changefreq>

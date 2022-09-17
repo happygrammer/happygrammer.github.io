@@ -42,6 +42,16 @@
     </item>
     
     <item>
+      <title>깃 저장소의 커밋 히스토리 초기화</title>
+      <link>https://happygrammer.github.io/guide/initialize-git-repository/</link>
+      <pubDate>Wed, 01 Dec 2021 01:26:13 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/guide/initialize-git-repository/</guid>
+      <description>깃 저장소 커밋 이력을 초기화 하는 방법에 대해서 살펴보자. 내용을 명확하게 하기 위해서 실재 입력한 명령어와 반영된 결과 그리고 실재 작업된 결과를 첨부 하였다. 다음과 같은 순서로 진행할 예정이다.
+ 원격 저장소의 파일을 지운다. 브랜치 작업을 이용한 커밋 히스토리 삭제  빈 브랜치를 추가 -&amp;gt; master 브랜치 삭제 -&amp;gt; 빈 브랜치를 master 브랜치로 변경   신규 파일 commit  원격 저장소의 캐시 삭제 커밋 이력을 초기화하려면 temp 브랜치를 추가하고 master 브랜치를 삭제하고 temp 브랜치를 master 브랜치로 이름을 변경하는 것으로 가능하다.</description>
+    </item>
+    
+    <item>
       <title>아인슈타인의 문제 해결법</title>
       <link>https://happygrammer.github.io/worth/break_the_rules/</link>
       <pubDate>Wed, 24 Nov 2021 22:14:45 +0900</pubDate>

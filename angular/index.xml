@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Angulars on happyg</title>
+    <link>https://happygrammer.github.io/angular/</link>
+    <description>Recent content in Angulars on happyg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 29 Feb 2020 18:15:02 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/angular/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Angular CLI 설치와 프로젝트 설정</title>
+      <link>https://happygrammer.github.io/angular/angular-cli/</link>
+      <pubDate>Sat, 29 Feb 2020 18:15:02 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/angular/angular-cli/</guid>
+      <description>Angular는 Angular CLI를 이용해 프로젝트 관리의 복잡도를 낮추고 Angular 개발에만 집중할 수 있게 합니다.
+Angular CLI 소개와 설치 지금 소개하려는 Angular CLI(Angular Command Line Interface)는 개발자가 Angular 개발에 만 집중할 수 있도록 개발에 필요한 Angular 프로젝트의 설정이나 프로젝트의 전반적인 관리를 명령어 기반으로 수행할 수 있게 지원합니다. Angular CLI가 제공하는 기능은 다음과 같습니다.
+■ Angular 프로젝트 생성
+■ Angular의 중요 구성요소 추가(컴포넌트, 지시자, 파이프, 서비스)
+■ 코드 변경 시 빌드를 수행하고 애플리케이션을 재시작</description>
+    </item>
+    
+  </channel>
+</rss>

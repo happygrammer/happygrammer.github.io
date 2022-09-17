@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Dev-methodologies on happyg</title>
+    <link>https://happygrammer.github.io/dev-methodologies/</link>
+    <description>Recent content in Dev-methodologies on happyg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 31 Dec 2020 11:00:24 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/dev-methodologies/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>애자일 칸반과 스크럼</title>
+      <link>https://happygrammer.github.io/dev-methodologies/kanban-and-scrum/</link>
+      <pubDate>Thu, 31 Dec 2020 11:00:24 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/dev-methodologies/kanban-and-scrum/</guid>
+      <description>칸반과 스크럼의 차이 칸반과 스크럼은 프로젝트 목적 달성을 위해 사용하는 프로세스 도구이다. 스크럼은 럭비에서 차용된 것으로 스크럼은 세 명 이상의 선수가 공을 에워싸고 서로 어깨를 맞대어 버티는 공격 태세를 의미하는데, 팀워크를 강조하기 위한 용어다. 스크럼은 스프린트 기반의 점직적인 개발 방법론 이다. 칸반은 칸반이란 일본어로 카드나 눈에 보이는 기록이라는 것을 뜻한다. 적시생산시스템(Just in time)과 같이 순서가 정해진 공정에서 작업의 순서를 통제하는데 사용된다. 칸반과 스크럼의 차이는 다음과 같다.
+    칸반 스크럼     규범 수 많다 적다   역할 구분 없음 Product Owner, Scrum Master, Team   작업 추가 가능 어려움   스프린트 스프린트 수행 여부는 팀이 결정 N번의 스프린트(2~4주) 진행   백로그 우선순위 백로그 우선순위를 고려하지 않음 백로그 우선순위를 고려함   일의 양 결정 X O - 스프린트 마다 일의 양이 결정됨    규범수와 역할 구분 관점에서 보면 이 둘 간의 차이를 알 수 있다.</description>
+    </item>
+    
+  </channel>
+</rss>

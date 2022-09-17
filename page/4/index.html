@@ -1,0 +1,466 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>happyg</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="happyg" />
+    
+    <meta property="og:description" content="" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<link href="https://happygrammer.github.io/index.xml" rel="alternate" type="application/rss+xml" title="happyg" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">happyg</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/ml/data/">머신러닝 데이터 관리</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/ml/data/" class="article-date">
+                        <time datetime='2020-12-31T00:24:37.000&#43;03:00' itemprop="datePublished">2020-12-31</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    데이터의 종류 머신 러닝에서 문제 유형에 따라 사용하는 데이터가 다르다. 데이터는 크게 형태에 따라 음성, 이미지, 텍스트로 나뉜다. 이중 텍스트 데이터의 예로 위키피디아 데이터가 있다.
+데이터 균형 데이터 양이 많아도 다음 두가지 유형 중 하나의 문제에 속해 있다면 학습이 잘 진행 되지 않을 수 있다.
+ 레이블링 편중 문제 적은 데이터 문제  레이블링 편중 문제는 데이터 레이블링이 특정 카테고리로 편중되어 학습이 잘 되지 않는 문제다. loss function에 의해 데이터 레이블링이 많이 되어 있는 분류로 편중되어 학습될 수 있다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/ml/data/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/ml/lstm/">RNN 모델을 확장한 LSTM</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/ml/lstm/" class="article-date">
+                        <time datetime='2020-12-30T23:28:57.000&#43;03:00' itemprop="datePublished">2020-12-30</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    LSTM은 RNN 아키텍처를 근간으로 하는 모델이다. RNN(recurrent network) 모델은 입력층-은닉층-출력층으로 이어지는 순방향 신경망(feed-forward network)이다.
+이와 달리 LSTM은 feedback 연결을 포함하고 있어 순환 신경망인 특성이 있다.
+LSTM은 새로운 입력이 주어지면 셀(cell)이라는 공간에 단어의 상태를 저장한다. 셀은 입력을 담당하는 입력 게이트(input gate), 출력을 담당하는 출력 게이트(output gate), 상태를 잊기 위해 망각 게이트(forget gate)의 역할을 수행한다.
+입력 상태는 중요도에 따라 잊을지 말지를 결정해 주어야 한다. 입력 게이트는 입력 상태의 크기를 결정해 기억량의 크기를 결정하며, 망각 게이트는 입력 상태 파라메터에 기억한 상태 파라메터를 곱해 잊을지 말지를 결정한다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/ml/lstm/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/linux/permissions/">Linux 권한 관리</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/linux/permissions/" class="article-date">
+                        <time datetime='2020-12-30T16:47:03.000&#43;03:00' itemprop="datePublished">2020-12-30</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    현재 접속 사용자 현재 서버에 접속한 사용자의 id 확인은 users 명령어를 이용해 확인 한다.
+$ users user users 명령과 비슷한 명령어로, 사용자의 접속 정보도 함께 볼 수 있는 명령어로 who 와 w 명령어가 있다.
+who -H 명령어는 헤더 정보를 포함해 접속 사용자 정보를 표시한다.
+$ who -H USER LINE WHEN user console Nov 27 07:09 user ttys000 Dec 8 23:25 user ttys001 Dec 9 19:27 user ttys003 Dec 14 03:35 가능한 많은 정보를 얻기 위해 -aH 옵션을 줄 수 있다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/linux/permissions/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/linux/iptables_firewalld/">방화벽 설정 관리 iptables, firewalld</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/linux/iptables_firewalld/" class="article-date">
+                        <time datetime='2020-12-30T16:47:03.000&#43;03:00' itemprop="datePublished">2020-12-30</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    Iptables 명령어를 이용한 방화벽 관리 Iptables 명령어는 Cent OS 6이하에서 사용하는 방화벽 설정 관리 명령이다.
+방화벽 설정 확인 후 삭제 방화벽 설정 상태를 보려면 -L 옵션을 이용해 목록을 표시할 수 있다.
+# iptables -L Chain INPUT (policy ACCEPT) target prot opt source destination Chain FORWARD (policy ACCEPT) target prot opt source destination Chain OUTPUT (policy ACCEPT) target prot opt source destination ACCEPT tcp -- anywhere anywhere tcp spt:40050 ACCEPT tcp -- anywhere anywhere tcp spt:40050 iptables -L 옵션을 주었을때 출력되는 prot 열은 프로토콜을 의미하며, 프로토콜의 종류로 tcp, udp, icmp, 또는 all가 있다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/linux/iptables_firewalld/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/linux/commands-basic/">Linux 기본 관리 명령어</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/linux/commands-basic/" class="article-date">
+                        <time datetime='2020-12-30T12:21:00.000&#43;03:00' itemprop="datePublished">2020-12-30</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    앨리어스 사용 alias는 명령어를 대체하는 명령어이다. 명령어를 축약해 사용자의 정의 명령어를 정의할 수 있다. alias라고 입력하면 시스템이 정의한 alias 명령어를 확인할 수 있다.
+$ alias 디렉터리만 조회하는 명령어는 다음과 같다.
+$ ls -l | grep &quot;^d&quot; 용량이 큰 대상부터 출력하는 명령은 다음과 같다.
+$ ls - al | sort -rk 5 # 5열(-k)을 기준으로 용량이 큰것 것(-r) 부터 출력 위 명령어는 lsd라는 앨리어스로 등록할 수 있다.
+$ alias lsd='ls -l | grep &quot;^&quot;' 아파치 서버를 시작하거나 종료하는 명령어를 앨리어스를 등록해 두면 편리하다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/linux/commands-basic/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/worth/simple/">단순함에 대한 명언들</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/worth/simple/" class="article-date">
+                        <time datetime='2020-11-22T21:19:37.000&#43;03:00' itemprop="datePublished">2020-11-22</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    바보는 사물을 크고 복잡하게 만든다. 반대로 가려면 천재성과 용기가 필요하다. 아인슈타인의 말이다. 삶이란 정말 단순한 것이지만, 우리는 그것을 계속 복잡하게 만들고 있다. 단순하고 평범한 몇개의 원리만 알면 해당 분야의 80%는 소화할 수 있다. 논문이나 전문 분야에서도 그대로 적용된다.
+ Everything should be made as simple as possible, but no simpler  모든 것은 더 단순하게 할 수 없을 만큼 가능한 한 단순하게 해야한다. (아인슈타인)   If you can’t explain it simply, you don't understand it well enough  단순하게 설명할 수 없다면 제대로 이해하지 하지 못한 것이다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/worth/simple/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/guide/code-design/">견고한 코드 설계의 원칙들</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/guide/code-design/" class="article-date">
+                        <time datetime='2020-11-21T09:09:47.000&#43;03:00' itemprop="datePublished">2020-11-21</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    코드 설계의 기본 원칙  DRY (Don't Repeat Yourself)  한번 이상 동일하거나 유사한 코드를 작성하지 않는 것이 좋다.   SCP (Speaking Code Principle)  코드는 그 목적을 전달해야 한다. 코드에 주석을 추가했다는 것은 코드에 불충분한 목적이 있음을 암시 하기도 한다.   TDA (Tell, Don't Ask)  객체에게 정보를 요구하지 말고 그냥 행위하도록 시키라. ('Law of Demeter&rsquo;와 유사) 데이터 생성 객체(구현 정보 은닉, 캡슐화)로만 하고, 구체적인 타입이나 값은 넘기지 않는다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/guide/code-design/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/java/multithreading/">JAVA 멀티 스레드 프로그래밍</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/java/multithreading/" class="article-date">
+                        <time datetime='2020-10-18T09:02:50.000&#43;03:00' itemprop="datePublished">2020-10-18</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    프로세스는 여러 명령어들의 하나의 실행 단위이다. 스레드는 하나의 프로세스에 존재하는 여러 개의 실행 단위이다. 하나의 스레드 실행은 싱글 스레드라 하며, 여러 스레드의 실행은 멀티 스레드라고 한다.
+Thread Class 방식 vs Runnable 방식 thread class 방식은 Thread 클래스를 상속해 스레드를 실행하며, Runnable 방식은 Runnable 인터페이스를 구현해서 실행하는 방식이다.
+1. Thread Class 방식 Thread 클래스를 상속해 스레드를 실행하는 예제이다.
+class TestThreadByThreadClass extends Thread { public void run() { System.out.println(&#34;스레드 실행중&#34;); } public static void main(String args[]) { TestThreadByThreadClass thread = new TestThreadByThreadClass(); thread.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/java/multithreading/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/rust/data_types/">Rust 데이터 타입</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/rust/data_types/" class="article-date">
+                        <time datetime='2020-06-07T15:00:03.000&#43;03:00' itemprop="datePublished">2020-06-07</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    Rust는 두개의 서브 데이터 타입이 있다. scalar와 compound이다. Rust는 정적 타입 언어(statically typed language)이다. 따라서 값을 기반으로 타입을 추론할 수 있지만, 모든 변수에 대한 타입을 알아야 컴파일이 가능하다.
+Scalar Types Integer Types    Length Signed Unsigned     8-bit i8 u8   16-bit i16 u16   32-bit i32 u32   64-bit i64 u64   128-bit i128 u128   arch isize usize    Floating-Point Types fn main() { let x = 2.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/rust/data_types/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/rust/install/">Rust 설치하기</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/rust/install/" class="article-date">
+                        <time datetime='2020-06-07T14:35:56.000&#43;03:00' itemprop="datePublished">2020-06-07</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    리눅스, 맥OS 환경이면 명령 인터페이스 1줄로 Rust 설치가 가능하다.
+Rust 설치 명령 Rust 설치는 rustup를 다운로드 하여 설치 하는 명령어이다.
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 설치 과정 Welcome to Rust! This will download and install the official compiler for the Rust programming language, and its package manager, Cargo. It will add the cargo, rustc, rustup and other commands to Cargo's bin directory, located at: /Users/smarthome/.cargo/bin This can be modified with the CARGO_HOME environment variable.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/rust/install/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+
+        
+
+<nav id="page-nav">
+    
+    <a href="/page/3/" rel="prev" class="extend prev">&laquo; Prev</a>
+    
+    
+    
+    <a href="/">1</a>
+    
+    
+    
+    <a href="/page/2/">2</a>
+    
+    
+    
+    <a href="/page/3/">3</a>
+    
+    
+    
+    <span class="page-number current">4</span>
+    
+    
+    
+    <a href="/page/5/">5</a>
+    
+    
+    
+    <a href="/page/6/">6</a>
+    
+    
+    
+    <a href="/page/7/">7</a>
+    
+    
+    
+    <a href="/page/8/">8</a>
+    
+    
+    
+    <a href="/page/9/">9</a>
+    
+    
+    
+    <a href="/page/10/">10</a>
+    
+    
+    
+    <a href="/page/11/">11</a>
+    
+    
+
+    
+    <a href="/page/5/" rel="next" class="extend next">Next &raquo;</a>
+    
+</nav>
+
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

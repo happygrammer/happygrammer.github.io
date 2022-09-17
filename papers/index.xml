@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Papers on happyg</title>
+    <link>https://happygrammer.github.io/papers/</link>
+    <description>Recent content in Papers on happyg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 25 Apr 2021 17:18:56 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/papers/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AI 관련 컨퍼런스와 출판물</title>
+      <link>https://happygrammer.github.io/papers/conference/</link>
+      <pubDate>Sun, 25 Apr 2021 17:18:56 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/papers/conference/</guid>
+      <description>1. AI 관련 컨퍼런스 AI 관련 상위 컨퍼런스는 다음과 같습니다.
+  IR/Web: SIGIR, WWW, CIKM, WSDM
+  NLP: ACL, EMNLP, NAACL
+  ML/DM: ICML, NIPS, KDD, AAAI, IJCAI, ICLR
+  2. AI 관련 출판물 AI 분야 출판물 AI 분야 출판물 순위는 다음과 같습니다.(2021년 4월 25일 기준)
+   출판물 h5-index h5-median      1. International Conference on Learning Representations 203 359   2.</description>
+    </item>
+    
+    <item>
+      <title>Roberta</title>
+      <link>https://happygrammer.github.io/papers/roberta/</link>
+      <pubDate>Sat, 28 Mar 2020 20:53:21 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/papers/roberta/</guid>
+      <description>RoBERTa: A Robustly Optimized BERT Pretraining Approach
+언어 모델 프리트레이닝은 상당한 성능 향상을 가져 왔지만, 다른 접근방식 간의 비교는 어렵다. 훈련은 계산 비용이 높은 이유도 있지만, 접근 마다 데이터을 저마다 이용하기 때문이다. 이 논문은 BERT 프리트레이닝(Devlin et al., 2019)의 복제 연구이다. 이 논문은 하이퍼 파라미터 선택이 실험 결과에 많은 영향을 줄 수 있음을 가정하고 있다. 레이블 데이터를 이용해 end-task에 대한 파인 튜닝(finetuned)을 적용한 모델을 만든다다. BERT가 상당히 불충분한 훈련을 받았고, BERT 이후의 모델의 성능은 BERT 모델과 유사하거나, 초과할 수 있다는 점을 지적한다.</description>
+    </item>
+    
+    <item>
+      <title>Meena 논문, 리서치 리뷰</title>
+      <link>https://happygrammer.github.io/papers/meena/</link>
+      <pubDate>Fri, 14 Feb 2020 01:10:05 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/papers/meena/</guid>
+      <description>이 문서는 Meena 논문의 연구 결과를 되짚어 보기 위한 리서치 리뷰 문서이며 새로운 연구 결과를 포함하고 있지 않습니다.
+Meena는 멀티턴 도메인 챗봇. end-to-end 방식의 데이터 학습 진행. public 도메인인 소셜 미디어 대화를 대상으로 하였음. 341 GB의 텍스트를 학습하였고 26억(2.6 billions)  파라메터를 사용한 뉴럴넷입니다. 다음 토큰의 perplexity가 최소화 되도록 학습됨.
+낮은 perplexity는 샘플에 대해 잘 설명할 수 있는 확률분포를 가졌음을 의미함 OpenAI GPT-2에 비해 1.7배 모델이 크고, 8.5배의 학습 데이터를 사용하였습니다.</description>
+    </item>
+    
+    <item>
+      <title>BERT 논문, 리서치 리뷰</title>
+      <link>https://happygrammer.github.io/papers/bert/</link>
+      <pubDate>Thu, 16 Jan 2020 23:41:40 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/papers/bert/</guid>
+      <description>이 문서는 BERT 논문의 연구 결과를 되짚어 보기 위한 리서치 리뷰 문서이며 새로운 연구 결과를 포함하고 있지 않다.
+BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding BERT라 불리는 새로운 언어 표현 모델를 소개한다. BERT는 &amp;ldquo;Bidirectional Encoder Representations from Transformers&amp;quot;를 의미한다. 최근 언어 표현 모델과 달리 (Peters et al., 2018a; Radford et al., 2018), BERT는 설계 되었다.
+ 사전 학습(pretrain)으로 deep bidirectional representations을 얻을 수 있다. 이러한 딥 양방향 표현은 레이블이 없는 텍스트로 부터 얻는다.</description>
+    </item>
+    
+  </channel>
+</rss>

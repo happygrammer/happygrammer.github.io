@@ -1,0 +1,209 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Nlps on happyg</title>
+    <link>https://happygrammer.github.io/nlp/</link>
+    <description>Recent content in Nlps on happyg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 23 Nov 2021 21:21:55 +0900</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/nlp/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>시맨틱 롤 레이블링 소개</title>
+      <link>https://happygrammer.github.io/nlp/srl/</link>
+      <pubDate>Tue, 23 Nov 2021 21:21:55 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/srl/</guid>
+      <description>시맨틱 롤 레이블링은 NLP 처리의 과정 중 하나이다. 시맨틱 롤 레이블링은 다른 말로 shallow semantic parsing, slot-filling, 의미역 결정과 같은 말로도 불린다. NLU를 하기 전의 가장 기본적인 접근은 형태소 분석과 구문 분석이다. 기본적인 처리가 끝나면 시맨틱 롤 레이블을 수행할 수 있다.
+시맨틱 롤 레이블링 역사 SRL은 필모어(Charles J. Fillmore) 연구자에 의해 제안된 방법이다. 초창기 연구에서는 predicate에 해당하는 역할을 찾으려는 시도들이 있었다. 이후 프레임 넷을 이용한 SRL이라는 방식으로 확장이 되었다.
+시맨틱 롤의 종류 시맨틱 롤(role)이라는 것은 우리 말로 의미역(semantic role)이라고 볼 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>T5 모델 소개 및 실습</title>
+      <link>https://happygrammer.github.io/nlp/t5/</link>
+      <pubDate>Sun, 21 Nov 2021 20:19:26 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/t5/</guid>
+      <description>사전 훈련된 모델이 다운스트림 태스크로의 전이학습은 자연어처리의 강력한 기술로 부상했다. 전이학습 모델 중 T5모델에 살펴보고자 한다.
+T5 모델 소개 T5[1]는 모든 텍스트 기반 언어 문제를 텍스트 대 텍스트 형식으로 변환하는 통합 프레임워크(unified framework)를 도입했다. 이 연구는 C4(Colossal Clean Crawled Corpus) 코퍼스를 결합하여, 요약, 질의응답, 분류 및 기타 문제에 대해서 최신 SOTA(state-of-the-art)를 달성했다.
+사전 훈련된 모델이 다운스트림 태스크로의 전이학습은 자연어처리의 강력한 기술로 부상했다. T5는 모든 텍스트 기반 언어 문제를 텍스트 대 텍스트 형식으로 변환하는 통합 프레임워크(unified framework)를 도입했다.</description>
+    </item>
+    
+    <item>
+      <title>대화형 에이전트</title>
+      <link>https://happygrammer.github.io/nlp/dialog-system-chatbots/</link>
+      <pubDate>Mon, 23 Aug 2021 00:58:02 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/dialog-system-chatbots/</guid>
+      <description>사람이 컴퓨터와 대화를 하는 시대가 열렸다. 가상 비서(virtual assistant)를 통해 음성으로 영화를 예매하거나, 음성으로 음악 재생을 요청하는 등의 일을 처리할 수 있게 되었다. 가상 비서의 예로 시리, 알렉사, 구글 홈, 기가지니, SKT 누구 등이 있다. 가상 비서는 대화 알고리즘을 바탕으로 구현 된다. 대화 알고리즘을 포함해 대화 처리를 수행하는 시스템을 대화형 에이전트(conversational agents) 또는 대화 시스템(dialog system)이라고 부른다.
+대화 에이전트들은 영화 예매를 수행하거나, 주식 조회하거나, 근처 맛집을 찾는 등과 같이 미리 설계된 내용에 대한 특정 작업을 수행하도록 미리 설계 되어 있다.</description>
+    </item>
+    
+    <item>
+      <title>의존 구문 분석시 단어간의 관계 태깅</title>
+      <link>https://happygrammer.github.io/nlp/dependency-tag-set/</link>
+      <pubDate>Sat, 30 Jan 2021 22:30:35 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/dependency-tag-set/</guid>
+      <description>의존 구문 분석이 이뤄 지면 문장에서 중심이 되는 요소는 지배소(governor)가 되고 의존소(dependent)는 지배소의 의미를 보완해 주는 역할을 하는 요소이다. 예를 들어 아름다운 한라산에서 한라산이 지배소가 되고 아름다운	이 의존소가 된다. 의존 문법 관점에서 두 단어가 의존 관계에 있는지 그렇지 않은지를 판단할 수 있으며, 만약 두 단어가 의존 관계가 있다면 의존 관계 태그(예:NP_SBJ, VP_MODE 등)를 부착해 두 단어간의 관계를 표시한다. 의존 관계 태그는 정보통신단체표준 문서의 제안에 따라 구문 태그와 기능 태그를 결합해해 사용함을 원칙으로 하고 있다.</description>
+    </item>
+    
+    <item>
+      <title>Doc2vec를 이용한 문서의 벡터 변환</title>
+      <link>https://happygrammer.github.io/nlp/doc2vec/</link>
+      <pubDate>Sun, 23 Feb 2020 17:19:48 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/doc2vec/</guid>
+      <description>Doc2Vec(Document Embedding with Paragraph Vectors)은 Word2Vec에서 확장된 알고리즘입니다. Doc2Vec은 다량의 코퍼스를 문서 임베딩시에 훌륭한 성능을 보여줍니다. Word2VecDoc2Vec과 Word2Vec이 무엇이 다른지 다음 표로 정리했습니다.
+    Word2Vec Doc2Vec     년도 2013년 2015년   저자 Tomas Mikolov 와 동료들 Andrew M. Dai 와 동료들   feature word vector word vecotr + paragraph vector   주요 모델 CBOWSkip Gram PV-DM modelPV-DBOW    Doc2Vec은 기존 Word2Vec모델을 확장하기 위해 paragraph vector를 제안했습니다.</description>
+    </item>
+    
+    <item>
+      <title>NLTK를 이용한 자연어 처리</title>
+      <link>https://happygrammer.github.io/nlp/nltk/</link>
+      <pubDate>Wed, 19 Feb 2020 07:01:31 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/nltk/</guid>
+      <description>NLTK(Natural Language Toolkit)는 언어 처리 기능을 제공하는 파이썬 라이브러리입니다. 손쉽게 이용할 수 있도록 모듈 형식으로 제공하고 있습니다. 이러한 모듈의 범주로 분류 토큰화(tokenization), 스테밍(stemming)와 같은 언어 전처리 모듈 부터 구문분석(parsing)과 같은 언어 분석, 클러스터링, 감정 분석(sentiment analysis), 태깅(tagging)과 같은 분석 모듈 시맨틱 추론(semantic reasoning)과 같이 보다 고차원 적인 추론 모듈도 제공하고 있습니다. 각 모듈에서 사용하는 알고리즘은 최소 2개 이상의 알고리즘을 제공하고 있어, 사용자가 원하는 알고리즘을 폭넓게 사용할 수 있도록 돕습니다. 예를 들어 분류 알고리즘의 경우 SVMs, 나이브 베이즈(Naive Bayes), 로지스틱 회귀(logistic regression)와 결정 트리(decision trees)를 제공하고 있고 이들 중 하나를 선택해 분류 알고리즘을 적용할 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>자연어 처리 과정</title>
+      <link>https://happygrammer.github.io/nlp/intro-nlp-2/</link>
+      <pubDate>Thu, 13 Feb 2020 06:53:03 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/intro-nlp-2/</guid>
+      <description>컴퓨터가 사람의 언어를 이해하기 위해 일반적으로 다음과 같은 언어 처리 과정을 거칩니다.
+텍스트 입력 → 형태소 분석 → 구문 분석 → 의미 분석 → 화용 분석 → 분석 결과 출력 형태소 분석(morphological analysis)은 자연어의 최소 의미인 형태소를 식별하는 언어 처리 과정입니다. 구문 분석(syntax analysis)은 주어, 동사, 목적어등의 문장성분을 판별해 문장성분에 따른 문장 구조를 분석하는 과정입니다. 문장성분을 분석하기 위해 구문 분석기(parser)를 이용해 구문(構文) 분석을 수행하여 구문 트리(syntax tree)또는 파스 트리(parse tree)를 만듭니다.</description>
+    </item>
+    
+    <item>
+      <title>서브워드 모델</title>
+      <link>https://happygrammer.github.io/nlp/sub-words-model/</link>
+      <pubDate>Tue, 11 Feb 2020 08:17:33 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/sub-words-model/</guid>
+      <description>서브워드 알고리즘 서브워드와 관련한 유명한 알고리즘은 다음 네가지가 있습니다.
+ Byte Pair Encoding (BPE) WordPiece Unigram Language Model SentencePiece  BPE BPE(Byte Pair Encoding)는 서브 워드 사전 구축에 사용되는 알고리즘은 다음 그림과 같습니다.
+WordPiece 워드 피스(WordPiece)는 일본어와 한국어의 음성 문제를 해결 하기 위해 나온 모델입니다.(2012년) 워드 피스는 BPE와 유사하며 차이점은 새로운 서브 워드를 만들 수 있다는 점입니다.
+Unigram 모델 쿠도 연구자가 소개한 모델입니다. 이 모델이 가정 하는 것은 모든 서브워드는 독립적인 이며 서브 워드 시퀀스이 나타날 확률은 서브 워드 확률에 결정된다는 점입니다.</description>
+    </item>
+    
+    <item>
+      <title>NLP 데이터셋 소개(SQuAD, KoQuAD, KLUE)</title>
+      <link>https://happygrammer.github.io/nlp/dataset/</link>
+      <pubDate>Mon, 10 Feb 2020 23:38:39 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/dataset/</guid>
+      <description>SQuAD 최근에는 기계 독해를 평가하기 위한 SQuAD(The Stanford Question Answering Dataset)와 같은 위키피디아 기반 데이터 셋이 있다. 이 데이터셋은 기계 독해 알고리즘을 객관적으로 평가할 수 있는 벤치마크 데이터 셋으로 알고리즘의 우수성을 평가하기 위해 리더 보드를 운영하고 있다. 전체 데이터셋의 사이이즈는 학습셋=40MB, 개발셋=4MB정도이다.
+ https://rajpurkar.github.io/SQuAD-explorer/  SQuAD 2.0 데이터 셋의 구조는 다음과 같다.
+{ &amp;quot;version&amp;quot;: &amp;quot;v2.0&amp;quot;, // SQuAD 버전 정보 &amp;quot;data&amp;quot;: [ { &amp;quot;title&amp;quot;: &amp;quot;Normans&amp;quot;, // 출처 문서의 제목 &amp;quot;paragraphs&amp;quot;: [ { &amp;quot;qas&amp;quot;: [ { &amp;quot;question&amp;quot;: &amp;quot;In what country is Normandy located?</description>
+    </item>
+    
+    <item>
+      <title>텍스트 전처리</title>
+      <link>https://happygrammer.github.io/nlp/text-preprocessing/</link>
+      <pubDate>Fri, 07 Feb 2020 01:08:14 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/text-preprocessing/</guid>
+      <description>텍스트 전처리(text preprocessing)은 입력 데이터셋에 섞여 있는 불필요한 노이즈를 제거하거나 데이터를 일관성있게 만드는 정규화 과정을 포함한다. 전처리는 크게 두 단계의 작업을 수행한다.
+ 노이즈 제거 텍스트 정규화  노이즈 제거(Noise removal)는 불필요한 태그 제거, 특수 문자 제거, 구두점 제거, 공백 제거등 실질 데이터와 무관한 문자를 삭제해 단어나 문장 인식을 명확히 할 수 있도록 만드는 전 처리 단계다. 텍스트 정규화(Text normalization)는 계산량을 줄이기 위한 처리다. 텀 매트릭스의 차원 축소(dimensionally reduction)을 축소해 계산을 빠르고 효율적이도록 한다.</description>
+    </item>
+    
+    <item>
+      <title>자연어 처리를 위한 정규식</title>
+      <link>https://happygrammer.github.io/nlp/regular-expressions/</link>
+      <pubDate>Wed, 05 Feb 2020 23:37:38 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/regular-expressions/</guid>
+      <description>정규식(regular expressions)은 프로그래밍 언어 내장된 문자열 처리를 위한 언어입니다. 패턴을 기반으로 문자열에 대한 검색, 삭제, 치환 기능을 수행할 수 있습니다. 예를 들어 이메일 주소, 전화번호, 우편번호 등과 같이 널리 사용되는 형식의 패턴을 추출 하거나 문자열 분리, 삭제, 치환 등의 텍스트 정제에 사용할 수 있습니다.
+정규식 메타 문자열 메타 문자열은 정규식에서 문자열 매치 할 때 사용하는 문자열입니다. 다음과 같은 문자열이 있습니다.
+. ^ $ * + ? { } [ ] \ | ( ) 위에서 열거한 메타 문자는 정규식에서 특별한 의미가 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>Word2vec를 이용한 임베딩</title>
+      <link>https://happygrammer.github.io/nlp/word2vec/</link>
+      <pubDate>Mon, 03 Feb 2020 23:33:53 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/word2vec/</guid>
+      <description>Word2vec은 워드 고품질의 워드 벡터를 생성하는 임베딩 태스크에 사용할 수 있는 모델입니다. 구글의 Tomas Mikolov이 2013년에 논문으로 발표했습니다. 이 논문에서 소개하는 단어 예측 모델로 크게 CBOW와 Skip-gram을 소개합니다. CBOW는 Context 정보를 활용해 현재 단어를 예측 하는 모델이라면 Skip-gram은 현재 워드 주변의 단어를 예측하는 모델입니다. Word2vec을 실행하면 입력으로 대규모 텍스트 코퍼스를 수백 차원의 벡터 스페이스(vector space)로 만듭니다. 기존 LSA(latent semantic analysis)에 비해 여러 장점이 있습니다.
+ 계산 비용이 적습니다. 정확도(accuracy)가 개선 됐습니다.</description>
+    </item>
+    
+    <item>
+      <title>Bag-Of-Words 모델</title>
+      <link>https://happygrammer.github.io/nlp/bow/</link>
+      <pubDate>Fri, 31 Jan 2020 01:21:05 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/bow/</guid>
+      <description>Bag-Of-Words Bag-Of-Word는 순서를 단어 순서를 고려하지 않고 출현 빈도만 고려합니다. Bag-Of-Words 관점에서 &amp;ldquo;the dog bite you&amp;quot;와 &amp;ldquo;you bite the dog&amp;quot;는 어순은 다르지만 동일한 벡터로 표현 되어 동일한 문장으로 취급됩니다. 이들 두 문장에 대한 BoW를 만드는 방법은 두 단계로 진행합니다.
+ 데이터 준비 : 텍스트를 수집합니다. 그리고 토큰화(tokenize)를 합니다. 어휘 벡터 만들기 : 단어를 토큰화(tokenize) 하여 어휘(vocabulary 벡터(0으로 초기화된 zero 벡터)를 만듭니다. 단어가 문서에 있으면 1, 단어가 문서에 없으면 0으로 표시합니다.  {&amp;quot;the&amp;quot;:1, &amp;quot;dog&amp;quot;:1, &amp;quot;bite&amp;quot;:1 ,&amp;quot;you&amp;quot;,1} {&amp;quot;the&amp;quot;:1, &amp;quot;dog&amp;quot;:1, &amp;quot;bite&amp;quot;:1 ,&amp;quot;you&amp;quot;,1} BoW를 코드로 구현해 보겠습니다.</description>
+    </item>
+    
+    <item>
+      <title>n-gram 모델</title>
+      <link>https://happygrammer.github.io/nlp/n-gram-model/</link>
+      <pubDate>Fri, 31 Jan 2020 01:21:05 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/n-gram-model/</guid>
+      <description>n-gram 모델 n-gram 모델은 자연어 처리, 정보 검색 등에서 활용이 되는 시퀀스 데이터 표현 방식입니다. 자연어 처리에서는 문서 또는 문장을 벡터로 변환해 자연어 처리의 여러 응용 분야에 활용할 수 있도록 합니다. 예를 들어 다음 단어를 예측해야 하는 오타 교정과 같은 분야에 활용될 수 있습니다. 정보 검색에서는 문서에 나타난 단어들의 분포들을 고려해 문서 간의 유사도 계산해 문서 분류(document classification)에 활용합니다. ngram에서 n은 연속된 단어의 개수를 의미합니다. 여기서 각 단어는 토큰(token)이라 하며 토큰 개수(n)에 따라 다음과 같이 부릅니다.</description>
+    </item>
+    
+    <item>
+      <title>언어 모델</title>
+      <link>https://happygrammer.github.io/nlp/language-models/</link>
+      <pubDate>Thu, 30 Jan 2020 08:10:33 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/language-models/</guid>
+      <description>언어 모델(language model)은 단어 시퀀스(word sequence)를 이용한 확률 모델입니다. 언어 모델은 기계 번역, 음성 인식, 오타 교정(spell correction), 손글씨 인식(handwriting recognition), 문서 요약, 질의 응답 생성 등과 같이 최종 출력인 단어 시퀀스를 예측하는 태스크에 사용됩니다.
+확률 언어 모델 확률 언어 모델(probabilistic langugage model)은 하나의 단어(w) 앞에 나온 n개의 단어 시퀀스(word sequence)을 고려해 다음에 나올 단어를 예측하는 확률 모델입니다. n개의 단어가 연속해서 나는 단어 시퀀스의 확률 P(w1,w2,w3,&amp;hellip;,wn)는 다음과 같습니다.
+P(W)=P(w1,w2,w3,...,wn) 즉, n개의 단어를 하나의 시퀀스로 보고 단어 시퀀스들의 결합 확률을 계산해 언어 모델을 만듭니다.</description>
+    </item>
+    
+    <item>
+      <title>자연어 처리란 무엇인가?</title>
+      <link>https://happygrammer.github.io/nlp/intro-nlp/</link>
+      <pubDate>Wed, 29 Jan 2020 00:37:57 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/intro-nlp/</guid>
+      <description>자연어 처리는 컴퓨터가 사람의 언어를 이해하고 컴퓨터와 사람이 상호 작용할 수 있도록 돕는 기술입니다. 자연어 처리의 궁극적인 목표는 컴퓨터가 사람과 같은 언어지능(linguistic Intelligence)을 갖추도록 하는 것 입니다. 언어지능은 사람의 언어 이해하고 다시 사람의 언어로 표현할 수 있는 능력입니다. 컴퓨터가 사람의 언어를 이해하면 사람 처럼 주어진 문제를 해결 하거나 언어에 나타난 말들을 개념화해 생각할 수 있는 추상화 추론(abstract reasoning) 능력도 갖출 수 있게 됩니다.
+자연어와 인공어 자연어(natural languge)는 사람이 일상적으로 사용하는 언어이며 사람과 사람이 의사 소통을 위해 자연적으로 발생한 언어입니다.</description>
+    </item>
+    
+    <item>
+      <title>품사와 품사 태그셋 소개</title>
+      <link>https://happygrammer.github.io/nlp/postag-set/</link>
+      <pubDate>Wed, 22 Jan 2020 00:46:58 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/postag-set/</guid>
+      <description>POS tagging(part-of-speech tagging)은 형태소 분석 결과 분류된 품사를 태깅하는 작업을 의미한다. 여기서 품사는 단어의 공통 성질을 갈래 지어 놓은 이름이다. 태깅시 사용하는 품사에 대응하는 약속은 품사 태그(POS Tag : part-of-speech tag)라 하며 이들 품사 태그의 모음을 품사 태그 셋(tag set)이라고 한다. 품사 부착 말뭉치(corpus)는 품사 태그가 부착된 말뭉치를 의미한다. 고품질의 품사 부착 말뭉치의 규모가 커지면 언어 연구 진행이 용이해진다. 이 문서에는 품사 태그셋을 소개하기에 앞서 한국어와 영어의 품사를 소개하고, 영어의 품사 태그셋과 한국어의 품사 태그셋(POS Tag Set)을 소개한다.</description>
+    </item>
+    
+    <item>
+      <title>중의성의 분류와 중의성 해소</title>
+      <link>https://happygrammer.github.io/nlp/wsd/</link>
+      <pubDate>Wed, 15 Jan 2020 06:41:24 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/wsd/</guid>
+      <description>이 글은 중의성의 종류를 소개하고, 중의성 해소에 필요한 방법을 알아보겠습니다.
+중의성의 분류 자연어 처리에서 중의성 해결은 중요한 태스크입니다. 중의성은 하나의 언어 표현이 둘 이상의 해석이 가능한 특성을 의미합니다. 중의성의 종류는 다음과 같습니다.
+ 어휘 중의성 구조 중의성  어휘 중의성 어휘 중의성 글자나 소리가 동일하지만 의미가 여럿인 중의성입니다. 중의성의 대표적인 예로 동음이의어(homonym)가 있습니다. 동음이의어는 글자는 동일(동형어; homographs)하지만 의미가 다른 단어(다의어; polysemes) 입니다. 동음이의어는 글자로 보면 의미가 구분이 되지 않는 애매성(ambiguity)이 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>자연어처리 라이브러리 소개</title>
+      <link>https://happygrammer.github.io/nlp/open-source/</link>
+      <pubDate>Wed, 15 Jan 2020 06:38:57 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/open-source/</guid>
+      <description>자연어처리 모듈을 처음 부터 모두 개발하는 것은 쉽지 않습니다. 따라서 필요로 하는 자언어 처리 알고리즘이 이미 구현되어 있다면 효율적인 진행을 위해 공개된 자연어처리 라이브러리를 적절히 이용하는 것이 좋습니다. 오픈소스로 공개된 자연어처리 라이브러리는 그 수가 많습니다. 본문에서는 주요 자연어처리 라이브러리를 소개하며 어떤 점을 활용하면 좋을지를 소개 하겠습니다.
+자연어처리 툴킷(NLTK) NLTK(Natural Language Toolkit)는 언어 처리 기능을 제공하는 파이썬 라이브러리입니다. 손쉽게 이용할 수 있도록 모듈 형식으로 제공하고 있습니다. 이러한 모듈의 범주로 분류 토큰화(tokenization), 스테밍(stemming)와 같은 언어 전처리 모듈 부터 구문분석(parsing)과 같은 언어 분석, 클러스터링, 감정 분석(sentiment analysis), 태깅(tagging)과 같은 분석 모듈 시맨틱 추론(semantic reasoning)과 같이 보다 고차원 적인 추론 모듈도 제공하고 있습니다.</description>
+    </item>
+    
+  </channel>
+</rss>

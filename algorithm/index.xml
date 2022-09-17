@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Algorithms on happyg</title>
+    <link>https://happygrammer.github.io/algorithm/</link>
+    <description>Recent content in Algorithms on happyg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 16 Sep 2021 16:52:27 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/algorithm/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>알고리즘, 문제해결 기법</title>
+      <link>https://happygrammer.github.io/algorithm/why/</link>
+      <pubDate>Thu, 16 Sep 2021 16:52:27 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/algorithm/why/</guid>
+      <description>알고리즘을 공부하는 목적은 무엇일까? 알고리즘을 답습(踏襲)해 문제해결 기법을 훈련하는 것이다. 알고리즘을 자신의 언어로 풀어서 체계적으로 생각하는 훈련을 수 있을 것이다. 알고리즘은 귀납적 접근을 기반으로 한다.
+귀납적인 접근 알고리즘 학습을 통해 귀납적 사고를 훈련할 수 있다. 귀납적(inductive)이라는 말은 본래 수학 분야에서 왔다. 귀납적이라는 말의 사전적 정의는 개별적인 특수한 사실이나 원리로부터 공통적을 추려내 일반적이고 보편적인 명제 및 법칙을 유도해 내는 일이다.
+귀납적 사고는 도미노 효과와 비슷한 방식으로 작동한다. 첫번째 블럭이 넘어지면 두번째 블럭이 넘어지듯이, 전제가 성립하면 결론도 성립하게 된다.</description>
+    </item>
+    
+  </channel>
+</rss>

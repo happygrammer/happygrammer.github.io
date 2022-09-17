@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Javascripts on happyg</title>
+    <link>https://happygrammer.github.io/javascript/</link>
+    <description>Recent content in Javascripts on happyg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Aug 2021 08:45:28 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/javascript/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>클로저란 무엇인가?</title>
+      <link>https://happygrammer.github.io/javascript/closures/</link>
+      <pubDate>Sun, 01 Aug 2021 08:45:28 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/javascript/closures/</guid>
+      <description>내부 함수와 외부 함수 자바스크립트는 기본적으로 함수 내부에 내부 함수 선언을 지원한다. 이렇게 내부에 함수를 중복해서 중첩(nested) 형태로 선언이 가능하며, 외부 함수는 내부 함수를 포함하는 형태로 선언이 가능하다.
+function init() { // 외부 함수 function message() { // 내부 함수 return &amp;quot;happyg&amp;quot;; // lexical scope에 선언된 로컬 변수인 name 응답 가능 } return message(); } document.write(init()); // 외부에서는 내부 함수가 message인지 알 수 없다. 외부 함수인 init이 내부 함수인 message 를 포함한 선언 형태이다.</description>
+    </item>
+    
+    <item>
+      <title>Use_strict</title>
+      <link>https://happygrammer.github.io/javascript/use_strict/</link>
+      <pubDate>Fri, 28 Nov 2014 08:17:03 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/javascript/use_strict/</guid>
+      <description>use strict 키워드는 ECMAScript 언어 사양(5번째 버전)에 포함되어 있다. ECMA스크립트는 ECMA-262에 의해 표준화된 언어의 이름이다. 자바스크립트와 J스크립트는 모두 ECMA스크립트와의 호환을 목표로 하면서, ECMA 규격에 포함되지 않는 확장 기능을 제공한다. 자바스크립트 라이브러리를 보다보면 strict mode 키워드를 만나볼 수 있다. strict mode는 자바스크립트를 좀더 엄격하게 다루고자 하는 의미이다.
+Strict Mode를 사용하는 두가지 이유   모듈화 작업시 모호한 변수선언에 대해 제한과 엄격한 규칙을 통한 오류 발생 가능성을 낮춘다.
+  전역변수와 지역변수간 Scope에 따른 변수 충돌을 방지할 수 있다.</description>
+    </item>
+    
+  </channel>
+</rss>

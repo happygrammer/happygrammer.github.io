@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Clouds on happyg</title>
+    <link>https://happygrammer.github.io/cloud/</link>
+    <description>Recent content in Clouds on happyg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 17 Jul 2021 15:11:42 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/cloud/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>아마존 웹 서비스 개요</title>
+      <link>https://happygrammer.github.io/cloud/amazon-web-service-overview/</link>
+      <pubDate>Sat, 17 Jul 2021 15:11:42 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/cloud/amazon-web-service-overview/</guid>
+      <description>AWS Ovewview  AWS 리전 한국에는 데이터 센터가 4개로 구성되어있고, 이를 가용 영역이라 부름(서울 리전인 경우) CDN(콘텐츠 전송 네트워크) cloud front 제공 AWS 이점 - 보안, 가용성, 성능, 확장성, 유연성  VPC(Virtual Private Computing)   사용자가 정의한 네트워크 공간 제공
+  NAT Gateway는 내부 사설 IP(Private IP) 간의 Gate Way 역할., NAT Gateway에 EIP(Elastic IP)를 붙여서 외부 IP로 사용.
+  InBound/OutBound
+  Web Server는 443(port)에 대해 Any Open으로 제공</description>
+    </item>
+    
+  </channel>
+</rss>

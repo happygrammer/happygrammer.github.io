@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Distributed-systems on happyg</title>
+    <link>https://happygrammer.github.io/distributed-system/</link>
+    <description>Recent content in Distributed-systems on happyg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 19 May 2021 16:10:27 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/distributed-system/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>장애 허용 시스템</title>
+      <link>https://happygrammer.github.io/distributed-system/fault-tolerance/</link>
+      <pubDate>Wed, 19 May 2021 16:10:27 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/distributed-system/fault-tolerance/</guid>
+      <description>분산 시스템이 있을때 하나의 노드에서 에러가 나더라도 전체 네트워크에 영향을 미쳐서는 안된다. 분산시스템을 구축하는 이유는 빠른 계산처리와 안전성을 도모하기 위해서이다. 빠른 계산 처리라 함은 하나의 컴퓨터로 처리할수 있는 계산량의 한계가 정해저 있어 병렬 처리를 하기 위함 이다. 안정성은 하나의 Node에 Fault가 나더라도 예비 Node가 있어 Node가 Fault가 되는것에 대해 대비해야 한다.
+장애 허용 시스템 장애 허용 시스템(Fault Tolerance System)은 하나의 컴포넌트가 fault가 발생해도 시스템 운영에 영향을 주지 않도록 설계된 시스템이다. 다음과 같은 점을 고려할 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>분산처리 시스템 소개</title>
+      <link>https://happygrammer.github.io/distributed-system/about/</link>
+      <pubDate>Tue, 18 May 2021 23:47:08 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/distributed-system/about/</guid>
+      <description>분산처리 시스템은 여러 시스템 간의 동작을 일관성 있게 처리해 마치 하나의 프로세스가 하는 처리하는 것처럼 수행하는 시스템이다. 하나의 서버에 결집되어 있는 서버의 자원과 기능을 여러 서버에 분산 시켜 상호 협력함으로써 처리 성능과 신뢰성을 높이는 데 목적이 있다.
+분산 시스템의 고전적인 문제 Failure Detection, Peer to Peer Systems, Key value store, sensor networks등이 으며, 동기화, 보안 관련 문제가 있다.
+ 동기화(Synchronization)은 실재 시간 근거로 싱크를 맞추는것이며, 분산 환경에서 싱크를 맞추는 것은 쉽지 않다.</description>
+    </item>
+    
+  </channel>
+</rss>

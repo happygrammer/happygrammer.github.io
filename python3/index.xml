@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Python3s on happyg</title>
+    <link>https://happygrammer.github.io/python3/</link>
+    <description>Recent content in Python3s on happyg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Wed, 15 Jan 2020 06:35:54 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/python3/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>파이썬 3 배열과 딕셔너리</title>
+      <link>https://happygrammer.github.io/python3/python3/</link>
+      <pubDate>Wed, 15 Jan 2020 06:35:54 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/python3/python3/</guid>
+      <description>배열 배열 탐색 token = [s.split() for s in arr] # 공백 단위로 split token = [s.split()[1:] for s in arr] # 공백 단위로 split 딕셔너리 딕셔너리 선언 #!/usr/bin/python3 dict = {&#39;Name&#39;: &#39;Sunflower&#39;, &#39;Kingdom&#39;: &amp;quot;Plantae&amp;quot;, &#39;Class&#39;: &#39;Magnoliopsida&#39;} print (&amp;quot;dict[&#39;Name&#39;]: &amp;quot;, dict[&#39;Name&#39;]) print (&amp;quot;dict[&#39;Kingdom&#39;]: &amp;quot;, dict[&#39;Kingdom&#39;]) print (&amp;quot;dict[&#39;Class&#39;]: &amp;quot;, dict[&#39;Class&#39;]) 딕셔너리 keys 사용 for key in dict.keys(): print(key+&amp;quot;:&amp;quot;+dict[key]) 딕셔너리 메소드    Sr.No. Method &amp;amp; Description     1 dict.</description>
+    </item>
+    
+  </channel>
+</rss>

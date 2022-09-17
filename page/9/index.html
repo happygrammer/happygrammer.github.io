@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>happyg</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="happyg" />
+    
+    <meta property="og:description" content="" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<link href="https://happygrammer.github.io/index.xml" rel="alternate" type="application/rss+xml" title="happyg" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">happyg</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/guide/clean-code/">클린코드를 위한 중요 원칙 5가지</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/guide/clean-code/" class="article-date">
+                        <time datetime='2020-01-16T01:17:18.000&#43;03:00' itemprop="datePublished">2020-01-16</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    클린코드를 위한 중요 원칙 5가지가지가 무엇인지에 대해 살펴 보고자 한다.
+1. 네이밍 컨벤션 준수 구글의 자바 가이드 와 같은 사례를 참조 하면 좋다. 관례적으로 네이밍 컨벤션은 다음과 같은 원칙을 따르는 것이 좋다.
+ 클래스명은 명사를 사용하며 의미가 드러나는 이름을 짓는다. 변수는 의도가 드러나는 작성한다. 메서드는 객체의 동작을 의미하므로 동사를 사용하여 이름을 짓는다. 멤버 벼수, 인자명, 로컬 변수명은 lowerCamelCase 방식을 따른다. 상수 변수명은 CONTANT_CASE 방식을 이용한다.  // Constants static final int NUMBER = 5; static final ImmutableList NAMES = ImmutableList.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/guide/clean-code/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/shell/date-time/">날짜와 시간 처리</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/shell/date-time/" class="article-date">
+                        <time datetime='2020-01-15T07:15:14.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    시간 설정 $ date -s &quot;2020-02-02 04:00:20&quot; 날짜 포맷 출력(기본 포맷) mm/dd/yy형식으로 날짜 출력
+date +&quot;%D&quot; 날짜 포맷 출력(지정 포맷) yyyy-mm-dd 형식의 날짜 출력
+date &quot;+%Y-%m-%d&quot; echo date # 2020-01-14 시간 출력(기본 포맷) hh-mm-ss 형식의 시간 출력
+date +&quot;%T&quot; # 04:09:51 시간 출력(12시간 기준) date +&quot;%r&quot; # 04:09:51 AM 날짜와 시간 출력(기본 포맷) now=$(date) echo $no # 2020년 1월 15일 수요일 05시 19분 36초 MSK 날짜와 시간 출력(지정 포맷) yyyy-mm-dd_hh-mm-ss 형식으로 출력
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/shell/date-time/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/wsd/">중의성의 분류와 중의성 해소</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/wsd/" class="article-date">
+                        <time datetime='2020-01-15T06:41:24.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    이 글은 중의성의 종류를 소개하고, 중의성 해소에 필요한 방법을 알아보겠습니다.
+중의성의 분류 자연어 처리에서 중의성 해결은 중요한 태스크입니다. 중의성은 하나의 언어 표현이 둘 이상의 해석이 가능한 특성을 의미합니다. 중의성의 종류는 다음과 같습니다.
+ 어휘 중의성 구조 중의성  어휘 중의성 어휘 중의성 글자나 소리가 동일하지만 의미가 여럿인 중의성입니다. 중의성의 대표적인 예로 동음이의어(homonym)가 있습니다. 동음이의어는 글자는 동일(동형어; homographs)하지만 의미가 다른 단어(다의어; polysemes) 입니다. 동음이의어는 글자로 보면 의미가 구분이 되지 않는 애매성(ambiguity)이 있습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/wsd/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/tensorflow/keras/regression/">연비 예측을 위한 회귀 분석</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/tensorflow/keras/regression/" class="article-date">
+                        <time datetime='2020-01-15T06:40:34.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    회귀 문제(regression problem)의 목표는 연속 출력값을 예측하는 것 입니다. 클래스 목록에서 클래스를 선택하는 것이 목표입니다. (사진을 인식해 사과 인지 오렌지를 식별함).
+이 노트 북은 고전적인 Auto MPG 데이터셋을 사용하여 모델을 만들고 있는 1970년대 후반부터 1980년데 전반까지의 자동차 연비 예측을 수행합니다. 이를 수행할 목적으로, 저 시기동안 많은 자동차들의 설명(description)을 가지고 구축한 모델을 제공합니다. 이 설명은 다음의 속성을 포함합니다. 예) 실린더, 변위(displacement), 마력(horsepower), 무게
+이 예제는 tf.keras API를 사용합니다. 자세한 가이드를 보시면 this guide 글을 보세요.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/tensorflow/keras/regression/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/hangeul/hangeul-spelling/">한글 표기의 원칙과 자모의 분류</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/hangeul/hangeul-spelling/" class="article-date">
+                        <time datetime='2020-01-15T06:39:54.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    한글 맞춤법은 말과 글을 올바로 사용하게 만들어, 정보를 올바로 공유할 수 있게 하고 개인과 공동체 내의 의사 소통을 원만하게합니다. 본 문서는 자주 사용될 법한 일반적인 한글 맞춤법의 필수 원칙과 예시들을 소개하는데 있습니다. 이 글은 한글 맞춤법 어문 규정 중요 내용을 소개 하고 한글의 이해를 높이고자 하는 목적으로 작성되었습니다.
+1. 한글 표기의 원칙 한글 맞춤법은 한글을 문자로 표기할때의 관례(convention)이자 약속입니다. 한글 맞춤법의 원칙은 표준어를 소리대로 적되, 어법에 맞도록 함을 원칙(제 1항)으로 합니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/hangeul/hangeul-spelling/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/open-source/">자연어처리 라이브러리 소개</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/open-source/" class="article-date">
+                        <time datetime='2020-01-15T06:38:57.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    자연어처리 모듈을 처음 부터 모두 개발하는 것은 쉽지 않습니다. 따라서 필요로 하는 자언어 처리 알고리즘이 이미 구현되어 있다면 효율적인 진행을 위해 공개된 자연어처리 라이브러리를 적절히 이용하는 것이 좋습니다. 오픈소스로 공개된 자연어처리 라이브러리는 그 수가 많습니다. 본문에서는 주요 자연어처리 라이브러리를 소개하며 어떤 점을 활용하면 좋을지를 소개 하겠습니다.
+자연어처리 툴킷(NLTK) NLTK(Natural Language Toolkit)는 언어 처리 기능을 제공하는 파이썬 라이브러리입니다. 손쉽게 이용할 수 있도록 모듈 형식으로 제공하고 있습니다. 이러한 모듈의 범주로 분류 토큰화(tokenization), 스테밍(stemming)와 같은 언어 전처리 모듈 부터 구문분석(parsing)과 같은 언어 분석, 클러스터링, 감정 분석(sentiment analysis), 태깅(tagging)과 같은 분석 모듈 시맨틱 추론(semantic reasoning)과 같이 보다 고차원 적인 추론 모듈도 제공하고 있습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/open-source/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/shell/text/">[쉘스크립트] 텍스트 처리를 위한 쉘 명령어</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/shell/text/" class="article-date">
+                        <time datetime='2020-01-15T06:38:03.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    본 문서는 실무를 하면서 자주 쓰는 리눅스 쉘 명령어 소개하기 위한 목적이 있습니다.
+cat 명령어 cat 명령어는 concatenate의 줄임말입니다. 리눅스에서 빈번하게 사용하는 파일 보기 명령어입니다.
+기본 문법으로 파일 내용 출력가 있습니다.
+$ cat &lt;file-name&gt; 파일 내용을 출력해 특정 파일명으로 저장 할 수 있습니다.
+$ cat &lt;file-name&gt; &gt; &lt;output-file-name&gt; 여러 파일 출력이 가능합니다.
+cat sample1.txt sample2.txt &gt; sample3.txt 파일 내용 출력시 -n 옵션을 추가하면 줄번호 표시가 가능합니다.
+cat -n &lt;file-name&gt; grep 명령어와 조합해서 무자열 필터에 사용할 수 있습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/shell/text/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/guide/perl/">1시간 안에 펄(Perl) 언어 익히기</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/guide/perl/" class="article-date">
+                        <time datetime='2020-01-15T06:35:54.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    본 포스팅에서 사용한 예제는 다운로드 가능하다. Perl은 고수준의 동적 타입 언어로 csh, Pascal, BASIC-PLUS, PHP, Python 등과 비교되는 언어다. Perl은 쉘 스크립트로 기원했기에 다른 스크립트나 다른 프로그램을 엮어 주는 글루 코드(glue code) 언어로 시스템 관리에도 적합한 언어이다. C, sed, awk 그리고 sh와 같은 언어나 프로그램들의 가장 좋은 점들을 취합한 언어이기도 하다. sed, awk, sh를 사용하여 문제를 풀기 어렵다면 Perl이 대안이 된다. 이외에도 다음과 같은 특징이 있다.
+ 거의 모든 운영체제에 설치되어 있다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/guide/perl/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/python3/python3/">파이썬 3 배열과 딕셔너리</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/python3/python3/" class="article-date">
+                        <time datetime='2020-01-15T06:35:54.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    배열 배열 탐색 token = [s.split() for s in arr] # 공백 단위로 split token = [s.split()[1:] for s in arr] # 공백 단위로 split 딕셔너리 딕셔너리 선언 #!/usr/bin/python3 dict = {'Name': 'Sunflower', 'Kingdom': &quot;Plantae&quot;, 'Class': 'Magnoliopsida'} print (&quot;dict['Name']: &quot;, dict['Name']) print (&quot;dict['Kingdom']: &quot;, dict['Kingdom']) print (&quot;dict['Class']: &quot;, dict['Class']) 딕셔너리 keys 사용 for key in dict.keys(): print(key+&quot;:&quot;+dict[key]) 딕셔너리 메소드    Sr.No. Method &amp; Description     1 dict.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/python3/python3/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/java/processbuilder/">ProcessBuilder 클래스 - 운영체제 프로세스 생성</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/java/processbuilder/" class="article-date">
+                        <time datetime='2020-01-15T06:35:19.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    이전 버전에서는 Runtime.exec()을 이용해 프로세스를 실행할 수 있습니다. 그런데 이 방법은 When Runtime.exec() won't에서도 소개 됐듯이 표준 입력과 출력에 대한 제한된 버퍼 사이즈로 인해 하위 프로세스가 block 되거나 데드락이 되기도 하는 문제가 있었습니다.
+자바 JDK 7 이상에서는 이러한 문제점을 해결 하고자 Proccess Builder 클래스가 소개됩니다. 이 클래스는 운영체제 프로세스 생성할 때 사용합니다. Process Builder 클래스 인스턴스에는 프로세스를 제어할 때 필요한 유용한 속성을 제어합니다. 예를 들어 start() 메서드는 입력 받은 커맨드를 실행해 새로운 프로세스를 생성 합니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/java/processbuilder/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+
+        
+
+<nav id="page-nav">
+    
+    <a href="/page/8/" rel="prev" class="extend prev">&laquo; Prev</a>
+    
+    
+    
+    <a href="/">1</a>
+    
+    
+    
+    <a href="/page/2/">2</a>
+    
+    
+    
+    <a href="/page/3/">3</a>
+    
+    
+    
+    <a href="/page/4/">4</a>
+    
+    
+    
+    <a href="/page/5/">5</a>
+    
+    
+    
+    <a href="/page/6/">6</a>
+    
+    
+    
+    <a href="/page/7/">7</a>
+    
+    
+    
+    <a href="/page/8/">8</a>
+    
+    
+    
+    <span class="page-number current">9</span>
+    
+    
+    
+    <a href="/page/10/">10</a>
+    
+    
+    
+    <a href="/page/11/">11</a>
+    
+    
+
+    
+    <a href="/page/10/" rel="next" class="extend next">Next &raquo;</a>
+    
+</nav>
+
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

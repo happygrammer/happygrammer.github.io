@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Linuxes on happyg</title>
+    <link>https://happygrammer.github.io/linux/</link>
+    <description>Recent content in Linuxes on happyg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 09 Apr 2021 21:45:33 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/linux/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Sudo 권한 획득(CVE-2021-3156) 취약점 조치방법</title>
+      <link>https://happygrammer.github.io/linux/sudo/</link>
+      <pubDate>Fri, 09 Apr 2021 21:45:33 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/linux/sudo/</guid>
+      <description>sudo 명령어의 -s 또는 -i 옵션을 사용할때 특수 문자 이스케이프시에 로컬 사용자가 root권한을 획득할 수 있는 보안 취약점이 발견 되었다.
+ 취약점 코드 - CVE-2021-3156 (취약점 명칭은 Baron Samedit라고 명명됨)  권한 없는 로컬 사용자가 인증 없이 root 권한 획득을 할 수 있다. 취약점이 있는 sudo 버전은 다음과 같다.
+1.8.2 ~ 1.8.31p2 1.9.0 ~ 1.9.5p1 sudo 버전은 다음 명령어로 확인할 수 있다.
+$ sudo -V sudo에 취약점이 있는지를 확인하고 싶다면 다음 명령어를 입력해 확인할 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>Linux 권한 관리</title>
+      <link>https://happygrammer.github.io/linux/permissions/</link>
+      <pubDate>Wed, 30 Dec 2020 16:47:03 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/linux/permissions/</guid>
+      <description>현재 접속 사용자 현재 서버에 접속한 사용자의 id 확인은 users 명령어를 이용해 확인 한다.
+$ users user users 명령과 비슷한 명령어로, 사용자의 접속 정보도 함께 볼 수 있는 명령어로 who 와 w 명령어가 있다.
+who -H 명령어는 헤더 정보를 포함해 접속 사용자 정보를 표시한다.
+$ who -H USER LINE WHEN user console Nov 27 07:09 user ttys000 Dec 8 23:25 user ttys001 Dec 9 19:27 user ttys003 Dec 14 03:35 가능한 많은 정보를 얻기 위해 -aH 옵션을 줄 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>방화벽 설정 관리 iptables, firewalld</title>
+      <link>https://happygrammer.github.io/linux/iptables_firewalld/</link>
+      <pubDate>Wed, 30 Dec 2020 16:47:03 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/linux/iptables_firewalld/</guid>
+      <description>Iptables 명령어를 이용한 방화벽 관리 Iptables 명령어는 Cent OS 6이하에서 사용하는 방화벽 설정 관리 명령이다.
+방화벽 설정 확인 후 삭제 방화벽 설정 상태를 보려면 -L 옵션을 이용해 목록을 표시할 수 있다.
+# iptables -L Chain INPUT (policy ACCEPT) target prot opt source destination Chain FORWARD (policy ACCEPT) target prot opt source destination Chain OUTPUT (policy ACCEPT) target prot opt source destination ACCEPT tcp -- anywhere anywhere tcp spt:40050 ACCEPT tcp -- anywhere anywhere tcp spt:40050 iptables -L 옵션을 주었을때 출력되는 prot 열은 프로토콜을 의미하며, 프로토콜의 종류로 tcp, udp, icmp, 또는 all가 있다.</description>
+    </item>
+    
+    <item>
+      <title>Linux 기본 관리 명령어</title>
+      <link>https://happygrammer.github.io/linux/commands-basic/</link>
+      <pubDate>Wed, 30 Dec 2020 12:21:00 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/linux/commands-basic/</guid>
+      <description>앨리어스 사용 alias는 명령어를 대체하는 명령어이다. 명령어를 축약해 사용자의 정의 명령어를 정의할 수 있다. alias라고 입력하면 시스템이 정의한 alias 명령어를 확인할 수 있다.
+$ alias 디렉터리만 조회하는 명령어는 다음과 같다.
+$ ls -l | grep &amp;quot;^d&amp;quot; 용량이 큰 대상부터 출력하는 명령은 다음과 같다.
+$ ls - al | sort -rk 5 # 5열(-k)을 기준으로 용량이 큰것 것(-r) 부터 출력 위 명령어는 lsd라는 앨리어스로 등록할 수 있다.
+$ alias lsd=&#39;ls -l | grep &amp;quot;^&amp;quot;&#39; 아파치 서버를 시작하거나 종료하는 명령어를 앨리어스를 등록해 두면 편리하다.</description>
+    </item>
+    
+    <item>
+      <title>ICONV 인코딩 형식 변환</title>
+      <link>https://happygrammer.github.io/linux/iconv/</link>
+      <pubDate>Wed, 01 Jan 2020 17:53:20 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/linux/iconv/</guid>
+      <description>iconv 명령어는 입력 파일의 인코딩을 지정한 인코딩으로 변경할 수 있는 명령어(/usr/bin/iconv)이다.
+EUC KR을 UTF 8로 변경 iconv 명령어에 -c 옵션을 이용해 컨버팅이 되지 않는 문자열은 무시 하도록 할수 있다. 아래 명령어는 euc-kr에서 utf-8로 변경하는 명령이다.
+iconv -c -f euc-kr -t utf-8 FILE_EUCKR.txt &amp;gt; FILE_UTF8.txt UTF-8을 EUC-KR로 변경 iconv -c -f utf-8 -t euc-kr FILE_UTF8.txt &amp;gt; FILE_EUCKR.txt ICONV 옵션    옵션 설명     -c 변환할 수 없는 문자는 버림   -f ENCODING, &amp;ndash;from-code=ENCODING 입력 파일의 인코딩   -t ENCODING, &amp;ndash;to-code=ENCODING 출력 파일의 인코딩   &amp;ndash;list, -l 지원하는 인코딩 목록들을 출력   &amp;ndash;output, -o file 변환 내용을 터미널 추력 대신 지정한 파일로 출력   &amp;ndash;silent, -s 경고 메시지를 출력하지 않음   &amp;ndash;verbose 자세한 상태 정보를 출력    ICONV &amp;ndash;help 옵션 상세 내용 $ iconv --help Usage: iconv [OPTION.</description>
+    </item>
+    
+  </channel>
+</rss>

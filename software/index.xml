@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Softwares on happyg</title>
+    <link>https://happygrammer.github.io/software/</link>
+    <description>Recent content in Softwares on happyg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 06 Feb 2021 11:51:28 +0900</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/software/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>소프트웨어 라이프사이클</title>
+      <link>https://happygrammer.github.io/software/software-lifecycle/</link>
+      <pubDate>Sat, 06 Feb 2021 11:51:28 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/software/software-lifecycle/</guid>
+      <description>프로젝트 진행 단계 소프트웨어를 개발을 시작하려는 사회 초년개발자들은 소프트웨어 라이프 사이클에 익숙하지 안습니다. 업무를 시작하면 프로젝트에 참가하고, 프로젝트는 하나의 라이프 사이클이 존재하고, 투자에 대한 아웃풋과 기간이 분명히 정해져 있습니다. 프로젝트 라이프 사이클 단계를 보면 요청 단계, 제안서 작성 단계, 프로젝트 시작 단계, 그리고 프로젝트 수행 단계, 프로젝트 종료 단계가 있습니다.
+첫 번째로 고객 요청 단계에서는 RFP(Request for Proposal)를 고객으로부터 받아요. RFP는 발주자가 특정 과제의 수행에 필요한 요구사항을 체계적으로 정리하여 제시함으로써 제안자가 제안서를 작성하는데 도움을 주기 위한 문서입니다.</description>
+    </item>
+    
+  </channel>
+</rss>

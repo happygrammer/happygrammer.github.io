@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Vocabularies on happyg</title>
+    <link>https://happygrammer.github.io/vocabulary/</link>
+    <description>Recent content in Vocabularies on happyg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 07 Apr 2020 00:15:52 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/vocabulary/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>자연어처리/머신러닝 용어집</title>
+      <link>https://happygrammer.github.io/vocabulary/nlp/</link>
+      <pubDate>Tue, 07 Apr 2020 00:15:52 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/vocabulary/nlp/</guid>
+      <description>본 문서는 자연어처리/머신러닝 용어 목록을 소개합니다.
+  Auto ML(Automated machine learning)
+ 엔지니어의 도움 없이도 머신 러닝 모델을 생성할 수 있는 머신러닝 솔루션 &amp;ldquo;Data 처리, Feature 엔지니어링, Feature 추출, Feature 선택&amp;quot;의 자동화 지원 관련 솔루션  Google Cloud Platform - Cloud AutoML Google Cloud Platform - AutoML NLP Azure - Azure Machine Learning AWS - Amazon SageMaker      Auto Regressive
+ AR(순차적인 데이터 처리) 이러한 관점에서 ELmo, GPT를 AR 계열로 볼 수 있음    BERT</description>
+    </item>
+    
+  </channel>
+</rss>

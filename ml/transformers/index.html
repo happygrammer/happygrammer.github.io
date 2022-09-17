@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>트랜스포머 모델의 개발</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="트랜스포머 모델의 개발" />
+    
+    <meta property="og:description" content="" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/ml/transformers/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v12.0&appId=2329733600657924&autoLogAppEvents=1" nonce="A45x76GJ"></script>
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">happyg</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/ml/" class="archive-article-date">&lt; Mls</a></div>
+            
+            <h1 class="article-title" itemprop="name">트랜스포머 모델의 개발</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/ml/transformers/" class="article-date">
+                <time datetime='2021-09-05T05:28:46.000&#43;03:00' itemprop="datePublished">2021-09-05</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>트랜서포머는 어텐션 매커니즘이 적용된 딥러닝 모델이다. 2017년 구글이 발표한 &ldquo;Attention is all you need&rdquo; 논문에서 처음 소개 되었다. RNN(1986) 모델과 LSTM(1997)와 같은 Recurrent 모델을 대체할 수 있는 대안 모델이 되었다. 트랜스포머는 자연어 처리, 컴퓨터 비전, 오디오 처리와 갈은 분야에서 성공을 거뒀다. 그래서 관심을 받고 있다. 최근에는 트랜스포머의 다양한 변형이 존재한다.</p>
+<h3 id="--">트랜스포머 모델 개발</h3>
+<p>트랜서포머 모델을 개발하는 세가지 관점이 존재한다.</p>
+<ul>
+<li>모델 효율성 : 계산과 메모리 복잡도를 개선하는 것이다. 이를 위해 셀프 어텐션 모듈을 이용한다.</li>
+<li>모델 일반화 : 소규모 데이터에 학습이 쉽지 않다. 그래서  사전 훈련 방법, 레이블링 없는 대규모 데이터에 대해 학습을 한다.</li>
+<li>모델 적용 : 하위 도메인(downstream)에 적용하기 위해 트랜스포머를 적용</li>
+</ul>
+<h3 id="---1">트랜스포머 모델 배경</h3>
+<ul>
+<li>
+<p>Vanilla Transformer</p>
+</li>
+<li>
+<p>인코더와 디코더로 이뤄진 시퀀스 투 시퀀스 모델. 각 인코더 블록은 멀티 헤드 셀프 어텐션 모듈(multi-head self-attention module)과 포지션-와이즈 피드 포워드 네트워크(FFN:position-wise feed-forward network)로 구성되어 있다.</p>
+</li>
+<li>
+<p>어텐션 모듈</p>
+</li>
+<li>
+<p>트랜스포머의 적용 메커니즘은 쿼리-키-밸류(QKV) 모델이다.</p>
+<p><img src="../transformers_1.png" alt=""></p>
+</li>
+<li>
+<p>트랜스포머는 싱글 어텐션 함수(single attention function) 대신에 멀티 헤드 어텐션(multi-head attention)을 이용한다.</p>
+</li>
+<li>
+<p><code>모델 사용 관점</code>에서, 트랜스포머 아키텍처는 세 가지 관점에서 사용된다.</p>
+<ul>
+<li>기계번역에서 시퀀스 투 시퀀스 모델링(sequence-to-sequence modeling) 사용된다.</li>
+<li>인코더만 사용 : 입력 시퀀스를 출력 용으로 사용할 수 있다. 분류 또는 시퀀스 라벨링 문제에 사용된다.</li>
+<li>디코더만 사용 : 언어 모델링의 시퀀스 생성에 사용된다.</li>
+</ul>
+</li>
+</ul>
+<h3 id="-">모델 복잡도</h3>
+<p>트랜스포머 모델은 모델 계산 시간과 파라메터 개수로 모델의 성능을 설명할 수 있다. 트랜스 포머의 중요한 두가지 요소는 셀프 어텐션(self-attention) 모듈과포지션 와이즈 FFN(position-wise FFN) 모듈이다. 입력 시퀀스가 짧으면, 위 두 요소의 은닉 차원(hidden dimension)의 복잡도가 올라간다. 반대로  입력 시퀀스가 길어질수록 FFN 병목 현상이 발생할 수 있다.</p>
+<h3 id="--1">네트워크 타입</h3>
+<p>셀프 어텐션 분석 : 셀프 어텐션은 입력의 길이가 가변적일 때 다룰수 있는 가변적인 매커니즘이다. 세 가지 유형이 있다.</p>
+<ul>
+<li>
+<p>셀프 어텐션</p>
+</li>
+<li>
+<p>풀리 커넥티드(fully connected)</p>
+</li>
+<li>
+<p>컨볼루셔널(convolutional)</p>
+</li>
+<li>
+<p>리커런트(reucrrent)</p>
+</li>
+<li>
+<p>셀프 어텐션의 이점은 다음과 같다.</p>
+<ul>
+<li>장거리 의존 모델링(long-range dependencies modeling)에 적합, 최대 길이가 동일한 풀리 커넥티드 레이어를 이용</li>
+<li>컨볼루셔널 레이어의 제한적인 수용이 있어 딥 네트워크를 쌓아야한다, 반면 최대 경로 길이가 일정한 경우, 레이어 개수를 고정하는 방식으로 장거리 의존성(long-range dependencies)에 대한 셀프 어텐션을 적용할 수 있다.</li>
+<li>연속 연산(constant sequential operations)과 최대 경로 길이(maximum path length)가 있으면 셀프 어텐션(self-attention)이 리커런트 레이어(recurrent layer)보다 장거리 모델링에 더 유리함</li>
+</ul>
+</li>
+</ul>
+<h3 id="---">모델을 보는 네가지 관점</h3>
+<p>다양한 트랜스 포머가 있지만 여기서는 바닐라 트랜스 포머를 기초로 한다. 모델을 보는 네가지 관점이 존재한다.</p>
+<ul>
+<li>모델 관점(Model) : 어테션, 포지셔닝 인코딩, LayerNorm, FFN</li>
+<li>아키텍처 레벨 관점(Architecture Level) : Light Weight, Connectivity, 분할정복</li>
+<li>사전 학습 방법(Pre-train) : 인코더(BERT, RoBERTA, BigBIRD), 디코더(GPT~), 인코더+디코더(BART, Switch Transformers)</li>
+<li>응용 관점(applicaton) : NLP, CV, Audio, Multi Media</li>
+</ul>
+<p>트랜스포머에서 어텐션 모듈이 가장 중요한 요소이다. 사전 훈련 변형과 관련한 아키텍처 변형이 존재한다. 그리고 이를 응용한 여러가지 방식들이 존재한다.</p>
+<h3 id="--2">어텐션의 약점</h3>
+<p>셀프 어텐션(self-attention)은 트랜스 포머에서 중요한 역할이다. 다음과 같은 약점이 있다.</p>
+<ul>
+<li>복잡도 : 긴 시퀀스를 다루는 것이 어렵다.</li>
+<li>오버피팅 : 데이터양이 적으면 오버피팅이 되기 쉽다.</li>
+</ul>
+<p>위의 약점에 대응하기 위해 몇가지 방식이 존재한다.</p>
+<ul>
+<li>스파스 어텐션(sparse attention) : 스파스 바이어스를 어텐션 매커니즘에 반영하여 복잡도를 감소시킴</li>
+<li>리니어라이즈드 어테션(linearlized attention) : 커널 피쳐 맵으로 어탠션 매트릭스를 분리함</li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/ml/transformers/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#--">트랜스포머 모델 개발</a></li>
+        <li><a href="#---1">트랜스포머 모델 배경</a></li>
+        <li><a href="#-">모델 복잡도</a></li>
+        <li><a href="#--1">네트워크 타입</a></li>
+        <li><a href="#---">모델을 보는 네가지 관점</a></li>
+        <li><a href="#--2">어텐션의 약점</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/algorithm/why/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            알고리즘, 문제해결 기법
+        </div>
+    </a>
+    
+    
+    <a href="/nlp/dialog-system-chatbots/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">대화형 에이전트&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

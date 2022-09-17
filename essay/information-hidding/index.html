@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>정보 은닉과 추상화</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="정보 은닉과 추상화" />
+    
+    <meta property="og:description" content="" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/essay/information-hidding/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v12.0&appId=2329733600657924&autoLogAppEvents=1" nonce="A45x76GJ"></script>
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">happyg</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/essay/" class="archive-article-date">&lt; Essays</a></div>
+            
+            <h1 class="article-title" itemprop="name">정보 은닉과 추상화</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/essay/information-hidding/" class="article-date">
+                <time datetime='2020-12-31T16:03:20.000&#43;03:00' itemprop="datePublished">2020-12-31</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>소프트웨어 개발에서 <code>캡슐화</code>는 여러 기능을 하나의 기능으로 묶은 재사용 단위를 의미하며 번들링이라고도 불린다. <code>추상화</code>는 내부 기능을 사용하기 쉽도록 정의한 인터페이스를 의미한다. <code>정보 은닉</code>는 세부 구현을 숨겨 쉬운 사용을 돕고 내부의 기능을 참조 하지 못하도록 차단해 부주의한 사용을 막는 개념이다.</p>
+<h3 id="-">인터페이스를 이용한다.</h3>
+<p>자동차 운전자는 엔진의 구조를 알지 못해도 자동차에서 제공하는 핸들, 엑셀레이터, 브레이크 등의 <code>인터페이스</code>를 이용해 자동차를 운전할 수 있다. 자동차를 운전하기 위해 내부 동작을 모두 알지 못해도 된다. 자동차를 만들때 불필요한 정보는 정보 은닉하고, 복잡한 내부 동작을 추상화한 <code>인터페이스</code>(핸들, 엑셀레이터, 브레이크 등)만을 운전자에게 제공하면 된다.</p>
+<h3 id="--1">인터페이스로 이해한다.</h3>
+<p>소프트웨어 설계는 UML(Unified Model Language)를 이용해 작성한다. UML에서 인터페이스는 다이어그램이다. 다이어그램 간의 관계만 보면 내부 기능에 알지 못하더라도 데이터의 흐름과 구조를 보다 쉽게 이해할 수 있다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/essay/information-hidding/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-">인터페이스를 이용한다.</a></li>
+        <li><a href="#--1">인터페이스로 이해한다.</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/rust/problem/cross-compile/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Rust 크로스 컴파일 방법
+        </div>
+    </a>
+    
+    
+    <a href="/dev-methodologies/kanban-and-scrum/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">애자일 칸반과 스크럼&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

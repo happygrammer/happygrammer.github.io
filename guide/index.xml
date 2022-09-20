@@ -6,10 +6,19 @@
     <description>Recent content in Guides on happyg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 13 Jun 2022 00:18:44 +0900</lastBuildDate>
+    <lastBuildDate>Wed, 21 Sep 2022 06:34:02 +0900</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/guide/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>딥러닝 GPU 성능 비교 정리</title>
+      <link>https://happygrammer.github.io/guide/gpu/</link>
+      <pubDate>Wed, 21 Sep 2022 06:34:02 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/guide/gpu/</guid>
+      <description>GPU와 CPU의 차이점 GPU는 그래픽 처리에서 사용했다. 최근 GPU는 그래픽 처리 뿐 아니라 병렬 수치 연산에도 이용되고 있다. 딥러닝은 대량의 곱셈, 큰 행렬의 내적 등을 수행하는데 GPU 컴퓨팅을 이용하면 연속을 고속화하여 처리할 수 있다. CPU(CPU, Central Processing Unit)와 GPU(GPU, Grapical Processing Unit)는 공통적으로 마이크로프로세서이다. 둘다 데이터를 처리한다는 공통점이 있다. 그런데 이 둘은 아키텍처가 다르고 용도와 목적이 다르다. CPU는 코어 성능이 중요한 워크 로드에 적합하다. CPU 내부의 ALU(arithmetic Logic Unit)는 순차적인(sequential) 방식으로 명령어를 하나씩 처리하는 특징이 있다.</description>
+    </item>
     
     <item>
       <title>클린 아키텍처 재해석</title>

@@ -3,14 +3,28 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://happygrammer.github.io/column/</loc>
-    <lastmod>2022-09-09T22:01:15+09:00</lastmod>
+    <loc>https://happygrammer.github.io/guide/</loc>
+    <lastmod>2022-09-21T06:34:02+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://happygrammer.github.io/</loc>
+    <lastmod>2022-09-21T06:34:02+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/guide/gpu/</loc>
+    <lastmod>2022-09-21T06:34:02+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/column/</loc>
     <lastmod>2022-09-09T22:01:15+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -26,13 +40,6 @@
   <url>
     <loc>https://happygrammer.github.io/column/find-out-the-bad-code/</loc>
     <lastmod>2022-09-08T13:33:15+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/guide/</loc>
-    <lastmod>2022-06-13T00:18:44+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

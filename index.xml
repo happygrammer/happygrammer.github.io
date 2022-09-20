@@ -311,6 +311,15 @@ $ rustup rustup 1.23.1 (3df2264a9 2020-11-30) The Rust toolchain installer USAGE
     </item>
     
     <item>
+      <title>Precision과 Recall의 이해</title>
+      <link>https://happygrammer.github.io/ml/precision-recall/</link>
+      <pubDate>Fri, 01 Jan 2021 20:02:08 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/ml/precision-recall/</guid>
+      <description>적합 문서 검색엔진의 성능은 적합 문서(relevant document)를 잘 찾는 능력이다. 적합 문서를 잘 찾으려면 적합성을 고려해야 한다. 적합성은 사용자 적합성과 주제 적합성을 고려한다. 사용자 적합성은 사용자에게 맞는 적합한 문서를 찾았는지에 대한 것이다. 예를 들어 질의에 맞는 문서를 찾았지만, 사용자에게 올바른 답변을 줄 수 없는 문서라면 사용자 적합성이 없다고 본다. 주제 적합성은 사용자 질의에 맞는 적합한 문서를 찾았는지에 대한 것이다. 단순 grep과 같은 키워드 일치 만으로 문서를 찾았다면 관련 문서는 찾았지만, 사용자 주제에 맞지 않는 문서가 검색될 수 있다.</description>
+    </item>
+    
+    <item>
       <title>정보 은닉과 추상화</title>
       <link>https://happygrammer.github.io/essay/information-hidding/</link>
       <pubDate>Thu, 31 Dec 2020 16:03:20 +0300</pubDate>

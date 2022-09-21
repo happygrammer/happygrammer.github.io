@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>딥러닝 GPU 성능 비교 정리</title>
+    <title>딥러닝 GPU 성능 비교</title>
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -9,7 +9,7 @@
     
     
 
-        <meta property="og:title" content="딥러닝 GPU 성능 비교 정리" />
+        <meta property="og:title" content="딥러닝 GPU 성능 비교" />
     
     <meta property="og:description" content="" />    
     <meta property="og:type" content="website" />
@@ -70,7 +70,7 @@
             
             <div><a href="/guide/" class="archive-article-date">&lt; Guides</a></div>
             
-            <h1 class="article-title" itemprop="name">딥러닝 GPU 성능 비교 정리</h1>
+            <h1 class="article-title" itemprop="name">딥러닝 GPU 성능 비교</h1>
         </header>
         
         <div class="article-meta">
@@ -105,13 +105,15 @@
 <li><a href="https://www.nvidia.com/en-us/deep-learning-ai/products/titan-rtx/">NVIDIA Titan RTX : 24G(VRAM)</a> : 576 텐서 코어, 24GB(VRAM)</li>
 <li><a href="https://www.evga.com/products/Specs/GPU.aspx?pn=4dfa53cc-d38f-4604-8c59-592054f337d7">EVGA GeForce RTX 3080</a> : 8704 CUDA Cores, 10GB(GDDR6), 가성비를 갖춘 제품</li>
 <li>NVIDIA V100 : 640 텐서 코어, 16G or 32G</li>
-<li>NVIDIA A100</li>
+<li>NVIDIA A100  : NLINK(3세대, GPU간 대역폭 2배 개선)</li>
 <li>NVIDIA H100 : 80G</li>
 </ul>
 <p><img src="../gpu-h100-a100-v100-p100.png" alt=""></p>
 <p>[그림] NVIDIA GPU 사양 (출차 : <a href="https://videocardz.com/newz/nvidia-h100-hopper-gpu-with-80gb-memory-listed-in-japan-for-over-33000-usd">videocardz</a>)</p>
 <h3 id="---">쿠다 코어와 텐서코어의 차이점</h3>
 <p>코어는 CPU와 달리 GPU는 제조사 마다 다른 이름을 붙인다. 엔비디아는 CUDA 코어, AMD는 컴퓨트 유닛 또는 스트림 프로세서라고 부른다.  CUDA(Compute Unified Device Architecture) 코어는 NVIDIA에서 만든 GPU의 병렬 처리를 위한 CPU이다. CUDA 코어는 엔비니아에서 10년간 개발한 대부분의 GPU에 존재했으며 최근에는 행렬 곱셈 프로세스 가속 처리 장치인 텐서 코어가 도입되었다. 텐서 코어는 CUDA 코어에 비해 빠르게 계산할 수 있다. CUDA 코어는 클럭 사이클당 하나의 연산을 수행하지만 정확하고 텐서 코어는 클럭 사이클당 여러번 연산을 수행해 속도가 빠르다. 텐서 코어는 딥러닝 학습시 빠르면서 높은 정확도의 모델을 만들때 사용한다.</p>
+<h3 id="-gpu">멀티 GPU</h3>
+<p>GPU는 1개로 사용할 수 있지만 필요에 따라 처리량을 늘리고 싶은 경우가 있다 이런 경우는, GPU 장착 숫자를 2개 이상으로 늘릴 수 있다. 다중 GPU를 제조하는 대표적인 회사로 NVIDIA와 AMD가 있다. NVIDIA는 SLI(scalable linked interface)라는 기술로 연결을 지원하고 AMD는 CrossFire라는 기술로 지원한다. 최근 NVIDIA의 경우 SLI대신 GeForce 20 이후부터 SLI라는 기술 대신 <a href="https://www.nvidia.com/en-us/data-center/nvlink/">NVLINK</a>라는 기술을 이용해 다중 GPU를 지원한다. 기존 SLI는 8G 중에 사용할 공간 4G만 공유를 하게 되어 GPU 2개를 이용하게 되었을때 8G의 용량 낭비가 되지만 NVLINK는 이런한 기술적인 단점을 극복하였다. 최근에는 멀티 GPU와 결합해 범용 딥러닝을 위한 맞춤형 AI 서버 제품이 만들어지기도 하는데, 대표적으로  <a href="https://www.nvidia.com/en-us/data-center/dgx-systems/">NVIDIA DGX System</a>(H/W)이다. <code>NVIDIA DGX A100</code>는 NVIDIA A100이 총 8개가 포함되어 있으며 범용 딥러닝을 위한 H/W를 포함하고 있다.</p>
 
 	    
 	    <div class="fb-comments" data-href="https://happygrammer.github.io/guide/gpu/" width="100%" data-width="" data-numposts="3"></div>
@@ -129,6 +131,7 @@
         <li><a href="#gpu--">GPU 발표 히스토리</a></li>
         <li><a href="#---gpu">딥러닝에서 사용 가능한 GPU</a></li>
         <li><a href="#---">쿠다 코어와 텐서코어의 차이점</a></li>
+        <li><a href="#-gpu">멀티 GPU</a></li>
       </ul>
     </li>
   </ul>

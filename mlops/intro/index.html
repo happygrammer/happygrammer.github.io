@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MLOps란 무엇인가?</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="MLOps란 무엇인가?" />
+    
+    <meta property="og:description" content="" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/mlops/intro/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v12.0&appId=2329733600657924&autoLogAppEvents=1" nonce="A45x76GJ"></script>
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">happyg</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/mlops/" class="archive-article-date">&lt; Mlops</a></div>
+            
+            <h1 class="article-title" itemprop="name">MLOps란 무엇인가?</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/mlops/intro/" class="article-date">
+                <time datetime='2023-01-10T03:28:11.000&#43;09:00' itemprop="datePublished">2023-01-10</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p><code>MLOps</code>는 머신러닝과 소프트웨어 분야의 <code>DevOps</code>를 합친 합성어이다. ML 모델의 생성 배포에 필요한 운영 비용을 낮추고 효율적으로 ML 모델을 운영하기 위해 필요한 모범 사례 모음이기도 하다. MLOps는 생명 주기의 각 과정을 자동화하는 데 과업들을 포함한다. MLOps라는 용어에서 느껴지듯 ML 영역과  IT 의 역할을 합쳐 놓은 합성어이다. MLOps는 크게 ML 영역과 DEV영역과  OPS영역으로 구분할 수 있다.</p>
+<p><img src="https://blogs.nvidia.com/wp-content/uploads/2020/09/MLOps-Neal-Analytics-672x296.png.webp" alt=""></p>
+<p>출처 : <a href="https://blogs.nvidia.com/blog/2020/09/03/what-is-mlops/">MLOps란 무엇인가?</a></p>
+<p>ML 영역에서는 라벨링 처리된 데이터를 이용해 효율적인 모델을 훈련하는데 초점이 있고, DEV 영역에서는 생성된 모델을 어떻게 패키징하고 검증하는 등 모델 관리에 초점을 맞추고 있다. OPS 영역에서는 모델을 배포하고 모델을 모니터링하여서 상용 환경에서 문제없도록 운영하는데 초점이 있다.</p>
+<p>생명 주기 관점에서 <code>MLOps</code>는 개발 부터 상용(production) 적용에 필요한 수명 주기를 포함한다.</p>
+<ul>
+<li>ML 데이터 수집 및 분석 단계</li>
+<li>ML 모델 학습 단계</li>
+<li>ML 모델 검증/테스트 단계</li>
+<li>ML 모델 배포 단계</li>
+</ul>
+<p><code>데이터 수집 및 분석 단계</code>에서는  데이터를 어떻게 수집할지에 대한  방식과 수집된 데이터를 어떻게 전처리할지에 대한 내용을 포함한다. 데이터 관리자는 ML 엔지니어와 협업하여 모델에 사용할 데이터의 전처리 방법, 라벨링의 규약, 최종적인 데이터의 형식(format) 등과 같이 사전에 협의가 이뤄진 형태로 데이터를 가공하고 관리하는 역할을 수행한다. <code>ML 모델 학습 단계</code>에서는 수집된 데이터를  이용해 학습기의 입력으로 넣어서 모델을 효율적으로 훈련하는 데 초점을 둔다. 훈련된 모델은 모델 검증/테스트 단계를 거쳐 상용 환경에 배포된다.</p>
+<h3 id="mlops-">MLOps 엔지니어</h3>
+<p>MLOps 생명주기를 효율적으로 운영하기 위해서는 이를 개발하고 운영할 수 있는 MLOps 엔지니어가 필요하다. MLOps 엔지니어는 MLOps의 생명 주기를 관리하고 운영하는 역할을 한다.</p>
+<p><img src="https://blogs.nvidia.com/wp-content/uploads/2020/09/1-MLOps-NVIDIA-invert-final.jpg" alt=""></p>
+<p>출처 : <a href="https://blogs.nvidia.com/blog/2020/09/03/what-is-mlops/">MLOps란 무엇인가?</a>](<a href="https://blogs.nvidia.com/blog/2020/09/03/what-is-mlops/">https://blogs.nvidia.com/blog/2020/09/03/what-is-mlops/</a>)</p>
+<h3 id="model-ops">Model Ops</h3>
+<p>ModelOps는 모델을 평가하고 업데이트하는 운영 과정을 의미한다. ModelOps는 기술 전문가(데이터 과학자와 ML 엔지니어, IT 전문가가 협업)로 구성된 MLOps와 달리 <code>비즈니스 도메인 전문가</code>의 참여를 허용한다. 모델은 편견을 허용하지 않아야 하며 공정한 방식으로 작동해야 한다. 또한 적절한 수명이 제한되어 있어 오래된 모델은 폐기하고 신규 모델로 업데이트하는 과정이 필요하다. ModelOps는 신뢰할 수 있는 모델, 편향되지 않은 모델을 운영하기 위해 비즈니스의 방향에 맞춰 모델의 통제, 규정 준수 과정을 포함해 AI  모델 운영과 관련한 과정을 포함한다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/mlops/intro/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#mlops-">MLOps 엔지니어</a></li>
+        <li><a href="#model-ops">Model Ops</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/guide/gpu/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">딥러닝 GPU 성능 비교&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

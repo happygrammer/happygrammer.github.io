@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mlops on happyg</title>
+    <link>https://happygrammer.github.io/mlops/</link>
+    <description>Recent content in Mlops on happyg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 10 Jan 2023 03:28:11 +0900</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/mlops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>MLOps란 무엇인가?</title>
+      <link>https://happygrammer.github.io/mlops/intro/</link>
+      <pubDate>Tue, 10 Jan 2023 03:28:11 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/intro/</guid>
+      <description>MLOps는 머신러닝과 소프트웨어 분야의 DevOps를 합친 합성어이다. ML 모델의 생성 배포에 필요한 운영 비용을 낮추고 효율적으로 ML 모델을 운영하기 위해 필요한 모범 사례 모음이기도 하다. MLOps는 생명 주기의 각 과정을 자동화하는 데 과업들을 포함한다. MLOps라는 용어에서 느껴지듯 ML 영역과 IT 의 역할을 합쳐 놓은 합성어이다. MLOps는 크게 ML 영역과 DEV영역과 OPS영역으로 구분할 수 있다.
+출처 : MLOps란 무엇인가?
+ML 영역에서는 라벨링 처리된 데이터를 이용해 효율적인 모델을 훈련하는데 초점이 있고, DEV 영역에서는 생성된 모델을 어떻게 패키징하고 검증하는 등 모델 관리에 초점을 맞추고 있다.</description>
+    </item>
+    
+  </channel>
+</rss>

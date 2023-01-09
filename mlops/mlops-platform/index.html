@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MLOps 플랫폼</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="MLOps 플랫폼" />
+    
+    <meta property="og:description" content="" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/mlops/mlops-platform/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v12.0&appId=2329733600657924&autoLogAppEvents=1" nonce="A45x76GJ"></script>
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">happyg</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/mlops/" class="archive-article-date">&lt; Mlops</a></div>
+            
+            <h1 class="article-title" itemprop="name">MLOps 플랫폼</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/mlops/mlops-platform/" class="article-date">
+                <time datetime='2023-01-10T05:04:54.000&#43;09:00' itemprop="datePublished">2023-01-10</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="heading">로우코드/노코드</h3>
+<p>최근 AI 개발 및 서비스 운영을 좀더 손쉽게해 로우코드/노코드 라는 말이 유행이다. 로우코드는 최소한의 개발 지식만 있더라도 S/W를 만들 수 있는 기술을 의미한다. 노코드는 조금더 나아가 개발 지식이 없더라도 클릭이나 간단한 명령만으로도 개발을 할 수 있는 기술이다. MLOps 영역도 <code>로우코드/노코드</code>에 영향을 받아 모델 엔지니어링을 본다 손쉽게할 수 있도록 MLOps 과정을 솔루션화 해서 플랫폼화 하려는 기술 흐름이 있다.</p>
+<h3 id="mlops-">MLOps 플랫폼이란?</h3>
+<p>MLOps 플랫폼 기술은 상용을 위한 기계학습 애플리케이션 배포 및 확장과 관련한 기술이다. 크게 세가지 관점의 기술 내용을 포함한다.</p>
+<ul>
+<li>ML 모델 상태 관리</li>
+<li>E2E 머신러닝 오케스트레이션</li>
+<li>컨테이너 기술</li>
+</ul>
+<p>ML 모델 상태 관리 기술은 학습 모델의 자동 배포와 학습된 모델의 생명 주기를 관리 하는 기술이다. 모델의 생성 날짜, 생성 주기, 모델의 성능 수치와 같은 모델의 특성 정보를 포함할 수 있다. 이 기술은 모델을 모니터링하여 모델의 사용량과 모델의 처리량을 지속적으로 모니터링하고 제어하는 것 뿐 아니라 신규 모델을 찾아 해당 모델의 사양을 확인하고 비교할 수 있는 기술을 포함한다. E2E 머신러닝 오케스트레이션 기술은 <code>AutoML</code> 기능을 활용해 AI 모델 생성의 복잡성을 낮추는 기술이다. 사용자가 머신러닝 지식 배경이 없더라도 <code>AutoML</code>의 기능을 활용하면 자동화된 모델을 생성할 수 있게 된다. <code>컨테이너 기술</code>은 MLOps의 중요 과정들을 <code>컨테이너</code>하고 솔루션화 하여 MLOps 적용과 운영 과정의 복잡성을 줄이는 기술이다.</p>
+<h3 id="mlops--">MLOps 최적화 기술</h3>
+<p>MLOps 플랫폼 기술은 AI 모델 생명주기를 보다 효율적이고 유연하게 관리하기 위해 최적화 기술 지원이 필요하다.</p>
+<ul>
+<li>AutoML (Automated Machine Learning)</li>
+<li>파인튜닝 기술</li>
+<li>GPU 최적화 기술</li>
+</ul>
+<p>먼저 <code>AutoML</code>기술이다. AutoML기술은 데이터 전처리, 학습 과정의 매개변수인 <code>하이퍼파라메터 탐색</code>, <code>알고리즘 선택</code>문제를 자동화하는 기술이다. 이 기술을 보다 솔루션할 수 있다면 사용자가 <code>ML</code>지식이 없더라도 비즈니스 환경에 맞는 최적의 모델을 생성하는데 도움이 될 수 있다.<code>파인튜닝</code> 기술은 사전 학습된 언어 모델(pretrained language model)을 추가로 재학습해 활용하는 기술을 의미한다. 모델은 정책에 따라 공개될 수 있으며, 비즈니스 또는 사용자의 요구에 따라 확장이 필요할 수 있다. 파인튜닝 기술을 활용하면 언어 모델의 확장하고, 모델 운영 비용을 대폭 절감하는데 도움이 될 수 있다.  <code>GPU 최적화 기술</code> 은 모델 생성에 필요한 GPU 사용량을 효과적으로 관리하여 모델 생성과 운영 필요한 비용을 줄이는 기술이다. 하나의 AI 모델을 생성하기 위해서는 많은 GPU 자원이 필요하며 사용자에게는 부담이 된다. MLOps 관련 솔루션은 <code>GPU 최적화 기술</code>을 포함하여 적은 GPU 사용량으로도 동등 수준의 AI 모델 생성을 지원할 수 있어야한다. GPU 최적화 기술의 예로 <code>NVIDIA/DALI</code>, NVIDIA/TensorRT 등과 같은 기술이 있다.</p>
+<p><img src="https://developer-blogs.nvidia.com/ko-kr/wp-content/uploads/sites/5/2022/04/TensorRT.png" alt=""></p>
+<p>출처 : <a href="https://developer-blogs.nvidia.com/ko-kr/wp-content/uploads/sites/5/2022/04/TensorRT.png">NVIDIA TensorRT</a></p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/mlops/mlops-platform/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#heading">로우코드/노코드</a></li>
+        <li><a href="#mlops-">MLOps 플랫폼이란?</a></li>
+        <li><a href="#mlops--">MLOps 최적화 기술</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/mlops/intro/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">MLOps란 무엇인가?&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

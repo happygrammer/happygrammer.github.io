@@ -6,10 +6,20 @@
     <description>Recent content on happyg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 10 Jan 2023 03:28:11 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 10 Jan 2023 05:04:54 +0900</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MLOps 플랫폼</title>
+      <link>https://happygrammer.github.io/mlops/mlops-platform/</link>
+      <pubDate>Tue, 10 Jan 2023 05:04:54 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/mlops-platform/</guid>
+      <description>로우코드/노코드 최근 AI 개발 및 서비스 운영을 좀더 손쉽게해 로우코드/노코드 라는 말이 유행이다. 로우코드는 최소한의 개발 지식만 있더라도 S/W를 만들 수 있는 기술을 의미한다. 노코드는 조금더 나아가 개발 지식이 없더라도 클릭이나 간단한 명령만으로도 개발을 할 수 있는 기술이다. MLOps 영역도 로우코드/노코드에 영향을 받아 모델 엔지니어링을 본다 손쉽게할 수 있도록 MLOps 과정을 솔루션화 해서 플랫폼화 하려는 기술 흐름이 있다.
+MLOps 플랫폼이란? MLOps 플랫폼 기술은 상용을 위한 기계학습 애플리케이션 배포 및 확장과 관련한 기술이다.</description>
+    </item>
     
     <item>
       <title>MLOps란 무엇인가?</title>

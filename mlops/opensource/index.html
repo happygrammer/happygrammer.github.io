@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MLOps 오픈소스</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="MLOps 오픈소스" />
+    
+    <meta property="og:description" content="" />    
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/mlops/opensource/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v12.0&appId=2329733600657924&autoLogAppEvents=1" nonce="A45x76GJ"></script>
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">happyg</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/guide/">Guide</a>
+                
+                <a class="main-nav-link" href="/nlp/">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/mlops/" class="archive-article-date">&lt; Mlops</a></div>
+            
+            <h1 class="article-title" itemprop="name">MLOps 오픈소스</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/mlops/opensource/" class="article-date">
+                <time datetime='2023-01-11T06:02:52.000&#43;09:00' itemprop="datePublished">2023-01-11</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>MLOps를 체계적으로 적용하기에 앞서 <code>MLOps 도구</code>를 도입할 필요가 있다. <code>ML Ops</code>의 도구 중 오픈소스는 기업이 도입하기에 유리한 방식이다. 오픈소스 도입 전에 한가지 생각해 볼 점은 오픈소스는 무료이지만 오픈된 범위내에서 기능을 무료로 사용할 수 있지만 오픈되지 않는 기능에 대한 일부 기능은 제한될 수 있다. 또한 오픈소스 사용 중 발생하는 문제에 대해서는 오픈소스 제공자가 기술 지원을 책임지지 않을 수 있다는 점이다.</p>
+<h2 id="mlops-">MLOps 오픈소스</h2>
+<p>MLOps 오픈소스는 구축하려는 MLOps 체계를 고려해 취사 선택할 수 있다.</p>
+<h3 id="heading">큐브플로우</h3>
+<p>먼저 소개할 오픈소스는 큐브플로우(kubeflow)이다. 큐브 플로우는 ML 작업을 간소화하기 위한 기능을 제공하는 E2E(End-to-End) AI 도구이다. 쿠브플로우는 다음과 같은 컴포넌트로 구성되어있다.</p>
+<p><img src="https://www.kubeflow.org/docs/images/kubeflow-overview-platform-diagram.svg" alt=""></p>
+<p>출처 : <a href="https://www.kubeflow.org/docs/images/kubeflow-overview-platform-diagram.svg">kubeflow.org</a></p>
+<p>딥러닝 학습을 위한 Pytorch/Tensorflow/sckit-learn과 같은 학습 프레임워크를 포함한다. 이외에도 다음과 같은 컴포넌트를 포함한다.</p>
+<ul>
+<li>노트북 : 주피터는 노트북을 생성하고 사용자를 지정하고 나면, 코드의 실행과 분석 결과를 제공</li>
+<li>Experiments(AutoML) : 반복 실험을 자동화하는 도구이며, AutoML은 카티브(Katib)를 사용해 AutoML 기능을 제공</li>
+<li>KServe : 기계학습 모델을 배포하고 추론 기능을 제공</li>
+<li>KFP(Kubeflow PIpelines) : 모델 생명 주기(데이터 변환/하이퍼파라미터 튜닝/모델 학습/배포)의 워크 플로 지원</li>
+<li>Central Dashboard : 브라우저를 통해 노트북, AutoML, KFP 등의 컴포넌트를 이용할 수 있다.</li>
+</ul>
+<h3 id="ml-">ML 플로우</h3>
+<p>ML Flow는 머싱러닝 엔지니어가 모델과 관련한 학습, 배포, 테스트를 통해 머신러닝 모델의 생명 주기를 관리할 수 있는 오픈소스 플랫폼이다. 모델 성능을 모니터링하고, 주기를 관리하려는 경우 유용할 수 있다. ML 플로우는 다음과 같은 형태의 대시 보드를 제공할 수 있다.</p>
+<p><img src="https://www.databricks.com/wp-content/uploads/2019/10/model-registry-dash.png" alt=""></p>
+<p>출처 : <a href="https://www.databricks.com/wp-content/uploads/2019/10/model-registry-dash.png">databricks</a></p>
+<p>위의 대시 보드와 유사한 기능을 수행하는 프레임워크로 <code>TensorBoard</code>(무료)와 <code>Neptrune</code>(개인에게만 무료)이 있다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/mlops/opensource/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#mlops-">MLOps 오픈소스</a>
+      <ul>
+        <li><a href="#heading">큐브플로우</a></li>
+        <li><a href="#ml-">ML 플로우</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    
+    <a href="/mlops/mlops-platform/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">MLOps 플랫폼&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

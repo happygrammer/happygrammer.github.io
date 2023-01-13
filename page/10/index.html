@@ -66,6 +66,71 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/shell/date-time/">날짜와 시간 처리</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/shell/date-time/" class="article-date">
+                        <time datetime='2020-01-15T07:15:14.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    시간 설정 $ date -s &quot;2020-02-02 04:00:20&quot; 날짜 포맷 출력(기본 포맷) mm/dd/yy형식으로 날짜 출력
+date +&quot;%D&quot; 날짜 포맷 출력(지정 포맷) yyyy-mm-dd 형식의 날짜 출력
+date &quot;+%Y-%m-%d&quot; echo date # 2020-01-14 시간 출력(기본 포맷) hh-mm-ss 형식의 시간 출력
+date +&quot;%T&quot; # 04:09:51 시간 출력(12시간 기준) date +&quot;%r&quot; # 04:09:51 AM 날짜와 시간 출력(기본 포맷) now=$(date) echo $no # 2020년 1월 15일 수요일 05시 19분 36초 MSK 날짜와 시간 출력(지정 포맷) yyyy-mm-dd_hh-mm-ss 형식으로 출력
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/shell/date-time/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/wsd/">중의성의 분류와 중의성 해소</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/wsd/" class="article-date">
+                        <time datetime='2020-01-15T06:41:24.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    이 글은 중의성의 종류를 소개하고, 중의성 해소에 필요한 방법을 알아보겠습니다.
+중의성의 분류 자연어 처리에서 중의성 해결은 중요한 태스크입니다. 중의성은 하나의 언어 표현이 둘 이상의 해석이 가능한 특성을 의미합니다. 중의성의 종류는 다음과 같습니다.
+ 어휘 중의성 구조 중의성  어휘 중의성 어휘 중의성 글자나 소리가 동일하지만 의미가 여럿인 중의성입니다. 중의성의 대표적인 예로 동음이의어(homonym)가 있습니다. 동음이의어는 글자는 동일(동형어; homographs)하지만 의미가 다른 단어(다의어; polysemes) 입니다. 동음이의어는 글자로 보면 의미가 구분이 되지 않는 애매성(ambiguity)이 있습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/wsd/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/tensorflow/keras/regression/">연비 예측을 위한 회귀 분석</a></h1>
                 </header>
                 
@@ -308,71 +373,6 @@ cat -n &lt;file-name&gt; grep 명령어와 조합해서 무자열 필터에 사�
                     </p>
                     <p class="article-more-link">
                         <a href="/tensorflow/text_classification_with_hub/">More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/tensorflow/keras/classification/">Classification</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/tensorflow/keras/classification/" class="article-date">
-                        <time datetime='2020-01-15T06:34:03.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    텐서플로우 튜토리얼(https://www.tensorflow.org/tutorials/quickstart/advanced?hl=ko) 한국어 번역 문서입니다.
-분류기의 기본 : 옷 데이터 분류하기 이번 가이드는 옷 이미지(스니커즈나 셔츠) 분류할 수 있는 뉴럴넷 모델을 학습해 보겠습니다. 바로 이해가 되지 않을 수 있지만, 텐서플로우 예제를 보고 빠르게 살펴 보겠습니다. 이 가이드는 tf.keras, 라는 고수준 API를 이용해 모델을 학습합니다.
-from __future__ import absolute_import, division, print_function, unicode_literals # TensorFlow and tf.keras import tensorflow as tf from tensorflow import keras # Helper libraries import numpy as np import matplotlib.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/tensorflow/keras/classification/">More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/tensorflow/quickstart-for-experts/">전문가용 텐서플로우 2 튜토리얼</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/tensorflow/quickstart-for-experts/" class="article-date">
-                        <time datetime='2020-01-15T06:32:43.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    텐서플로우 튜토리얼(https://www.tensorflow.org/tutorials/quickstart/advanced) 한국어 번역 문서입니다.
-전문가용 텐서플로우 2 튜토리얼 Google Colaboratory에 노트북 파일이 있습니다. 이 사이트는 파이썬 노트북 파이을 브라우저에서 바로 실행해 볼 수 있어 텐서플로우를 이해하는데 도움을 줍니다. 튜토리얼을 진행해 보겠습니다.
- Colab에서 파이썬 런타임에 접속합니다. 메뉴바의 오른쪽에 위치한 CONNECT을 선택합니다. 메뉴에서 Runtime &gt; Run all을 선택합니다.  텐서플로우 패키지 설치와 임포트 텐서플로우 2 패키지를 다운로드 받고 설치를 진행하고, 텐서플로우를 프로그램으로 임포트합니다.
-from __future__ import absolute_import, division, print_function, unicode_literals import tensorflow as tf from tensorflow.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/tensorflow/quickstart-for-experts/">More</a>
                     </p>
                 </div>
 

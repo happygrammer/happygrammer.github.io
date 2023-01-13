@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tensorrts on happyg</title>
+    <link>https://happygrammer.github.io/tensorrt/</link>
+    <description>Recent content in Tensorrts on happyg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 14 Jan 2023 05:40:46 +0900</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/tensorrt/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>TensorRT 설치</title>
+      <link>https://happygrammer.github.io/tensorrt/setup/</link>
+      <pubDate>Sat, 14 Jan 2023 05:40:46 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorrt/setup/</guid>
+      <description>TensorRT를 실행하려면 NVIDIA GPU 드라이버와 CUDA와 관련한 환경 설치를 먼저 진행하고 이후 NGC 컨테이너를 이용해 TensorRT를 실행할 수 있다.
+출처 : Optimizing and Accelerating AI Inference with the TensorRT Container from NVIDIA NGC
+TensorRT 환경 설치 TensorRT 설치를 위해서는 GPU가 있는 우분투 환경이 필요하다. 이어서 다음 순서대로 설치를 진행한다.
+ NVIDIA GPU 드라이버를 설치 Cuda 설치  먼저 NVIDIA GPU 드라이버 설치를 진행한다. 권장 드라이버를 자동으로 설치하려면 아래 명령을 입력한다.</description>
+    </item>
+    
+    <item>
+      <title>TensorRT 소개</title>
+      <link>https://happygrammer.github.io/tensorrt/intro/</link>
+      <pubDate>Sat, 14 Jan 2023 04:40:46 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/tensorrt/intro/</guid>
+      <description>TensorRT는 NVIDIA GPU상에서 모델의 추론 속도를 최적화해 주는 프레임워크이다.
+TensorRT 최적화 방식 TensorRT는 GPU의 cuda 코어에서 시행된다. cuda는 GPU와 직접 통신하기 위한 API에 해당한다. (cudo 코어와 유사하게 Tensor 코어 방식이 있지만 구글 직원이 아니라면 TPU 배포는 좋은 선택지는 아닐 수 있다.) TensorRT는 다음 그림에 소개된 크게 6가지 방식으로 최적화를 수행한다.
+위에서 몇가지만 살펴보면 Kernel Auto-tuning은 Cuda 드라이버에 맞춰 최적의 런타임을 생성할 수 있도록 한다. GPU 플랫폼 기반으로 최상의 레이어와 알고리즘, 최적의 배치 크기를 선택하는 방식이다.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -66,6 +66,71 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/tensorrt/setup/">TensorRT 설치</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/tensorrt/setup/" class="article-date">
+                        <time datetime='2023-01-14T05:40:46.000&#43;09:00' itemprop="datePublished">2023-01-14</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    TensorRT를 실행하려면 NVIDIA GPU 드라이버와 CUDA와 관련한 환경 설치를 먼저 진행하고 이후 NGC 컨테이너를 이용해 TensorRT를 실행할 수 있다.
+출처 : Optimizing and Accelerating AI Inference with the TensorRT Container from NVIDIA NGC
+TensorRT 환경 설치 TensorRT 설치를 위해서는 GPU가 있는 우분투 환경이 필요하다. 이어서 다음 순서대로 설치를 진행한다.
+ NVIDIA GPU 드라이버를 설치 Cuda 설치  먼저 NVIDIA GPU 드라이버 설치를 진행한다. 권장 드라이버를 자동으로 설치하려면 아래 명령을 입력한다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/tensorrt/setup/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/tensorrt/intro/">TensorRT 소개</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/tensorrt/intro/" class="article-date">
+                        <time datetime='2023-01-14T04:40:46.000&#43;09:00' itemprop="datePublished">2023-01-14</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    TensorRT는 NVIDIA GPU상에서 모델의 추론 속도를 최적화해 주는 프레임워크이다.
+TensorRT 최적화 방식 TensorRT는 GPU의 cuda 코어에서 시행된다. cuda는 GPU와 직접 통신하기 위한 API에 해당한다. (cudo 코어와 유사하게 Tensor 코어 방식이 있지만 구글 직원이 아니라면 TPU 배포는 좋은 선택지는 아닐 수 있다.) TensorRT는 다음 그림에 소개된 크게 6가지 방식으로 최적화를 수행한다.
+위에서 몇가지만 살펴보면 Kernel Auto-tuning은 Cuda 드라이버에 맞춰 최적의 런타임을 생성할 수 있도록 한다. GPU 플랫폼 기반으로 최상의 레이어와 알고리즘, 최적의 배치 크기를 선택하는 방식이다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/tensorrt/intro/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/mlops/opensource/">MLOps 오픈소스</a></h1>
                 </header>
                 
@@ -303,69 +368,6 @@ $ java -version openjdk version &quot;17.0.5&quot; 2022-10-18 OpenJDK Runtime En
                     </p>
                     <p class="article-more-link">
                         <a href="/guide/clean-architecture/">More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/guide/initialize-git-repository/">깃 저장소의 커밋 히스토리 초기화</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/guide/initialize-git-repository/" class="article-date">
-                        <time datetime='2021-12-01T01:26:13.000&#43;03:00' itemprop="datePublished">2021-12-01</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    깃 저장소를 마지막 변경 파일만 남기고 커밋 이력을 초기화하고 싶은 경우가 있다. 깃 저장소 커밋 이력을 초기화 하는 방법에 대해서 살펴보자. 작업 과정을 명확히 공유하기 위해 실재 입력한 명령어와 반영된 결과 그리고 실재 작업된 결과를 첨부 하였다. 다음과 같은 순서로 진행할 예정이다.
- 원격 저장소의 파일을 지운다. 브랜치 작업을 이용한 커밋 히스토리 삭제 신규 파일 commit  파일을 삭제해 빈 저장소로 만들기 커밋 이력을 초기화하려면 temp 브랜치를 추가(추가한 temp 브랜치에는 커밋 히스토리가 없음)하고 커밋 히스토리가 있는 master 브랜치를 삭제한 후, temp 브랜치를 master 브랜치로 이름을 변경하는 것으로 가능하다.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/guide/initialize-git-repository/">More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/worth/break_the_rules/">아인슈타인의 문제 해결법</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/worth/break_the_rules/" class="article-date">
-                        <time datetime='2021-11-24T22:14:45.000&#43;09:00' itemprop="datePublished">2021-11-24</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    필자는 아인슈타인에 대해 관심이 많다. 인류가 알지 못했던 물리학의 비밀을 밝혀준 천재여서 이기도 하지만, 그의 인생 철학들이 많이 공감되고, 필자가 추구하는 방향이기도 하다.
-같은 일을 반복하면서 다른 결과가 나오기를 기대하는 것보다더 확실한 정신병 증세는 없다. 아인슈타인은 무한한 상상력으로 자유로운 사고가 가능했다. 그의 자유로운 사고의 원천은 순응하지 않는 태도였다.
-나는 학습을 방해하는 유일한 훼방꾼은 나의 교육이다. 교육을 받고 자란 우리들은 사회화 과정을 겪어 법칙에 복종하도록 교육을 받았다. 교육은 권위에 복종하는 것 가르친다.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/worth/break_the_rules/">More</a>
                     </p>
                 </div>
 

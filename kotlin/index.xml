@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Kotlins on happyg</title>
+    <link>https://happygrammer.github.io/kotlin/</link>
+    <description>Recent content in Kotlins on happyg</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Mon, 09 Jan 2023 03:39:17 +0900</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/kotlin/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Mac에서 Kotlin 개발 환경 설치</title>
+      <link>https://happygrammer.github.io/kotlin/setup/</link>
+      <pubDate>Mon, 09 Jan 2023 03:39:17 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/kotlin/setup/</guid>
+      <description>kotlin은 IntelliJ IDEA 개발사로 유명한 JetBrains에서 2011년에 공개한 오픈 소스 프로그래밍 언어이다. Java와 유사하며 Java에 비해 조금 더 간결한 문법을 사용한다는 특징이 있다. Java와 100% 상호 호환이 가능하다. Android의 공식 언어로 채택된 언어이기도 하다. 코틀린 구성에 앞서 java를 설치하도록 한다. (환경 MacOS)
+brew install openjdk@17 설치가 완료되면 설치된 openjdk 경로를 bash_profile에 반영해준다.
+echo &#39;export PATH=&amp;quot;/usr/local/opt/openjdk@17/bin:$PATH&amp;quot;&#39; &amp;gt;&amp;gt; /Users/smarthome/.bash_profile source ~/.bash_profile 어어서 java버전을 확인한다.
+$ java -version openjdk version &amp;quot;17.0.5&amp;quot; 2022-10-18 OpenJDK Runtime Environment Homebrew (build 17.</description>
+    </item>
+    
+  </channel>
+</rss>

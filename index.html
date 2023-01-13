@@ -159,6 +159,39 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/kotlin/setup/">Mac에서 Kotlin 개발 환경 설치</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/kotlin/setup/" class="article-date">
+                        <time datetime='2023-01-09T03:39:17.000&#43;09:00' itemprop="datePublished">2023-01-09</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    kotlin은 IntelliJ IDEA 개발사로 유명한 JetBrains에서 2011년에 공개한 오픈 소스 프로그래밍 언어이다. Java와 유사하며 Java에 비해 조금 더 간결한 문법을 사용한다는 특징이 있다. Java와 100% 상호 호환이 가능하다. Android의 공식 언어로 채택된 언어이기도 하다. 코틀린 구성에 앞서 java를 설치하도록 한다. (환경 MacOS)
+brew install openjdk@17 설치가 완료되면 설치된 openjdk 경로를 bash_profile에 반영해준다.
+echo 'export PATH=&quot;/usr/local/opt/openjdk@17/bin:$PATH&quot;' &gt;&gt; /Users/smarthome/.bash_profile source ~/.bash_profile 어어서 java버전을 확인한다.
+$ java -version openjdk version &quot;17.0.5&quot; 2022-10-18 OpenJDK Runtime Environment Homebrew (build 17.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/kotlin/setup/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/guide/gpu/">딥러닝 GPU 성능 비교</a></h1>
                 </header>
                 
@@ -333,38 +366,6 @@
                     </p>
                     <p class="article-more-link">
                         <a href="/worth/break_the_rules/">More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/nlp/srl/">시맨틱 롤 레이블링 소개</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/nlp/srl/" class="article-date">
-                        <time datetime='2021-11-23T21:21:55.000&#43;09:00' itemprop="datePublished">2021-11-23</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    시맨틱 롤 레이블링은 NLP 처리의 과정 중 하나이다. 시맨틱 롤 레이블링은 다른 말로 shallow semantic parsing, slot-filling, 의미역 결정과 같은 말로도 불린다. NLU를 하기 전의 가장 기본적인 접근은 형태소 분석과 구문 분석이다. 기본적인 처리가 끝나면 시맨틱 롤 레이블을 수행할 수 있다.
-시맨틱 롤 레이블링 역사 SRL은 필모어(Charles J. Fillmore) 연구자에 의해 제안된 방법이다. 초창기 연구에서는 predicate에 해당하는 역할을 찾으려는 시도들이 있었다. 이후 프레임 넷을 이용한 SRL이라는 방식으로 확장이 되었다.
-시맨틱 롤의 종류 시맨틱 롤(role)이라는 것은 우리 말로 의미역(semantic role)이라고 볼 수 있다.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/nlp/srl/">More</a>
                     </p>
                 </div>
 

@@ -38,6 +38,20 @@
   </url>
   
   <url>
+    <loc>https://happygrammer.github.io/kotlin/</loc>
+    <lastmod>2023-01-09T03:39:17+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/kotlin/setup/</loc>
+    <lastmod>2023-01-09T03:39:17+09:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://happygrammer.github.io/guide/</loc>
     <lastmod>2022-09-21T06:34:02+09:00</lastmod>
     <changefreq>monthly</changefreq>

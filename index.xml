@@ -107,7 +107,7 @@ TensorRT 최적화 방식 TensorRT는 GPU의 cuda 코어에서 시행된다. cud
     </item>
     
     <item>
-      <title>Mac에서 Kotlin 개발 환경 설치</title>
+      <title>Mac에서 Kotlin 설치</title>
       <link>https://happygrammer.github.io/kotlin/setup/</link>
       <pubDate>Mon, 09 Jan 2023 03:39:17 +0900</pubDate>
       

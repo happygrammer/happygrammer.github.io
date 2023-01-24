@@ -6,10 +6,21 @@
     <description>Recent content in Mlops on happyg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 22 Jan 2023 06:10:22 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jan 2023 12:58:56 +0900</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/mlops/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Airflow 설치</title>
+      <link>https://happygrammer.github.io/mlops/airflow/</link>
+      <pubDate>Tue, 24 Jan 2023 12:58:56 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/airflow/</guid>
+      <description>apache/airflow 도커 이미지는 다음과 같은 사항이 포함되어 있다.
+ Airflow 설치시 필요한 패키지가 포함된 기본 OS(안정적인 Debian OS) 릴리스된 Airflow의 MINOR 버전에 대해 릴리스 당시 지원되는 버전의 기본 Python 설치 지원되는 데이터베이스에 연결하는 데 필요한 라이브러리  Airflow 설치를 간소화 하기 위해 bitnami/airflow  이미지를 이용한다.
+$ docker pull bitnami/airflow Using default tag: latest latest: Pulling from bitnami/airflow dfe669f82390: Pull complete 8bf860e9a38f: Pull complete Digest: sha256:a757ac272b952f4b0be9f12058e0fea5a8181d24c4c1ae420ae1bb713a9de8ae Status: Downloaded newer image for bitnami/airflow:latest docker.</description>
+    </item>
     
     <item>
       <title>MLFlow 소개</title>

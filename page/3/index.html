@@ -66,6 +66,38 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/ml/transformers/">트랜스포머 모델의 개발</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/ml/transformers/" class="article-date">
+                        <time datetime='2021-09-05T05:28:46.000&#43;03:00' itemprop="datePublished">2021-09-05</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    트랜서포머는 어텐션 매커니즘이 적용된 딥러닝 모델이다. 2017년 구글이 발표한 &ldquo;Attention is all you need&rdquo; 논문에서 처음 소개 되었다. RNN(1986) 모델과 LSTM(1997)와 같은 Recurrent 모델을 대체할 수 있는 대안 모델이 되었다. 트랜스포머는 자연어 처리, 컴퓨터 비전, 오디오 처리와 갈은 분야에서 성공을 거뒀다. 그래서 관심을 받고 있다. 최근에는 트랜스포머의 다양한 변형이 존재한다.
+트랜스포머 모델 개발 트랜서포머 모델을 개발하는 세가지 관점이 존재한다.
+ 모델 효율성 : 계산과 메모리 복잡도를 개선하는 것이다. 이를 위해 셀프 어텐션 모듈을 이용한다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/ml/transformers/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/nlp/dialog-system-chatbots/">대화형 에이전트</a></h1>
                 </header>
                 
@@ -343,39 +375,6 @@ function init() { // 외부 함수 function message() { // 내부 함수 return 
                     </p>
                     <p class="article-more-link">
                         <a href="/guide/code-review/">More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/linux/sudo/">Sudo 권한 획득(CVE-2021-3156) 취약점 조치방법</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/linux/sudo/" class="article-date">
-                        <time datetime='2021-04-09T21:45:33.000&#43;03:00' itemprop="datePublished">2021-04-09</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    sudo 명령어의 -s 또는 -i 옵션을 사용할때 특수 문자 이스케이프시에 로컬 사용자가 root권한을 획득할 수 있는 보안 취약점이 발견 되었다.
- 취약점 코드 - CVE-2021-3156 (취약점 명칭은 Baron Samedit라고 명명됨)  권한 없는 로컬 사용자가 인증 없이 root 권한 획득을 할 수 있다. 취약점이 있는 sudo 버전은 다음과 같다.
-1.8.2 ~ 1.8.31p2 1.9.0 ~ 1.9.5p1 sudo 버전은 다음 명령어로 확인할 수 있다.
-$ sudo -V sudo에 취약점이 있는지를 확인하고 싶다면 다음 명령어를 입력해 확인할 수 있다.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/linux/sudo/">More</a>
                     </p>
                 </div>
 

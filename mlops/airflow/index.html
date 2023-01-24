@@ -88,7 +88,7 @@
 <li>릴리스된 Airflow의 MINOR 버전에 대해 릴리스 당시 지원되는 버전의 기본 Python 설치</li>
 <li>지원되는 데이터베이스에 연결하는 데 필요한 라이브러리</li>
 </ul>
-<p>Airflow 설치를 간소화 하기 위해 <code>bitnami/airflow </code> 이미지를 이용한다.</p>
+<p>Airflow 설치를 간소화 하기 위해 <a href="https://hub.docker.com/r/bitnami/airflow">bitnami/airflow</a> 이미지를 이용한다.</p>
 <pre><code>$ docker pull bitnami/airflow
 Using default tag: latest
 latest: Pulling from bitnami/airflow
@@ -106,7 +106,7 @@ bitnami/airflow-scheduler   2         cf2f68fdfd6a   5 hours ago   1.46GB
 bitnami/airflow-worker      2         4bf59d142d53   5 hours ago   1.47GB
 bitnami/redis               7.0       2a5106976cc6   2 days ago    95.4MB
 bitnami/postgresql          15        22990d7b6444   2 days ago    277MB
-</code></pre><p>docker compose 파일을 다운로드 받는다.</p>
+</code></pre><p>docker compose yml 파일을 다운로드 받는다.</p>
 <pre><code>$ curl -sSL https://raw.githubusercontent.com/bitnami/containers/main/bitnami/airflow/docker-compose.yml &gt; docker-compose.yml
 $ docker-compose up -d
 </code></pre><p>도커 컴포즈로 컨테이너를 실행하면 관련 컨테이너가 함께 실행된다.</p>

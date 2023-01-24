@@ -66,6 +66,37 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/netty/handler/">Netty 채널 소개와 채널 핸들러</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/netty/handler/" class="article-date">
+                        <time datetime='2020-03-22T10:10:24.000&#43;03:00' itemprop="datePublished">2020-03-22</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    채널은 IO 동작(파일, 소켓)을 수행할 수 있는 연결 상태를 의미합니다. Netty에서는 채널 핸들러를 이용해 관심사 분리를 수행합니다.
+채널 핸들러 종류    종류      Inbound Handler 입력 데이터(in bound)에 대한 변경 상태를 감시하고 처리하는 역할을 하는 핸들러   Outbound Handler 출력 데이터(out bound)에 대한 동작을 가로채 처리하는 역할을 하는 핸들러    ChannelInboundHandler 메소드    종류 설명     channelRegistered(&hellip;) 채널이 이벤트 루프에 등록됐을때 호출됨   channelUnregistered(&hellip;) 채널이 생성 됐지만, 이벤트 루프에 등록되지 않았을때 호출됨   channelActive(&hellip;) 채널이 활성화 됐을때(peer와 연결됐을때) 호출됨.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/netty/handler/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/netty/intro/">Netty 핵심 컴포넌트</a></h1>
                 </header>
                 
@@ -348,36 +379,6 @@ Angular CLI 소개와 설치 지금 소개하려는 Angular CLI(Angular Command 
             </div>
         </article>
         
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/docker/docker/">Docker 명령어 소개</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/docker/docker/" class="article-date">
-                        <time datetime='2020-02-19T06:50:32.000&#43;03:00' itemprop="datePublished">2020-02-19</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    컨테이너 확인 docker container ls $ docker container ls CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 2463b80300ec mariadb &quot;docker-entrypoint.s…&quot; 13 seconds ago Up 12 seconds 0.0.0.0:3306-&gt;3306/tcp mariadb  컨테이너 목록을 표시하는 명령어인 docker ps 는 오래전 방식입니다. 새로운 명령어 형식은 docker container &lt;subcommand&gt;입니다. 즉, docker container ls를 권장합니다. 이때 docker container ls는 docker container ps와 동일한 명령어입니다. 즉 아래 4개 명령어는 정확히 동일 기능을 수행하는 명령어입니다.  실행중인 컨테이너 정보를 표시하는 동일 명령어
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/docker/docker/">More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
 
         
 
@@ -432,6 +433,10 @@ Angular CLI 소개와 설치 지금 소개하려는 Angular CLI(Angular Command 
     
     
     <a href="/page/12/">12</a>
+    
+    
+    
+    <a href="/page/13/">13</a>
     
     
 

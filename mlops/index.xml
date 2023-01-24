@@ -6,10 +6,21 @@
     <description>Recent content in Mlops on happyg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Jan 2023 15:02:39 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 24 Jan 2023 17:14:01 +0900</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/mlops/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Streamlit 소개와 설치</title>
+      <link>https://happygrammer.github.io/mlops/streamlit/</link>
+      <pubDate>Tue, 24 Jan 2023 17:14:01 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/streamlit/</guid>
+      <description>Streamlit 소개 Streamlit은 머신 러닝 및 데이터 과학 프로젝트를 위한 오픈 소스 앱 프레임워크이다. 실험 결과를 간단히 프로토타이핑 하여 공유할 때 유용하게 사용할 수 있다.
+Streamlit 설치 $ pip install streamlit streamlit의 hello 앱을 실행한다.
+$ streamlit hello 👋 Welcome to Streamlit! If you’d like to receive helpful onboarding emails, news, offers, promotions, and the occasional swag, please enter your email address below. Otherwise, leave this field blank. Email: You can find our privacy policy at https://streamlit.</description>
+    </item>
     
     <item>
       <title>DVC 소개와 설치</title>

@@ -66,6 +66,37 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/word2vec/">Word2vec를 이용한 임베딩</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/word2vec/" class="article-date">
+                        <time datetime='2020-02-03T23:33:53.000&#43;03:00' itemprop="datePublished">2020-02-03</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    Word2vec은 워드 고품질의 워드 벡터를 생성하는 임베딩 태스크에 사용할 수 있는 모델입니다. 구글의 Tomas Mikolov이 2013년에 논문으로 발표했습니다. 이 논문에서 소개하는 단어 예측 모델로 크게 CBOW와 Skip-gram을 소개합니다. CBOW는 Context 정보를 활용해 현재 단어를 예측 하는 모델이라면 Skip-gram은 현재 워드 주변의 단어를 예측하는 모델입니다. Word2vec을 실행하면 입력으로 대규모 텍스트 코퍼스를 수백 차원의 벡터 스페이스(vector space)로 만듭니다. 기존 LSA(latent semantic analysis)에 비해 여러 장점이 있습니다.
+ 계산 비용이 적습니다. 정확도(accuracy)가 개선 됐습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/word2vec/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/hangeul/part-of-speech/">한글 9품사 5언</a></h1>
                 </header>
                 
@@ -340,38 +371,6 @@ from __future__ import print_function import torch NOTE
                     </p>
                     <p class="article-more-link">
                         <a href="/pytorch/tutorials/tensor_tutorial/">More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/guide/clean-code/">클린코드를 위한 중요 원칙 5가지</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/guide/clean-code/" class="article-date">
-                        <time datetime='2020-01-16T01:17:18.000&#43;03:00' itemprop="datePublished">2020-01-16</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    클린코드를 위한 중요 원칙 5가지가지가 무엇인지에 대해 살펴 보고자 한다.
-1. 네이밍 컨벤션 준수 구글의 자바 가이드 와 같은 사례를 참조 하면 좋다. 관례적으로 네이밍 컨벤션은 다음과 같은 원칙을 따르는 것이 좋다.
- 클래스명은 명사를 사용하며 의미가 드러나는 이름을 짓는다. 변수는 의도가 드러나는 작성한다. 메서드는 객체의 동작을 의미하므로 동사를 사용하여 이름을 짓는다. 멤버 벼수, 인자명, 로컬 변수명은 lowerCamelCase 방식을 따른다. 상수 변수명은 CONTANT_CASE 방식을 이용한다.  // Constants static final int NUMBER = 5; static final ImmutableList NAMES = ImmutableList.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/guide/clean-code/">More</a>
                     </p>
                 </div>
 

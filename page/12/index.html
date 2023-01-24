@@ -66,6 +66,38 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/linux/iconv/">ICONV 인코딩 형식 변환</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/linux/iconv/" class="article-date">
+                        <time datetime='2020-01-01T17:53:20.000&#43;09:00' itemprop="datePublished">2020-01-01</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    iconv 명령어는 입력 파일의 인코딩을 지정한 인코딩으로 변경할 수 있는 명령어(/usr/bin/iconv)이다.
+EUC KR을 UTF 8로 변경 iconv 명령어에 -c 옵션을 이용해 컨버팅이 되지 않는 문자열은 무시 하도록 할수 있다. 아래 명령어는 euc-kr에서 utf-8로 변경하는 명령이다.
+iconv -c -f euc-kr -t utf-8 FILE_EUCKR.txt &gt; FILE_UTF8.txt UTF-8을 EUC-KR로 변경 iconv -c -f utf-8 -t euc-kr FILE_UTF8.txt &gt; FILE_EUCKR.txt ICONV 옵션    옵션 설명     -c 변환할 수 없는 문자는 버림   -f ENCODING, &ndash;from-code=ENCODING 입력 파일의 인코딩   -t ENCODING, &ndash;to-code=ENCODING 출력 파일의 인코딩   &ndash;list, -l 지원하는 인코딩 목록들을 출력   &ndash;output, -o file 변환 내용을 터미널 추력 대신 지정한 파일로 출력   &ndash;silent, -s 경고 메시지를 출력하지 않음   &ndash;verbose 자세한 상태 정보를 출력    ICONV &ndash;help 옵션 상세 내용 $ iconv --help Usage: iconv [OPTION.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/linux/iconv/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/worth/interesting-mathematics/">수학이 우리에게 필요한 이유</a></h1>
                 </header>
                 

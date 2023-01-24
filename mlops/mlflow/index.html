@@ -156,7 +156,7 @@ if __name__ == &quot;__main__&quot;:
 </code></pre><p>이후 샘플 예제를 실행해 본다.</p>
 <pre><code>$ python mlflow_tracking.py
 </code></pre><p>실행 결과 <code>./mlruns</code>, <code>./outputs/test.txt</code> 결과가 생성된다. 추적 API는 데이터를 로컬 <code>./mlruns</code>디렉터리의 파일에 기록한다. 이후 MLflow의 추적 UI를 실행해본다.</p>
-<pre><code>$ mlflow ui
+<pre><code>$ mlflow ui --host 0.0.0.0
 [2023-01-21 22:31:29 +0000] [894] [INFO] Starting gunicorn 20.1.0
 [2023-01-21 22:31:29 +0000] [894] [INFO] Listening at: http://127.0.0.1:5000 (894)
 [2023-01-21 22:31:29 +0000] [894] [INFO] Using worker: sync
@@ -166,7 +166,7 @@ if __name__ == &quot;__main__&quot;:
 [2023-01-21 22:31:30 +0000] [898] [INFO] Booting worker with pid: 898
 ...
 </code></pre><p>이후 브라우저에서 URL 입력하면 별도 계정관리 화면 없이 MLflow UI 화면을 바로 접근해 확인할 수 있다.</p>
-<pre><code>mlflow ui --host 0.0.0.0
+<pre><code>http://127.0.0.1:15000/
 </code></pre><p><img src="../mlflow_first_page.jpeg" alt=""></p>
 
 	    

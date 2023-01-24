@@ -66,6 +66,37 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/rust/data_types/">Rust 데이터 타입</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/rust/data_types/" class="article-date">
+                        <time datetime='2020-06-07T15:00:03.000&#43;03:00' itemprop="datePublished">2020-06-07</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    Rust는 두개의 서브 데이터 타입이 있다. scalar와 compound이다. Rust는 정적 타입 언어(statically typed language)이다. 따라서 값을 기반으로 타입을 추론할 수 있지만, 모든 변수에 대한 타입을 알아야 컴파일이 가능하다.
+Scalar Types Integer Types    Length Signed Unsigned     8-bit i8 u8   16-bit i16 u16   32-bit i32 u32   64-bit i64 u64   128-bit i128 u128   arch isize usize    Floating-Point Types fn main() { let x = 2.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/rust/data_types/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/rust/install/">Rust 설치하기</a></h1>
                 </header>
                 
@@ -336,39 +367,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 설치 과정 Wel
                     </p>
                     <p class="article-more-link">
                         <a href="/netty/handler/">More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/netty/intro/">Netty 핵심 컴포넌트</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/netty/intro/" class="article-date">
-                        <time datetime='2020-03-21T21:29:30.000&#43;03:00' itemprop="datePublished">2020-03-21</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    네티는 자바 기반의 비동기 기반의 네트워크 프레임 워크입니다. 네티는 애플, 트위터, 페이스북, 구글, 인스타그램 등을 포함한 사용자 커뮤니티를 포함해 발전하고 있습니다. 네티는 JAVA 1.6 이상에서 외부 의존성 없이 동작 가능합니다.
-1. 채널 채널은 NIO의 기본 구조입니다. 네티는 싱글 쓰레드도 생성된 1개의 셀렉터가 N개의 채널을 관리합니다.
- Thread -&gt; Select -&gt; {채널1, 채널2, 채널3, &hellip;}  셀렉터는 이벤트 리스너 역할을 수행합니다. 클라이언트 요청이 들어 왔거나, 데이터가 도착했을 경우 셀렉터에 알립니다.
-[셀렉터를 이용한 Non-blocking I/O]
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/netty/intro/">More</a>
                     </p>
                 </div>
 

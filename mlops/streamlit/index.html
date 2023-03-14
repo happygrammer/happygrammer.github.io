@@ -62,10 +62,18 @@
         </div>
         <div class="article-entry" itemprop="articleBody">
             <h3 id="streamlit-">Streamlit 소개</h3>
-<p>Streamlit은 머신 러닝 및 데이터 과학 프로젝트를 위한 오픈 소스 앱 프레임워크이다. 실험 결과를 간단히 프로토타이핑 하여 공유할 때 유용하게 사용할 수 있다.</p>
+<p>treamlit은 Python으로 데이터 시각화 및 웹 애플리케이션 개발을 간단하게 할 수 있게 해주는 라이브러리입니다. 특히, 데이터 과학자나 머신 러닝 엔지니어들이 머신 러닝 모델의 결과를 쉽게 공유하고 데모를 만들 수 있도록 해줍니다.</p>
+<p>Streamlit은 다음과 같은 이점을 제공합니다.</p>
+<ol>
+<li>간편한 구현: Streamlit은 기본적인 웹 프레임워크와 비교하여 훨씬 적은 코드로 애플리케이션을 구현할 수 있습니다.</li>
+<li>반응성: Streamlit은 실시간으로 변경 사항을 업데이트하고, 자동으로 새로고침합니다.</li>
+<li>시각화: Streamlit은 matplotlib, bokeh, plotly 등과 같은 인기 있는 시각화 라이브러리와 함께 사용할 수 있습니다.</li>
+<li>대화형: Streamlit은 사용자 입력에 따라 결과를 동적으로 업데이트하고 다양한 인터랙티브 요소를 포함할 수 있습니다.</li>
+</ol>
+<p>Streamlit을 사용하면 머신 러닝 모델의 결과를 쉽게 공유하고, 데모를 만들어내는 등 다양한 용도로 사용할 수 있습니다. 또한 Streamlit은 Python으로 작성되어 있기 때문에, Python을 다룰 수 있다면 쉽게 사용할 수 있습니다.</p>
 <h3 id="streamlit--1">Streamlit 설치</h3>
 <pre><code>$ pip install streamlit
-</code></pre><p>streamlit의 hello 앱을 실행한다.</p>
+</code></pre><p>streamlit의 hello 앱을 실행합니다.</p>
 <pre><code>$ streamlit hello
 
   👋 Welcome to Streamlit!
@@ -105,10 +113,10 @@
 
   $ xcode-select --install
   $ pip install wat
-</code></pre><p>hello 앱 실행 결과는 아래 화면과 같다.</p>
+</code></pre><p>hello 앱 실행 결과는 아래 화면과 같습니다.</p>
 <p><img src="../streamlit.jpeg" alt=""></p>
 <h3 id="--">사용자 앱 실행</h3>
-<p>streamlit에서 제공하는 API를 이용해 출력에 사용할 구성을 적용한다.</p>
+<p>streamlit에서 제공하는 API를 이용해 출력에 사용할 구성을 적용합니다.</p>
 <p>[app.py]</p>
 <pre><code>import streamlit as st
 
@@ -119,10 +127,11 @@ st.subheader(&quot;subheader입니다.&quot;)
 st.caption(&quot;caption입니다.&quot;)
 st.code(&quot;x=2023&quot;)
 st.latex(r''' a+a x^1+a x^2+a x^3 ''')
-</code></pre><p>streamlit을 이용해 app.py을 실행한다.</p>
+</code></pre><p>streamlit을 이용해 app.py을 실행합니다.</p>
 <pre><code>$ streamlit run app.py
-</code></pre><p>브라우저(http://localhost:8501/)에 앱 실행결과가 출력된다.</p>
+</code></pre><p>브라우저(http://localhost:8501/)에 앱 실행결과가 출력됩니다.</p>
 <p><img src="../streamlit_user_app.jpeg" alt=""></p>
+<p>Streamlit은 데이터 과학자나 머신 러닝 엔지니어들에게 매우 유용한 도구입니다. 빠르고 간편하게 애플리케이션을 만들 수 있으며, 사용자 입력에 따라 동적으로 업데이트되기 때문에 대화형 요소도 쉽게 추가할 수 있습니다. 또한 Python으로 작성되어 있기 때문에, Python을 다룰 수 있다면 누구나 쉽게 사용할 수 있습니다.</p>
 <h3 id="-">참고 문서</h3>
 <ul>
 <li><a href="https://docs.streamlit.io/library/get-started/installation">https://docs.streamlit.io/library/get-started/installation</a></li>

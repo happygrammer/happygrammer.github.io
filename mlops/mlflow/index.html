@@ -85,10 +85,10 @@
         <div class="article-entry" itemprop="articleBody">
             <p>MLFlow는 머신러닝 학습 주기 관리를 위한 오픈소스 플랫폼이다. MLFlow의 주요 기능은 아래와 같다.</p>
 <ul>
-<li>MLflow 트래킹(tracking) : 매개변수와 결과따른 실험 결과를 비교</li>
-<li>MLflow 프로젝트(proejct) : ML 코드 재사용, 공유를 위한 패키징</li>
-<li>MLflow 모델(model) : 다양한 모델 제공 및 추론 플랫폼으로 모델을 관리하고 배포</li>
-<li>MLFlow 모델 레지스트리(model registry) : 전체 수명 주기를 공동으로 관리할 수 있는 모델 저장소 제공</li>
+<li>MLflow 트래킹(tracking) : <code>MLflow Tracking</code>은 실험 결과를 기록하여 실험간의 비교 지원을 할 수 있다. 기록 가능한 실험 요소로 실험시 사용한 하이퍼 파라메터나, 실험 결과 loss, auccracy 의 학습 과정에서 출력되는 주요 지표 들을 저장할 수 있다. 실험 결과들이 쌓이다 보면 각 실험들의 특징을 비교하기 어려울 수 있는데 이러한 경우는 는 tag 기능과 note 기능을 이용해 부가적인 정보를 기록함으로서 실험간의 비교시에 사용할 수 있도록 한다.</li>
+<li>MLflow 프로젝트(proejct) : ML 코드 재사용, 공유를 위한 패키징을 지원한다.</li>
+<li>MLflow 모델(model) : 아마존 S3와 같은 외부 저장소의 모델을 로컬로 가져와 평가시 사용할 수 있다.</li>
+<li>MLFlow 모델 레지스트리(model registry) : 중앙 저장소와 셋 API, UI와 관련한 기능늘 지원한다.</li>
 </ul>
 <h3 id="mlflow-">MLflow 설치</h3>
 <p><a href="https://github.com/mlflow/mlflow/pkgs/container/mlflow">MLflow 문서를 확인</a>하고 공식 MLflow <a href="https://mlflow.org/docs/latest/docker.html">docker 이미지</a>를 다운로드 받는다.</p>
@@ -134,7 +134,9 @@ $ docker exec -it mlflow_v1 /bin/bash
 $ apt-get install vim
 $ apt-get install git
 </code></pre><p>참고로 vim을 설치하는 이유는 vi를 사용하는 일이 종종 있는데 설치 되어 있지 않아서이다. <code>git</code>을 설치하는 mlflow.utils.git_utils와 관련한 오류를 방지 하기 위함이다. Mlflow 공식 기본 예제를 실행해 보도록 한다.</p>
-<p>[python mlflow_tracking.py]</p>
+<pre><code>$ cd /home
+$ vi mlflow_tracking.py
+</code></pre><p>[python mlflow_tracking.py]</p>
 <pre><code>import os
 from random import random, randint
 from mlflow import log_metric, log_param, log_artifacts

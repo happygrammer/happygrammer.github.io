@@ -6,10 +6,20 @@
     <description>Recent content in Mlops on happyg</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 24 Jan 2023 17:42:28 +0900</lastBuildDate>
+    <lastBuildDate>Tue, 14 Mar 2023 23:16:52 +0900</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/mlops/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>모델 서빙 프레임워크</title>
+      <link>https://happygrammer.github.io/mlops/serving/</link>
+      <pubDate>Tue, 14 Mar 2023 23:16:52 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/serving/</guid>
+      <description>모델 서빙 프레임워크는 머신러닝 모델을 시시간으로 예측하기 위한 도구 모음입니다. 모델 서빙 프레임워크는 다양한 모델 포맷을 지원하며, 학습된 모델을 서버에 포팅해 서비스 형태로 제공한다. 대표적인 서빙 프레임워크로 다음과 같은 것들이 있습니다.
+   모델 서빙 종류 회사 모델 포맷 서빙 속도 장단점     TensorFlow Serving Google TensorFlow, Keras, SavedModel 높음 분산 시스템을 지원하며, TensorFlow 모델을 위해 최적화 되어있음.   ONNX Runtime Backend Microsoft ONNX 높음 ONNX 포맷을 지원하며, 다양한 하드웨어에서 실행될 수 있음.</description>
+    </item>
     
     <item>
       <title>Voila 소개와 설치</title>
@@ -62,7 +72,7 @@ $ docker pull bitnami/airflow Using default tag: latest latest: Pulling from bit
       
       <guid>https://happygrammer.github.io/mlops/mlflow/</guid>
       <description>MLFlow는 머신러닝 학습 주기 관리를 위한 오픈소스 플랫폼이다. MLFlow의 주요 기능은 아래와 같다.
- MLflow 트래킹(tracking) : 매개변수와 결과따른 실험 결과를 비교 MLflow 프로젝트(proejct) : ML 코드 재사용, 공유를 위한 패키징 MLflow 모델(model) : 다양한 모델 제공 및 추론 플랫폼으로 모델을 관리하고 배포 MLFlow 모델 레지스트리(model registry) : 전체 수명 주기를 공동으로 관리할 수 있는 모델 저장소 제공  MLflow 설치 MLflow 문서를 확인하고 공식 MLflow docker 이미지를 다운로드 받는다.</description>
+ MLflow 트래킹(tracking) : MLflow Tracking은 실험 결과를 기록하여 실험간의 비교 지원을 할 수 있다. 기록 가능한 실험 요소로 실험시 사용한 하이퍼 파라메터나, 실험 결과 loss, auccracy 의 학습 과정에서 출력되는 주요 지표 들을 저장할 수 있다. 실험 결과들이 쌓이다 보면 각 실험들의 특징을 비교하기 어려울 수 있는데 이러한 경우는 는 tag 기능과 note 기능을 이용해 부가적인 정보를 기록함으로서 실험간의 비교시에 사용할 수 있도록 한다.</description>
     </item>
     
     <item>
@@ -91,8 +101,7 @@ $ docker pull bitnami/airflow Using default tag: latest latest: Pulling from bit
       <pubDate>Tue, 10 Jan 2023 03:28:11 +0900</pubDate>
       
       <guid>https://happygrammer.github.io/mlops/intro/</guid>
-      <description>MLOps는 머신러닝과 소프트웨어 분야의 DevOps를 합친 합성어이다. ML은 머싱러닝(Machine Learning)을 의미하며 Ops는 시스템 운영을 의미한다. 이름 그대로 머신러닝 시스템 운영을 지원하는 체계이다. ML 모델의 생성 배포에 필요한 운영 비용을 낮추고 효율적으로 ML 모델을 운영하기 위해 필요한 모범 사례 모음이기도 하다. MLOps는 생명 주기의 각 과정을 자동화하는 데 과업들을 포함한다. MLOps라는 용어에서 느껴지듯 ML 영역과 IT 의 역할을 합쳐 놓은 합성어이다. MLOps는 크게 ML 영역과 DEV영역과 OPS영역으로 구분할 수 있다.
-출처 : MLOps란 무엇인가?</description>
+      <description>MLOps는 머신러닝과 소프트웨어 분야의 DevOps를 합친 합성어이다. ML은 머싱러닝(Machine Learning)을 의미하며 Ops는 시스템 운영을 의미한다. 이름 그대로 머신러닝 시스템 운영을 지원하는 체계이다. ML 모델의 생성 배포에 필요한 운영 비용을 낮추고 효율적으로 ML 모델을 운영하기 위해 필요한 모범 사례 모음이기도 하다. MLOps는 생명 주기의 각 과정을 자동화하는 데 과업들을 포함한다. MLOps라는 용어에서 느껴지듯 ML 영역과 IT 의 역할을 합쳐 놓은 합성어이다. MLOps는 크게 ML 영역과 DEV영역과 OPS영역을 포괄하는 용어로 데이터 구축, 모델 개발 및 훈련, 모델 배포와 관련해 효율성과 생산성을 개선시키는데 초점이 있다.</description>
     </item>
     
   </channel>

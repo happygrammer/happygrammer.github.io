@@ -27,10 +27,9 @@
       <pubDate>Tue, 24 Jan 2023 17:42:28 +0900</pubDate>
       
       <guid>https://happygrammer.github.io/mlops/voila/</guid>
-      <description>Voila는 독립형 애플리케이션이다. Voila를 사용하면 Jupyter 노트북을 대화형 대시보드로 변환하여 다른 사람과 작업을 공유할 수 있다. 셀에 파이썬 코드를 작성하고 실행해 볼 수 있다.
-설치하기 pip install voila 실행하기 git clone https://github.com/voila-dashboards/voila cd voila voila notebooks/bqplot.ipynb 예제가 실행 되지 않고 No module named &#39;bqplot&#39;와 같은 안내 메시지가 나타나면 의존성 모듈을 설치한다.
-pip install bqplot No Jupyter kernel for language &#39;python&#39; found와 같은 안내 메시지가 보이면 IPython 커널을 설치한다.
-python3 -m pip install ipykernel python3 -m ipykernel install --user 참고문서  https://voila.</description>
+      <description>Voila는 Jupyter 노트북에서 생성된 대화형 웹 애플리케이션을 만드는 오픈 소스 도구입니다. Voila를 사용하면 Jupyter 노트북을 실행하면서 생성된 셀의 결과를 대화형 대시보드로 전환할 수 있습니다.
+Jupyter 노트북은 데이터 분석 및 인공 지능 작업을 위한 인기있는 도구 중 하나입니다. 그러나 노트북의 코드와 결과는 주로 노트북 파일 자체에서만 볼 수 있습니다. 이는 작업을 공유하거나 다른 사람에게 결과를 시각적으로 보여줄 때 제한적일 수 있습니다.
+Voila는 이러한 제한을 극복하기 위해 개발되었습니다. Jupyter 노트북을 실행하면 대화형 대시보드로 전환되며, 코드와 결과를 다른 사용자와 쉽게 공유할 수 있습니다.</description>
     </item>
     
     <item>

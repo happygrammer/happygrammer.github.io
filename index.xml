@@ -50,8 +50,8 @@ $ streamlit hello 👋 Welcome to Streamlit! If you’d like to receive helpful 
       <pubDate>Tue, 24 Jan 2023 15:02:39 +0900</pubDate>
       
       <guid>https://happygrammer.github.io/mlops/dvc/</guid>
-      <description>데이터 버전 관리 대용량 파일 버저닝을 위한 도구로 git-lfs, LakeFS, DVC, DeltaLake, dolthhub, Pachyderm, Neptune 등이 있다. 이중 DVC에 대해 알아 보도록 한다.
-DVC 소개 데이터 버전 제어 (DVC)는 데이터 및 모델 버전을 캡쳐할 수 있는 오픈소스 기반의 무료 CLI 도구이다. DVC를 사용 하여 데이터의 스냅샷 을 만들고, 이전 버전을 복원 하고, 실험을 재현할 수 있다. 용량 제한이 있는 git과 달리 git에 DVC CLI를 추가로 이용하면 대용량 파일, 데이터셋 디렉토리, 머신러닝 모델 등을 작은 메타 파일로 대체하여 데이터 버전 관리를 지원한다.</description>
+      <description>데이터 버전 관리 대용량 파일 버저닝을 위한 도구로 git-lfs, LakeFS, DVC, DeltaLake, dolthhub, Pachyderm, Neptune 등이 있습니다. 이중 DVC에 대해 알아 보도록 하겠습니다.
+DVC 소개 DVC는 데이터 과학자들이 데이터와 모델을 버전 관리하기 위해 만들어진 도구입니다. DVC를 사용하면 Git과 같은 버전 관리 도구를 사용해 데이터셋의 버전을 추적하고, 이전 버전으로 되돌리고, 데이터셋의 변경사항을 복원할 수 있습니다. 용량 제한이 있는 git과 달리 git에 DVC CLI를 추가로 이용하면 대용량 파일, 데이터셋 디렉토리, 머신러닝 모델 등을 작은 메타 파일로 대체하여 데이터 버전 관리를 지원합니다.</description>
     </item>
     
     <item>
@@ -124,7 +124,7 @@ TensorRT 최적화 방식 TensorRT는 GPU의 cuda 코어에서 시행된다. cud
       <pubDate>Tue, 10 Jan 2023 03:28:11 +0900</pubDate>
       
       <guid>https://happygrammer.github.io/mlops/intro/</guid>
-      <description>MLOps는 머신러닝과 소프트웨어 분야의 DevOps를 합친 합성어이다. ML은 머싱러닝(Machine Learning)을 의미하며 Ops는 시스템 운영을 의미한다. 이름 그대로 머신러닝 시스템 운영을 지원하는 체계이다. ML 모델의 생성 배포에 필요한 운영 비용을 낮추고 효율적으로 ML 모델을 운영하기 위해 필요한 모범 사례 모음이기도 하다. MLOps는 생명 주기의 각 과정을 자동화하는 데 과업들을 포함한다. MLOps라는 용어에서 느껴지듯 ML 영역과 IT 의 역할을 합쳐 놓은 합성어이다. MLOps는 크게 ML 영역과 DEV영역과 OPS영역을 포괄하는 용어로 데이터 구축, 모델 개발 및 훈련, 모델 배포와 관련해 효율성과 생산성을 개선시키는데 초점이 있다.</description>
+      <description>MLOps는 머신러닝과 소프트웨어 분야의 DevOps를 합친 합성어입니다. ML은 머싱러닝(Machine Learning)을 의미하며 Ops는 시스템 운영을 의미합니다. 이름 그대로 머신러닝 시스템 운영을 지원하는 체계입니다. ML 모델의 생성 배포에 필요한 운영 비용을 낮추고 효율적으로 ML 모델을 운영하기 위해 필요한 모범 사례 모음이기도 합니다. MLOps는 생명 주기의 각 과정을 자동화하는 데 과업들을 포함합니다. MLOps라는 용어에서 느껴지듯 ML 영역과 IT 의 역할을 합쳐 놓은 합성어이다. MLOps는 크게 ML 영역과 DEV영역과 OPS영역을 포괄하는 용어로 데이터 구축, 모델 개발 및 훈련, 모델 배포와 관련해 효율성과 생산성을 개선시키는데 초점이 있습니다.</description>
     </item>
     
     <item>

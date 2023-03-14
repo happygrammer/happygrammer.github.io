@@ -62,15 +62,15 @@
         </div>
         <div class="article-entry" itemprop="articleBody">
             <h3 id="--">데이터 버전 관리</h3>
-<p>대용량 파일 버저닝을 위한 도구로 <a href="https://git-lfs.com/">git-lfs</a>, LakeFS, DVC, DeltaLake, <a href="https://www.dolthub.com/">dolthhub</a>, Pachyderm, Neptune 등이 있다. 이중 DVC에 대해 알아 보도록 한다.</p>
+<p>대용량 파일 버저닝을 위한 도구로 <a href="https://git-lfs.com/">git-lfs</a>, LakeFS, DVC, DeltaLake, <a href="https://www.dolthub.com/">dolthhub</a>, Pachyderm, Neptune 등이 있습니다. 이중 DVC에 대해 알아 보도록 하겠습니다.</p>
 <h3 id="dvc-">DVC 소개</h3>
-<p><strong>데이터 버전 제어</strong> (DVC)는 데이터 및 모델 버전을 캡쳐할 수 있는 오픈소스 기반의 무료 CLI 도구이다. DVC를 사용 하여 데이터의 스냅샷 을 만들고, 이전 버전을 복원 하고, 실험을 재현할 수 있다. 용량 제한이 있는 git과 달리 git에 DVC CLI를 추가로 이용하면 대용량 파일, 데이터셋 디렉토리, 머신러닝 모델 등을 작은 메타 파일로 대체하여 데이터 버전 관리를 지원한다.</p>
+<p>DVC는 데이터 과학자들이 데이터와 모델을 버전 관리하기 위해 만들어진 도구입니다. DVC를 사용하면 Git과 같은 버전 관리 도구를 사용해 데이터셋의 버전을 추적하고, 이전 버전으로 되돌리고, 데이터셋의 변경사항을 복원할 수 있습니다. 용량 제한이 있는 git과 달리 git에 DVC CLI를 추가로 이용하면 대용량 파일, 데이터셋 디렉토리, 머신러닝 모델 등을 작은 메타 파일로 대체하여 데이터 버전 관리를 지원합니다.</p>
 <p><img src="https://dvc.org/static/c9dd447d50663a3180678ab491a5eb29/aa619/reproducibility.webp" alt=""></p>
 <h3 id="dvc--1">DVC 설치</h3>
-<p>DVC(Data Version Control) 설치를 진행한다. MacOS를 이용하고 있다면 <code>brew</code>를 이용해 설치한다.</p>
+<p>DVC(Data Version Control) 설치를 진행합니다. MacOS를 이용하고 있다면 <code>brew</code>를 이용해 설치합니다.</p>
 <pre><code>$ brew install dvc
 </code></pre><h3 id="dvc--">DVC 저장소 초기화</h3>
-<p>설치 후 <code>dvc-test-repo</code> 경로를 만들고 dvc 저장소를 초기화한다.</p>
+<p>설치 후 <code>dvc-test-repo</code> 경로를 만들고 dvc 저장소를 초기화합니다.</p>
 <pre><code>$ mkdir dvc-test-repo
 $ cd dvc-test-repo
 $ dvc init
@@ -92,7 +92,7 @@ What's next?
 - Get help and share ideas: &lt;https://dvc.org/chat&gt;
 - Star us on GitHub: &lt;https://github.com/iterative/dvc&gt;
 </code></pre><h3 id="dvc-commit">DVC commit</h3>
-<p>첫번째 commit을 수행한다.</p>
+<p>첫번째 commit을 수행합니다.</p>
 <pre><code>$ git commit -m &quot;Initialize DVC&quot;
 [master (최상위-커밋) d2165ca] Initialize DVC
  4 files changed, 9 insertions(+)
@@ -100,17 +100,17 @@ What's next?
  create mode 100644 .dvc/config
  create mode 100644 .dvcignore
  create mode 100644 test.txt
-</code></pre><p>이후 원격 저장소(Amazon S3, SSH, Google Drive, Azure Blob Storage, and HDFS) 주소를 추가하고 add 할 수 있다. 아래 예시는 Amazon S3를 기준으로 한다.</p>
+</code></pre><p>이후 원격 저장소(Amazon S3, SSH, Google Drive, Azure Blob Storage, and HDFS) 주소를 추가하고 add 할 수 있습니다. 아래 예시는 Amazon S3를 기준으로 합니다. DVC를 사용하여 데이터셋의 버전을 관리하려면, 먼저 데이터를 프로젝트 디렉토리에 추가해야 합니다. 데이터셋을 프로젝트에 추가하는 방법은 아래와 같습니다.</p>
 <pre><code>dvc remote add -d storage s3://mystorage/dvcstore
 git add .dvc/config
 git commit -m &quot;add dvc config&quot;
-</code></pre><p>원격 저장소에서 data를 가져오려면 pull 명령을 사용한다.</p>
+</code></pre><p>원격 저장소에서 data를 가져오려면 pull 명령을 사용합니다.</p>
 <pre><code>dvc pull
 </code></pre><h3 id="dvc-addpush">DVC add/push</h3>
-<p>dvc 명령은 dvc add 명령과 dvc push 명령을 주로 함께 사용한다.</p>
+<p>dvc 명령은 dvc add 명령과 dvc push 명령을 주로 함께 사용합니다.</p>
 <pre><code>$ dvc add ./data/test.txt
 $ dvc push
-</code></pre><p><code>dvc add</code> 명령을 이용해 스테이지에 추가한다.</p>
+</code></pre><p><code>dvc add</code> 명령을 이용해 스테이지에 추가합니다.</p>
 <pre><code>$ dvc add ./data/test.txt
 100% Adding...|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████|1/1 [00:00,  5.07file/s]
                                                                                                                                                          
@@ -121,16 +121,16 @@ To track the changes with git, run:
 To enable auto staging, run:
 
 	dvc config core.autostage true
-</code></pre><p>다음과 같은 <code>./data/test.txt.dvc</code> 파일이 생긴다.</p>
+</code></pre><p>다음과 같은 <code>./data/test.txt.dvc</code> 파일이 생깁니다.</p>
 <pre><code>outs:
 - md5: 51b98813c49f7031395c63a33f7db50b
   size: 9
   path: test.txt
-</code></pre><p>마지막으로 원격 저장소에 push한다.</p>
+</code></pre><p>마지막으로 원격 저장소에 push합니다.</p>
 <pre><code>dvc push
-</code></pre><p>dvc는 버전 제어 시스템이 아니다. Git  자체가 버전 컨트롤을 담당한다.</p>
+</code></pre><p>dvc는 버전 제어 시스템이 아니며, Git  자체가 버전 컨트롤을 담당합니다.</p>
 <h3 id="dvc---1">DVC  버전이동</h3>
-<p>dvc 버전 이동을 하려면 git 명령어와 함께 사용한다.</p>
+<p>dvc 버전 이동을 하려면 git 명령어와 함께 사용합니다.</p>
 <pre><code>git checkout HEAD~1
 dvc checkout
 </code></pre><h3 id="-">참고 문서</h3>

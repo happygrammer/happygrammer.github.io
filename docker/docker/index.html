@@ -68,7 +68,8 @@
             
         </div>
         <div class="article-entry" itemprop="articleBody">
-            <h3 id="-">컨테이너 확인</h3>
+            <h2 id="-">기본적인 명령어</h2>
+<h3 id="--1">컨테이너 확인</h3>
 <pre><code>docker container ls 
 </code></pre><pre><code>$ docker container ls 
 CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
@@ -86,7 +87,7 @@ $ docker ps
 </ul>
 <p>이때 실행중인 컨테이너나 실행중이지 않은 컨테이너 모두를 표시하려면 <code>-a</code>옵션을 주면 출력됩니다.</p>
 <pre><code>$ docker container ls -a
-</code></pre><h2 id="--1">에러 메시지</h2>
+</code></pre><h3 id="--2">에러 메시지</h3>
 <p><code>Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</code></p>
 <p>프로세스가 실행 되지 않아서 입니다. 도커 실행 <a href="https://docs.docker.com/config/daemon/systemd/">명령어</a>는 다음과 같습니다.</p>
 <p>Linux</p>
@@ -104,12 +105,12 @@ $ docker ps
         <div class="article-toc" >
             <nav id="TableOfContents">
   <ul>
-    <li>
+    <li><a href="#-">기본적인 명령어</a>
       <ul>
-        <li><a href="#-">컨테이너 확인</a></li>
+        <li><a href="#--1">컨테이너 확인</a></li>
+        <li><a href="#--2">에러 메시지</a></li>
       </ul>
     </li>
-    <li><a href="#--1">에러 메시지</a></li>
   </ul>
 </nav>
         </div>

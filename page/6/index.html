@@ -52,6 +52,40 @@
                 
                 
                 <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/linux/commands-basic/">Linux 기본 관리 명령어</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/linux/commands-basic/" class="article-date">
+                        <time datetime='2020-12-30T12:21:00.000&#43;03:00' itemprop="datePublished">2020-12-30</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    앨리어스 사용 alias는 명령어를 대체하는 명령어이다. 명령어를 축약해 사용자의 정의 명령어를 정의할 수 있다. alias라고 입력하면 시스템이 정의한 alias 명령어를 확인할 수 있다.
+$ alias 디렉터리만 조회하는 명령어는 다음과 같다.
+$ ls -l | grep &quot;^d&quot; 용량이 큰 대상부터 출력하는 명령은 다음과 같다.
+$ ls - al | sort -rk 5 # 5열(-k)을 기준으로 용량이 큰것 것(-r) 부터 출력 위 명령어는 lsd라는 앨리어스로 등록할 수 있다.
+$ alias lsd='ls -l | grep &quot;^&quot;' 아파치 서버를 시작하거나 종료하는 명령어를 앨리어스를 등록해 두면 편리하다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/linux/commands-basic/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/worth/simple/">단순함에 대한 명언들</a></h1>
                 </header>
                 
@@ -323,37 +357,6 @@ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 설치 과정 Wel
                     </p>
                     <p class="article-more-link">
                         <a href="/worth/insight/">More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/hangeul/abbreviations/">한글 준말의 규칙성</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/hangeul/abbreviations/" class="article-date">
-                        <time datetime='2020-04-02T07:56:10.000&#43;03:00' itemprop="datePublished">2020-04-02</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    본말과 준말 준말 준말은 긴말을 의미가 왜곡되지 않으면서 줄인말입니다. 낱말에서 소리가 탈락 되는 위치는 첫소리, 중간 소리, 끝소리, 앞뒤소리가 있습니다.
- 첫소리 탈락 예 : 배 안 윗 냄새 - 배 ㄴ 앳 냄새 - 배냇냄새 중간 소리 탈락 예 : 바깥-사돈 - 바ㅌ-사돈 - 밭사돈 끝소리 탈락  어제-저녁 - 어ㅈ 저녁 - 엊저녁 그것 은 - 그거-은 - 그건 허송하지 - 허송치 깨끗하지 - 깨끗지 섭섭하지 - 섭섭지 (한글 맞춤법 40항)  ㄱ,ㄷ,ㅂ 소리가 나는 경우는 &lsquo;하'가 탈락됩니다.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/hangeul/abbreviations/">More</a>
                     </p>
                 </div>
 

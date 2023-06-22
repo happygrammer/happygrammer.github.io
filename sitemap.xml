@@ -3,14 +3,14 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://happygrammer.github.io/nlp-review/</loc>
+    <loc>https://happygrammer.github.io/nlp/</loc>
     <lastmod>2023-06-23T07:21:24+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/nlp-review/lm/</loc>
+    <loc>https://happygrammer.github.io/nlp/lm/</loc>
     <lastmod>2023-06-23T07:21:24+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -187,13 +187,6 @@
   <url>
     <loc>https://happygrammer.github.io/worth/break_the_rules/</loc>
     <lastmod>2021-11-24T22:14:45+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/nlp/</loc>
-    <lastmod>2021-11-23T21:21:55+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Guides on 해피그래머의 개발 딥다이빙</title>
+    <title>Guides on 해피그의 가볍게 개발 딥다이빙</title>
     <link>https://happygrammer.github.io/guide/</link>
-    <description>Recent content in Guides on 해피그래머의 개발 딥다이빙</description>
+    <description>Recent content in Guides on 해피그의 가볍게 개발 딥다이빙</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Wed, 21 Sep 2022 06:34:02 +0900</lastBuildDate>

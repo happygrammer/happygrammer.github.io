@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Columns on 해피그의 가볍게 개발 딥다이빙</title>
+    <title>Columns on 해피그의 개발 딥다이빙</title>
     <link>https://happygrammer.github.io/column/</link>
-    <description>Recent content in Columns on 해피그의 가볍게 개발 딥다이빙</description>
+    <description>Recent content in Columns on 해피그의 개발 딥다이빙</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Fri, 09 Sep 2022 22:01:15 +0900</lastBuildDate>

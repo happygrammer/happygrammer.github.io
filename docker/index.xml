@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Dockers on 해피그의 가볍게 개발 딥다이빙</title>
+    <title>Dockers on 해피그의 개발 딥다이빙</title>
     <link>https://happygrammer.github.io/docker/</link>
-    <description>Recent content in Dockers on 해피그의 가볍게 개발 딥다이빙</description>
+    <description>Recent content in Dockers on 해피그의 개발 딥다이빙</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Sun, 01 Mar 2020 08:50:10 +0300</lastBuildDate>

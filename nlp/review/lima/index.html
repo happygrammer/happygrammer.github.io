@@ -3,7 +3,7 @@
 <head>
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8987989911237199"
      crossorigin="anonymous"></script>
-    <title>LIMA(Less Is More for Alignment) 리뷰</title>
+    <title>LIMA 논문 리뷰</title>
     <meta charset="utf-8">
     <meta http-equiv="content-type" content="text/html; charset=utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
@@ -11,7 +11,7 @@
     
     
 
-        <meta property="og:title" content="LIMA(Less Is More for Alignment) 리뷰" />
+        <meta property="og:title" content="LIMA 논문 리뷰" />
     
     <meta property="og:description" content="" />    
     <meta property="og:type" content="website" />
@@ -69,7 +69,7 @@
             
             <div><a href="/nlp/" class="archive-article-date">&lt; Nlps</a></div>
             
-            <h1 class="article-title" itemprop="name">LIMA(Less Is More for Alignment) 리뷰</h1>
+            <h1 class="article-title" itemprop="name">LIMA 논문 리뷰</h1>
         </header>
         
         <div class="article-meta">
@@ -83,7 +83,7 @@
         <div class="article-entry" itemprop="articleBody">
             <p>프로그래머가 바닥에 떨어진 동전을 주웠더니 왜 행복한가요? 그 이유는 그의 &ldquo;비트&quot;를 찾았기 때문이죠! 프로그래머들은 이진수에서 &ldquo;0&quot;과 &ldquo;1&quot;을 &ldquo;비트&quot;라고 부르는데, 그 비트를 찾았으니 행복한 거죠! 자, 이제 다시 본론으로 돌아가서 앞서 언급한 대형 언어 모델의 내용을 다시 살펴 보겠습니다., 대형 언어 모델은 두 단계로 훈련됩니다. <code>첫 번째 단계는 비지도 사전 훈련 단계</code>인데, 이때 모델은 원시 텍스트를 사용해 일반적인 언어 이해를 학습합니다. 그래서 대부분의 지식이 여기서 얻어지는거죠. <code>두 번째 단계는  큰 규모의 지시 튜닝과 강화 학습을 통해 모델을 최종 작업과 사용자 기호에 더 적합하게 조정하는 단계</code>입니다.</p>
 <h3 id="lima----">LIMA 언어 모델의 연구 배경</h3>
-<p>앞서 이 두 단계(비지도 사전 훈련 단계와, 큰규모의 지시튜닝과 강화 학습)의 상대적 중요성을 알아보기 위해 LIMA라는 언어 모델을 사용한 연구가 진행되었습니다. 근데 재밌는 건, <code>LIMA는 지시 튜닝이나 인간의 기호를 사용하지 않고도 훌륭한 성능을 보였다</code>는거죠! <code>이 모델은 단지 1,000개의 프롬프트와 응답 쌍에 대해 표준 지도 학습을 진행</code>했습니다. 즉, 이 모델은 제한된 지시 튜닝 데이터만으로도 놀라운 성과를 거두었고, 훈련 데이터에 없던 새로운 작업에도 잘 일반화되었다고 해요. 그래서 사실 사전 훈련이 대부분의 지식을 제공하고, 추가 튜닝 데이터는 모델을 작업에 맞게 미세하게 조정하는 데에 중요한 역할을 한다는 거죠.</p>
+<p>앞서 이 두 단계(비지도 사전 훈련 단계와, 큰규모의 지시튜닝과 강화 학습)의 상대적 중요성을 알아보기 위해 <code>LIMA(Less Is More for Alignment)</code>라는 언어 모델을 사용한 연구가 진행되었습니다. 근데 재밌는 건, <code>LIMA는 지시 튜닝이나 인간의 기호를 사용하지 않고도 훌륭한 성능을 보였다</code>는거죠! <code>이 모델은 단지 1,000개의 프롬프트와 응답 쌍에 대해 표준 지도 학습을 진행</code>했습니다. 즉, 이 모델은 제한된 지시 튜닝 데이터만으로도 놀라운 성과를 거두었고, 훈련 데이터에 없던 새로운 작업에도 잘 일반화되었다고 해요. 그래서 사실 사전 훈련이 대부분의 지식을 제공하고, 추가 튜닝 데이터는 모델을 작업에 맞게 미세하게 조정하는 데에 중요한 역할을 한다는 거죠.</p>
 <p>LIMA라는 언어 모델은 인간과의 실험에서 GPT-4보다 좋거나 같은 답변을 보였다고 해요. 그러면서 LIMA가 Bard와 비교했을 때 <code>58%</code>의 경우에서 인간들에게 더 선호되었고,<code> DaVinci003</code>과 비교했을 때는 <code>65%</code>의 경우에서 더 선호되었다고 하네요. 그런데 재미있는 건 <code>DaVinci003</code>은 인간의 피드백을 사용하여 훈련되었던 모델이라는거죠.</p>
 <p>간단히 말하면, LIMA는 인간들에게 놀랄 만큼 좋은 답변을 제공하며, 때로는 인간이 직접 훈련한 <code>DaVinci003</code>보다도 더 좋은 성과를 보여준다는 거죠! 어때요? 이렇게 설명하니까 좀 더 재미있지 않나요?</p>
 <p>이러한 결과들은 대부분의 지식이 큰 언어 모델의 사전 훈련 단계에서 학습되며, 높은 품질의 출력을 생성하기 위해서는 제한된 지시 튜닝 데이터만 필요하다는 것을 강력하게 시사합니다. 즉, 사전 훈련이 모델에게 대부분의 지식을 제공하고, 추가 튜닝 데이터는 모델을 작업에 맞게 조정하는 데에 중요한 역할을 한다는 것을 의미합니다.</p>

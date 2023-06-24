@@ -6,10 +6,19 @@
     <description>Recent content in Nlps on 해피그의 개발 딥다이빙</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 23 Jun 2023 07:21:24 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 24 Jun 2023 14:15:31 +0900</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/nlp/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LIMA(Less Is More for Alignment) 리뷰</title>
+      <link>https://happygrammer.github.io/nlp/review/lima/</link>
+      <pubDate>Sat, 24 Jun 2023 14:15:31 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/nlp/review/lima/</guid>
+      <description>프로그래머가 바닥에 떨어진 동전을 주웠더니 왜 행복한가요? 그 이유는 그의 &amp;ldquo;비트&amp;quot;를 찾았기 때문이죠! 프로그래머들은 이진수에서 &amp;ldquo;0&amp;quot;과 &amp;ldquo;1&amp;quot;을 &amp;ldquo;비트&amp;quot;라고 부르는데, 그 비트를 찾았으니 행복한 거죠! 자, 이제 다시 본론으로 돌아가서 앞서 언급한 대형 언어 모델의 내용을 다시 살펴 보겠습니다., 대형 언어 모델은 두 단계로 훈련됩니다. 첫 번째 단계는 비지도 사전 훈련 단계인데, 이때 모델은 원시 텍스트를 사용해 일반적인 언어 이해를 학습합니다. 그래서 대부분의 지식이 여기서 얻어지는거죠. 두 번째 단계는 큰 규모의 지시 튜닝과 강화 학습을 통해 모델을 최종 작업과 사용자 기호에 더 적합하게 조정하는 단계입니다.</description>
+    </item>
     
     <item>
       <title>언어 모델에 대한 이해</title>

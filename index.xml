@@ -6,20 +6,10 @@
     <description>Recent content on 해피그의 개발 딥다이빙</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Jun 2023 05:28:46 +0300</lastBuildDate>
+    <lastBuildDate>Sat, 24 Jun 2023 14:15:31 +0900</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>트랜스포머 모델의 개발</title>
-      <link>https://happygrammer.github.io/ml/transformers/</link>
-      <pubDate>Sun, 25 Jun 2023 05:28:46 +0300</pubDate>
-      
-      <guid>https://happygrammer.github.io/ml/transformers/</guid>
-      <description>트랜스포머는 Attention 매커니즘이 적용된 멋진 딥러닝 모델이에요. 2017년에 구글이 발표한 &amp;ldquo;Attention is all you need&amp;rdquo; 논문에서 처음 소개되었죠. 이 모델은 RNN(1986)과 LSTM(1997) 같은 Recurrent 모델을 대체할 수 있는 대안으로 등장했어요. 트랜스포머는 자연어 처리와 같은 다양한 분야에서 성공을 거두었고, 그 인기는 계속해서 높아지고 있어요. GPT는 Transformer의 디코더 아키텍처를 활용하고 있고, BERT는 Transformer의 인코더 아키텍처를 활용하고 있습니다.
-이 모델은 RNN 방식이 아닌 Attention 메커니즘을 더욱 효과적으로 활용하여 입력 시퀀스의 각 요소 간의 관계를 파악하고 중요한 정보에 집중할 수 있게 되었어요.</description>
-    </item>
     
     <item>
       <title>LIMA 논문 리뷰</title>
@@ -37,6 +27,16 @@
       
       <guid>https://happygrammer.github.io/nlp/lm/</guid>
       <description>언어모델(Language Model)은 자연어처리 분야에서 주인공이죠. 대량의 텍스트 데이터에 대한 문장의 구조, 의미, 문맥을 완벽히 소화해내는 달인이라고 생각해요. 언어 모델은 새로운 문장을 생성하는 능력이 뛰어난데요, 가끔은 언어모델에게 배울게 많다는 생각이 들어요. 그래서 어떤 문장을 내뱉을지, 기대감이 느껴지기도 해요. 예를 들어, 텍스트 입력으로 &#39;나는 점심에 식사를 하러 ____ ____&#39;라는 입력이 들어왔을 때, 언어 모델은 빈칸에 알맞은 우주로 날아갔다&#39; 와 같은 단어를 예측해줘요! 그래서 자동 요약, 기계 번역, 검색 엔진, 문장 완성 등 다양한 분야에서 활용되고 있답니다.</description>
+    </item>
+    
+    <item>
+      <title>트랜스포머 모델의 개발</title>
+      <link>https://happygrammer.github.io/ml/transformers/</link>
+      <pubDate>Tue, 20 Jun 2023 05:28:46 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ml/transformers/</guid>
+      <description>트랜스포머는 Attention 매커니즘이 적용된 멋진 딥러닝 모델이에요. 2017년에 구글이 발표한 &amp;ldquo;Attention is all you need&amp;rdquo; 논문에서 처음 소개되었죠. 이 모델은 RNN(1986)과 LSTM(1997) 같은 Recurrent 모델을 대체할 수 있는 대안으로 등장했어요. 트랜스포머는 자연어 처리와 같은 다양한 분야에서 성공을 거두었고, 그 인기는 계속해서 높아지고 있어요. GPT는 Transformer의 디코더 아키텍처를 활용하고 있고, BERT는 Transformer의 인코더 아키텍처를 활용하고 있습니다.
+이 모델은 RNN 방식이 아닌 Attention 메커니즘을 더욱 효과적으로 활용하여 입력 시퀀스의 각 요소 간의 관계를 파악하고 중요한 정보에 집중할 수 있게 되었어요.</description>
     </item>
     
     <item>

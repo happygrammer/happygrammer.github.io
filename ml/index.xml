@@ -6,7 +6,7 @@
     <description>Recent content in Mls on 해피그의 개발 딥다이빙</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 25 Jun 2023 05:28:46 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 20 Jun 2023 05:28:46 +0300</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/ml/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>트랜스포머 모델의 개발</title>
       <link>https://happygrammer.github.io/ml/transformers/</link>
-      <pubDate>Sun, 25 Jun 2023 05:28:46 +0300</pubDate>
+      <pubDate>Tue, 20 Jun 2023 05:28:46 +0300</pubDate>
       
       <guid>https://happygrammer.github.io/ml/transformers/</guid>
       <description>트랜스포머는 Attention 매커니즘이 적용된 멋진 딥러닝 모델이에요. 2017년에 구글이 발표한 &amp;ldquo;Attention is all you need&amp;rdquo; 논문에서 처음 소개되었죠. 이 모델은 RNN(1986)과 LSTM(1997) 같은 Recurrent 모델을 대체할 수 있는 대안으로 등장했어요. 트랜스포머는 자연어 처리와 같은 다양한 분야에서 성공을 거두었고, 그 인기는 계속해서 높아지고 있어요. GPT는 Transformer의 디코더 아키텍처를 활용하고 있고, BERT는 Transformer의 인코더 아키텍처를 활용하고 있습니다.

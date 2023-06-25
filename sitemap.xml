@@ -3,6 +3,27 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
+    <loc>https://happygrammer.github.io/ml/</loc>
+    <lastmod>2023-06-25T05:28:46+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/ml/transformers/</loc>
+    <lastmod>2023-06-25T05:28:46+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
+    <loc>https://happygrammer.github.io/</loc>
+    <lastmod>2023-06-25T05:28:46+03:00</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+  </url>
+  
+  <url>
     <loc>https://happygrammer.github.io/nlp/review/lima/</loc>
     <lastmod>2023-06-24T14:15:31+09:00</lastmod>
     <changefreq>monthly</changefreq>
@@ -11,13 +32,6 @@
   
   <url>
     <loc>https://happygrammer.github.io/nlp/</loc>
-    <lastmod>2023-06-24T14:15:31+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/</loc>
     <lastmod>2023-06-24T14:15:31+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
@@ -250,20 +264,6 @@
   <url>
     <loc>https://happygrammer.github.io/algorithm/why/</loc>
     <lastmod>2021-09-16T16:52:27+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/ml/</loc>
-    <lastmod>2021-09-05T05:28:46+03:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/ml/transformers/</loc>
-    <lastmod>2021-09-05T05:28:46+03:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>

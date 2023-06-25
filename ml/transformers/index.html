@@ -74,7 +74,7 @@
         
         <div class="article-meta">
             <a href="/ml/transformers/" class="article-date">
-                <time datetime='2021-09-05T05:28:46.000&#43;03:00' itemprop="datePublished">2021-09-05</time>
+                <time datetime='2023-06-25T05:28:46.000&#43;03:00' itemprop="datePublished">2023-06-25</time>
             </a>
             
             
@@ -280,6 +280,11 @@
 <p>하지만 이러한 약점에 대응하기 위해 몇 가지 방식이 존재해요. 첫 번째 방식은 스파스 Attention인데, 이 방식은 스파스 바이어스를 Attention 메커니즘에 적용하여 복잡도를 감소시킵니다. 이렇게 하면 Attention 연산에 참여하는 단어들을 제한하여 계산 비용을 줄일 수 있어요.</p>
 <p>두 번째 방식은 리니어라이즈드 Attention인데, 이 방식은 Attention 매트릭스를 커널 피쳐 맵으로 분리하는 것을 의미해요. 이를 통해 계산 비용을 줄이고 병렬화를 촉진하여 더 효율적인 연산이 가능해져요.</p>
 <p>요약하자면, 셀프 Attention은 트랜스포머에서 중요한 역할을 하지만 복잡도와 오버피팅과 같은 약점이 있어요. 스파스 Attention과 리니어라이즈드 Attention과 같은 방법들은 이러한 약점을 극복하기 위해 사용되며, 효율적인 계산과 일반화를 돕습니다. 이렇게 트랜스포머 모델은 자신의 약점을 극복하며 더욱 발전하고 있는 거죠!</p>
+<h3 id="history">History</h3>
+<ul>
+<li>2021-09-05 : 트랜스포머 초안 작성</li>
+<li>2023-06-25 : 트랜스포머 구조 설명 추가</li>
+</ul>
 
 	    
 	    <div class="fb-comments" data-href="https://happygrammer.github.io/ml/transformers/" width="100%" data-width="" data-numposts="3"></div>
@@ -300,6 +305,7 @@
         <li><a href="#--2">네트워크 타입</a></li>
         <li><a href="#---">모델을 보는 네가지 관점</a></li>
         <li><a href="#attention-">Attention의 약점</a></li>
+        <li><a href="#history">History</a></li>
       </ul>
     </li>
   </ul>
@@ -314,15 +320,9 @@
     </div>
     <nav id="article-nav">
     
-    <a href="/algorithm/why/" id="article-nav-newer" class="article-nav-link-wrap">
-        <div class="article-nav-title"><span>&lt;</span>&nbsp;
-            알고리즘, 문제해결 기법
-        </div>
-    </a>
     
-    
-    <a href="/nlp/dialog-system-chatbots/" id="article-nav-older" class="article-nav-link-wrap">
-        <div class="article-nav-title">대화형 에이전트&nbsp;<span>&gt;</span></div>
+    <a href="/nlp/review/lima/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">LIMA 논문 리뷰&nbsp;<span>&gt;</span></div>
     </a>
     
 </nav>

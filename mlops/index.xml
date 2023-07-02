@@ -50,7 +50,7 @@ Streamlit은 다음과 같은 이점을 제공합니다.
       
       <guid>https://happygrammer.github.io/mlops/dvc/</guid>
       <description>데이터 버전 관리 대용량 파일 버저닝을 위한 도구로 git-lfs, LakeFS, DVC, DeltaLake, dolthhub, Pachyderm, Neptune 등이 있습니다. 이중 DVC에 대해 알아 보도록 하겠습니다.
-DVC 소개 &amp;ldquo;DVC(data version control)는 데이터 과학자들을 위한 멋진 도구랍니다! 데이터와 모델을 버전 관리하는 데 사용됩니다. DVC를 사용하면 Git과 비슷한 방식으로 데이터셋의 버전을 추적하고, 원래대로 되돌리고, 변경사항을 쉽게 복원할 수 있습니다. Git에는 용량 제한이 있지만, DVC CLI를 이용하면 대용량 파일, 데이터셋 디렉토리, 머신러닝 모델 등을 작고 가벼운 메타 파일로 대체하여 데이터 버전 관리를 지원해주어 편리합니다.</description>
+DVC 소개 DVC(data version control)는 데이터 과학자들을 위한 멋진 도구랍니다! 데이터와 모델을 버전 관리하는 데 사용됩니다. DVC를 사용하면 Git과 비슷한 방식으로 데이터셋의 버전을 추적하고, 원래대로 되돌리고, 변경사항을 쉽게 복원할 수 있습니다. Git에는 용량 제한이 있지만, DVC CLI를 이용하면 대용량 파일, 데이터셋 디렉토리, 머신러닝 모델 등을 작고 가벼운 메타 파일로 대체하여 데이터 버전 관리를 지원해주어 편리합니다.</description>
     </item>
     
     <item>

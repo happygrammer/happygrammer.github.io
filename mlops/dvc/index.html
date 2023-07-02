@@ -82,8 +82,9 @@
             <h3 id="--">데이터 버전 관리</h3>
 <p>대용량 파일 버저닝을 위한 도구로 <a href="https://git-lfs.com/">git-lfs</a>, LakeFS, DVC, DeltaLake, <a href="https://www.dolthub.com/">dolthhub</a>, Pachyderm, Neptune 등이 있습니다. 이중 DVC에 대해 알아 보도록 하겠습니다.</p>
 <h3 id="dvc-">DVC 소개</h3>
-<p>DVC는 데이터 과학자들이 데이터와 모델을 버전 관리하기 위해 만들어진 도구입니다. DVC를 사용하면 Git과 같은 버전 관리 도구를 사용해 데이터셋의 버전을 추적하고, 이전 버전으로 되돌리고, 데이터셋의 변경사항을 복원할 수 있습니다. 용량 제한이 있는 git과 달리 git에 DVC CLI를 추가로 이용하면 대용량 파일, 데이터셋 디렉토리, 머신러닝 모델 등을 작은 메타 파일로 대체하여 데이터 버전 관리를 지원합니다.</p>
+<p>&ldquo;DVC(data version control)는 데이터 과학자들을 위한 멋진 도구랍니다! 데이터와 모델을 버전 관리하는 데 사용됩니다. DVC를 사용하면 Git과 비슷한 방식으로 데이터셋의 버전을 추적하고, 원래대로 되돌리고, 변경사항을 쉽게 복원할 수 있습니다. Git에는 용량 제한이 있지만, DVC CLI를 이용하면 대용량 파일, 데이터셋 디렉토리, 머신러닝 모델 등을 작고 가벼운 메타 파일로 대체하여 데이터 버전 관리를 지원해주어 편리합니다.</p>
 <p><img src="https://dvc.org/static/c9dd447d50663a3180678ab491a5eb29/aa619/reproducibility.webp" alt=""></p>
+<p>DVC는 중앙 서버에서 파일을 직접 관리하는 방식은 아니며, 중앙 서버는 단순히 변경 이력과 메타데이터를 관리해, 실제 데이터 파일은 로컬 또는 원격 저장소에 저장되는 형태로 관리됩니다.</p>
 <h3 id="dvc--1">DVC 설치</h3>
 <p>DVC(Data Version Control) 설치를 진행합니다. MacOS를 이용하고 있다면 <code>brew</code>를 이용해 설치합니다.</p>
 <pre><code>$ brew install dvc
@@ -91,6 +92,7 @@
 <p>설치 후 <code>dvc-test-repo</code> 경로를 만들고 dvc 저장소를 초기화합니다.</p>
 <pre><code>$ mkdir dvc-test-repo
 $ cd dvc-test-repo
+$ git init
 $ dvc init
 Initialized DVC repository.
 
@@ -122,10 +124,10 @@ What's next?
 <pre><code>dvc remote add -d storage s3://mystorage/dvcstore
 git add .dvc/config
 git commit -m &quot;add dvc config&quot;
-</code></pre><p>원격 저장소에서 data를 가져오려면 pull 명령을 사용합니다.</p>
+</code></pre><p>첫번째 커밋이 이뤄졌습니다. 원격 저장소에서 data를 가져오려면 pull 명령을 사용합니다.</p>
 <pre><code>dvc pull
 </code></pre><h3 id="dvc-addpush">DVC add/push</h3>
-<p>dvc 명령은 dvc add 명령과 dvc push 명령을 주로 함께 사용합니다.</p>
+<p>데이터를 저장할 수 도 있습니다. dvc 명령은 dvc add 명령과 dvc push 명령을 주로 함께 사용합니다.</p>
 <pre><code>$ dvc add ./data/test.txt
 $ dvc push
 </code></pre><p><code>dvc add</code> 명령을 이용해 스테이지에 추가합니다.</p>
@@ -139,15 +141,16 @@ To track the changes with git, run:
 To enable auto staging, run:
 
 	dvc config core.autostage true
-</code></pre><p>다음과 같은 <code>./data/test.txt.dvc</code> 파일이 생깁니다.</p>
+</code></pre><p>다음과 같은 <code>./data/test.txt.dvc</code> 파일이 생깁니다. .dvc 메타 파일은 데이터 파이의 md5  값, size, path 정보를 포함하는 메타 파일입니다.</p>
 <pre><code>outs:
 - md5: 51b98813c49f7031395c63a33f7db50b
   size: 9
   path: test.txt
 </code></pre><p>마지막으로 원격 저장소에 push합니다.</p>
 <pre><code>dvc push
-</code></pre><p>dvc는 버전 제어 시스템이 아니며, Git  자체가 버전 컨트롤을 담당합니다.</p>
-<h3 id="dvc---1">DVC  버전이동</h3>
+</code></pre><p>dvc는 버전 제어 시스템이 아니며, Git  자체가 버전 컨트롤을 담당합니다. dvc 자체는 메타파일 기반으로 데이타 버전 컨트롤을 수행하며, 이렇게 add된 파일은 gitignore에 추가 되어 원격 저장소에 저장되는 것을 방지하는 방식이다.  <code>data/.gitignore</code> 파일을 열어보면 다음과 같이 원격 저장소로 푸시될때 무시될 파일이 저장되어 있다.</p>
+<pre><code>data/.gitignore
+</code></pre><h3 id="dvc---1">DVC  버전이동</h3>
 <p>dvc 버전 이동을 하려면 git 명령어와 함께 사용합니다.</p>
 <pre><code>git checkout HEAD~1
 dvc checkout

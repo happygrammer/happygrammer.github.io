@@ -6,20 +6,10 @@
     <description>Recent content in Nlps on 해피그의 개발 딥다이빙</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 02 Jul 2023 21:18:32 +0900</lastBuildDate>
+    <lastBuildDate>Sat, 24 Jun 2023 14:15:31 +0900</lastBuildDate>
     
 	<atom:link href="https://happygrammer.github.io/nlp/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>기계번역 모델 개발 과정</title>
-      <link>https://happygrammer.github.io/nlp/machine-translation/</link>
-      <pubDate>Sun, 02 Jul 2023 21:18:32 +0900</pubDate>
-      
-      <guid>https://happygrammer.github.io/nlp/machine-translation/</guid>
-      <description>기계 번역 모델 개발 과정 기계 번역 모델 개발 파이프라인은 여러 재미난 단계들로 이루어져 있어요. 아래는 일반적인 기계 번역 모델 개발 파이프라인의 예시입니다:
- 데이터 수집 데이터 전처리 모델 학습 모델 평가 배포 및 서비s  데이터 수집 기계 번역 모델을 개발하기 위해서는 대량의 문장 쌍(소스 언어-대상 언어)이 필요합니다. 이를 위해 OPUS(the open paralle ocrpus), 모두의 말뭉치와 같은 와 같은 공개된 병렬 코퍼스나 일부는 온라인 번역 서비스의 도움을 받아 구축할 수 있습니다.</description>
-    </item>
     
     <item>
       <title>LIMA 논문 리뷰</title>

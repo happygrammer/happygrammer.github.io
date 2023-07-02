@@ -63,37 +63,6 @@
                 
                 
                 <header class="article-header">
-                    <h1 itemprop="name"><a class="article-title" href="/guide/initialize-git-repository/">깃 저장소의 커밋 히스토리 초기화</a></h1>
-                </header>
-                
-                <div class="article-meta">
-                    <a href="/guide/initialize-git-repository/" class="article-date">
-                        <time datetime='2021-12-01T01:26:13.000&#43;03:00' itemprop="datePublished">2021-12-01</time>
-                    </a>
-                    
-                    
-                    
-                </div>
-                <div class="article-entry" itemprop="articleBody">
-                    <p>
-                        
-                    깃 저장소를 마지막 변경 파일만 남기고 커밋 이력을 초기화하고 싶은 경우가 있다. 깃 저장소 커밋 이력을 초기화 하는 방법에 대해서 살펴보자. 작업 과정을 명확히 공유하기 위해 실재 입력한 명령어와 반영된 결과 그리고 실재 작업된 결과를 첨부 하였다. 다음과 같은 순서로 진행할 예정이다.
- 원격 저장소의 파일을 지운다. 브랜치 작업을 이용한 커밋 히스토리 삭제 신규 파일 commit  파일을 삭제해 빈 저장소로 만들기 커밋 이력을 초기화하려면 temp 브랜치를 추가(추가한 temp 브랜치에는 커밋 히스토리가 없음)하고 커밋 히스토리가 있는 master 브랜치를 삭제한 후, temp 브랜치를 master 브랜치로 이름을 변경하는 것으로 가능하다.
-                    </p>
-                    <p class="article-more-link">
-                        <a href="/guide/initialize-git-repository/">More</a>
-                    </p>
-                </div>
-
-                
-            </div>
-        </article>
-        
-        <article class="article article-type-post" itemscope itemprop="blogPost">
-            <div class="article-inner">
-                
-                
-                <header class="article-header">
                     <h1 itemprop="name"><a class="article-title" href="/worth/break_the_rules/">아인슈타인의 문제 해결법</a></h1>
                 </header>
                 
@@ -369,6 +338,37 @@ T5 모델 소개 T5[1]는 모든 텍스트 기반 언어 문제를 텍스트 대
                     </p>
                     <p class="article-more-link">
                         <a href="/worth/business-writing/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/javascript/closures/">클로저란 무엇인가?</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/javascript/closures/" class="article-date">
+                        <time datetime='2021-08-01T08:45:28.000&#43;03:00' itemprop="datePublished">2021-08-01</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    내부 함수와 외부 함수 자바스크립트는 기본적으로 함수 내부에 내부 함수 선언을 지원한다. 이렇게 내부에 함수를 중복해서 중첩(nested) 형태로 선언이 가능하며, 외부 함수는 내부 함수를 포함하는 형태로 선언이 가능하다.
+function init() { // 외부 함수 function message() { // 내부 함수 return &quot;happyg&quot;; // lexical scope에 선언된 로컬 변수인 name 응답 가능 } return message(); } document.write(init()); // 외부에서는 내부 함수가 message인지 알 수 없다. 외부 함수인 init이 내부 함수인 message 를 포함한 선언 형태이다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/javascript/closures/">More</a>
                     </p>
                 </div>
 

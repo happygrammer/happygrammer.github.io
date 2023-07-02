@@ -3,28 +3,21 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   
   <url>
-    <loc>https://happygrammer.github.io/nlp/</loc>
-    <lastmod>2023-07-02T21:18:32+09:00</lastmod>
+    <loc>https://happygrammer.github.io/nlp/review/lima/</loc>
+    <lastmod>2023-06-24T14:15:31+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
-    <loc>https://happygrammer.github.io/nlp/machine-translation/</loc>
-    <lastmod>2023-07-02T21:18:32+09:00</lastmod>
+    <loc>https://happygrammer.github.io/nlp/</loc>
+    <lastmod>2023-06-24T14:15:31+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>
   </url>
   
   <url>
     <loc>https://happygrammer.github.io/</loc>
-    <lastmod>2023-07-02T21:18:32+09:00</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-  
-  <url>
-    <loc>https://happygrammer.github.io/nlp/review/lima/</loc>
     <lastmod>2023-06-24T14:15:31+09:00</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.5</priority>

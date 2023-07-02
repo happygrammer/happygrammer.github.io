@@ -86,7 +86,7 @@
 <li>데이터 전처리</li>
 <li>모델 학습</li>
 <li>모델 평가</li>
-<li>배포 및 서비스</li>
+<li>배포 및 서비s</li>
 </ul>
 <h4 id="-">데이터 수집</h4>
 <p>기계 번역 모델을 개발하기 위해서는 대량의 문장 쌍(소스 언어-대상 언어)이 필요합니다. 이를 위해 <a href="https://opus.nlpl.eu/">OPUS</a>(the open paralle ocrpus), <a href="https://corpus.korean.go.kr/">모두의 말뭉치</a>와 같은 와 같은 공개된 병렬 코퍼스나 일부는 온라인 번역 서비스의 도움을 받아 구축할 수 있습니다.</p>
@@ -122,6 +122,7 @@ dataset = dataset.map(preprocess, batched=True)
 from datasets import load_dataset
 from torch.utils.data import Dataset, DataLoader
 from tqdm import tqdm
+...
 
 # 학습 데이터셋 로드
 dataset = load_dataset(&quot;your_dataset_name&quot;)
@@ -194,9 +195,10 @@ metric = evaluate.load(&quot;sacrebleu&quot;)
 </code></pre><p>이를 확장해서 기본 구조를 보면 다음과 같습니다.</p>
 <pre><code>from transformers import MarianMTModel, MarianTokenizer
 from datasets import load_dataset, load_metric
+...
 
 # 모델 및 토크나이저 로드
-model_name = &quot;Helsinki-NLP/opus-mt-en-ko&quot;
+model_name = &quot;model_directory&quot;
 model = MarianMTModel.from_pretrained(model_name)
 tokenizer = MarianTokenizer.from_pretrained(model_name)
 
@@ -234,18 +236,11 @@ evaluation_score = evaluate_translation(model, tokenizer, dataset, metric)
 print(&quot;Evaluation Score:&quot;, evaluation_score)
 </code></pre><p>위 코드는 Hugging Face의 Transformers 라이브러리를 사용하여 번역 모델을 평가하는 기본적인 구조를 보여줍니다. 실제로 사용할 데이터셋 이름과 모델 이름에 따라 코드를 수정해야합니다. 또한 <code>dataset</code> 변수에 적절한 데이터셋을 로드해야합니다. 평가 결과는 <code>evaluation_score</code> 변수에 저장되며, 이를 원하는 대로 사용하실 수 있습니다.</p>
 <h3 id="---">모델 배포 및 서비스</h3>
-<p>미세 조정이 완료 되면 추론에 사용할 수 있습니다. 개발된 모델을 배포하여 실제 번역 서비스에 적용합니다. 추론을 수행할때는 &ldquo;영어를 한국어로 번역해주세요: &ldquo;와 같은 지시어를 추가합니다.</p>
-<pre><code>from transformers import pipeline
-
-text = &quot;translate English to Korean: Legumes share resources with nitrogen-fixing bacteria.&quot;
-translator = pipeline(&quot;translation&quot;, model=&quot;model_directory&quot;)
-translated_text = translator(text, max_length=40)[0][&quot;translation_text&quot;]
-
-print(translated_text)
-</code></pre><p>위 코드에서는 <code>pipeline</code> 함수를 사용하여 번역 파이프라인을 구성하고, 영어를 한국어로 번역하는 데 사용할 모델로 &ldquo;Helsinki-NLP/opus-mt-en-ko&rdquo; 모델을 지정하였습니다. 번역할 텍스트는 <code>text</code> 변수에 저장되어 있고, <code>translator</code> 파이프라인을 통해 번역 결과를 얻습니다. <code>max_length</code> 매개변수를 통해 출력 문장의 최대 길이를 제한할 수 있습니다. 번역 결과는 <code>translated_text</code> 변수에 저장되어 출력됩니다. 출력이 잘 된다면, Fast-API, TorchServe, Triton 서버 등을 활용해 서빙을 수행할 수 있습니다.</p>
+<p>미세 조정이 완료 되면 추론에 사용할 수 있습니다. 개발된 모델을 배포하여 실제 번역 서비스에 적용합니다. 추론을 수행할때는 &ldquo;translate English to Korean: &ldquo;와 같은 지시어를 추가합니다. Fast-API, TorchServe, Triton 서버 등을 활용해 서빙을 수행할 수 있습니다.</p>
 <p>[FastAPI 서빙 예시]</p>
 <pre><code>from fastapi import FastAPI
 from transformers import MarianMTModel, MarianTokenizer
+...
 
 # FastAPI 앱 초기화
 app = FastAPI()
@@ -266,9 +261,7 @@ def translate(text: str):
     outputs = model.generate(
         inputs.input_ids,
         attention_mask=inputs.attention_mask,
-        max_length=128,  # 번역 결과의 최대 길이
-        num_beams=4,  # Beam search 크기
-        early_stopping=True,
+        max_length=128
     )
 
     # 번역 결과 디코딩
@@ -280,7 +273,7 @@ if __name__ == &quot;__main__&quot;:
     import uvicorn
 
     uvicorn.run(app, host=&quot;0.0.0.0&quot;, port=8000)
-</code></pre><p>오늘은 여기까지 간단히 소개하겠습니다. 조금 더 깊은 내용에 대해서는 정리되는 대로 추후에 다시 다루도록 하겠습니다.</p>
+</code></pre><p>오늘은 여기까지 간단히 소개하겠습니다.</p>
 <h3 id="--4">참고 사이트</h3>
 <ul>
 <li>[1] alignment : <a href="https://link.springer.com/article/10.1023/a:1008010319408">https://link.springer.com/article/10.1023/a:1008010319408</a></li>

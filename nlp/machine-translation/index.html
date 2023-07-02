@@ -138,10 +138,11 @@ tokenizer.save_pretrained(&quot;model_directory&quot;)
 # 모델 초기화 및 저장
 model = MarianMTModel(config)
 model.save_pretrained(&quot;model_directory&quot;)
+prefix = &quot;translate English to Korean:&quot;
 
 # 훈련 데이터 전처리 함수
 def preprocess(example):
-    source = example[&quot;source&quot;]
+    source = prefix + example[&quot;source&quot;]
     target = example[&quot;target&quot;]
     encoded_inputs = tokenizer(source, padding=&quot;max_length&quot;, truncation=True, max_length=128)
     encoded_targets = tokenizer(target, padding=&quot;max_length&quot;, truncation=True, max_length=128)
@@ -233,10 +234,10 @@ evaluation_score = evaluate_translation(model, tokenizer, dataset, metric)
 print(&quot;Evaluation Score:&quot;, evaluation_score)
 </code></pre><p>위 코드는 Hugging Face의 Transformers 라이브러리를 사용하여 번역 모델을 평가하는 기본적인 구조를 보여줍니다. 실제로 사용할 데이터셋 이름과 모델 이름에 따라 코드를 수정해야합니다. 또한 <code>dataset</code> 변수에 적절한 데이터셋을 로드해야합니다. 평가 결과는 <code>evaluation_score</code> 변수에 저장되며, 이를 원하는 대로 사용하실 수 있습니다.</p>
 <h3 id="---">모델 배포 및 서비스</h3>
-<p>미세 조정이 완료 되면 추론에 사용할 수 있습니다. 개발된 모델을 배포하여 실제 번역 서비스에 적용합니다. 추론을 수행할때는 &ldquo;translate English to French: &ldquo;와 같은 지시어를 추가합니다.</p>
+<p>미세 조정이 완료 되면 추론에 사용할 수 있습니다. 개발된 모델을 배포하여 실제 번역 서비스에 적용합니다. 추론을 수행할때는 &ldquo;영어를 한국어로 번역해주세요: &ldquo;와 같은 지시어를 추가합니다.</p>
 <pre><code>from transformers import pipeline
 
-text = &quot;영어를 한국어로 번역해주세요: Legumes share resources with nitrogen-fixing bacteria.&quot;
+text = &quot;translate English to Korean: Legumes share resources with nitrogen-fixing bacteria.&quot;
 translator = pipeline(&quot;translation&quot;, model=&quot;Helsinki-NLP/opus-mt-en-ko&quot;)
 translated_text = translator(text, max_length=40)[0][&quot;translation_text&quot;]
 
@@ -258,7 +259,8 @@ tokenizer = MarianTokenizer.from_pretrained(model_name)
 @app.post(&quot;/translate&quot;)
 def translate(text: str):
     # 입력 텍스트 토큰화
-    inputs = tokenizer(text, return_tensors=&quot;pt&quot;)
+    prefix = &quot;translate English to Korean: &quot;
+    inputs = tokenizer(prefix+text, return_tensors=&quot;pt&quot;)
 
     # 번역 수행
     outputs = model.generate(

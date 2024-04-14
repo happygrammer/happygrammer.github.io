@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>한글 준말의 규칙성</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="한글 준말의 규칙성" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/hangeul/abbreviations/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/nlp/" class="archive-article-date">&lt; Nlps</a></div>
+            
+            <h1 class="article-title" itemprop="name">한글 준말의 규칙성</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/hangeul/abbreviations/" class="article-date">
+                <time datetime='2020-04-02T07:56:10.000&#43;03:00' itemprop="datePublished">2020-04-02</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="-">본말과 준말</h2>
+<h2 id="heading">준말</h2>
+<p>준말은 긴말을 의미가 왜곡되지 않으면서 줄인말입니다. 낱말에서 소리가 탈락 되는 위치는 첫소리, 중간 소리, 끝소리, 앞뒤소리가 있습니다.</p>
+<ul>
+<li>첫소리 탈락 예 : 배 안 윗 냄새 - 배 ㄴ 앳 냄새 - 배냇냄새</li>
+<li>중간 소리 탈락 예 : 바깥-사돈 - 바ㅌ-사돈 - 밭사돈</li>
+<li>끝소리 탈락
+<ul>
+<li>어제-저녁 - 어ㅈ 저녁 - 엊저녁</li>
+<li>그것 은 - 그거-은 - 그건</li>
+<li>허송하지 - 허송치</li>
+<li>깨끗하지 - 깨끗지</li>
+<li>섭섭하지 - 섭섭지 (한글 맞춤법 40항)
+<ul>
+<li>ㄱ,ㄷ,ㅂ 소리가 나는 경우는 &lsquo;하'가  탈락됩니다.</li>
+<li>섭섭하지의 하의 소리가 ㅂ 이므로, 하가 탈락되어, 섭섭지가 됩니다.</li>
+</ul>
+</li>
+<li>무심하지 - 무심치</li>
+<li>간편하게 - 간편케
+<ul>
+<li>간편하(어간) + 게(어미) - 간편하게</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>앞뒤소리 탈락 예 : 미리 온 며느리 - 미 ㄴ 며느리 - 민며느리</li>
+</ul>
+<p>준말의 경우 대체로 많이 사용하는 규칙성을 발견할 수 있지만 준말의 모든 규칙성을 규정 하는 것은 어려울 것으로 보입니다. 왜냐하면 한글 맞춤법에서 없는 새로운 규칙성이 발견될 수 있기 때문입니다.</p>
+<h3 id="--1">어미의 줄임</h3>
+<p><code>끝소리 탈락</code>은 형태소로 보면  서술격 조사 어간 &lsquo;이-&rsquo; 뒤에 어미 &lsquo;-에요'가 붙은 &lsquo;이에요'는 자음 뒤에 쓰입니다. 모음 뒤에서는 &lsquo;-예요'로 줄어 쓰입니다.</p>
+<ul>
+<li>하늘이에요, 아이슈타인이에요</li>
+<li>무지개예요, 옥수수예요</li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/nlp/hangeul/abbreviations/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-">본말과 준말</a></li>
+    <li><a href="#heading">준말</a>
+      <ul>
+        <li><a href="#--1">어미의 줄임</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/insights/insight/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            본질을 꿰뚫는 통찰력
+        </div>
+    </a>
+    
+    
+    <a href="/ai/tensorflow/tf-architecture/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">텐서플로우 아키텍처&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

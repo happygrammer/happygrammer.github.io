@@ -1,0 +1,269 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Ais on 해피그의 코드랩</title>
+    <link>https://happygrammer.github.io/ai/</link>
+    <description>Recent content in Ais on 해피그의 코드랩</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 20 Jun 2023 05:28:46 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/ai/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>트랜스포머 모델의 개발</title>
+      <link>https://happygrammer.github.io/ai/ml/transformers/</link>
+      <pubDate>Tue, 20 Jun 2023 05:28:46 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/ml/transformers/</guid>
+      <description>트랜스포머는 Attention 매커니즘이 적용된 멋진 딥러닝 모델이에요. 2017년에 구글이 발표한 &amp;ldquo;Attention is all you need&amp;rdquo; 논문에서 처음 소개되었죠. 이 모델은 RNN(1986)과 LSTM(1997) 같은 Recurrent 모델을 대체할 수 있는 대안으로 등장했어요. 트랜스포머는 자연어 처리와 같은 다양한 분야에서 성공을 거두었고, 그 인기는 계속해서 높아지고 있어요. GPT는 Transformer의 디코더 아키텍처를 활용하고 있고, BERT는 Transformer의 인코더 아키텍처를 활용하고 있습니다.
+이 모델은 RNN 방식이 아닌 Attention 메커니즘을 더욱 효과적으로 활용하여 입력 시퀀스의 각 요소 간의 관계를 파악하고 중요한 정보에 집중할 수 있게 되었어요.</description>
+    </item>
+    
+    <item>
+      <title>TensorRT 설치</title>
+      <link>https://happygrammer.github.io/ai/tensorrt/setup/</link>
+      <pubDate>Sat, 14 Jan 2023 05:40:46 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/tensorrt/setup/</guid>
+      <description>TensorRT를 실행하려면 NVIDIA GPU 드라이버와 CUDA와 관련한 환경 설치를 먼저 진행하고 이후 NGC 컨테이너를 이용해 TensorRT를 실행할 수 있다.
+출처 : Optimizing and Accelerating AI Inference with the TensorRT Container from NVIDIA NGC
+TensorRT 환경 설치 TensorRT 설치를 위해서는 GPU가 있는 우분투 환경이 필요하다. 이어서 다음 순서대로 설치를 진행한다.
+ NVIDIA GPU 드라이버를 설치 Cuda 설치  먼저 NVIDIA GPU 드라이버 설치를 진행한다. 권장 드라이버를 자동으로 설치하려면 아래 명령을 입력한다.</description>
+    </item>
+    
+    <item>
+      <title>TensorRT 소개</title>
+      <link>https://happygrammer.github.io/ai/tensorrt/intro/</link>
+      <pubDate>Sat, 14 Jan 2023 04:40:46 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/tensorrt/intro/</guid>
+      <description>TensorRT는 NVIDIA GPU상에서 모델의 추론 속도를 최적화해 주는 프레임워크이다.
+TensorRT 최적화 방식 TensorRT는 GPU의 cuda 코어에서 시행된다. cuda는 GPU와 직접 통신하기 위한 API에 해당한다. (cudo 코어와 유사하게 Tensor 코어 방식이 있지만 구글 직원이 아니라면 TPU 배포는 좋은 선택지는 아닐 수 있다.) TensorRT는 다음 그림에 소개된 크게 6가지 방식으로 최적화를 수행한다.
+위에서 몇가지만 살펴보면 Kernel Auto-tuning은 Cuda 드라이버에 맞춰 최적의 런타임을 생성할 수 있도록 한다. GPU 플랫폼 기반으로 최상의 레이어와 알고리즘, 최적의 배치 크기를 선택하는 방식이다.</description>
+    </item>
+    
+    <item>
+      <title>상용 AI 시스템 설계</title>
+      <link>https://happygrammer.github.io/ai/ai-systems/about/</link>
+      <pubDate>Sun, 26 Sep 2021 09:34:35 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/ai-systems/about/</guid>
+      <description>AI 시스템은 머신러닝 모델의 생성에 필요한 서버 환경을 바탕으로 데이터 관리, 모델 관리, API 인터페이스를 제공하는 시스템이다. AI 시스템이 안정적인 서비스를 제공하려면 신뢰성과 확장성을 바탕으로 한다.
+하나의 AI 시스템은 추천 모델, 언어 모델, 음성 모델 등 다양한 모델들을 운영한다. 이것은 서비스 관점에 따라서 상이한 모델을 호출해서 사용하기 때문이다. 여러 모델을 하나로 합치려는 방식도 있지만, 이는 현실적으로 어려운 점이 있다. 머신러닝 모델을 실재 상용에 운영하기 위해서는 기본적인 규모 있는 데이터를 관리할 수 있어야 하고, 이를 바탕으로 머신러닝 모델을 생성할 수 있어야 한다.</description>
+    </item>
+    
+    <item>
+      <title>AI 관련 컨퍼런스와 출판물</title>
+      <link>https://happygrammer.github.io/ai/papers/conference/</link>
+      <pubDate>Sun, 25 Apr 2021 17:18:56 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/papers/conference/</guid>
+      <description>1. AI 관련 컨퍼런스 AI 관련 상위 컨퍼런스는 다음과 같습니다.
+  IR/Web: SIGIR, WWW, CIKM, WSDM
+  NLP: ACL, EMNLP, NAACL
+  ML/DM: ICML, NIPS, KDD, AAAI, IJCAI, ICLR
+  2. AI 관련 출판물 AI 분야 출판물 AI 분야 출판물 순위는 다음과 같습니다.(2021년 4월 25일 기준)
+   출판물 h5-index h5-median      1. International Conference on Learning Representations 203 359   2.</description>
+    </item>
+    
+    <item>
+      <title>Precision과 Recall의 이해</title>
+      <link>https://happygrammer.github.io/ai/ml/precision-recall/</link>
+      <pubDate>Fri, 01 Jan 2021 20:02:08 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/ml/precision-recall/</guid>
+      <description>적합 문서 검색엔진의 성능은 적합 문서(relevant document)를 잘 찾는 능력이다. 적합 문서를 잘 찾으려면 적합성을 고려해야 한다. 적합성은 사용자 적합성과 주제 적합성을 고려한다. 사용자 적합성은 사용자에게 맞는 적합한 문서를 찾았는지에 대한 것이다. 예를 들어 질의에 맞는 문서를 찾았지만, 사용자에게 올바른 답변을 줄 수 없는 문서라면 사용자 적합성이 없다고 본다. 주제 적합성은 사용자 질의에 맞는 적합한 문서를 찾았는지에 대한 것이다. 단순 grep과 같은 키워드 일치 만으로 문서를 찾았다면 관련 문서는 찾았지만, 사용자 주제에 맞지 않는 문서가 검색될 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>머신러닝 데이터 관리</title>
+      <link>https://happygrammer.github.io/ai/ml/data/</link>
+      <pubDate>Thu, 31 Dec 2020 00:24:37 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/ml/data/</guid>
+      <description>데이터의 종류 머신 러닝에서 문제 유형에 따라 사용하는 데이터가 다르다. 데이터는 크게 형태에 따라 음성, 이미지, 텍스트로 나뉜다. 이중 텍스트 데이터의 예로 위키피디아 데이터가 있다.
+데이터 균형 데이터 양이 많아도 다음 두가지 유형 중 하나의 문제에 속해 있다면 학습이 잘 진행 되지 않을 수 있다.
+ 레이블링 편중 문제 적은 데이터 문제  레이블링 편중 문제는 데이터 레이블링이 특정 카테고리로 편중되어 학습이 잘 되지 않는 문제다. loss function에 의해 데이터 레이블링이 많이 되어 있는 분류로 편중되어 학습될 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>RNN 모델을 확장한 LSTM</title>
+      <link>https://happygrammer.github.io/ai/ml/lstm/</link>
+      <pubDate>Wed, 30 Dec 2020 23:28:57 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/ml/lstm/</guid>
+      <description>LSTM은 RNN 아키텍처를 근간으로 하는 모델이다. RNN(recurrent network) 모델은 입력층-은닉층-출력층으로 이어지는 순방향 신경망(feed-forward network)이다.
+이와 달리 LSTM은 feedback 연결을 포함하고 있어 순환 신경망인 특성이 있다.
+LSTM은 새로운 입력이 주어지면 셀(cell)이라는 공간에 단어의 상태를 저장한다. 셀은 입력을 담당하는 입력 게이트(input gate), 출력을 담당하는 출력 게이트(output gate), 상태를 잊기 위해 망각 게이트(forget gate)의 역할을 수행한다.
+입력 상태는 중요도에 따라 잊을지 말지를 결정해 주어야 한다. 입력 게이트는 입력 상태의 크기를 결정해 기억량의 크기를 결정하며, 망각 게이트는 입력 상태 파라메터에 기억한 상태 파라메터를 곱해 잊을지 말지를 결정한다.</description>
+    </item>
+    
+    <item>
+      <title>텐서플로우 아키텍처</title>
+      <link>https://happygrammer.github.io/ai/tensorflow/tf-architecture/</link>
+      <pubDate>Sun, 29 Mar 2020 18:50:40 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/tensorflow/tf-architecture/</guid>
+      <description>텐서플로우는 큰 규모의 분산 기반의 학습과 추론을 고려해 설계 됐습니다. 새로운 기계 학습 알고리즘이 나오더라도 이를 지원할 수 있으며, 시스템 레벨의 최적화도 지원합니다. 다음 그림은 텐서플로우의 아키텍처입니다.
+왼쪽은 텐서플로우를 구성하는 컴포넌트들에 대한 그림이며, 오른쪽은 텐서 플로우가 어떠한 방식으로 컴포넌트간의 데이터를 주고 받으면서 실행 되는지를 나타내는 그림입니다.</description>
+    </item>
+    
+    <item>
+      <title>Roberta</title>
+      <link>https://happygrammer.github.io/ai/papers/roberta/</link>
+      <pubDate>Sat, 28 Mar 2020 20:53:21 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/papers/roberta/</guid>
+      <description>RoBERTa: A Robustly Optimized BERT Pretraining Approach
+언어 모델 프리트레이닝은 상당한 성능 향상을 가져 왔지만, 다른 접근방식 간의 비교는 어렵다. 훈련은 계산 비용이 높은 이유도 있지만, 접근 마다 데이터을 저마다 이용하기 때문이다. 이 논문은 BERT 프리트레이닝(Devlin et al., 2019)의 복제 연구이다. 이 논문은 하이퍼 파라미터 선택이 실험 결과에 많은 영향을 줄 수 있음을 가정하고 있다. 레이블 데이터를 이용해 end-task에 대한 파인 튜닝(finetuned)을 적용한 모델을 만든다다. BERT가 상당히 불충분한 훈련을 받았고, BERT 이후의 모델의 성능은 BERT 모델과 유사하거나, 초과할 수 있다는 점을 지적한다.</description>
+    </item>
+    
+    <item>
+      <title>Serving 클라이언트 API</title>
+      <link>https://happygrammer.github.io/ai/tensorflow/serving-client-api/</link>
+      <pubDate>Tue, 18 Feb 2020 08:00:08 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/tensorflow/serving-client-api/</guid>
+      <description>RESTful API In addition to gRPC APIs TensorFlow ModelServer also supports RESTful APIs. This page describes these API endpoints and an end-to-end example on usage.
+The request and response is a JSON object. The composition of this object depends on the request type or verb. See the API specific sections below for details.
+In case of error, all APIs will return a JSON object in the response body with error as key and the error message as the value:</description>
+    </item>
+    
+    <item>
+      <title>Serving 서버 API</title>
+      <link>https://happygrammer.github.io/ai/tensorflow/serving-server-api/</link>
+      <pubDate>Tue, 18 Feb 2020 08:00:00 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/tensorflow/serving-server-api/</guid>
+      <description>TensorFlow 서빙 API 레퍼런스 tensorflow::serving
+   Classes      tensorflow::serving::AspiredVersionPolicy An interface for the policy to be applied for transitioning servable versions in a servable stream.   tensorflow::serving::AspiredVersionPolicy::ServableAction Action and the id of the servable associated with it.   tensorflow::serving::AspiredVersionsManager A manager that implements the Target&amp;lt;Loader&amp;gt; API which uses aspired-versions callbacks to dictate which servable versions to load.   tensorflow::serving::AspiredVersionsManager::Options Config options and pluggable objects that will be used by the AspiredVersionsManager.</description>
+    </item>
+    
+    <item>
+      <title>서빙 아키텍처 개요</title>
+      <link>https://happygrammer.github.io/ai/tensorflow/serving-architecture-overview/</link>
+      <pubDate>Tue, 18 Feb 2020 07:45:19 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/tensorflow/serving-architecture-overview/</guid>
+      <description>텐서 플로 서빙은 유영하며 머신러닝을 위한 고수준 서빙 모델입니다. 제품 환경을 고려해 디자인 됐습니다. 텐서 플로 서빙은 동일 서버 아키텍처와 API를 유지하고 새로운 알고리즘과 환경을 손쉽게 deploy있습니다. 텐서 플로 서빙은 텐서 플로 모델을 즉시 통합할 수 있고, 다른 타입의 모델과 데이터로 확장할 수 있습니다.
+키 컨셉 텐서 플로 서빙 아키텍처 이해를 위해서, 키 컨셉을 이해 할 필요가 있습니다.
+Servables
+Servables은 텐서 플로 서빙의 주요 개념입니다. Servables은 Servables은 클라이언트가 계산 할 때 사용하는 기본 개체입니다.</description>
+    </item>
+    
+    <item>
+      <title>서빙 모델</title>
+      <link>https://happygrammer.github.io/ai/tensorflow/serving/</link>
+      <pubDate>Tue, 18 Feb 2020 07:39:29 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/tensorflow/serving/</guid>
+      <description>텐서 플로 서빙은 유영하며 머신러닝을 위한 고수준 서빙 모델입니다. 제품 환경을 고려해 디자인 됐습니다. 텐서 플로 서빙은 동일 서버 아키텍처와 API를 유지하고 새로운 알고리즘과 환경을 손쉽게 deploy있습니다. 텐서 플로 서빙은 텐서 플로 모델을 즉시 통합할 수 있고, 다른 타입의 모델과 데이터로 확장할 수 있s습니다.
+텐서 플로 서빙의 자세한 개발 문서는 아래와 같습니다.
+ Architecture Overview Server API REST Client API  </description>
+    </item>
+    
+    <item>
+      <title>Meena 논문, 리서치 리뷰</title>
+      <link>https://happygrammer.github.io/ai/papers/meena/</link>
+      <pubDate>Fri, 14 Feb 2020 01:10:05 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/papers/meena/</guid>
+      <description>이 문서는 Meena 논문의 연구 결과를 되짚어 보기 위한 리서치 리뷰 문서이며 새로운 연구 결과를 포함하고 있지 않습니다.
+Meena는 멀티턴 도메인 챗봇. end-to-end 방식의 데이터 학습 진행. public 도메인인 소셜 미디어 대화를 대상으로 하였음. 341 GB의 텍스트를 학습하였고 26억(2.6 billions)  파라메터를 사용한 뉴럴넷입니다. 다음 토큰의 perplexity가 최소화 되도록 학습됨.
+낮은 perplexity는 샘플에 대해 잘 설명할 수 있는 확률분포를 가졌음을 의미함 OpenAI GPT-2에 비해 1.7배 모델이 크고, 8.5배의 학습 데이터를 사용하였습니다.</description>
+    </item>
+    
+    <item>
+      <title>결합 확률 분포</title>
+      <link>https://happygrammer.github.io/ai/data_science/math/probaility/joint-probability/</link>
+      <pubDate>Wed, 05 Feb 2020 01:33:53 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/data_science/math/probaility/joint-probability/</guid>
+      <description>랜덤 변수 $X, Y, &amp;hellip;,$ 는 확률 공간(probaility space)에 정의됩니다. 여기서 $X, Y$ 는 확률 분포(probability distribution)을 의미합니다. 이들 확률 분포 $X, Y$에 속한 값은 이산 집합 내에 속하거나 특정 범위 내에 속합니다. 이때 두 랜덤 변수 $X, Y$는 이변수 분포(bivariate distribution)입니다.
+결합 확률 분포(joint probability distribution)는 결합 누적 분포 함수(joint cumulative distribution function) 또는 결합 확률 밀도 함수(joint probability density function )라고 부르기도 합니다. 결합 화률 분포는 두 분포를 찾는데 사용됩니다.</description>
+    </item>
+    
+    <item>
+      <title>BERT 논문, 리서치 리뷰</title>
+      <link>https://happygrammer.github.io/ai/papers/bert/</link>
+      <pubDate>Thu, 16 Jan 2020 23:41:40 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/papers/bert/</guid>
+      <description>이 문서는 BERT 논문의 연구 결과를 되짚어 보기 위한 리서치 리뷰 문서이며 새로운 연구 결과를 포함하고 있지 않다.
+BERT: Pre-training of Deep Bidirectional Transformers for Language Understanding BERT라 불리는 새로운 언어 표현 모델를 소개한다. BERT는 &amp;ldquo;Bidirectional Encoder Representations from Transformers&amp;quot;를 의미한다. 최근 언어 표현 모델과 달리 (Peters et al., 2018a; Radford et al., 2018), BERT는 설계 되었다.
+ 사전 학습(pretrain)으로 deep bidirectional representations을 얻을 수 있다. 이러한 딥 양방향 표현은 레이블이 없는 텍스트로 부터 얻는다.</description>
+    </item>
+    
+    <item>
+      <title>PYTORCH 소개</title>
+      <link>https://happygrammer.github.io/ai/pytorch/tutorials/tensor_tutorial/</link>
+      <pubDate>Thu, 16 Jan 2020 22:09:54 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/pytorch/tutorials/tensor_tutorial/</guid>
+      <description>파이썬 기반의 과학 컴퓨팅 패키지이로 두가지 특징이 있습니다.
+ GPU 파워를 사용해 Numpy를 대체 합니다. 딥러닝 연구 플랫폼이며 유연함과 속도를 제공합니다.  텐서 텐서는 NummPy’s ndarrays와 비슷합니다. GPU를 사용해 계산을 가속화할 수 있게 하였습니다.
+from __future__ import print_function import torch NOTE
+초기화 하지 않은 매트릭스를 선언했고, 사용 되기 전에 알려지지 않은 값을 포함합니다. 초기화 되지 않은 매트릭가 생성되면, 초기화 값된 메트리스가 메모리에 할당됩니다.
+빈텐서 생성 empty 메서드를 이용해 5x3 매트릭스를 구축합니다.</description>
+    </item>
+    
+    <item>
+      <title>연비 예측을 위한 회귀 분석</title>
+      <link>https://happygrammer.github.io/ai/tensorflow/keras/regression/</link>
+      <pubDate>Wed, 15 Jan 2020 06:40:34 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/tensorflow/keras/regression/</guid>
+      <description>회귀 문제(regression problem)의 목표는 연속 출력값을 예측하는 것 입니다. 클래스 목록에서 클래스를 선택하는 것이 목표입니다. (사진을 인식해 사과 인지 오렌지를 식별함).
+이 노트 북은 고전적인 Auto MPG 데이터셋을 사용하여 모델을 만들고 있는 1970년대 후반부터 1980년데 전반까지의 자동차 연비 예측을 수행합니다. 이를 수행할 목적으로, 저 시기동안 많은 자동차들의 설명(description)을 가지고 구축한 모델을 제공합니다. 이 설명은 다음의 속성을 포함합니다. 예) 실린더, 변위(displacement), 마력(horsepower), 무게
+이 예제는 tf.keras API를 사용합니다. 자세한 가이드를 보시면 this guide 글을 보세요.</description>
+    </item>
+    
+    <item>
+      <title>영화 리뷰 텍스트 분류</title>
+      <link>https://happygrammer.github.io/ai/tensorflow/text_classification_with_hub/</link>
+      <pubDate>Wed, 15 Jan 2020 06:34:47 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/tensorflow/text_classification_with_hub/</guid>
+      <description>이글은 text_classification_with_hub 한국어 번역 문서입니다.
+ Run in Google Colab View source on GitHub Download notebook  노트북은 리뷰 텍스트를 이용해 영화 리뷰을 긍정인지 부정인지를 분류하는 이진 분류를 수행합니다. 머신러닝 문제에 넓게 적용되는 중요한 예제입니다. 튜토리얼은 텐서플로우 허브와 케라스를 이용해 트랜스퍼 러닝(transfer learning)의 기본 응용 방법을 설명합니다.
+ 역자주 : 트랜스퍼 러닝은 사전 학습 모델(pre-trained mode)을 재사용하여 응용 모델을 구축하는 방법  IMDB 데이터셋 은 5만개의 영화 리뷰(Internet Movie Database)를 포함하고 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>Classification</title>
+      <link>https://happygrammer.github.io/ai/tensorflow/keras/classification/</link>
+      <pubDate>Wed, 15 Jan 2020 06:34:03 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/tensorflow/keras/classification/</guid>
+      <description>텐서플로우 튜토리얼(https://www.tensorflow.org/tutorials/quickstart/advanced?hl=ko) 한국어 번역 문서입니다.
+분류기의 기본 : 옷 데이터 분류하기 이번 가이드는 옷 이미지(스니커즈나 셔츠) 분류할 수 있는 뉴럴넷 모델을 학습해 보겠습니다. 바로 이해가 되지 않을 수 있지만, 텐서플로우 예제를 보고 빠르게 살펴 보겠습니다. 이 가이드는 tf.keras, 라는 고수준 API를 이용해 모델을 학습합니다.
+from __future__ import absolute_import, division, print_function, unicode_literals # TensorFlow and tf.keras import tensorflow as tf from tensorflow import keras # Helper libraries import numpy as np import matplotlib.</description>
+    </item>
+    
+    <item>
+      <title>전문가용 텐서플로우 2 튜토리얼</title>
+      <link>https://happygrammer.github.io/ai/tensorflow/quickstart-for-experts/</link>
+      <pubDate>Wed, 15 Jan 2020 06:32:43 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/tensorflow/quickstart-for-experts/</guid>
+      <description>텐서플로우 튜토리얼(https://www.tensorflow.org/tutorials/quickstart/advanced) 한국어 번역 문서입니다.
+전문가용 텐서플로우 2 튜토리얼 Google Colaboratory에 노트북 파일이 있습니다. 이 사이트는 파이썬 노트북 파이을 브라우저에서 바로 실행해 볼 수 있어 텐서플로우를 이해하는데 도움을 줍니다. 튜토리얼을 진행해 보겠습니다.
+ Colab에서 파이썬 런타임에 접속합니다. 메뉴바의 오른쪽에 위치한 CONNECT을 선택합니다. 메뉴에서 Runtime &amp;gt; Run all을 선택합니다.  텐서플로우 패키지 설치와 임포트 텐서플로우 2 패키지를 다운로드 받고 설치를 진행하고, 텐서플로우를 프로그램으로 임포트합니다.
+from __future__ import absolute_import, division, print_function, unicode_literals import tensorflow as tf from tensorflow.</description>
+    </item>
+    
+    <item>
+      <title>텐서플로우 2 입문자용 튜토리얼</title>
+      <link>https://happygrammer.github.io/ai/tensorflow/quickstart-for-beginners/</link>
+      <pubDate>Wed, 15 Jan 2020 06:29:13 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/ai/tensorflow/quickstart-for-beginners/</guid>
+      <description>텐서플로우 튜토리얼(https://www.tensorflow.org/tutorials/quickstart/beginner) 한국어 번역 문서입니다.
+텐서플로우 2 입문 튜토리얼  Google Colab에서 실행 GitHub 소스 보기 노트북 다운로드  케라스를 사용한 짧은 소개  이미지를 분류하는 뉴럴 네트워크(neural network)를 빌드합니다. 빌드된 뉴럴 네트워크를 이용해 학습(Train)을 진행합니다. 마지막으로, 모델의 정확도(accuracy)를 평가합니다.  Google Colaboratory에 노트북 파일이 있습니다. 이 사이트는 파이썬 노트북 파이을 브라우저에서 바로 실행해 볼 수 있어 텐서플로우를 이해하는데 도움을 줍니다. 튜토리얼을 진행해 보겠습니다.
+ Colab에서 파이썬 런타임에 접속합니다. 메뉴바의 오른쪽에 위치한 CONNECT을 선택합니다.</description>
+    </item>
+    
+  </channel>
+</rss>

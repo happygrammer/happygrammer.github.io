@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>자바스크립트 콜백 함수로 의존성 제거하기</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="자바스크립트 콜백 함수로 의존성 제거하기" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/frontend/javascript/removing-dependencies-with-callback-functions-in-javascript/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">자바스크립트 콜백 함수로 의존성 제거하기</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/frontend/javascript/removing-dependencies-with-callback-functions-in-javascript/" class="article-date">
+                <time datetime='2024-04-02T00:15:28.000&#43;09:00' itemprop="datePublished">2024-04-02</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>자바스크립트에서 <code>콜백 함수</code>를 활용하면 의존성을 제거하고 코드의 재사용성을 높일 수 있습니다. 특히, 다른 메서드를 호출할 때 <code>req</code>와 <code>res</code> 객체를 직접 전달하는 대신 콜백 함수를 전달하는 방식은 많은 이점을 가져다 줍니다.</p>
+<p>전통적인 방식에서는 한 메서드가 다른 메서드를 호출할 때 <code>req</code>와 <code>res</code> 객체를 인자로 전달합니다. 이는 메서드 간의 결합도를 높이고, 코드의 재사용성을 떨어뜨립니다. 또한, 메서드의 책임이 명확하지 않아 유지보수가 어려워질 수 있습니다.</p>
+<p>반면에, 콜백 함수를 사용하면 이러한 문제를 해결할 수 있습니다. 호출되는 메서드는 <code>req</code>와 <code>res</code> 객체에 대한 의존성이 없어지고, 오직 콜백 함수를 통해서만 결과를 전달받습니다. 이는 메서드의 <code>단일 책임 원칙</code>을 지키는 데 도움이 됩니다.</p>
+<p>콜백 함수를 사용한 예시 코드를 살펴보겠습니다:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">processData</span>(<span style="color:#a6e22e">data</span>, <span style="color:#a6e22e">callback</span>) {
+  <span style="color:#75715e">// 데이터 처리 로직
+</span><span style="color:#75715e"></span>  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">processedData</span> <span style="color:#f92672">=</span> <span style="color:#75715e">/* ... */</span>;
+  <span style="color:#a6e22e">callback</span>(<span style="color:#a6e22e">processedData</span>);
+}
+
+<span style="color:#66d9ef">function</span> <span style="color:#a6e22e">handleRequest</span>(<span style="color:#a6e22e">req</span>, <span style="color:#a6e22e">res</span>) {
+  <span style="color:#66d9ef">const</span> <span style="color:#a6e22e">data</span> <span style="color:#f92672">=</span> <span style="color:#a6e22e">req</span>.<span style="color:#a6e22e">body</span>;
+  <span style="color:#a6e22e">processData</span>(<span style="color:#a6e22e">data</span>, <span style="color:#66d9ef">function</span>(<span style="color:#a6e22e">result</span>) {
+    <span style="color:#a6e22e">res</span>.<span style="color:#a6e22e">send</span>(<span style="color:#a6e22e">result</span>);
+  });
+}
+</code></pre></div><p>위 코드에서 <code>processData</code> 함수는 <code>data</code>와 <code>callback</code> 함수를 인자로 받습니다. 데이터 처리 로직을 수행한 후, 처리된 결과를 <code>callback</code> 함수에 전달합니다. <code>handleRequest</code> 함수는 <code>req</code>와 <code>res</code> 객체를 다루지만, <code>processData</code> 함수를 호출할 때는 콜백 함수를 전달합니다. 이 콜백 함수에서 <code>res.send()</code>를 호출하여 처리된 결과를 응답으로 보냅니다.</p>
+<p>이렇게 콜백 함수를 사용하면 <code>processData</code> 함수는 <code>req</code>와 <code>res</code> 객체에 대해 알 필요가 없어집니다. 이는 함수의 재사용성을 높이고, 테스트를 용이하게 만듭니다. 또한, 콜백 함수를 사용하면 비동기 작업을 처리하는 데에도 유용합니다.</p>
+<p>콜백 함수를 활용하는 것은 자바스크립트에서 의존성을 제거하고 코드의 모듈화를 촉진하는 강력한 패턴입니다. 이를 통해 코드의 가독성과 유지보수성을 높일 수 있습니다. 다만, 콜백 함수를 과도하게 사용하면 콜백 지옥(Callback Hell)에 빠질 수 있으므로 주의해야 합니다. 콜백을 사용하지 않는 방식은 간단한 동기 처리에는 적합하지만, 비동기 처리나 복잡한 로직을 다룰 때는 한계가 있습니다. 특히 노드 JS와 같은 비동기 이벤트 기반 환경에서는 콜백 함수의 사용이 필수적입니다. 따라서 상황에 맞게 콜백 함수를 적절히 활용하되, 콜백 지옥에 빠지지 않도록 주의해야 합니다. 콜백을 사용하는 코드의 장단점을 요약하면 다음과 같습니다.</p>
+<p>장점:</p>
+<ol>
+<li>비동기 처리를 효과적으로 다룰 수 있음</li>
+<li>함수 간 결합도를 낮추어 재사용성 증가</li>
+<li>단일 책임 원칙을 준수하기 용이함</li>
+</ol>
+<p>단점:</p>
+<ol>
+<li>콜백 지옥에 빠질 가능성이 있어 가독성 저하</li>
+<li>에러 처리와 디버깅이 상대적으로 어려움</li>
+<li>코드 흐름이 직관적이지 않을 수 있음</li>
+</ol>
+<p>콜백 함수는 비동기 처리를 다루는 데 매우 효과적이며, 특히 노드 JS와 같은 비동기 이벤트 기반 환경에서 널리 사용됩니다. 콜백을 사용하면 함수 간의 결합도를 낮출 수 있어 코드의 재사용성이 높아지고, 단일 책임 원칙을 준수하기도 쉬워집니다.</p>
+<p>하지만 콜백을 과도하게 사용하면 콜백 지옥에 빠질 수 있어 코드의 가독성이 크게 떨어질 수 있습니다. 또한, 콜백 함수 내부에서 에러 처리를 해야 하므로 에러 처리와 디버깅이 상대적으로 어려울 수 있습니다. 콜백 함수를 사용한 비동기 코드는 코드의 흐름이 직관적이지 않을 수도 있습니다.</p>
+<p>따라서 콜백 함수를 사용할 때는 콜백 지옥을 피하기 위해 노력해야 하며, 필요한 경우 Promise나 async/await와 같은 대안을 활용하는 것이 좋습니다. 이를 통해 콜백 함수의 장점은 살리면서도 가독성과 유지보수성을 높일 수 있습니다.</p>
+<p>콜백 함수와 관련된 더 자세한 내용은 아래 영상을 참고해 보시기 바랍니다:</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/8aGhZQkoFbQ" frameborder="0" allowfullscreen></iframe>
+<p>콜백 함수는 자바스크립트에서 매우 중요한 개념입니다. 이를 잘 활용한다면 더 효율적이고 maintainable한 코드를 작성할 수 있을 것입니다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/frontend/javascript/removing-dependencies-with-callback-functions-in-javascript/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents"></nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/choosing-splitters-for-data-fields/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            delimiter 종류와 선택 가이드
+        </div>
+    </a>
+    
+    
+    <a href="/insights/essential-elements-developer-career/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">개발자 경력의 핵심 요소들&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

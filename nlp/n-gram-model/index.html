@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>n-gram 모델</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="n-gram 모델" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/n-gram-model/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/nlp/" class="archive-article-date">&lt; Nlps</a></div>
+            
+            <h1 class="article-title" itemprop="name">n-gram 모델</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/n-gram-model/" class="article-date">
+                <time datetime='2021-11-20T20:19:26.000&#43;09:00' itemprop="datePublished">2021-11-20</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="n-gram-">n-gram 모델</h3>
+<p><strong>n-gram</strong> 모델은 자연어 처리, 정보 검색 등에서 활용이 되는 시퀀스 데이터 표현 방식입니다. 자연어 처리에서는 문서 또는 문장을 벡터로 변환해 자연어 처리의 여러 응용 분야에 활용할 수 있도록 합니다. 예를 들어 다음 단어를 예측해야 하는 오타 교정과 같은 분야에 활용될 수 있습니다. 정보 검색에서는 문서에 나타난 단어들의 분포들을 고려해 문서 간의 유사도 계산해 <strong>문서 분류</strong>(document classification)에 활용합니다. ngram에서 n은 연속된 단어의 개수를 의미합니다. 여기서 각 단어는 토큰(token)이라 하며 토큰 개수(n)에 따라 다음과 같이 부릅니다.</p>
+<ul>
+<li>n=1 : 1-gram(unigram)</li>
+<li>n=2 : 2-gram(bigram)</li>
+<li>n=3: 3-gram(trigram)</li>
+<li>n=4 : 4-gram</li>
+<li>&hellip;</li>
+</ul>
+<p>n-gram 모델에서 단어가 $w_i$ 부터 $w_{i-1}$ 개 단어가 나열 되었을때 i번째 단어 $w_i$ 의 확률 $P(w_i\mid w_1,\ldots,w_{i-1})$  문장  $w_1,\ldots,w_m$ 에서 얻어진 학률 $P(w_1,\ldots,w_m)$ 입니다.</p>
+<p>$$
+P(w_1,\ldots,w_m) = \prod^m_{i=1} P(w_i\mid w_1,\ldots,w_{i-1})
+\approx \prod^m_{i=1} P(w_i\mid w_{i-(n-1)},\ldots,w_{i-1})
+$$</p>
+<p>n-gram은 빈도수 값을 이용해 조건 확률을 계산할 수 있습니다.
+$$
+P(w_i\mid w_{i-(n-1)},\ldots,w_{i-1}) = \frac{\mathrm{count}(w_{i-(n-1)},\ldots,w_{i-1},w_i)}{\mathrm{count}(w_{i-(n-1)},\ldots,w_{i-1})}
+$$</p>
+<h3 id="--">어휘 벡터 생성</h3>
+<p>n-gram 기반으로 단어 시퀀스를 만들어 보겠습니다. n-gram 기반으로 단어 시퀀스를 만들려면 n-gram 어휘 벡터를 만들 수 있어야 합니다. n-gram 어휘 벡터는 처리하려는 데이터셋에 등장하는 어휘 집합을 의미합니다. 예를 들어 &ldquo;동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세&quot;라는 문장의 어휘 벡터는 다음과 같이 나타냅니다.</p>
+<pre><code>[['동해'], ['물과'], ['백두산이'], ['마르고'], ['닳도록'], ['하느님이'], ['보우하사'], ['우리나라'], ['만세'], ['무궁화'], ['삼천리'], ['화려강산'], ['대한'], ['사람'], ['대한으로'], ['길이'], ['보전하세']]
+</code></pre><p>위와 같이 n-gram 어휘 벡터를 생성하는 모듈을 만들어 보면 아래와 같습니다.</p>
+<p>[예제] /language-model/ngram.py</p>
+<pre><code># n-gram 어휘 벡터 생성
+def getNgramWord(N,txt):
+    txt = txt.split()
+    ngrams = [txt[i:i+N] for i in range(len(txt)-N+1)]
+    return ngrams
+
+# n-gram 어휘 벡터의 빈도수 추출
+def getFrequencyVector(N, documentTxt, arrVocabulary):
+    # arrVocabulary 길이로 Bag-Of-Words 벡터 초기화
+    vectorBoW = [0] * len(arrVocabulary)
+
+    # n-gram 빈도수 벡터 생성
+    words = getNgramWord(N, documentTxt)
+    for word in words:
+        wordIndex = arrVocabulary.index(word)
+        vectorBoW[wordIndex] = 1
+    return vectorBoW
+</code></pre><p>위 모듈중에 getNgramWord 함수를 이용해 n이 1, 2, 3인 어휘 벡터를 만들어 보겠습니다.</p>
+<p>[예제] /language-model/test-ngram-getNgramWord.py</p>
+<pre><code>from ngram import getNgramWord
+
+txt = &quot;동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세&quot;
+print(&quot;1-gram : &quot; + str(getNgramWord(1, txt))) # unigram
+print(&quot;2-gram : &quot; + str(getNgramWord(2, txt))) # bigram
+print(&quot;3-gram : &quot; + str(getNgramWord(3, txt))) # trigram
+</code></pre><p>실행 결과</p>
+<pre><code>1-gram : [['동해'], ['물과'], ['백두산이'], ['마르고'], ['닳도록'], ['하느님이'], ['보우하사'], ['우리나라'], ['만세'], ['무궁화'], ['삼천리'], ['화려강산'], ['대한'], ['사람'], ['대한으로'], ['길이'], ['보전하세']]
+2-gram : [['동해', '물과'], ['물과', '백두산이'], ['백두산이', '마르고'], ['마르고', '닳도록'], ['닳도록', '하느님이'], ['하느님이', '보우하사'], ['보우하사', '우리나라'], ['우리나라', '만세'], ['만세', '무궁화'], ['무궁화', '삼천리'], ['삼천리', '화려강산'], ['화려강산', '대한'], ['대한', '사람'], ['사람', '대한으로'], ['대한으로', '길이'], ['길이', '보전하세']]
+3-gram : [['동해', '물과', '백두산이'], ['물과', '백두산이', '마르고'], ['백두산이', '마르고', '닳도록'], ['마르고', '닳도록', '하느님이'], ['닳도록', '하느님이', '보우하사'], ['하느님이', '보우하사', '우리나라'], ['보우하사', '우리나라', '만세'], ['우리나라', '만세', '무궁화'], ['만세', '무궁화', '삼천리'], ['무궁화', '삼천리', '화려강산'], ['삼천리', '화려강산', '대한'], ['화려강산', '대한', '사람'], ['대한', '사람', '대한으로'], ['사람', '대한으로', '길이'], ['대한으로', '길이', '보전하세']]
+</code></pre><h3 id="n-gram--">n-gram  모듈</h3>
+<p>n-gram 벡터를 생성하기 위해 n-gram 모듈을 만들어 보겠습니다. n-gram 모듈은 문서 집합에 나타난 n-gram에 해당하는 전체 어휘 벡터와, 빈도수 벡터를 생성하는 모듈입니다. 먼저 n개의 문서로 구성된 문서 집합을 준비합니다.</p>
+<pre><code>documents = [
+&quot;동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세&quot;,
+&quot;떴다 떴다 비행기 날아라 날아라 높이 높이 날아라 우리 비행기&quot;,
+&quot;엄마 앞에서 짝짜꿍 아빠 앞에서 짝짜꿍 엄마 한숨은 잠자고 아빠 주름살 펴져라&quot;,
+&quot;반짝반짝 작은 별 아름답게 비치네 동쪽 하늘에서도&quot;,
+&quot;이 기상과 이 맘으로 충성을 다하여 괴로우나 즐거우나 나라 사랑하세 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세&quot;]
+</code></pre><p>위 문서 집합에 대해 n-gram을 고려하려면 하나의 문서가 아닌 전체 문서 집합에 대한 n-gram 벡터를 만들어야 합니다.</p>
+<p>[예제] /language-model/ngramDocument.py</p>
+<pre><code>from ngram import getNgramWord, getFrequencyVector
+
+# 전체 문서의 n-gram 어휘 벡터 생성
+def getVocabularyAllDocuments(N, arr):
+    allVocabulary = []
+    for documentTxt in arr:
+        ngramWords = getNgramWord(N, documentTxt)
+        for word in ngramWords:
+            if word not in allVocabulary:
+                allVocabulary.append(word)
+    return allVocabulary
+
+# 전체 문서에 대한 빈도수 벡터 생성
+def getNgramDocuments(N, documents):
+    allVocabulary = getVocabularyAllDocuments(N, documents)
+    bowDocuments = []
+
+    # 각 문서에 대한 빈도수 벡터를 합쳐 하나의 빈도수 벡터로 만듦
+    for document in documents:
+        vectorBow = getFrequencyVector(N, document, allVocabulary)
+        bowDocuments.append(vectorBow)
+    return bowDocuments
+</code></pre><h3 id="unigram-">unigram 벡터</h3>
+<p>unigram은 <strong>Bag-Of-Words</strong>(이하 BoW)라는 표현 간소화 방법입니다. 유니 그램은 어순 정보를 고려하지 않습니다. 따라서 어순 정보만 다른 두 문장은 동일 문장이 됩니다.</p>
+<ul>
+<li>동해 물과 백두산이 마르고 닳도록</li>
+<li>닳도록 마르고 백두산이 물과 동해</li>
+</ul>
+<p>위 두 문장은 모두 아래와 같이 동일한 빈도수를 가집니다. 빈도수 요소인 unigram 벡터는 아래와 같습니다.</p>
+<table>
+<thead>
+<tr>
+<th>동해</th>
+<th>물과</th>
+<th>백두산이</th>
+<th>마르고</th>
+<th>닳도록</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+<td>1</td>
+</tr>
+</tbody>
+</table>
+<p>문장을 좀더 긴 문서 단위로 고려해도 unigram 결과는 동일합니다. 아래는 애국가 1절 가사를 하나의 문서로 보고 첫번째 문서를 정방향 어순으로 고려하고 있고 두번째 문서를 역방향 어순으로 고려하고 있습니다.</p>
+<pre><code>documents = [
+&quot;동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세&quot;,
+&quot;보전하세 길이 대한으로 사람 대한 화려강산 삼천리 무궁화 만세 우리나라 보우하사 하느님이 닳도록마르고 백두산이 물과 동해&quot;]
+</code></pre><p>이 예제를 앞서 만든 n-gram 벡터 모듈을 이용해 위 두 문장의 unigram 벡터 결과를 확인해 보겠습니다.</p>
+<p>[예제] /langugage-model/test-1gram.py</p>
+<pre><code>from ngramDocument import getNgramDocuments
+
+documents = [
+&quot;동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세&quot;,
+&quot;보전하세 길이 대한으로 사람 대한 화려강산 삼천리 무궁화 만세 우리나라 보우하사 하느님이 닳도록 마르고 백두산이 물과 동해&quot;]
+
+N = 1
+oneGramVectors = getNgramDocuments(N, documents)
+for i, vector in enumerate(oneGramVectors):
+    print(documents[i],&quot; : &quot;,vector)
+</code></pre><p>실행 결과</p>
+<pre><code>동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세  :  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+보전하세 길이 대한으로 사람 대한 화려강산 삼천리 무궁화 만세 우리나라 보우하사 하느님이 닳도록 마르고 백두산이 물과 동해  :  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+</code></pre><p>위 예제의 입력은 어순 정보만 바꾼 동일한 벡터입니다. 또한 실행 결과에서 확인할 수 있듯이 Bow 관점에서 두 문장은 동일한 벡터 입니다.</p>
+<h3 id="bigram-">bigram 벡터</h3>
+<p>unigram은 단어 순서가 고려하지 하지 않아 문맥 의미가 제대로 반영 되지 않는 문제가 있습니다. 이러한 문제는 bigram 이상인 경우 해소 할 수 있습니다. n-gram 파라메터만 1에서 2로 바꿔 다시 확인해 보겠습니다.</p>
+<p>[예제] /langugage-model/test-1gram.py</p>
+<pre><code>from ngramDocument import getNgramDocuments
+
+documents = [
+&quot;동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세&quot;,
+&quot;보전하세 길이 대한으로 사람 대한 화려강산 삼천리 무궁화 만세 우리나라 보우하사 하느님이 닳도록 마르고 백두산이 물과 동해&quot;]
+
+N = 2
+oneGramVectors = getNgramDocuments(N, documents)
+for i, vector in enumerate(oneGramVectors):
+    print(documents[i],&quot; : &quot;,vector)
+</code></pre><p>실행 결과</p>
+<pre><code>동해 물과 백두산이 마르고 닳도록 하느님이 보우하사 우리나라 만세 무궁화 삼천리 화려강산 대한 사람 대한으로 길이 보전하세  :  [1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]
+보전하세 길이 대한으로 사람 대한 화려강산 삼천리 무궁화 만세 우리나라 보우하사 하느님이 닳도록 마르고 백두산이 물과 동해  :  [0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
+</code></pre><p>실행 결과에서 확인할 수 있듯이 n-gram의 n이 2이상 부터는 순서가 고려되기 때문에 동일 어휘가 사용된 두 문서라 할지라도 n-gram 벡터는 일치하지 않아 unigram에서 나타난 순서가 바뀌었을때의 문제를 해소할 수 있습니다</p>
+<h3 id="n-gram--1">N-Gram의 문제</h3>
+<p>n-gram은 데이터 표현 방식이 단순 한 반면 크게 다음과 같은 문제가 있습니다.</p>
+<ul>
+<li>데이터 희소성(data sparsity) 문제</li>
+<li>롱텀 의존성(<em>Long</em>-<em>Term</em> Dependencies) 문제</li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/nlp/n-gram-model/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#n-gram-">n-gram 모델</a></li>
+        <li><a href="#--">어휘 벡터 생성</a></li>
+        <li><a href="#n-gram--">n-gram  모듈</a></li>
+        <li><a href="#unigram-">unigram 벡터</a></li>
+        <li><a href="#bigram-">bigram 벡터</a></li>
+        <li><a href="#n-gram--1">N-Gram의 문제</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/nlp/tokenizer_wordpiece_vs_sentencepiece/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            토크나이저의 종류와 비교
+        </div>
+    </a>
+    
+    
+    <a href="/nlp/nltk/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">NLTK를 이용한 자연어 처리&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

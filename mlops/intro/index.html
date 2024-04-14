@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MLOps란 무엇인가?</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="MLOps란 무엇인가?" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/mlops/intro/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/mlops/" class="archive-article-date">&lt; Mlops</a></div>
+            
+            <h1 class="article-title" itemprop="name">MLOps란 무엇인가?</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/mlops/intro/" class="article-date">
+                <time datetime='2023-01-10T03:28:11.000&#43;09:00' itemprop="datePublished">2023-01-10</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p><code>MLOps</code>는 머신러닝과 소프트웨어 분야의 <code>DevOps</code>를 합친 합성어입니다. ML은 머싱러닝(Machine Learning)을 의미하며 Ops는 시스템 운영을 의미합니다. 이름 그대로 머신러닝 시스템 운영을 지원하는 체계입니다. ML 모델의 생성 배포에 필요한 운영 비용을 낮추고 효율적으로 ML 모델을 운영하기 위해 필요한 모범 사례 모음이기도 합니다. MLOps는 생명 주기의 각 과정을 자동화하는 데 과업들을 포함합니다. MLOps라는 용어에서 느껴지듯 ML 영역과  IT 의 역할을 합쳐 놓은 합성어이다. MLOps는 크게 ML 영역과 DEV영역과  OPS영역을 포괄하는 용어로 데이터 구축, 모델 개발 및 훈련, 모델 배포와 관련해 효율성과 생산성을 개선시키는데 초점이 있습니다.</p>
+<p><img src="https://blogs.nvidia.com/wp-content/uploads/2020/09/MLOps-Neal-Analytics-672x296.png.webp" alt=""></p>
+<p>출처 : <a href="https://blogs.nvidia.com/blog/2020/09/03/what-is-mlops/">MLOps란 무엇인가?</a></p>
+<p>ML 영역에서는 라벨링 처리된 데이터를 이용해 효율적인 모델을 훈련하는데 초점이 있고, DEV 영역에서는 생성된 모델을 어떻게 패키징하고 검증하는 등 모델 관리에 초점을 맞추고 있다. OPS 영역에서는 모델을 배포하고 모델을 모니터링하여서 상용 환경에서 문제없도록 운영하는 것을 목표로 합니다.</p>
+<h3 id="model-ops">Model Ops</h3>
+<p>ModelOps는 모델을 평가하고 업데이트하는 운영 과정을 의미합니다. ModelOps는 기술 전문가(데이터 과학자와 ML 엔지니어, IT 전문가가 협업)로 구성된 MLOps와 달리 <code>비즈니스 도메인 전문가</code>의 참여를 허용합니다. 모델은 편견을 허용하지 않아야 하며 공정한 방식으로 작동해야 합니다. 또한 적절한 수명이 제한되어 있어 오래된 모델은 폐기하고 신규 모델로 업데이트하는 과정이 필요합니다. ModelOps는 신뢰할 수 있는 모델, 편향되지 않은 모델을 운영하기 위해 비즈니스의 방향에 맞춰 모델의 통제, 규정 준수 과정을 포함해 AI  모델 운영과 관련한 과정을 포함합니다.</p>
+<h3 id="heading">로우코드/노코드</h3>
+<p>최근 AI 개발 및 서비스 운영을 좀더 손쉽게해 로우코드/노코드 라는 말이 유행입니다. 로우코드는 최소한의 개발 지식만 있더라도 S/W를 만들 수 있는 기술을 의미합니다. 노코드는 조금더 나아가 개발 지식이 없더라도 클릭이나 간단한 명령만으로도 개발을 할 수 있는 기술입니다. MLOps 영역도 <code>로우코드/노코드</code>에 영향을 받아 모델 엔지니어링을 본다 손쉽게할 수 있도록 MLOps 과정을 솔루션화 해서 플랫폼화 하려는 기술 흐름이 있습니다.</p>
+<h3 id="mlops-">MLOps 엔지니어</h3>
+<p>MLOps 생명주기를 효율적으로 운영하기 위해서는 이를 개발하고 운영할 수 있는 MLOps 엔지니어가 필요합니다. MLOps 엔지니어는 MLOps의 생명 주기를 관리하고 운영하는 역할을 합니다.</p>
+<p><img src="https://blogs.nvidia.com/wp-content/uploads/2020/09/1-MLOps-NVIDIA-invert-final.jpg" alt=""></p>
+<p>출처 : <a href="https://blogs.nvidia.com/blog/2020/09/03/what-is-mlops/">MLOps란 무엇인가?</a></p>
+<p>머신 러닝 기술의 발전으로 인해 초거대 모델이 개발되는 시점이 도래하고 있습니다. 이러한 초거대 모델을 관리하고 배포하기 위해서는 MLOps 엔지니어의 수요가 높아질 것으로 예상됩니다.</p>
+<p>MLOps 엔지니어는 머신 러닝 모델을 구축하고, 관리하고, 배포하는 프로세스를 개선하기 위해 필요한 기술과 지식을 가지고 있습니다. 따라서 초거대 모델을 관리하는 데 필요한 자원과 시간을 줄이기 위해서는 MLOps 엔지니어의 역할이 더욱 중요해질 것입니다.</p>
+<p>또한, 초거대 모델을 개발하고 관리하는 과정에서는 머신 러닝 알고리즘, 하드웨어 및 소프트웨어 인프라, 클라우드 컴퓨팅 등 다양한 기술과 도구를 활용해야 합니다. 따라서 MLOps 엔지니어는 이러한 다양한 기술과 도구를 활용할 수 있는 능력과 경험이 필요합니다.</p>
+<p>초거대 모델이 개발되는 시점에서 MLOps 엔지니어의 수요가 높아질 것으로 예상되는 이유는, 머신 러닝 기술의 발전으로 인해 모델의 크기와 복잡성이 증가하면서 머신 러닝 시스템의 관리 및 운영에 필요한 기술과 지식의 중요성이 더욱 커지기 때문입니다.</p>
+<p>따라서, MLOps 엔지니어는 이러한 초거대 모델을 관리하고 배포하는 데 필수적인 역할을 수행하게 될 것입니다. 이에 대비하여 머신 러닝 기술과 MLOps 기술에 대한 꾸준한 학습과 개발이 필요합니다.</p>
+<h3 id="mlops--">MLOps 생명 주기</h3>
+<p>머신러닝 모델이 만들어지기 까지, <code>비즈니스 목적</code>이 있으며 비즈니스 목적을 달성하기 위해 데이터 수집, 머신러닝 모델 생성, 머신러닝 모델 배포를 수행합니다 생명 주기 관점에서 <code>MLOps</code>는 개발 부터 상용(production) 적용에 필요한 수명 주기를 포함합니다.</p>
+<ul>
+<li>ML 데이터 수집 및 분석 단계</li>
+<li>ML 모델 학습 단계</li>
+<li>ML 모델 평가 단계</li>
+<li>ML 모델 검증/테스트 단계</li>
+<li>ML 모델 배포 단계 (모델 서빙, CI/CD 파이프라인 배포)</li>
+<li>ML 모델 모니터링</li>
+</ul>
+<p><code>데이터 수집 및 분석 단계</code>에서는  데이터를 어떻게 수집할지에 대한  방식과 수집된 데이터를 어떻게 전처리할지에 대한 내용을 포함합니다. 데이터 관리자는 ML 엔지니어와 협업하여 모델에 사용할 데이터의 전처리 방법, 라벨링의 규약, 최종적인 데이터의 형식(format) 등과 같이 사전에 협의가 이뤄진 형태로 데이터를 가공하고 관리하는 역할을 수행합니다. <code>ML 모델 학습 단계</code>에서는 수집된 데이터를  이용해 학습기의 입력으로 넣어서 모델을 효율적으로 훈련하는 데 관심이 있습니다. 훈련된 모델은 모델 <code>ML 모델 검증/테스트단계</code>와 <code>ML 모델 배포 단계</code>를 거칩니다. 상용에 배포된 모델은 실재 상용 환경에서 문제가 없을지에 대해 모니터링 됩니다.</p>
+<h3 id="mlops--1">MLOps 담당자</h3>
+<p>모델의 첫 상용 배포 이후, 비즈니스 목적에 따라 모델을 계속해서 업데이트 되어야합니다. 이를 원활하기 위해서는 MLOps를 통해 모델 생성 과정을 표준화하고 다양한 언어와 도구를 사용한 경험들이 있는 관련 담당자들이 참여할 수 있도록 처리 프로세스를 표준화할 수 있어야합니다. 표준화되고 담당자간의 역할이 정해지고 나면, 관련 담당자들 간에 <code>기술 공유</code>를 통해 MLOps의 각 프로세스를 발전 시켜 나갈 수 있습니다. MLOps 관점에서 처리 과정과 처리 과정을 담당자의 역할을 정의 할 수 있습니다.</p>
+<ul>
+<li>비즈니스 분석/기획 : 비즈니스 전문가, 도메인 전문가</li>
+<li>데이터 수집/개발 : 데이터 엔지니어</li>
+<li>모델 개발 : 머신러닝 엔지니어</li>
+<li>모델 시험 : IT 전문가</li>
+<li>모델 배포 : DevOps 엔지니어</li>
+<li>모델 모니터링/성능 측정 : DevOps 엔지니어, 시스템 관리자</li>
+</ul>
+<h3 id="-mlops-">지속적인 MLops 관점</h3>
+<p>MLOps은 다음과 같은 선순환 체계를 지원할 수 있어야합니다.</p>
+<ul>
+<li>CI (Continuous Integration, 지속적 통합)</li>
+<li>CD (Continuous Deployment, 지속적 배포)</li>
+<li>CT (Continuous Training, 지속적 학습)</li>
+</ul>
+<p><code>CI(지속적 통합)</code>이란 코드 또는 데이터에 대한 지속적인 통합을 의미합니다. 데이터 엔지니어는 신규로 생성된 데이터나 데이터 수집에 사용된 코드는 지속적으로 통합해 고도화 할 수 있습니다. 머신러닝 엔지니어는 생성된 모델이나, 모델 생성에 사용된 코드를 지속적으로 중안 저장소에 통합하는 작업을 수행할 수 있습니다. 모델이면 모델의 버전, 모델의 특징 등의 정보가 포함될 수 있고, 모델 학습에 사용된 코드는 코드의 커밋 이력이 이에 해당합니다.  CD(지속적 배포)는 모델 검수후 모델을  안정하게 패키징하여 상용환경에 모델을 실재 배포하는 과정입니다. 마지막으로 CT(지속적 학습)은 비즈니스 목적을 고려해 최신화된 데이터로 모델을 새로 생성할 수 있는 과정입니다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/mlops/intro/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#model-ops">Model Ops</a></li>
+        <li><a href="#heading">로우코드/노코드</a></li>
+        <li><a href="#mlops-">MLOps 엔지니어</a></li>
+        <li><a href="#mlops--">MLOps 생명 주기</a></li>
+        <li><a href="#mlops--1">MLOps 담당자</a></li>
+        <li><a href="#-mlops-">지속적인 MLops 관점</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/mlops/mlops_essentials_for_ml_engineers/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            머신러닝 엔지니어가 알아야 할 MLOps
+        </div>
+    </a>
+    
+    
+    <a href="/dev/language/kotlin/setup/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Mac에서 Kotlin 설치&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

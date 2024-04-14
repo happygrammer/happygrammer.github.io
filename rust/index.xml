@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Rusts on 해피그의 코드랩</title>
+    <link>https://happygrammer.github.io/rust/</link>
+    <description>Recent content in Rusts on 해피그의 코드랩</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 31 Jan 2021 00:08:17 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/rust/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Rust 입문용 치트시트</title>
+      <link>https://happygrammer.github.io/rust/cheat-seat/</link>
+      <pubDate>Sun, 31 Jan 2021 00:08:17 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/rust/cheat-seat/</guid>
+      <description>Rust 입문용 치트시트를 만들게 되어 공유 드립니다. 개선이 필요한 점은 댓글 부탁 드립니다. 다운로드</description>
+    </item>
+    
+    <item>
+      <title>Rust 크로스 컴파일 방법</title>
+      <link>https://happygrammer.github.io/rust/problem/cross-compile/</link>
+      <pubDate>Sat, 16 Jan 2021 18:34:29 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/rust/problem/cross-compile/</guid>
+      <description>특정 OS에서 개발한 프로그램을 다른 OS 환경에서 실행 하고 싶은 경우가 있다. rustup 명령어(rust toolchain installer)를 이용해 대상 OS에 맞는 툴체인을 설치해 크로스 컴파일이 가능하다. 본 글은 맥 OS 환경에서 Rust 프로그램을 Linux와 Windows 플랫폼으로 크로스 컴파일하는 상황을 가정해 작성 하였다.
+rustup 명령어 알아보기 rustup 명령어는 러스트 툴체인 인스톨러 명령어이다. 툴체인 설정 관리 기능을 제공한다. rustup 명령어 옵션은 다음과 같다.
+$ rustup rustup 1.23.1 (3df2264a9 2020-11-30) The Rust toolchain installer USAGE: rustup [FLAGS] [+toolchain] &amp;lt;SUBCOMMAND&amp;gt; FLAGS: -v, --verbose Enable verbose output -q, --quiet Disable progress output -h, --help Prints help information -V, --version Prints version information ARGS: &amp;lt;+toolchain&amp;gt; release channel (e.</description>
+    </item>
+    
+    <item>
+      <title>Rust if 조건문</title>
+      <link>https://happygrammer.github.io/rust/control-if-else/</link>
+      <pubDate>Thu, 31 Dec 2020 09:39:24 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/rust/control-if-else/</guid>
+      <description>if 문 if 문은 조건이 참인지 거짓인지를 판단하고 분기를 수행한다.
+fn main() { let n = 1; if n &amp;lt; 0 { print!(&amp;quot;{}는 음수 입니다.&amp;quot;, n); } else if n &amp;gt; 0 { print!(&amp;quot;{}은 양수 입니다.&amp;quot;, n); } else { print!(&amp;quot;{}은 0입니다.&amp;quot;, n); } } 실행 결과
+1은 양수 입니다. 조건부 할당 변수에 초깃값을 할당 할때 다른 언어와 유사하게 삼항 연산자를 이용할 수 있다.
+let n = 1; let is_positive = if n &amp;gt; 0 { true } else { false }; // true 위 삼항 연산자는 연산자의 조건이 참과 거짓으로 제한되어 3개 이상의 조건 기술은 깊이 2 이상의 조건 문이 필요하다.</description>
+    </item>
+    
+    <item>
+      <title>Rust 데이터 타입</title>
+      <link>https://happygrammer.github.io/rust/data_types/</link>
+      <pubDate>Sun, 07 Jun 2020 15:00:03 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/rust/data_types/</guid>
+      <description>Rust는 두개의 서브 데이터 타입이 있다. scalar와 compound이다. Rust는 정적 타입 언어(statically typed language)이다. 따라서 값을 기반으로 타입을 추론할 수 있지만, 모든 변수에 대한 타입을 알아야 컴파일이 가능하다.
+Scalar Types Integer Types    Length Signed Unsigned     8-bit i8 u8   16-bit i16 u16   32-bit i32 u32   64-bit i64 u64   128-bit i128 u128   arch isize usize    Floating-Point Types fn main() { let x = 2.</description>
+    </item>
+    
+    <item>
+      <title>Rust 설치하기</title>
+      <link>https://happygrammer.github.io/rust/install/</link>
+      <pubDate>Sun, 07 Jun 2020 14:35:56 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/rust/install/</guid>
+      <description>리눅스, 맥OS 환경이면 명령 인터페이스 1줄로 Rust 설치가 가능하다.
+Rust 설치 명령 Rust 설치는 rustup를 다운로드 하여 설치 하는 명령어이다.
+curl --proto &#39;=https&#39; --tlsv1.2 -sSf https://sh.rustup.rs | sh 설치 과정 Welcome to Rust! This will download and install the official compiler for the Rust programming language, and its package manager, Cargo. It will add the cargo, rustc, rustup and other commands to Cargo&#39;s bin directory, located at: /Users/smarthome/.cargo/bin This can be modified with the CARGO_HOME environment variable.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1시간 안에 펄(Perl) 언어 익히기</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="1시간 안에 펄(Perl) 언어 익히기" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/perl/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">1시간 안에 펄(Perl) 언어 익히기</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/perl/" class="article-date">
+                <time datetime='2020-01-15T06:35:54.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>본 포스팅에서 사용한 예제는 <a href="../perl-examples.zip">다운로드</a> 가능하다. Perl은 고수준의 동적 타입 언어로 <code>csh, Pascal, BASIC-PLUS, PHP, Python</code> 등과 비교되는 언어다. Perl은 쉘 스크립트로 기원했기에 다른 스크립트나 다른 프로그램을 엮어 주는 글루 코드(glue code) 언어로 시스템 관리에도 적합한 언어이다. C, sed, awk 그리고 sh와 같은 언어나 프로그램들의 가장 좋은 점들을 취합한 언어이기도 하다. sed, awk, sh를 사용하여 문제를 풀기 어렵다면 Perl이 대안이 된다. 이외에도 다음과 같은 특징이 있다.</p>
+<ul>
+<li>거의 모든 운영체제에 설치되어 있다.</li>
+<li>무료이다.</li>
+<li>사용하기 쉬운 언어이다.</li>
+<li>텍스트 데이터 처리가 쉽다.</li>
+<li>OS를 위한 glue language이다. (유닉스 계열의 시스템 관리에 활용 가능)</li>
+<li>C언어에 삽입이 가능</li>
+<li>TCP/IP 네트워크 작업을 쉽게 처리할 수 있음</li>
+<li>커뮤니티가 활성화 되어 있음</li>
+</ul>
+<h3 id="windows-perl-">Windows용 Perl 설치</h3>
+<p>Perl은 리눅스 배포판에 기본적으로 설치 된다. 윈도우즈 사용자라면 딸기 Perl을 설치한다.</p>
+<p><a href="http://strawberryperl.com/">http://strawberryperl.com/</a></p>
+<h3 id="hello-world">Hello World</h3>
+<p>Perl은 pl이라는 확장자를 사용한다. 1_HelloWorld.pl 파일을 만들고 hello world를 출력해보자.</p>
+<p><strong>[예제]</strong> 1_HelloWorld.pl</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#66d9ef">use</span> strict;
+<span style="color:#66d9ef">use</span> warnings;
+
+<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;Hello world&#34;</span>;  <span style="color:#75715e"># ; 를 붙여야함에 유의</span>
+</code></pre></div><p>명령어는 다음과 같이 입력한다.</p>
+<pre><code>perl 1_HelloWorld.pl
+</code></pre><p>이 저장소 프로젝트는 <strong><a href="https://code.visualstudio.com/">Visual Studio Code</a></strong> 프로젝트이므로 VSCode에서 프로젝트 불러온 후 빌드(Ctrl+Shift+b)하면 Perl의 실행 결과를 바로 콘솔 창에서 확인할 수 있다.</p>
+<h3 id="-">기본 타입</h3>
+<p>Persl에서 일반 변수들은 스칼라(scala) 변수라고 부른다. 일반 변수들의 타입은 undef, number(int, float), string가 될 수 있다. 특이한 점으로 Perl은 Boolean 타입이 없다.</p>
+<p><strong>[예제]</strong> 2_BasicTypes.pl</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e"># Scala 변수 : undef, number(int, float), string, 참조 변수</span>
+<span style="color:#66d9ef">my</span> $undef <span style="color:#f92672">=</span> undef;
+<span style="color:#66d9ef">print</span> $undef; <span style="color:#75715e"># 빈 문자열(&#34; &#34;)을 출력함</span>
+
+<span style="color:#66d9ef">my</span> $undef2; <span style="color:#75715e"># implicit undef 선언</span>
+<span style="color:#66d9ef">print</span> $undef2;
+
+<span style="color:#66d9ef">my</span> $num <span style="color:#f92672">=</span> <span style="color:#ae81ff">100</span>;
+<span style="color:#66d9ef">print</span> $num; <span style="color:#75715e"># &#34;100&#34;을 출력함</span>
+
+<span style="color:#66d9ef">my</span> $string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;hello\r\n&#34;</span>;
+<span style="color:#66d9ef">print</span> $string; <span style="color:#75715e"># &#34;hello&#34;를 출력함</span>
+
+<span style="color:#75715e"># Boolean 타입 : Boolean 타입은 없으며 undef, number 0, string &#34;&#34; string &#34;0&#34; 인지를 if 조건 문에서 검사해야함</span>
+</code></pre></div><h3 id="--1">배열 타입</h3>
+<p>배열 타입은 Python에서 list, PHP에서는 Array에 해당하는 타입이다. 변수의 요소는 숫자, 문자열이 올 수 있다. 다소 특이한 점은 배열 변수명 앞에는 “@“를 붙여 선언한다.</p>
+<p><strong>[예제]</strong> 3_ArrayTypes.pl</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e"># 배열 타입 : Python의 list, PHP의 array에 해당하는 타입</span>
+<span style="color:#66d9ef">my</span> @array <span style="color:#f92672">=</span> (
+	<span style="color:#e6db74">&#34;one&#34;</span>,
+	<span style="color:#e6db74">&#34;two&#34;</span>,
+	<span style="color:#e6db74">&#34;three&#34;</span>, <span style="color:#75715e"># trailing 컴마 허용</span>
+);
+<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;배열 요소는 &#34;</span><span style="color:#f92672">.</span>(scalar @array)<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;개\r\n&#34;</span>; <span style="color:#75715e"># &#34;배열 요소는 3개&#34;</span>
+<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;배열 요소는 @array\r\n&#34;</span>; <span style="color:#75715e"># &#34;배열 요소는 one two three&#34;</span>
+<span style="color:#66d9ef">print</span> $array[<span style="color:#ae81ff">0</span>]; <span style="color:#75715e"># &#34;one&#34;</span>
+<span style="color:#66d9ef">print</span> $array[<span style="color:#ae81ff">1</span>]; <span style="color:#75715e"># &#34;two&#34;</span>
+<span style="color:#66d9ef">print</span> $array[<span style="color:#ae81ff">2</span>]; <span style="color:#75715e"># &#34;three&#34;</span>
+</code></pre></div><h3 id="--2">해쉬 타입</h3>
+<p>해쉬 타입은 Python에서 Dict, PHP에서는 Array에 해당하는 타입이다. 해쉬 변수명의 접두어에는 “%“가 붙는다.</p>
+<p><strong>[예제]</strong> 4_HashTypes.pl</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e"># 해쉬 타입 : Python의 Dict, PHP의 array에 해당하는 타입</span>
+<span style="color:#66d9ef">my</span> %hashValues <span style="color:#f92672">=</span> (
+	<span style="color:#e6db74">&#34;1&#34;</span>   <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#34;One&#34;</span>,
+	<span style="color:#e6db74">&#34;2&#34;</span> <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#34;Two&#34;</span>,
+	<span style="color:#e6db74">&#34;3&#34;</span>   <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#34;Trhee&#34;</span>,
+);
+
+<span style="color:#66d9ef">print</span> $hashValues{<span style="color:#e6db74">&#34;One&#34;</span>};   <span style="color:#75715e"># &#34;One&#34;</span>
+<span style="color:#66d9ef">print</span> $hashValues{<span style="color:#e6db74">&#34;Two&#34;</span>};   <span style="color:#75715e"># &#34;Two&#34;</span>
+<span style="color:#66d9ef">print</span> $hashValues{<span style="color:#e6db74">&#34;Trhee&#34;</span>};   <span style="color:#75715e"># &#34;Trhee&#34;</span>
+</code></pre></div><h3 id="--">중첩 구조 처리</h3>
+<p>배열 특정 인덱스에 다른 배열을 할당하려 할때 스칼라 변수로 취급되어 배열 요소 개수가 할당된다.</p>
+<p><strong>[예제]</strong> 5_NestedStructure.pl</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#66d9ef">my</span> @outer <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#34;Sun&#34;</span>, <span style="color:#e6db74">&#34;Mercury&#34;</span>, <span style="color:#e6db74">&#34;Venus&#34;</span>, undef, <span style="color:#e6db74">&#34;Mars&#34;</span>);
+<span style="color:#66d9ef">my</span> @inner <span style="color:#f92672">=</span> (<span style="color:#e6db74">&#34;Earth&#34;</span>, <span style="color:#e6db74">&#34;Moon&#34;</span>);
+
+$outer[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> @inner; <span style="color:#75715e"># @inner는 scala 변수로 취급되어 2가 할당됨</span>
+<span style="color:#66d9ef">print</span> $outer[<span style="color:#ae81ff">3</span>]; <span style="color:#75715e"># &#34;2&#34;</span>
+
+$outer[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Earth&#34;</span>; <span style="color:#75715e"># Earth가 할당됨</span>
+<span style="color:#66d9ef">print</span> $outer[<span style="color:#ae81ff">3</span>]; <span style="color:#75715e"># &#34;Earth&#34;</span>
+</code></pre></div><h3 id="heading">참조</h3>
+<p>일반 변수에는 다른 변수를 할당 받아 참조 변수 역할을 할 수 있다. C 포인터처럼 참조 주소를 출력하거나 참조 값 출력이 가능하다.</p>
+<p><strong>[예제]</strong> 6_References.pl</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#66d9ef">my</span> $hello    <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello&#34;</span>;
+<span style="color:#66d9ef">my</span> $helloRef <span style="color:#f92672">=</span> <span style="color:#f92672">\</span>$hello;
+
+<span style="color:#66d9ef">print</span> $hello<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;\r\n&#34;</span>;         <span style="color:#75715e"># &#34;Hello&#34; =&gt; 할달됭 값 출력</span>
+<span style="color:#66d9ef">print</span> $helloRef<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;\r\n&#34;</span>;      <span style="color:#75715e"># &#34;SCALAR(0x2525dd0)&#34; =&gt; 참조 주소 출력</span>
+<span style="color:#66d9ef">print</span> ${ $helloRef }<span style="color:#f92672">.</span><span style="color:#e6db74">&#34;\r\n&#34;</span>; <span style="color:#75715e"># &#34;Hello&#34; =&gt; 참조하는 값 출력</span>
+<span style="color:#66d9ef">print</span> $$helloRef <span style="color:#75715e"># &#34;Hello&#34; =&gt; 참조하는 값 출력</span>
+</code></pre></div><h3 id="if-">if 조건문</h3>
+<p>PHP 조건문과 선언 형태가 동일하다.</p>
+<p><strong>[예제]</strong> 7_If.pl</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#66d9ef">my</span> $abc <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;abcdefg&#34;</span>;
+<span style="color:#66d9ef">my</span> $strlen <span style="color:#f92672">=</span> length $abc;
+
+<span style="color:#66d9ef">if</span>($strlen <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">3</span>) {
+	<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;&#39;&#34;</span>, $abc, <span style="color:#e6db74">&#34;&#39;는 3글자 이상&#34;</span>;
+} <span style="color:#66d9ef">elsif</span>(<span style="color:#ae81ff">1</span> <span style="color:#f92672">&lt;=</span> $strlen <span style="color:#f92672">&amp;&amp;</span> $strlen <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">3</span>) {
+	<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;&#39;&#34;</span>, $abc, <span style="color:#e6db74">&#34;&#39;는 1~2글자&#34;</span>;
+} <span style="color:#66d9ef">else</span> {
+	<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;&#39;&#34;</span>, $abc, <span style="color:#e6db74">&#34;&#39;는 1글자 이하&#34;</span>;
+}
+</code></pre></div><h3 id="---while-foreach-for-">루프 - while, foreach, for 문</h3>
+<p>C나 PHP의 루프문 선언 스타일과 비슷하다. Array를 순회할때 for문 보다는 foreach문이 편리할 때가 많다.</p>
+<p><strong>[예제]</strong> 8_Loop.pl</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#66d9ef">my</span> @array <span style="color:#f92672">=</span> (
+	<span style="color:#e6db74">&#34;one&#34;</span>,
+	<span style="color:#e6db74">&#34;two&#34;</span>,
+	<span style="color:#e6db74">&#34;three&#34;</span>
+);
+
+<span style="color:#66d9ef">my</span> $i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+<span style="color:#66d9ef">while</span>($i <span style="color:#f92672">&lt;</span> scalar @array) {
+	<span style="color:#66d9ef">print</span> $i, <span style="color:#e6db74">&#34;: &#34;</span>, $array[$i]; <span style="color:#75715e"># 0: one1: two2: three</span>
+	$i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>;
+}
+
+<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;\n&#34;</span>;
+
+<span style="color:#66d9ef">foreach</span> <span style="color:#66d9ef">my</span> $i ( <span style="color:#ae81ff">0</span> <span style="color:#f92672">..</span> $#array ) {
+	<span style="color:#66d9ef">print</span> $i, <span style="color:#e6db74">&#34;: &#34;</span>, $array[$i]; <span style="color:#75715e"># 0: one1: two2: three</span>
+}
+
+<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;\n&#34;</span>;
+
+<span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">my</span> $i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; $i <span style="color:#f92672">&lt;</span> scalar @array; $i<span style="color:#f92672">+</span><span style="color:#f92672">+</span>) {
+	<span style="color:#66d9ef">print</span> $i, <span style="color:#e6db74">&#34;: &#34;</span>, $array[$i]; <span style="color:#75715e"># 0: one1: two2: three</span>
+}
+</code></pre></div><p><strong>[보충]</strong> foreach 스타일 for문</p>
+<p>perl은 foreach 스타일 for문도 지원한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#66d9ef">for</span> <span style="color:#66d9ef">my</span> $i (<span style="color:#ae81ff">0</span><span style="color:#f92672">..</span><span style="color:#ae81ff">9</span>) {
+  <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;$i\n&#34;</span>;
+}
+</code></pre></div><p><strong>[보충]</strong> until문과 do while 문</p>
+<p>상대적으로 잘 사용하지 않는 루프지만 <strong>until</strong>문과 <strong>do while</strong>문도 지원한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl">$count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+<span style="color:#66d9ef">until</span> ($count <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">10</span>) {
+  <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;Countup is: $count\n&#34;</span>;
+  $count<span style="color:#f92672">+</span><span style="color:#f92672">+</span>;
+}
+$count <span style="color:#f92672">=</span> <span style="color:#ae81ff">10</span>;
+<span style="color:#66d9ef">do</span> {
+  <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;Countdown is: $count\n&#34;</span>;
+  $count<span style="color:#f92672">-</span><span style="color:#f92672">-</span>;
+} <span style="color:#66d9ef">while</span> ($count <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>)
+</code></pre></div><h3 id="array-">Array 함수</h3>
+<p>Array는 여러 문자열, 숫자 등을 담을 수 있는 자료형이다. Perl은 Array 자료형 지원 분 아니라 Array의 요소를 다룰 수 있는 함수를 지원한다.</p>
+<p><strong>[예제]</strong> 9_ArrayFunctions.pl</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#66d9ef">my</span> @array <span style="color:#f92672">=</span> (
+	<span style="color:#e6db74">&#34;one&#34;</span>,
+	<span style="color:#e6db74">&#34;two&#34;</span>,
+	<span style="color:#e6db74">&#34;three&#34;</span>
+);
+
+<span style="color:#66d9ef">print</span> join(<span style="color:#e6db74">&#34;, &#34;</span>, @array); <span style="color:#75715e"># one, two, three =&gt; Array 요소를 , 로 구분해 합치기</span>
+<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;\r\n&#34;</span>;
+<span style="color:#66d9ef">print</span> reverse(@array); <span style="color:#75715e"># threetwoone =&gt; Array 요소를 뒤집기</span>
+<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;\r\n&#34;</span>;
+<span style="color:#66d9ef">print</span> join(<span style="color:#e6db74">&#34;, &#34;</span>, reverse(@array)); <span style="color:#75715e"># three, two, one =&gt; Array 요소를 뒤집어 , 로 구분해 합치기</span>
+</code></pre></div><p><strong>[참고]</strong> Array 동작과 관련한 함수</p>
+<ul>
+<li><a href="https://perldoc.perl.org/functions/pop.html">pop</a> - 마지막 요소를 제거해 반환</li>
+<li><a href="https://perldoc.perl.org/functions/push.html">push</a> - 하나의 요소를 추가</li>
+<li><a href="https://perldoc.perl.org/functions/shift.html">shift</a> - 첫번째 요소를 제거해 반환</li>
+<li><a href="https://perldoc.perl.org/functions/splice.html">splice</a> - 특정 위치에 요소를 추가하거나 삭제</li>
+<li><a href="https://perldoc.perl.org/functions/unshift.html">unshift</a> - 리스트 시작에 여러 요소를 추가하여 시프트</li>
+</ul>
+<h3 id="heading-1">정규식</h3>
+<p>match 동작을 수행하기 위해 “=~ m/“를 사용했다. replace 동작 수행은 “=~ s/“를 사용한다.</p>
+<p><strong>[예제]</strong> 10_Regex.pl</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e"># Match 처리</span>
+<span style="color:#66d9ef">my</span> $string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;Hello world&#34;</span>;
+<span style="color:#66d9ef">if</span>($string <span style="color:#f92672">=~</span> <span style="color:#e6db74">m/(\w+)\s+(\w+)/</span>) { <span style="color:#75715e"># success</span>
+	<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;success&#34;</span>;
+}
+
+<span style="color:#75715e"># Replace 처리</span>
+<span style="color:#66d9ef">my</span> $string <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;One Two Three&#34;</span>;
+$string <span style="color:#f92672">=~</span> <span style="color:#e6db74">s/Two/2/</span>;
+<span style="color:#66d9ef">print</span> $string; <span style="color:#75715e"># &#34;One 2 Three&#34;</span>
+</code></pre></div><p><strong>[보충]</strong> 정규식 매칭</p>
+<table>
+<thead>
+<tr>
+<th align="left">표현식</th>
+<th align="left">의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">^</td>
+<td align="left">문자열 시작</td>
+</tr>
+<tr>
+<td align="left">$</td>
+<td align="left">문자열 끝을 의미</td>
+</tr>
+<tr>
+<td align="left">.</td>
+<td align="left">새로운 라인을 제외한 모든 문자를 의미</td>
+</tr>
+<tr>
+<td align="left">*</td>
+<td align="left">0번 이상 매칭</td>
+</tr>
+<tr>
+<td align="left">+</td>
+<td align="left">1번 이상 매칭</td>
+</tr>
+<tr>
+<td align="left">?</td>
+<td align="left">0 또는 1번 매칭</td>
+</tr>
+<tr>
+<td align="left">|</td>
+<td align="left">대체</td>
+</tr>
+<tr>
+<td align="left">( )</td>
+<td align="left">그룹핑</td>
+</tr>
+<tr>
+<td align="left">[ ]</td>
+<td align="left">문자열 셋</td>
+</tr>
+<tr>
+<td align="left">{ }</td>
+<td align="left">반복</td>
+</tr>
+<tr>
+<td align="left">\</td>
+<td align="left">특수 문자 앞에 둠</td>
+</tr>
+</tbody>
+</table>
+<p><strong>[보충]</strong> 정규식 반복</p>
+<table>
+<thead>
+<tr>
+<th align="left">표현식</th>
+<th align="left">의미</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">a+</td>
+<td align="left">1개 이상 반복된 것과 매칭</td>
+</tr>
+<tr>
+<td align="left">a?</td>
+<td align="left">0개 또는 1개 반복된 것과 매칭</td>
+</tr>
+<tr>
+<td align="left">a{m}</td>
+<td align="left">정확히 m개 반복된 것과 매칭</td>
+</tr>
+<tr>
+<td align="left">a{m,}</td>
+<td align="left">최소 m개 반복된 것과 매칭</td>
+</tr>
+<tr>
+<td align="left">a{m,n}</td>
+<td align="left">최소 m개 ~ n개까지 반복된 것과 매칭</td>
+</tr>
+<tr>
+<td align="left">repetition?</td>
+<td align="left">가장 짧게 반복된 것과 매칭</td>
+</tr>
+<tr>
+<td align="left">a*</td>
+<td align="left">0개 이상 반복된 것과 매칭</td>
+</tr>
+</tbody>
+</table>
+<h3 id="begin-">BEGIN 블럭</h3>
+<p>BEGIN 블록은 파싱되는 순간 바로 실행된다.</p>
+<p><strong>[예제11]</strong> 11_Begin.pl</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#66d9ef">use</span> strict;
+<span style="color:#66d9ef">use</span> warnings;
+
+<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;하나&#34;</span>;
+
+<span style="color:#66d9ef">BEGIN</span> {
+    <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;둘&#34;</span>;
+}
+
+<span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;셋&#34;</span>;
+<span style="color:#75715e"># 둘하나셋</span>
+</code></pre></div><h3 id="--3">객체지향 프로그래밍</h3>
+<p>Perl에서 클래스 역할을 하는 것은 바로 패키지(package)이다. 패키지는 네임스페이스의 역할을 하며 서브 메서드를 선언할 수 있다. 패키지 선언은 다음과 같다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#66d9ef">package</span> Hello;
+</code></pre></div><p>패키지가 초기화될때 생성자(constructor)는 다음과 같은 형태로 선언한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#66d9ef">sub</span> <span style="color:#a6e22e">new</span> {
+
+    <span style="color:#66d9ef">my</span> $this <span style="color:#f92672">=</span> {};  <span style="color:#75715e"># 익명 해쉬를 생성하고 자신(Hello 패키지)을 가르키게함.</span>
+
+    bless $this;       <span style="color:#75715e"># Hello 패키지와 연결</span>
+
+    <span style="color:#66d9ef">return</span> $this;     <span style="color:#75715e"># Hello 패키지를 참조</span>
+
+};
+</code></pre></div><p>Hello 패키지를 선언해 hello 객체를 생성하고 Hello World를 출력해보자.</p>
+<p><strong>[예제]</strong> 12_Class.pl</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#66d9ef">package</span> Hello;
+
+<span style="color:#66d9ef">use</span> strict;
+<span style="color:#66d9ef">use</span> warnings;
+
+<span style="color:#75715e"># 생성자</span>
+<span style="color:#66d9ef">sub</span> <span style="color:#a6e22e">new</span> {
+    <span style="color:#66d9ef">my</span> ($class, %args) <span style="color:#f92672">=</span> @_;
+    <span style="color:#66d9ef">return</span> bless { %args }, $class;
+}
+
+<span style="color:#75715e"># Hello 클래스의 메서드</span>
+<span style="color:#66d9ef">sub</span> <span style="color:#a6e22e">helloWorld</span> {
+    <span style="color:#66d9ef">my</span> ($self) <span style="color:#f92672">=</span> @_;
+    <span style="color:#66d9ef">print</span> $self<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>{data1}<span style="color:#f92672">.</span><span style="color:#e6db74">&#34; &#34;</span>;
+    <span style="color:#66d9ef">print</span> $self<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>{data2};
+}
+
+<span style="color:#66d9ef">my</span> $helloObject <span style="color:#f92672">=</span> Hello<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span><span style="color:#66d9ef">new</span>( data1 <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#39;hello&#39;</span>,
+                      data2 <span style="color:#f92672">=</span><span style="color:#f92672">&gt;</span> <span style="color:#e6db74">&#39;world&#39;</span> );
+$helloObject<span style="color:#f92672">-</span><span style="color:#f92672">&gt;</span>helloWorld(); <span style="color:#75715e"># hello world</span>
+</code></pre></div><p><strong>[보충]</strong> Perl 모듈 파일(pm)과 호출</p>
+<p>Perl 모듈은 *.pm 파일로 정의할 수 있다. *.pm 파일의 형식은 일반 Perl 코드와 동일하다. SomeMoudle.pm로 정의한 모듈 파일을 호출하려면 상단에 다음과 같이 선언해준다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#66d9ef">require</span> SomeModule;
+<span style="color:#66d9ef">require</span> <span style="color:#e6db74">&#34;SomeModule.pm&#34;</span>;
+</code></pre></div><p><strong>[보충]</strong> 서브루틴 선언과 호출</p>
+<p>Perl에서 함수를 서브루틴이라 부른다. 서부르틴의 선언과 호출은 다음과 같다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e"># Subroutine 정의</span>
+<span style="color:#66d9ef">sub</span> <span style="color:#a6e22e">say_hello</span> {
+   <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;Hello, World!\n&#34;</span>;
+}
+
+<span style="color:#75715e"># Subroutine 호출</span>
+say_hello();
+</code></pre></div><p>일반적인 함수와 달리 서브루틴에 매개변수 선언 부분이 없고 $args 배열이 매개변수 역할을 대신한다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e"># subroutine 정의</span>
+<span style="color:#66d9ef">sub</span> <span style="color:#a6e22e">calc_average</span> {
+    <span style="color:#75715e"># 인자 개수 할당</span>
+    $total_args <span style="color:#f92672">=</span> scalar(@_);
+    $sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+    <span style="color:#75715e"># 인자 값을 합함</span>
+    <span style="color:#66d9ef">foreach</span> $arg (@_){
+    	$sum <span style="color:#f92672">+=</span> $arg;
+    }
+    <span style="color:#75715e"># 평균 출력</span>
+    $average <span style="color:#f92672">=</span> $sum <span style="color:#f92672">/</span> $total_args;
+    <span style="color:#66d9ef">print</span> <span style="color:#e6db74">&#34;Average of list [ @_ ] is: $average\n&#34;</span>;
+}
+
+<span style="color:#75715e"># subroutine 호출</span>
+calc_average(<span style="color:#ae81ff">10</span>, <span style="color:#ae81ff">20</span>, <span style="color:#ae81ff">30</span>);
+</code></pre></div><h3 id="--4">시스템 콜</h3>
+<p>시스템 콜을 통해 프로그램을 엮어 주는 글루 코드 작성이 가능하다. 먼저는 system 콜을 통해 외부 명령어 “perl 1_HelloWorld.pl&quot;를 실행하도록 했다. 이어서 명령어 실행 결과를 변수에 담아 출력 하도록 했다.</p>
+<p><strong>[예제]</strong> 13_SystemCall.pl</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#66d9ef">my</span> $rc <span style="color:#f92672">=</span> system <span style="color:#e6db74">&#34;perl&#34;</span>, <span style="color:#e6db74">&#34;1_Helloworld.pl&#34;</span>; <span style="color:#75715e"># Hello World</span>
+<span style="color:#66d9ef">print</span> $rc; <span style="color:#75715e"># 0 =&gt; 프로세스의 status word를 출력함</span>
+
+<span style="color:#66d9ef">my</span> $result <span style="color:#f92672">=</span> <span style="color:#e6db74">qx(</span><span style="color:#e6db74">&#34;ping localhost&#34;</span><span style="color:#e6db74">)</span>; <span style="color:#75715e"># 명령어 실행 결과를 변수에 저장</span>
+<span style="color:#66d9ef">print</span> $result; <span style="color:#75715e"># 캡쳐 결과 출력</span>
+</code></pre></div><h3 id="---1">시스템 관리 작업</h3>
+<p>시스템 관리 작업에 응용할 수 있다. 예를 들어 현재 디렉터리의 파일목록 출력하는 작업은 다음과 같다. 비록 파일을 합치거나 후속 처리는 하지 않았지만 시스템 관리용 스크립트를 추가해 작업을 자동화하는 것이 가능하다.</p>
+<p><strong>[예제]</strong> 14_Dir.pl</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-perl" data-lang="perl"><span style="color:#75715e">#!/usr/bin/perl</span>
+<span style="color:#66d9ef">use</span> strict;
+<span style="color:#66d9ef">use</span> warnings;
+
+opendir(dirHandle, <span style="color:#e6db74">&#34;.&#34;</span> ) <span style="color:#f92672">or</span> die <span style="color:#e6db74">&#34;$!\n&#34;</span>;
+<span style="color:#66d9ef">my</span> @items <span style="color:#f92672">=</span> readdir(dirHandle);  <span style="color:#75715e"># @items에 파일 목록 할당</span>
+closedir dirHandle;
+
+<span style="color:#66d9ef">foreach</span> (@items) {
+    <span style="color:#66d9ef">next</span> <span style="color:#66d9ef">if</span> $_ <span style="color:#f92672">=~</span><span style="color:#e6db74"> /^\.\.?$/</span>; <span style="color:#75715e"># . or .. 이면 Skip</span>
+    <span style="color:#66d9ef">next</span> <span style="color:#66d9ef">unless</span> (<span style="color:#f92672">-</span>f $_);     <span style="color:#75715e"># 디렉터리 이면 Skip</span>
+    <span style="color:#66d9ef">print</span> $_, <span style="color:#e6db74">&#34;\n&#34;</span>; <span style="color:#75715e"># 파일명 이면 출력</span>
+}
+</code></pre></div><p>Perl의 정규식 처리 등은 Python으로도 훌륭히 처리되므로 알고리즘 개발에는 활용은 어려울 것으로 예상한다. 다만 시스템 관리 작업이 sh 쉡 스크립트보다 쉽기 때문에 쉘 스크립트를 대체할 수 있을 것이다.</p>
+<h3 id="---">더 읽어 볼만한 글</h3>
+<ul>
+<li>Perl 공식 문서 <a href="https://perldoc.perl.org/">https://perldoc.perl.org</a></li>
+<li>Perl 배우기 <a href="https://www.learn-perl.org/en/Welcome">https://www.learn-perl.org/en/Welcome</a></li>
+<li>Teach Yourself Perl 5 in 21 days <a href="http://wwwacs.gantep.edu.tr/docs/perl-ebook/">http://wwwacs.gantep.edu.tr/docs/perl-ebook/</a></li>
+<li>Object-Oriented Programming in Perl <a href="http://wwwacs.gantep.edu.tr/docs/perl-ebook/ch19.htm">http://wwwacs.gantep.edu.tr/docs/perl-ebook/ch19.htm</a></li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/perl/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#windows-perl-">Windows용 Perl 설치</a></li>
+        <li><a href="#hello-world">Hello World</a></li>
+        <li><a href="#-">기본 타입</a></li>
+        <li><a href="#--1">배열 타입</a></li>
+        <li><a href="#--2">해쉬 타입</a></li>
+        <li><a href="#--">중첩 구조 처리</a></li>
+        <li><a href="#heading">참조</a></li>
+        <li><a href="#if-">if 조건문</a></li>
+        <li><a href="#---while-foreach-for-">루프 - while, foreach, for 문</a></li>
+        <li><a href="#array-">Array 함수</a></li>
+        <li><a href="#heading-1">정규식</a></li>
+        <li><a href="#begin-">BEGIN 블럭</a></li>
+        <li><a href="#--3">객체지향 프로그래밍</a></li>
+        <li><a href="#--4">시스템 콜</a></li>
+        <li><a href="#---1">시스템 관리 작업</a></li>
+        <li><a href="#---">더 읽어 볼만한 글</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/linux/shell/text/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            [쉘스크립트] 텍스트 처리를 위한 쉘 명령어
+        </div>
+    </a>
+    
+    
+    <a href="/dev/language/python3/python3/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">파이썬 3 배열과 딕셔너리&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

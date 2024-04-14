@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>결합 확률 분포</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="결합 확률 분포" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/ai/data_science/math/probaility/joint-probability/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/ai/" class="archive-article-date">&lt; Ais</a></div>
+            
+            <h1 class="article-title" itemprop="name">결합 확률 분포</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/ai/data_science/math/probaility/joint-probability/" class="article-date">
+                <time datetime='2020-02-05T01:33:53.000&#43;03:00' itemprop="datePublished">2020-02-05</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>랜덤 변수 $X, Y, &hellip;,$ 는 확률 공간(probaility space)에 정의됩니다. 여기서 $X, Y$ 는 확률 분포(probability distribution)을 의미합니다.  이들 확률 분포 $X, Y$에 속한 값은 이산 집합 내에 속하거나 특정 범위 내에 속합니다. 이때 두 랜덤 변수 $X, Y$는 이변수 분포(bivariate distribution)입니다.</p>
+<p>결합 확률 분포(joint probability distribution)는 결합 누적 분포 함수(joint <a href="https://en.wikipedia.org/wiki/Cumulative_distribution_function">cumulative distribution function</a>) 또는 결합 확률 밀도 함수(joint <a href="https://en.wikipedia.org/wiki/Probability_density_function">probability density function</a> )라고 부르기도 합니다. 결합 화률 분포는 두 분포를 찾는데 사용됩니다.</p>
+<ul>
+<li>주변 분포(marginal distribution)</li>
+<li>조건 확률 분포(conditional probability distribution)</li>
+</ul>
+<p>결합 확률 분포의 예로 <strong>이항 분포</strong>와 이항 분포의 특수 케이스인 <strong>베르누이 분포</strong>가 있습니다.</p>
+<h3 id="-">이항 분포</h3>
+<p>이항 분포(Binomial distribution)는 $n$과 $p$를 사용합니다. 여기서 n은 시행 횟수 이며, 각 시행 횟수는 독립(independent experiments)입니다. 이때 n=1일때의 성공과 실패를 결과로 얻는 시행은 베르누이 시행(Bernoulli trial)이라 하며 베르누이 시행은 베르누이 분포(bernoulli distrubtion)을 따릅니다.</p>
+<h3 id="---">베르누이 시도와 베르누이 분포</h3>
+<p>동전을 던지면 앞면이 나올 수 있고 뒷면이 나올 수 있습니다.  동전이 앞면이면 랜덤 변수는 1이고, 뒷면이면 0입니다. 앞면(head0이든 뒷면(tail)이든 나올 확률은 1/2입니다. 여기서 앞면을 확률변수 A, 뒷면을 확률 변수 B라고 하겠습니다. 동전 던지기와 같은 베르누이 실행은 베르누이 분포를 따르므로 &ldquo;어떤 확률분포 $X$가 베르누이 분포를 따른 다&quot;고 할 수 있으며 수식으로 다음과 같이 표기합니다.</p>
+<p>$$
+X \sim \text{Bern}(x;\theta)
+$$</p>
+<p>베르 누이는 1이 나올 확률을 의미하는 $θ$ 모수(prameter)만 사용합니다. 베르누이 확률 변수 $x$가 1이 나올 확률은  $θ$이며 확률 변수 $x$가가 0이 나올 확률은 $θ-1$입니다. 이때 베르누이 확률 질량 함수(pmf: probaility mass function)은 다음과 같이 정의합니다.</p>
+<p>$$
+\text{Bern}(x;\theta) =  \begin{cases}  \theta   &amp; \text{if }x=1, \ 1-\theta &amp; \text{if }x=0 \end{cases}
+$$</p>
+<p>주변 확률 밀도 함수(marginal probability distribution)는 다음과 같습니다.</p>
+<p>$$P(A)=1/2 \quad \text{for} \quad A\in {0, 1};$$
+$$P(B)=1/2 \quad \text{for} \quad B\in {0, 1}.$$</p>
+<p>동전 던지기 실험 결과에 대한 결합 확률 밀도 함수 A와 B는 다음과 같습니다.</p>
+<p>$$
+(A=0,B=0),
+(A=0,B=1),
+(A=1,B=0),
+(A=1,B=1).
+$$</p>
+<p>각 실험 결과는 결합 확률 밀도 함수는 다음과 같습니다.</p>
+<p>$$P(A,B)=1/4 \quad \text{for} \quad A,B\in{0,1}.$$</p>
+<p>따라서 각 동전 던지는 독립 조건이며, 결합 확률 밀도 함수는 주변 확률의 곱(product of the marginals)입니다.</p>
+<p>$$P(A,B)=P(A)P(B) \quad \text{for} \quad A,B \in{0,1}.$$</p>
+<p>결합을 표시하기 위해 쉼표를 이용합니다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/ai/data_science/math/probaility/joint-probability/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-">이항 분포</a></li>
+        <li><a href="#---">베르누이 시도와 베르누이 분포</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/nlp/hangeul/punctuation-mark/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            한글에서 사용하는 문장 부호
+        </div>
+    </a>
+    
+    
+    <a href="/nlp/hangeul/part-of-speech/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">한글 9품사 5언&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

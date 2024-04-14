@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Serving 서버 API</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Serving 서버 API" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/ai/tensorflow/serving-server-api/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/ai/" class="archive-article-date">&lt; Ais</a></div>
+            
+            <h1 class="article-title" itemprop="name">Serving 서버 API</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/ai/tensorflow/serving-server-api/" class="article-date">
+                <time datetime='2020-02-18T08:00:00.000&#43;03:00' itemprop="datePublished">2020-02-18</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="tensorflow--api-">TensorFlow 서빙 API 레퍼런스</h3>
+<p><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/namespace/tensorflow/serving">tensorflow::serving</a></p>
+<table>
+<thead>
+<tr>
+<th align="left">Classes</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/aspired-version-policy.html">tensorflow::serving::AspiredVersionPolicy</a></td>
+<td>An interface for the policy to be applied for transitioning servable versions in a servable stream.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/struct/tensorflow/serving/aspired-version-policy/servable-action.html">tensorflow::serving::AspiredVersionPolicy::ServableAction</a></td>
+<td>Action and the id of the servable associated with it.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/aspired-versions-manager.html">tensorflow::serving::AspiredVersionsManager</a></td>
+<td>A manager that implements the Target&lt;<a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/loader.html#classtensorflow_1_1serving_1_1_loader">Loader</a>&gt; API which uses aspired-versions callbacks to dictate which servable versions to load.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/struct/tensorflow/serving/aspired-versions-manager/options.html">tensorflow::serving::AspiredVersionsManager::Options</a></td>
+<td>Config options and pluggable objects that will be used by the <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/aspired-versions-manager.html#classtensorflow_1_1serving_1_1_aspired_versions_manager">AspiredVersionsManager</a>.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/aspired-versions-manager-builder.html">tensorflow::serving::AspiredVersionsManagerBuilder</a></td>
+<td>Builds an <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/aspired-versions-manager.html#classtensorflow_1_1serving_1_1_aspired_versions_manager">AspiredVersionsManager</a> with options and sources connected to it.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/basic-manager.html">tensorflow::serving::BasicManager</a></td>
+<td>Helps manage the lifecycle of servables including loading, serving and unloading them.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/struct/tensorflow/serving/basic-manager/options.html">tensorflow::serving::BasicManager::Options</a></td>
+<td>Config options and pluggable objects that will be used by the <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/basic-manager.html#classtensorflow_1_1serving_1_1_basic_manager">BasicManager</a>.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/caching-manager.html">tensorflow::serving::CachingManager</a></td>
+<td>A manager that manages and loads servables on-demand.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/caching-manager/loader-factory.html">tensorflow::serving::CachingManager::LoaderFactory</a></td>
+<td>An abstraction for a loader-factory to map from a servable request to the corresponding loader.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/struct/tensorflow/serving/caching-manager/options.html">tensorflow::serving::CachingManager::Options</a></td>
+<td>Config options and pluggable objects that will be used by the <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/caching-manager.html#classtensorflow_1_1serving_1_1_caching_manager">CachingManager</a>.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/classifier-interface.html">tensorflow::serving::ClassifierInterface</a></td>
+<td>Model-type agnostic interface for performing classification.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/file-system-storage-path-source.html">tensorflow::serving::FileSystemStoragePathSource</a></td>
+<td>A storage path source that aspires versions for a given set of servables.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/loader.html">tensorflow::serving::Loader</a></td>
+<td>A standardized abstraction for an object that manages the lifecycle of a servable, including loading and unloading it.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/loader-harness.html">tensorflow::serving::LoaderHarness</a></td>
+<td><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/loader-harness.html#classtensorflow_1_1serving_1_1_loader_harness">LoaderHarness</a> is a widget the <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/manager.html#classtensorflow_1_1serving_1_1_manager">Manager</a> uses to hold on to and talk to a <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/loader.html#classtensorflow_1_1serving_1_1_loader">Loader</a> while it owns it.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/struct/tensorflow/serving/loader-harness/options.html">tensorflow::serving::LoaderHarness::Options</a></td>
+<td><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/struct/tensorflow/serving/loader-harness/options.html#structtensorflow_1_1serving_1_1_loader_harness_1_1_options">Options</a> to configure a <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/loader-harness.html#classtensorflow_1_1serving_1_1_loader_harness">LoaderHarness</a>.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/manager.html">tensorflow::serving::Manager</a></td>
+<td><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/manager.html#classtensorflow_1_1serving_1_1_manager">Manager</a> is responsible for loading, unloading, lookup and lifetime management of all Servable objects via their Loaders.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/path-prefix-loader-factory.html">tensorflow::serving::PathPrefixLoaderFactory</a></td>
+<td>A simple LoaderFactory that looks for a servable at a path formed by concatenating a fixed path prefix with the servable's name.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/regressor-interface.html">tensorflow::serving::RegressorInterface</a></td>
+<td>Model agnostic interface for performing regression.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/resource-unsafe-loader.html">tensorflow::serving::ResourceUnsafeLoader</a></td>
+<td>A <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/loader.html#classtensorflow_1_1serving_1_1_loader">Loader</a> that is oblivious to resources.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/saved-model-bundle-factory.html">tensorflow::serving::SavedModelBundleFactory</a></td>
+<td>A factory that creates SavedModelBundles from SavedModel or SessionBundle export paths.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/servable-handle.html">tensorflow::serving::ServableHandle</a></td>
+<td>A smart pointer to the underlying servable object T retrieved from the <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/loader.html#classtensorflow_1_1serving_1_1_loader">Loader</a>.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/servable-state-monitor.html">tensorflow::serving::ServableStateMonitor</a></td>
+<td>A utility that listens to an EventBus<ServableState>, and keeps track of the state of each servable mentioned on the bus.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/server-core.html">tensorflow::serving::ServerCore</a></td>
+<td><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/server-core.html#classtensorflow_1_1serving_1_1_server_core">ServerCore</a> contains state and helper methods enabling the building of ModelServers that support multiple interfaces.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/struct/tensorflow/serving/server-core/options.html">tensorflow::serving::ServerCore::Options</a></td>
+<td><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/struct/tensorflow/serving/server-core/options.html#structtensorflow_1_1serving_1_1_server_core_1_1_options">Options</a> for configuring a <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/server-core.html#classtensorflow_1_1serving_1_1_server_core">ServerCore</a> object.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/serving-session.html">tensorflow::serving::ServingSession</a></td>
+<td>A Session that blocks state-changing methods such as Close(), while allowing Run() for read-only access (not enforced).</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/serving-session-wrapper.html">tensorflow::serving::ServingSessionWrapper</a></td>
+<td>A <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/serving-session.html#classtensorflow_1_1serving_1_1_serving_session">ServingSession</a> that wraps a given Session, and blocks all calls other than Run().</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/shared-ptr-handle.html">tensorflow::serving::SharedPtrHandle</a></td>
+<td>An implementation of <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/untyped-servable-handle.html#classtensorflow_1_1serving_1_1_untyped_servable_handle">UntypedServableHandle</a> using shared_ptr to do ref-counting on the <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/loader.html#classtensorflow_1_1serving_1_1_loader">Loader</a> that owns the Servable.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/source.html">tensorflow::serving::Source</a></td>
+<td>An abstraction for a module that sources servables to load, or, more precisely, handles to data that can be used to load those servables.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/source-adapter.html">tensorflow::serving::SourceAdapter</a></td>
+<td>An abstraction for a module that receives aspired-version callbacks with data of type InputType and converts them into calls with data of type OutputType.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/untyped-servable-handle.html">tensorflow::serving::UntypedServableHandle</a></td>
+<td>A non-templatized handle to a servable, used internally in the <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/manager.html#classtensorflow_1_1serving_1_1_manager">Manager</a> to retrieve a type-erased servable object from the <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/class/tensorflow/serving/loader.html#classtensorflow_1_1serving_1_1_loader">Loader</a>.</td>
+</tr>
+</tbody>
+</table>
+<table>
+<thead>
+<tr>
+<th align="left">Structs</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/struct/tensorflow/serving/aspired-servable-state-snapshot.html">tensorflow::serving::AspiredServableStateSnapshot</a></td>
+<td>A snapshot of a servable's state and aspiredness.</td>
+</tr>
+<tr>
+<td align="left"><a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/struct/tensorflow/serving/servable-request.html">tensorflow::serving::ServableRequest</a></td>
+<td>A query for a specific loaded servable object.</td>
+</tr>
+</tbody>
+</table>
+<p>원문 : <a href="https://www.tensorflow.org/tfx/serving/api_docs/cc/">https://www.tensorflow.org/tfx/serving/api_docs/cc/</a></p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/ai/tensorflow/serving-server-api/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tensorflow--api-">TensorFlow 서빙 API 레퍼런스</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/ai/tensorflow/serving-client-api/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Serving 클라이언트 API
+        </div>
+    </a>
+    
+    
+    <a href="/ai/tensorflow/serving-architecture-overview/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">서빙 아키텍처 개요&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

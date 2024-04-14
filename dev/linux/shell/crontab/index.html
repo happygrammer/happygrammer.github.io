@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>crontab을 이용한 스케쥴 관리</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="crontab을 이용한 스케쥴 관리" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/linux/shell/crontab/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">crontab을 이용한 스케쥴 관리</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/linux/shell/crontab/" class="article-date">
+                <time datetime='2020-02-28T10:39:13.000&#43;03:00' itemprop="datePublished">2020-02-28</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="crontab-">crontab 설정</h3>
+<pre><code># ┌───────────── min (0 - 59)
+# │ ┌────────────── hour (0 - 23)
+# │ │ ┌─────────────── day of month (1 - 31)
+# │ │ │ ┌──────────────── month (1 - 12)
+# │ │ │ │ ┌───────────────── day of week (0 - 6) (0 to 6는 일~토, 7=일)
+# │ │ │ │ │
+# │ │ │ │ │
+# * * * * * &lt;실행할 커맨드&gt;
+</code></pre><h3 id="crontab--">crontab 작업 리스트</h3>
+<pre><code>$ crontab -l
+</code></pre><h3 id="crontab---1">crontab 로그 확인</h3>
+<pre><code>$ cat /var/log/cron
+</code></pre><h3 id="crontab---2">crontab 설정 확인</h3>
+<pre><code>$ cat /var/spool/cron/&lt;user_id&gt;
+</code></pre><h3 id="crontab-service---">crontab service 상태 확인과 재실행</h3>
+<pre><code>$ service crond status
+crond (pid 2994)를 실행하고 있습니다.
+$ source ~/.bash_profile
+$ service crond {start|restart|stop}
+</code></pre><p>crontab 디버깅</p>
+<pre><code>10 12 * * 1-5 /usr/bin/perl /home/my/test.pl &gt; /home/my/error.log 2&gt;&amp;1
+</code></pre><p><code>&gt;</code>  : redirect</p>
+<p>2 : stderr</p>
+<p>1 : stdout</p>
+<p>즉, <code>2&gt;&amp;1</code>을 둠으로서 표준 출력과 표준 에러 출력을 <code>/home/my/error.log</code>파일에 출력하라는 의미로 볼 수 있습니다. 여기서 다음과 같이 순서를 뒤집을 수 없습니다.</p>
+<pre><code>2&gt;&amp;1 /home/my/error.log
+</code></pre>
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/linux/shell/crontab/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#crontab-">crontab 설정</a></li>
+        <li><a href="#crontab--">crontab 작업 리스트</a></li>
+        <li><a href="#crontab---1">crontab 로그 확인</a></li>
+        <li><a href="#crontab---2">crontab 설정 확인</a></li>
+        <li><a href="#crontab-service---">crontab service 상태 확인과 재실행</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/frontend/angular/angular-cli/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Angular CLI 설치와 프로젝트 설정
+        </div>
+    </a>
+    
+    
+    <a href="/insights/astronomy/betelgeuse/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">오리온의 별 베텔게우스&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

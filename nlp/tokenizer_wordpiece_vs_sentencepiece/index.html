@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>토크나이저의 종류와 비교</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="토크나이저의 종류와 비교" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/tokenizer_wordpiece_vs_sentencepiece/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/nlp/" class="archive-article-date">&lt; Nlps</a></div>
+            
+            <h1 class="article-title" itemprop="name">토크나이저의 종류와 비교</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/tokenizer_wordpiece_vs_sentencepiece/" class="article-date">
+                <time datetime='2021-11-21T20:19:26.000&#43;09:00' itemprop="datePublished">2021-11-21</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>안녕하세요, 개발자 여러분! 오늘은 자연어 처리에서 많이 사용되는 두 가지 토크나이저인 <code>워드피스(WordPiece)</code>와 <code>센텐스피스(SentencePiece)</code>에 대해 알아보고, 이들의 공통점과 차이점을 비교해 보겠습니다.</p>
+<h3 id="1---">1. 토크나이저 알고리즘의 종류</h3>
+<p>워드피스(WordPiece)와 센텐스피스(SentencePiece) 외에도 다양한 토크나이저(Tokenizer)들이 있습니다. 각 토크나이저마다 고유한 특징과 장단점이 있으며, 최근에는 언어 모델의 성능 향상을 위해 새로운 토크나이저들이 제안되고 있습니다. 아래에서 몇 가지 토크나이저와 그 특징에 대해 설명하겠습니다.</p>
+<h4 id="11-byte-pair-encoding-bpe">1.1 Byte Pair Encoding (BPE):</h4>
+<ul>
+<li>BPE는 빈도수가 높은 바이트 쌍을 병합하여 단어를 분리하는 방식입니다.</li>
+<li>어휘 크기를 제한할 수 있으며, 미등록 단어(OOV, Out-of-Vocabulary)에 대한 처리가 가능합니다.</li>
+<li>GPT-2, RoBERTa 등의 모델에서 사용되었습니다.</li>
+</ul>
+<h4 id="12-unigram-language-model">1.2 Unigram Language Model</h4>
+<ul>
+<li>Unigram Language Model은 각 문자나 하위 단어(subword)의 출현 빈도를 기반으로 토큰을 생성합니다.</li>
+<li>빈도수가 높은 문자나 하위 단어일수록 독립적인 토큰으로 분리되는 경향이 있습니다.</li>
+<li>ALBERT 모델에서 사용되었습니다.</li>
+</ul>
+<h4 id="13-byte-level-bpe">1.3 Byte-level BPE</h4>
+<ul>
+<li>Byte-level BPE는 BPE를 바이트 단위로 적용한 토크나이저입니다.</li>
+<li>Unicode 문자를 직접 처리할 수 있어 다국어 환경에서 유용합니다.</li>
+<li>GPT-3, mT5 등의 모델에서 사용되었습니다.</li>
+</ul>
+<h4 id="14-charbert-tokenizer">1.4 CharBERT Tokenizer</h4>
+<ul>
+<li>CharBERT는 문자 단위로 토큰을 분리하는 토크나이저입니다.</li>
+<li>각 문자를 독립적인 토큰으로 취급하여 모델이 문자 수준의 정보를 학습할 수 있도록 합니다.</li>
+<li>중국어, 일본어 등 표의문자 기반 언어에서 좋은 성능을 보입니다.</li>
+</ul>
+<p>최근 동향을 살펴보면, 다국어 및 특수 도메인에 대한 토크나이저 연구가 활발히 진행되고 있습니다. 또한, 토크나이저의 성능이 언어 모델의 품질에 미치는 영향을 분석하고, 최적의 토크나이저를 찾기 위한 노력도 이루어지고 있습니다. 앞으로는 언어의 특성과 도메인에 맞는 토크나이저 개발이 더욱 중요해질 것으로 예상됩니다.</p>
+<h3 id="2--">2. 토크나이저 라이브러리</h3>
+<p>SentencePiece와 WordPiece는 위에서 설명한 토크나이저 알고리즘을 기반으로 개발된 대표적인 라이브러리입니다.</p>
+<h4 id="21-sentencepiece">2.1 SentencePiece</h4>
+<p><a href="https://github.com/google/sentencepiece">센텐스피스</a>는 <code>구글에서 오픈 소스로 공개한 토크나이저</code>로, 워드피스와 유사한 <code>서브워드 단위 토큰화</code> 방식을 사용합니다. 그러나 센텐스피스는 <code>언어에 독립적인 방식으로 동작</code>하며, <code>사전 학습된 모델 없이도 토크나이저를 생성</code>할 수 있습니다. 센텐스피스는 <code>BPE(Byte Pair Encoding)</code>, <code>Unigram</code>, <code>Character</code> 등 다양한 토크나이저 모델을 지원합니다. ALBERT, XLNet, mBART, T5 등의 모델에서 SentencePiece를 사용하였습니다.</p>
+<pre><code>import sentencepiece as spm
+
+# 센텐스피스 모델 학습
+spm.SentencePieceTrainer.Train('--input=data.txt --model_prefix=sentencepiece --vocab_size=10000')
+
+# 센텐스피스 모델 로드
+sp = spm.SentencePieceProcessor()
+sp.Load('sentencepiece.model')
+
+# 토큰화 수행
+tokens = sp.EncodeAsPieces('I love natural language processing!')
+
+print(tokens)
+# ['▁I', '▁love', '▁natural', '▁language', '▁process', 'ing', '!']
+</code></pre><h4 id="22-wordpiece">2.2 WordPiece</h4>
+<p><a href="https://huggingface.co/learn/nlp-course/en/chapter6/6">워드피스</a>는 <code>구글에서 개발한 서브워드 토크나이저</code>로(오픈소스로는 비공개), BERT(Bidirectional Encoder Representations from Transformers) 모델에서 사용되었습니다. 워드피스는 <code>단어를 더 작은 의미 있는 단위로 분할</code>하여 처리하는 방식을 사용합니다. 이를 통해 <code>어휘 크기를 줄이고 미등록 단어 문제를 해결</code>할 수 있습니다. BERT, DistilBERT, ELECTRA 등의 모델에서 WordPiece를 사용하였습니다. WordPiece는 BPE(Byte Pair Encoding) 알고리즘을 기반으로 하는 토크나이저 모델을 사용합니다. BPE는 데이터에서 가장 빈번하게 등장하는 바이트 쌍을 찾아 병합하는 과정을 반복하여 단어를 분리하는 방식입니다.</p>
+<p><code>WordPiece</code>의 <code>토크나이제이션</code> 과정은 다음과 같습니다:</p>
+<ol>
+<li>단어를 문자 단위로 분리합니다.</li>
+<li>가장 빈번하게 등장하는 문자 쌍을 찾아 하나의 토큰으로 병합합니다.</li>
+<li>병합된 토큰을 기존 단어 목록에 추가하고, 빈도수를 업데이트합니다.</li>
+<li>미리 정의된 어휘 크기에 도달할 때까지 2-3 단계를 반복합니다.</li>
+<li>최종적으로 단어는 하위 단어(subword) 단위로 분리됩니다.</li>
+</ol>
+<p>WordPiece는 단어를 더 작은 의미 단위로 분리할 수 있어 미등록 단어(OOV)에 대한 처리가 가능하며, 단어의 형태학적 특성을 반영할 수 있습니다. 또한, 어휘 크기를 제한할 수 있어 모델의 복잡도를 줄일 수 있습니다. WordPiece는 BERT(Bidirectional Encoder Representations from Transformers) 모델에서 처음 도입되었으며, 이후 BERT 계열의 모델(DistilBERT, ELECTRA 등)에서 널리 사용되고 있습니다. WordPiece를 사용한 토큰화는 BERT 모델의 성능 향상에 크게 기여한 것으로 알려져 있습니다.</p>
+<h4 id="23-sentencepiece-wordpiece-">2.3 SentencePiece와 WordPiece 비교</h4>
+<p>워드피스와 센텐스피스는 모두 <code>서브워드 단위로 텍스트를 토큰화</code>하여 <code>어휘 크기를 줄이고 미등록 단어 문제를 해결</code>한다는 공통점이 있습니다. 그러나 <code>워드피스는 특정 언어에 최적화된 사전 학습 모델을 필요로 하는 반면, 센텐스피스는 학습 데이터로부터 언어에 독립적인 토크나이저를 생성</code>할 수 있다는 점에서 차이가 있습니다. 또한, 센텐스피스는 <code>BPE, Unigram, Character 등 다양한 토크나이저 모델을 지원</code>하여 <code>유연성이 높다</code>는 장점이 있습니다. SentencePiece와 WordPiece는 모두 BPE(Byte Pair Encoding) 알고리즘을 기반으로 하고 있습니다. 하지만 SentencePiece는 BPE 외에도 Unigram Language Model을 지원한다는 점에서 차이가 있습니다. SentencePiece와 WordPiece의 공통적인 토크나이저 알고리즘은 BPE입니다. SentencePiece와 WordPiece는 BPE 알고리즘을 기반으로 하면서도 구현 세부 사항에는 약간의 차이가 있습니다. 예를 들어, WordPiece는 단어 시작 부분에 &ldquo;##&rdquo; 기호를 추가하여 하위 단어를 표시하는 반면, SentencePiece는 &ldquo;_&rdquo; 기호를 사용합니다. 또한, SentencePiece는 BPE 외에도 Unigram Language Model을 지원하여 사용자에게 더 다양한 토크나이제이션 옵션을 제공합니다. Unigram Language Model은 각 문자나 하위 단어의 출현 확률을 기반으로 토큰을 생성하는 방식으로, BPE와는 다른 접근 방식을 취합니다. 요약하면, SentencePiece와 WordPiece는 BPE 알고리즘을 공통적으로 사용하지만, 구현 세부 사항과 추가적인 토크나이제이션 옵션 제공 여부에 있어 차이가 있습니다. <a href="https://github.com/google/sentencepiece?tab=readme-ov-file">구현간의 차이</a>는 아래 표에서 확인 할 수 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th>Feature</th>
+<th>SentencePiece</th>
+<th><a href="https://github.com/rsennrich/subword-nmt">subword-nmt</a></th>
+<th><a href="https://arxiv.org/pdf/1609.08144.pdf">WordPiece</a></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Supported algorithm</td>
+<td>BPE, unigram, char, word</td>
+<td>BPE</td>
+<td>BPE*</td>
+</tr>
+<tr>
+<td>OSS?</td>
+<td>Yes</td>
+<td>Yes</td>
+<td>Google internal</td>
+</tr>
+<tr>
+<td>Subword regularization</td>
+<td><a href="https://github.com/google/sentencepiece?tab=readme-ov-file#subword-regularization-and-bpe-dropout">Yes</a></td>
+<td>No</td>
+<td>No</td>
+</tr>
+<tr>
+<td>Python Library (pip)</td>
+<td><a href="https://github.com/google/sentencepiece/blob/master/python/README.md">Yes</a></td>
+<td>No</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>C++ Library</td>
+<td><a href="https://github.com/google/sentencepiece/blob/master/doc/api.md">Yes</a></td>
+<td>No</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Pre-segmentation required?</td>
+<td><a href="https://github.com/google/sentencepiece?tab=readme-ov-file#whitespace-is-treated-as-a-basic-symbol">No</a></td>
+<td>Yes</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>Customizable normalization (e.g., NFKC)</td>
+<td><a href="https://github.com/google/sentencepiece/blob/master/doc/normalization.md">Yes</a></td>
+<td>No</td>
+<td>N/A</td>
+</tr>
+<tr>
+<td>Direct id generation</td>
+<td><a href="https://github.com/google/sentencepiece?tab=readme-ov-file#end-to-end-example">Yes</a></td>
+<td>No</td>
+<td>N/A</td>
+</tr>
+</tbody>
+</table>
+<p><code>BPE</code>(Byte Pair Encoding)와 <code>BPE*</code>는 모두 서브워드 기반 토크나이저이지만, 약간의 차이점이 있습니다.</p>
+<ul>
+<li>
+<p>BPE:</p>
+<ul>
+<li>
+<p>기본적인 BPE 알고리즘은 가장 빈번하게 등장하는 바이트 페어(byte pair)를 반복적으로 병합하여 서브워드 단위를 생성합니다.</p>
+</li>
+<li>
+<p>병합 과정에서 빈도수를 기준으로 하므로, 빈도가 높은 바이트 페어가 우선적으로 병합됩니다.</p>
+</li>
+<li>
+<p>병합 작업은 미리 정의된 어휘 크기에 도달할 때까지 반복됩니다.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>BPE*</p>
+<ul>
+<li>
+<p>BPE*는 BPE 알고리즘을 개선한 변형 버전입니다.</p>
+</li>
+<li>
+<p>기본적인 병합 과정은 BPE와 유사하지만, 빈도수 대신 우도(likelihood)를 기준으로 병합을 수행합니다.</p>
+</li>
+<li>
+<p>우도는 언어 모델을 사용하여 계산되며, 이는 단순히 빈도수 기반으로 병합하는 것보다 더 나은 서브워드 단위를 생성할 수 있습니다.</p>
+</li>
+<li>
+<p>BPE*는 언어 모델의 성능을 활용하여 더 의미 있는 서브워드를 생성하는 데 초점을 둡니다.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>간단히 말해, BPE는 빈도수 기반으로 바이트 페어를 병합하는 반면, BPE<em>는 언어 모델의 우도를 활용하여 병합을 수행한다는 점에서 차이가 있습니다. BPE</em>는 BPE의 개선된 버전으로 볼 수 있으며, 언어 모델의 성능을 활용하여 더 나은 서브워드 단위를 생성할 수 있습니다. 워드피스와 센텐스피스에 대해 더 자세히 알아보고 싶다면 아래 영상을 참고해 보시기 바랍니다.</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/hL4ZnAWSyuU?si=2Pg3woQamE-nnRIv" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+<h4 id="24-hugging-face-tokenizers-">2.4 Hugging Face의 Tokenizers 라이브러리</h4>
+<p>Hugging Face의 <a href="https://huggingface.co/docs/transformers/main_classes/tokenizer">Tokenizers</a> 라이브러리는 다양한 토크나이저 알고리즘을 통합적으로 제공하며, Byte-level BPE, WordPiece, SentencePiece 등을 지원합니다. 이를 통해 사용자는 필요에 따라 적절한 토크나이저를 선택하고 활용할 수 있습니다.</p>
+<pre><code>from transformers import BertTokenizer
+
+tokenizer = BertTokenizer.from_pretrained('bert-base-uncased')
+tokens = tokenizer.tokenize(&quot;I love natural language processing!&quot;)
+
+print(tokens)
+# ['i', 'love', 'natural', 'language', 'process', '##ing', '!']
+</code></pre><h3 id="3-">3. 결론</h3>
+<p>대부분의 최신 언어모델들이 BPE(Byte Pair Encoding)나 WordPiece, SentencePiece 등의 서브워드 기반 토크나이저를 활용하고 있습니다. 자연어 처리 작업에서 토크나이저의 선택은 중요한 역할을 합니다. 워드피스와 센텐스피스는 서브워드 토큰화를 통해 효과적인 자연어 처리를 가능하게 하는 강력한 도구입니다. 각 토크나이저의 특징과 장단점을 이해하고, <code>태스크와 데이터의 특성에 맞는 토크나이저를 선택</code>하여 사용한다면 보다 높은 성능의 자연어 처리 모델을 개발할 수 있을 것입니다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/nlp/tokenizer_wordpiece_vs_sentencepiece/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1---">1. 토크나이저 알고리즘의 종류</a></li>
+        <li><a href="#2--">2. 토크나이저 라이브러리</a></li>
+        <li><a href="#3-">3. 결론</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/nlp/text-preprocessing/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            텍스트 전처리
+        </div>
+    </a>
+    
+    
+    <a href="/nlp/n-gram-model/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">n-gram 모델&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

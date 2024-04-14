@@ -1,0 +1,272 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Netty 핵심 컴포넌트</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Netty 핵심 컴포넌트" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/netty/intro/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/netty/" class="archive-article-date">&lt; Netties</a></div>
+            
+            <h1 class="article-title" itemprop="name">Netty 핵심 컴포넌트</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/netty/intro/" class="article-date">
+                <time datetime='2020-03-21T21:29:30.000&#43;03:00' itemprop="datePublished">2020-03-21</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>네티는 자바 기반의 비동기 기반의 네트워크 프레임 워크입니다. 네티는 애플, 트위터, 페이스북, 구글, 인스타그램 등을 포함한 사용자 커뮤니티를 포함해 발전하고 있습니다. 네티는 JAVA 1.6 이상에서 외부 의존성 없이 동작 가능합니다.</p>
+<h2 id="1-">1. 채널</h2>
+<p>채널은 <code>NIO</code>의 기본 구조입니다. 네티는 싱글 쓰레드도 생성된 1개의 셀렉터가 N개의 채널을 관리합니다.</p>
+<ul>
+<li>Thread -&gt; Select -&gt; {채널1, 채널2, 채널3, &hellip;}</li>
+</ul>
+<p>셀렉터는 이벤트 리스너 역할을 수행합니다. 클라이언트 요청이 들어 왔거나, 데이터가 도착했을 경우 셀렉터에 알립니다.</p>
+<p>[셀렉터를 이용한 Non-blocking I/O]</p>
+<p><img src="../selector.png" style="zoom:50%;" /></p>
+<p>하나의 셀렉터로 다중 소켓을 처리할 수 있습니다.</p>
+<p>채널은 Buffer 읽기, Buffer 쓰기를 제공하는 인터페이스입니다.</p>
+<p>읽기 동작</p>
+<pre><code>@Override
+	protected void channelRead0(final ChannelHandlerContext ctx, final HttpObject httpObject) {
+		if (httpObject instanceof HttpRequest) {
+			HttpRequest httpRequest = (HttpRequest) httpObject;
+			QueryStringDecoder queryString = new QueryStringDecoder(httpRequest.uri());
+			..
+</code></pre><p>쓰기 동작</p>
+<pre><code>ByteBuf content = Unpooled.copiedBuffer(json, CharsetUtil.UTF_8);
+				FullHttpResponse response = new DefaultFullHttpResponse(HTTP_1_1, OK, content);
+				response.headers().set(&quot;Content-Type&quot;, &quot;text/plain&quot;);
+				response.headers().set(&quot;Content-Length&quot;, response.content().readableBytes());
+				if (!keepAlive) {
+					ctx.write(response).addListener(ChannelFutureListener.CLOSE);
+				} else {
+					response.headers().set(&quot;Connection&quot;, &quot;keep-alive&quot;);
+					ctx.write(response);
+				}
+</code></pre><p>ChannelFuture</p>
+<ul>
+<li>addListener() : 작업 리스너 등록</li>
+<li>removeListener() : 작업 리스너 제거</li>
+<li>await() : I/O 작업 완료 대기</li>
+<li>sync() : I/O 작업 대기중 실패 하면 실패 이유 반환</li>
+</ul>
+<h2 id="2-">2. 콜백</h2>
+<p>예) 새로운 연결이 발생하면 channelActive 함수가 호출됩니다.</p>
+<pre><code>@Sharable
+public class EchoClientHandler extends SimpleChannelInboundHandlerAdapter&lt;ByteBuf&gt; {			@Override
+	  public void channelActive(ChannelHandlerContext ctx) {
+	      ctx.write(Unpooled.copiedBuffer(ìNetty rocks!ì, CharsetUtil.UTF_8);
+	  }
+}
+</code></pre><h2 id="3-">3. 퓨처</h2>
+<p>작업 완료후 애플리케이션에 종료 알람을 해줍니다.</p>
+<pre><code>@Override
+public void channelReadComplete(ChannelHandlerContext ctx) {
+	ctx.writeAndFlush(Unpooled.EMPTY_BUFFER).addListener(ChannelFutureListener.CLOSE);
+}
+</code></pre><h2 id="4--">4. 이벤트와 핸들러</h2>
+<p>비동기 이벤트 기바입니다. 비동기는 작업 완료를 기다릴 필요 없이 즉각적인 응답이 가능한 구조입니다. 비동기 메서드는 작업 완료 후 에작업 완료 됐음을 통보할 수 있습니다.</p>
+<ul>
+<li>채널 핸들러
+<ul>
+<li>네티의 I/O 이벤트 처리, 작업을 다음 처리기로 전달하는 인터페이스 / 비즈니스 로직의해 처리</li>
+<li>핸들러 부류
+<ul>
+<li>인바운드 : ChannelInboundHandler</li>
+<li>아웃바운드 : ChannelOutboundHandler</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="heading"></h3>
+<h3 id="channelinboundhandler">ChannelInboundHandler</h3>
+<ul>
+<li>
+<p>channelRegistred : Channel이 EventLoop에 등록되고 입출력을 처리할 수 있으면 호출됨</p>
+</li>
+<li>
+<p>channelUnregistered : Channel이 EventLoop에서 등록 해제되고 입출력을 처리할 수 없으면 호출됨</p>
+</li>
+<li>
+<p>channelActive : Channel의 연결과 바인딩이 완료되어 활성화되면 호출됨</p>
+</li>
+<li>
+<p>channelInActive : Channel이 활성 상태에서 벗어나 로컬 피어에 대한 연결이 해제되면 호출됨</p>
+</li>
+<li>
+<p>channelRead : Channel에서 데이터를 읽을 때 호출됨</p>
+</li>
+<li>
+<p>channelReadComplete : Channel에서 읽기 작업이 완료되면 호출됨</p>
+</li>
+<li>
+<p>channelWritabilityChanged : Channel의 기록 가능 상태가 변경되면 호출됨</p>
+</li>
+</ul>
+<p>OutOfMemoryError를 방지하기 위해 너무 빠르게 기록되지 않게하거나, Channel이 기록 가능한 상태가 되면 기록을 재개할 수 있다.  Channel의 isWritable() 메서드를 호출해 해당 채널의 기록 가능 여부를 감지할 수 있다. 기록 가능 여부를 결정하는 임계값은 Channel.config().setWriteHighWaterMark() Channel.config().setWriteLowWaterMark() 메서드로 설정한다. userEventTriggered : POJO가 ChannelPipeline을 통해 전달돼서 ChannelboundHandler.fireUserEventTriggered()가 트리거되면 호출됨</p>
+<h5 id="----">심플 채널 인바우드 핸들러 예</h5>
+<pre><code>public class ServerHandler extend SimpleChannelInboundHandler&lt;HttpObject&gt; {
+
+private HttpRequest httpRequest;
+private HttpPostRequestDecoder httpDecoder;
+
+@Override
+  protected void channelRead0(final ChannelHandlerContext ctx, final HttpObject httpObject)
+    throws Exception {
+    if (httpObject instanceof HttpRequest) {
+      httpRequest = (HttpRequest) httpObject;
+      ...
+    }
+    if (httpDecoder != null) {
+      if (httpObject instanceof HttpContent) {
+        final HttpContent chunk = (HttpContent) httpObject;
+        ...
+      }
+    }
+  }
+}
+</code></pre>
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/netty/intro/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1-">1. 채널</a></li>
+    <li><a href="#2-">2. 콜백</a></li>
+    <li><a href="#3-">3. 퓨처</a></li>
+    <li><a href="#4--">4. 이벤트와 핸들러</a>
+      <ul>
+        <li><a href="#heading"></a></li>
+        <li><a href="#channelinboundhandler">ChannelInboundHandler</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/netty/handler/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Netty 채널 소개와 채널 핸들러
+        </div>
+    </a>
+    
+    
+    <a href="/dev/installing-apache-php-on-macos/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">맥 OS에서 아파치, PHP 시작 설정&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

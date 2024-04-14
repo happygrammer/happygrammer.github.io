@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>분산처리 시스템 소개</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="분산처리 시스템 소개" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/cloud/distributed-system/about/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">분산처리 시스템 소개</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/cloud/distributed-system/about/" class="article-date">
+                <time datetime='2021-05-18T23:47:08.000&#43;03:00' itemprop="datePublished">2021-05-18</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p><code>분산처리 시스템</code>은 여러 시스템 간의 동작을 일관성 있게 처리해 마치 하나의 프로세스가 하는 처리하는 것처럼 수행하는 시스템이다. 하나의 서버에 결집되어 있는 서버의 자원과 기능을 여러 서버에 분산 시켜 상호 협력함으로써 처리 성능과 신뢰성을 높이는 데 목적이 있다.</p>
+<h3 id="---">분산 시스템의 고전적인 문제</h3>
+<p>Failure Detection, Peer to Peer Systems, Key value store, sensor networks등이 으며, 동기화, 보안 관련 문제가 있다.</p>
+<ul>
+<li>동기화(Synchronization)은 실재 시간 근거로 싱크를 맞추는것이며, 분산 환경에서 싱크를 맞추는 것은 쉽지 않다. 동기화를 위해 Clock Synchronization 알고리즘인 클럭 동기화 기법인 Berkely 알고리즘을 이용할 수 있음.</li>
+</ul>
+<h3 id="----1">분산처리 시스템 구축 목표</h3>
+<p>개방성은 분산 처리의 중요한 목표이다. 개방성을 위해 standard rules을  제공하고자 Protocol을 이용하여 통신합니다. 이러한 표준화된 인터페이스를 지원하는 언어는  Interface Definition Language라고 한다. 이러한 인터페이스 기반의 통신은 바로 Interoperability 상호운영성이 가능해야하며, 설정이 쉬워야 한다. 분산 처리가 갖춰야할 요소는 다음과 같다.</p>
+<ul>
+<li>신뢰성(robustness) : 서버 응답 장애가 발생하지 않도록 함</li>
+<li>가용성(availability) : 서비스를 항상 제공할 수 있어야함</li>
+<li>동시성(concurrency) : 많은 사용자가 동시에 요청이 오더라도 처리할 수 있어야함</li>
+<li>투명성(transparent) : 내부 동작을 클라이언트에 숨겨야함</li>
+<li>보안(security) : 해커의 위험으로부터 보호해야함</li>
+</ul>
+<p>위 요소 중에 투명성이라는 것은 내부 동작을 클라이언트에 숨겨야 하는 것을 의미한다.</p>
+<ul>
+<li>Access : 리소스가 어떻게 접근되었는지와 데이터표현의 차이를 숨김</li>
+<li>Location : 리소스 위치를 숨김</li>
+<li>Migration : 리소스가 또다른 Location으로 Migration 되었다는 것을 숨김</li>
+<li>Relocation : 리소스가​ 사용간에 또다른 위치로 이동되었다는 것을 숨김</li>
+<li>Replication : 리소스가 Replication 되었다는 것을 숨김</li>
+<li>Concurrency : 리소스가 competitive 유저들에게 공유되고 있다는 것을 숨김</li>
+<li>Failure : 리소스의 Failure나 복구를 숨김</li>
+<li>Persistence : 리소스가 메모리 혹은 디스크 안에 있다는 것을 숨김</li>
+</ul>
+<h3 id="heading">투명성</h3>
+<p>투명성에 대해서 살펴보자, &lsquo;투명성'은 내용이 있지만 없는 것처럼 처리하는 성질이다. 즉, 서버 내부에는 데이터의 이동, 삭제, 복사 등과 같은 동작이 존재할 수 있지만 외부에서 볼 때는 내부에서 처리 과정을 알 수 없도록 숨기는 성질을 의미한다. 분산 처리 시스템은 다음과 같은 점들에 대해 투명성을 유지할 수 있어야 한다.</p>
+<ul>
+<li>접근  : 어떤 데이터를 접근 했는지 숨김</li>
+<li>위치 : 데이터 위치가 어디에 있는지를 숨김</li>
+<li>이동 : 데이터가 다른 위치로 이동되었는지를 숨김</li>
+<li>복제 : 데이터가 복제되었는지를 숨김</li>
+<li>실패 : 실패 상황에서 복구가 되었는지를 숨김</li>
+</ul>
+<h3 id="--acid-">분산처리 시스템의 ACID 보장</h3>
+<p>분산 시스템에서 네트워크는 100%로 신뢰할 수 없기 때문에 이러한 상황에 대해서도 안정적인 처리가 가능하도록 DB의 ACID와 같은 성질을 제공할 수 있어야한다.</p>
+<ul>
+<li>원자성 Atomic : 트랜잭션이 성공하거나 실패되어야한다. 부분적으로 실행 되면 안됨</li>
+<li>일관성 Consistent : 트랜잭션 반영이 성공했다면 일관성 있게 상태를 유지할 수 있어야함</li>
+<li>독립성 Isolated : 동시에 트랜잭션이 발생하더라도 트랙잭션 간에 성호 간섭을 주면 안됨</li>
+<li>지속성 Durable : 반영된 내용은 별도 변경 요청이 없는한 영구적으로 유지될 수 있어야함</li>
+</ul>
+<h3 id="----2">분산처리 시스템의 아키텍처 스타일</h3>
+<p>분산처리 시스템은 호출을 처리하는 방식에 따라 다음과 같은 아키텍처 스타일을 고려할 수 있다.</p>
+<ul>
+<li>레이어(Layered) 아키텍처 : OS7과 비슷, 하위 레이어의 컴포넌트를 호출해 처리하는 방식</li>
+<li>객체 기반(Object-based) 아키텍처 :  RPC 기반으로 원격 컴포넌트 간에 호출을 통해 구성하는 방식</li>
+<li>데이터 중심(Data-centered) 아키텍처 : 파일 시스템을 공유해 처리하는 방식이다. 웹 애플리케이션에서 사용</li>
+<li>이벤트 기반(Event-based) 아키텍처 : 이벤트가 게시(publish) 되면 미들웨어는 이벤트를 구독(subscribe)</li>
+</ul>
+<h3 id="--">분산처리 시스템의 구성</h3>
+<p>분산 처리 시스템은 서버 간의 결합을 통해 동작하는 시스템이다. 이들 서버 구성에 따라 다음과 같은 서버 아키텍처를 구성할 수 있다.</p>
+<ul>
+<li>클러스터링 컴퓨팅 : 같은 네트워크 내에서 단일 마스터 노드가 존재하며 병렬 처리를 수행</li>
+<li>그리드 컴퓨팅 : 다른 네트워크 간에 공동 작업을 처리를 수행해 대규모 연산을 처리함</li>
+</ul>
+<p>클러스터 컴퓨팅 시스템은 동종의 SW, HW를 성능 향상을 위해 연결하는 관점이다. 동종의 컴퓨터를 성능향상을 위해 연결. Master Node과 계산 Node로 나뉘어진다. 그리드 컴퓨팅(Gird Computing System)은 다른 종류(heterogeneous)의 SW, HW를 연결하는 시스템이다. 컴퓨터의 연산능력, 데이터, 첨단 실험 장비 등 여러 장비를 인터넷을 통해 공유하려는 새로운 분산컴퓨팅 모델 컴퓨터의 처리능력을 한 곳으로 모아 가장 중요한 업무에 집중사용할 수 있게 해주는 기술을 말한다. 고속 네트워크로 연결된 다수의 컴퓨터 시스템이 사용자에게 통합된 가상의 컴퓨팅서비스를 제공하는 개념으로 분산컴퓨팅(distributed computing)이라고도 불린다. 그리드(GRID)란 세계적으로 연구가 진행 중인 차세대 인터넷망으로, 현재의 인터넷 방식인 월드와이드웹(WWW)과 달리 컴퓨터의 처리능력을 한 곳으로 집중시킬 수 있는 인터넷망이다. virtual organization하다는 특징이다.</p>
+<h3 id="----">분산 처리 시스템의 통신 방식</h3>
+<p>애플리케이션 간에는 미들웨어를 이용해 커뮤니케이션 할 수 있으며, 동일한 프로그래밍 인터페이스임</p>
+<ol>
+<li>MOM (message-oriented middleware)</li>
+<li>RPC(remote procedure calls)방식
+<ul>
+<li>remote method invocation 이 대표적</li>
+</ul>
+</li>
+</ol>
+<h3 id="----3">그리드 컴퓨팅 시스템의 계층</h3>
+<p>그리드 컴퓨팅 시스템은 다른 종류의 시스템과의 협력(collaboration)을 위해 <code>virtual organization</code> 형태를 고려한다. 그리드 컴퓨팅 시스템의 아키텍쳐는 다음과 같다.</p>
+<ul>
+<li>
+<p>fabric Layer : 가장 낮은 계층, 특정 사이트에서 로컬리소스에 대한 인터페이스를 제공한다.</p>
+</li>
+<li>
+<p>connectivity Layer : 프로토콜 간의 커뮤니케이션을 담당한다.</p>
+</li>
+<li>
+<p>resource Layer : 이 계층은 configuration 정보들을 제공하고, access control에 대한 역할</p>
+</li>
+<li>
+<p>collective Layer : multiple resource에 접근하고 다룬다. 리소스를 발견하고, 할당(allocation), multiple resource에 대한 scheduling, data replication 역할</p>
+</li>
+<li>
+<p>application Layer : 마지막으로 Application Layer는 Virtual organization내에 applications들로 구성된다. grid computing 환경을 구축하기 위해 사용</p>
+</li>
+</ul>
+<p>분산처리시스템은 독립 컴포넌트 들이 EAI(enterprise application integration)관점으로 서로 통신한다.</p>
+<h3 id="transaction-proceessing-systems">Transaction Proceessing Systems</h3>
+<p>Transaction 시스템인 DB는 분산된 트랜잭션 (distributed transaction)을 수행할 수 있다. remote server들에 대하여 procedure call을 하게 되면 캡슐화(encapsulated)한 상태로 호출하게 된다. 이러한 원격 호출 방법을 <code>transactional RPC</code>라고 한다. 여기서 Transaction의 원시적(primitive) 동작은 5가지이다.</p>
+<p><code>Transaction</code>의 Primitive 예</p>
+<ul>
+<li>BEGIN-TRANSACTION</li>
+<li>END_TRANSACTION</li>
+<li>ABORT_TRANSACTION</li>
+<li>READ</li>
+<li>WRITE</li>
+</ul>
+<p>각 Primitive들은 4가지 요건을 충족해야 한다.</p>
+<ul>
+<li>Atomic : completely or not. (All or Nothing)</li>
+<li>Consistent : 변화가 되지 않아야한다.</li>
+<li>Isolated : 동시에 transaction이 발생하더라도 서로 간섭하지 않아야한다.</li>
+<li>Durable : transaction commits후 영구적으로 반영되어야한다.</li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/cloud/distributed-system/about/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#---">분산 시스템의 고전적인 문제</a></li>
+        <li><a href="#----1">분산처리 시스템 구축 목표</a></li>
+        <li><a href="#heading">투명성</a></li>
+        <li><a href="#--acid-">분산처리 시스템의 ACID 보장</a></li>
+        <li><a href="#----2">분산처리 시스템의 아키텍처 스타일</a></li>
+        <li><a href="#--">분산처리 시스템의 구성</a></li>
+        <li><a href="#----">분산 처리 시스템의 통신 방식</a></li>
+        <li><a href="#----3">그리드 컴퓨팅 시스템의 계층</a></li>
+        <li><a href="#transaction-proceessing-systems">Transaction Proceessing Systems</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/cloud/distributed-system/fault-tolerance/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            장애 허용 시스템
+        </div>
+    </a>
+    
+    
+    <a href="/ai/papers/conference/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">AI 관련 컨퍼런스와 출판물&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

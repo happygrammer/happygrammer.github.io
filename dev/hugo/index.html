@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Hugo 정적 사이트 생성기 가이드</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Hugo 정적 사이트 생성기 가이드" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/hugo/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">Hugo 정적 사이트 생성기 가이드</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/hugo/" class="article-date">
+                <time datetime='2020-01-15T06:27:50.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>Hugo는 Go언어로 만들어진 정적 사이트 생성기(static site generator)입니다. Go언어로 만들어져서 정적 파일 생성이 빠르고 최근 많은 인기를 얻고 있습니다.</p>
+<h3 id="heading">변수</h3>
+<p>사전 정의 변수</p>
+<pre><code> {{ .Title }}
+</code></pre><p>사용자 정의</p>
+<pre><code>{{ $address }}
+</code></pre><h3 id="--">템플릿 가져 오기</h3>
+<p>파셜 템플릿 가져오기</p>
+<pre><code>{{ partial &quot;header.html&quot;}}
+</code></pre><h3 id="---1">템플릿 룩업 순서</h3>
+<p>layouts/posts/single.html.html가 layouts/posts/single.html보다 우선 순위가 높습니다.</p>
+<h3 id="-">베이스 템플릿</h3>
+<p>layouts/_default</p>
+<p>위 디렉터리에 접근해보면 베이스 템플릿인 baseof.html가 존재합니다. 디폴트 리스트 템플릿인 list.html 파일이 존재합니다.</p>
+<h3 id="heading-1">템플릿</h3>
+<p>템플릿 설치는 <a href="https://themes.gohugo.io/">https://themes.gohugo.io/</a> 사이트를 이용할 수 있습니다.</p>
+<h3 id="hugo-">Hugo 명령어</h3>
+<h5 id="happy--">happy라는 저장소 추가</h5>
+<pre><code>$ hugo new site happy
+</code></pre><h5 id="hugo--">hugo 서버 실행</h5>
+<pre><code>$ hugo server -D
+</code></pre><h5 id="--hugo--">테마 적용하여 hugo 서버 실행</h5>
+<pre><code>$ hugo server -t &lt;theme name&gt;
+</code></pre><h5 id="--hugo---1">디버그 옵션으로 hugo 서버 실행</h5>
+<pre><code>$ hugo server -v --debug
+</code></pre><h5 id="---">새로운 마크다운 문서 추가하기</h5>
+<pre><code>$ hugo new posts/hello.md
+</code></pre><p>위와 같이 추가하면 <code>/posts/hello</code> 경로의 마크다운 문서가 추가됩니다.</p>
+<h5 id="---2">정적 파일 만들기</h5>
+<p>-t 옵션을 추가해 public 디렉터리에 정적 파일을 만듭니다.</p>
+<pre><code>$ hugo -t &lt;theme name&gt;
+</code></pre><p>주의할 사항은 마크다운 상단에 설정이 <code>draft: false</code> 인 문서만을 정적 파일로 만듭니다. 예를 들어 /posts/hello.md라는 파일을 정적 파일을 생성하려면 draft 상태값이 false여야 합니다.</p>
+<pre><code>---
+title: &quot;hello&quot;
+date: 2019-12-25T21:59:01+03:00
+draft: false
+---
+</code></pre><h3 id="---3">정적 사이트 배포하기</h3>
+<p>hugo를 배포를 빠르게 하기 위해 저장소에 연결 후 배포 스크립트를 작성해 두면 편리합니다. 먼저 hugo를 배포하기 위해서는 로컬 저장소를 원격 저장소에 연결해 주어야 합니다.</p>
+<pre><code>$ git remote add origin https://github.com/happygrammer/happygrammer.github.io.git
+</code></pre><p>이후, 아래와 같은 쉡 스크립트(push.sh)를 두어 hugo의 정적 파일 생성과 commit 그리고, 원격 저장소의 배포를 한번에 처리하면 효율적입니다.</p>
+<pre><code>hugo -t hugo-theme-minos
+cd public
+git add .
+git commit -m &quot;commit&quot;
+git push -u origin master
+</code></pre><h3 id="html-">HTML 출력</h3>
+<p>HTML 태그를 사용하려 할때 hugo는 safe하지 않다고 판단해 아래와 같이 &ldquo;raw HTML omitted&rdquo; 주서으로 치환을 수행합니다.</p>
+<pre><code class="language-ᆨhtml" data-lang="ᆨhtml">&lt;p&gt;...&lt;/p&gt;
+&lt;!-- raw HTML omitted --&gt;
+&lt;p&gt;...&lt;/p&gt;
+</code></pre><p>이러한 경우는 hugo 설정에서 <code>unsafe</code> 값을 true로 해주면, safe 모드가 해제 되어 html 태그를 사용할 수 있게 됩니다.</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-toml" data-lang="toml">[<span style="color:#a6e22e">markup</span>.<span style="color:#a6e22e">goldmark</span>.<span style="color:#a6e22e">renderer</span>]
+<span style="color:#a6e22e">unsafe</span> = <span style="color:#66d9ef">true</span>
+</code></pre></div>
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/hugo/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#heading">변수</a></li>
+        <li><a href="#--">템플릿 가져 오기</a></li>
+        <li><a href="#---1">템플릿 룩업 순서</a></li>
+        <li><a href="#-">베이스 템플릿</a></li>
+        <li><a href="#heading-1">템플릿</a></li>
+        <li><a href="#hugo-">Hugo 명령어</a></li>
+        <li><a href="#---3">정적 사이트 배포하기</a></li>
+        <li><a href="#html-">HTML 출력</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/ai/tensorflow/quickstart-for-beginners/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            텐서플로우 2 입문자용 튜토리얼
+        </div>
+    </a>
+    
+    
+    <a href="/dev/git/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">1시간 안에 Git 익히기&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>중의성의 분류와 중의성 해소</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="중의성의 분류와 중의성 해소" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/wsd/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/nlp/" class="archive-article-date">&lt; Nlps</a></div>
+            
+            <h1 class="article-title" itemprop="name">중의성의 분류와 중의성 해소</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/wsd/" class="article-date">
+                <time datetime='2020-01-15T06:41:24.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>이 글은 중의성의 종류를 소개하고, 중의성 해소에 필요한 방법을 알아보겠습니다.</p>
+<h3 id="-">중의성의 분류</h3>
+<p>자연어 처리에서 <strong>중의성 해결</strong>은 중요한 태스크입니다. 중의성은 하나의 언어 표현이 둘 이상의 해석이 가능한 특성을 의미합니다. 중의성의 종류는 다음과 같습니다.</p>
+<ul>
+<li>어휘 중의성</li>
+<li>구조 중의성</li>
+</ul>
+<h3 id="--1">어휘 중의성</h3>
+<p>어휘 중의성 글자나 소리가 동일하지만 의미가 여럿인 중의성입니다. 중의성의 대표적인 예로 동음이의어(homonym)가 있습니다. 동음이의어는 글자는 동일(동형어; homographs)하지만 의미가 다른 단어(다의어; polysemes) 입니다. 동음이의어는 글자로 보면 의미가 구분이 되지 않는 애매성(ambiguity)이 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th align="left">단어</th>
+<th align="left">의미1</th>
+<th align="left">의미2</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">손</td>
+<td align="left">나는 손이 크다</td>
+<td align="left">친구 어머니는 손이 크다.</td>
+</tr>
+<tr>
+<td align="left">말</td>
+<td align="left">나는 말이 많다.</td>
+<td align="left">친구는 말이 많다.</td>
+</tr>
+<tr>
+<td align="left">배</td>
+<td align="left">나는 배를 좋아한다.</td>
+<td align="left">친구는 배를 좋아한다.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="--">어휘 중의성 해결</h3>
+<p>어휘 중의성은 단어 의미 중의성 해소(WSD:Word Sense Disambiguation) 기술을 이용해 해결할 수 있습니다. 단어 의미 중의성 해소 기술의 기본적인 아이디어는 중의성 있는 단어 주변의 단어를 살펴 봄으로서 의미를 식별 한다는 것 입니다. 예를 들어 위 표의 중의성을 해결 하기 위해 단어 주변(context)에 단어를 추가해 보겠습니다.</p>
+<table>
+<thead>
+<tr>
+<th align="left">단어</th>
+<th align="left">의미1</th>
+<th align="left">의미2</th>
+<th align="left">중의성 해소</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">손</td>
+<td align="left">나는 <strong>박수칠때</strong> 손이 크다</td>
+<td align="left">친구 어머니는 <strong>요리할때</strong> 손이 크다.</td>
+<td align="left">문장 성분 추가</td>
+</tr>
+<tr>
+<td align="left">말</td>
+<td align="left">나는 말이 <strong>식사할때</strong> 많다.</td>
+<td align="left">친구는 말이 <strong>목장에</strong> 많다.</td>
+<td align="left">서술어 추가</td>
+</tr>
+<tr>
+<td align="left">배</td>
+<td align="left">나는 <strong>맛있는</strong> 배를 좋아한다.</td>
+<td align="left">친구는 <strong>바다에 있는</strong> 배를 좋아한다.</td>
+<td align="left">수식어 추가</td>
+</tr>
+</tbody>
+</table>
+<p>단어 주변에 단어가 추가 된 후, 의미가 명확해 졌고 중의성도 해소 됐음을 확인 했습니다. 어휘 중의성 해결을 위한 방법론은 대표적으로 다음과 같은 방법론이 있습니다.</p>
+<ul>
+<li>시소러스/사전 기반 : Multi-Prototype Skip-gram</li>
+<li>교사 학습 기반 : 분류기(SVM, AdaBoost, 나이브 베이즈 분류기, 뉴럴넷, kNN, Logistic Regression, …)</li>
+<li>반교사 학습 기반 : 부트스트래핑(작은 규모의 레이블 셋으로 저용 가능)</li>
+<li>비교사 기반 : Word Clustering</li>
+</ul>
+<h3 id="--2">구조 중의성</h3>
+<p>구조 중의성(<em>structural</em> ambiguity)은 통사 관계에 의해 나타나는 문장 구성 성분간의 중의성입니다. 구조 중의성의 예는 다음과 같습니다.</p>
+<ul>
+<li>비가 오는 날, 검은 우산을 쓰고 걸어가는 아빠<em>와 아들</em>의 모습</li>
+<li>환하게 웃어주던 그녀의 모습은 어디로 사라져버린 것인가?</li>
+</ul>
+<p>첫번째 문장은 검은 우산을 쓰고 걸어가는 사람이 아빠라는 것인지, 아니면 검은 우산을 쓰고 걸어가는 사람이 “아빠와 아들&quot;것인지에 대한 중의성이 있습니다. 두번째 문장은 환하게 웃어주던 대상이 ‘그녀'인지, 그녀의 ‘모습’ 인지에 대한 중의성이 있습니다.</p>
+<h3 id="---1">구조 중의성 해결</h3>
+<p>구조 중의성은 하나의 문장이 2가지 이상의 구조로 구문 분석(syntax analysis)됨으로 생기는 중의성입니다. 구조 중의성 해소(structural disambiguation)를 위한 대표적인 방법론은 다음과 같습니다.</p>
+<ul>
+<li>분석 기반</li>
+<li>통계 기반</li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/nlp/wsd/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-">중의성의 분류</a></li>
+        <li><a href="#--1">어휘 중의성</a></li>
+        <li><a href="#--">어휘 중의성 해결</a></li>
+        <li><a href="#--2">구조 중의성</a></li>
+        <li><a href="#---1">구조 중의성 해결</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/linux/shell/date-time/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            날짜와 시간 처리
+        </div>
+    </a>
+    
+    
+    <a href="/ai/tensorflow/keras/regression/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">연비 예측을 위한 회귀 분석&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

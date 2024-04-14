@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DVC 소개와 설치</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="DVC 소개와 설치" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/mlops/dvc/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/mlops/" class="archive-article-date">&lt; Mlops</a></div>
+            
+            <h1 class="article-title" itemprop="name">DVC 소개와 설치</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/mlops/dvc/" class="article-date">
+                <time datetime='2023-01-24T15:02:39.000&#43;09:00' itemprop="datePublished">2023-01-24</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="--">데이터 버전 관리</h3>
+<p>대용량 파일 버저닝을 위한 도구로 <a href="https://git-lfs.com/">git-lfs</a>, LakeFS, DVC, DeltaLake, <a href="https://www.dolthub.com/">dolthhub</a>, Pachyderm, Neptune 등이 있습니다. 이중 DVC에 대해 알아 보도록 하겠습니다.</p>
+<h3 id="dvc-">DVC 소개</h3>
+<p>DVC(data version control)는 데이터 과학자들을 위한 멋진 도구랍니다! 데이터와 모델을 버전 관리하는 데 사용됩니다. DVC를 사용하면 Git과 비슷한 방식으로 데이터셋의 버전을 추적하고, 원래대로 되돌리고, 변경사항을 쉽게 복원할 수 있습니다. Git에는 용량 제한이 있지만, DVC CLI를 이용하면 대용량 파일, 데이터셋 디렉토리, 머신러닝 모델 등을 작고 가벼운 메타 파일로 대체하여 데이터 버전 관리를 지원해주어 편리합니다.</p>
+<p><img src="https://dvc.org/static/c9dd447d50663a3180678ab491a5eb29/aa619/reproducibility.webp" alt=""></p>
+<p>DVC는 중앙 서버에서 파일을 직접 관리하는 방식은 아니며, 중앙 서버는 단순히 변경 이력과 메타데이터를 관리해, 실제 데이터 파일은 로컬 또는 원격 저장소에 저장되는 형태로 관리됩니다. 중앙 서버에서 변경 이력과 메타데이터를 받는 것은 가능하지만 실제 데이터 파일은 로컬 저장소에 있고 다른 작업자에게 직접 파일을 전송하거나 별도의 스토리지 서비스를 이용해 공유할 필요가 있습니다. DVC는  Git LFS처럼 큰 파일의 포인터는 Git 저장소에 저장되지만 해당 파일의 실제 내용은 외부 저장소에 저장하는 방식을 사용하는 것 입니다.</p>
+<h3 id="dvc--1">DVC 설치</h3>
+<p>DVC(Data Version Control) 설치를 진행합니다. MacOS를 이용하고 있다면 <code>brew</code>를 이용해 설치합니다.</p>
+<pre><code>$ brew install dvc
+</code></pre><h3 id="dvc--">DVC 저장소 초기화</h3>
+<p>설치 후 <code>dvc-test-repo</code> 경로를 만들고 dvc 저장소를 초기화합니다.</p>
+<pre><code>$ mkdir dvc-test-repo
+$ cd dvc-test-repo
+$ git init
+$ dvc init
+Initialized DVC repository.
+
+You can now commit the changes to git.
+
++---------------------------------------------------------------------+
+|                                                                     |
+|        DVC has enabled anonymous aggregate usage analytics.         |
+|     Read the analytics documentation (and how to opt-out) here:     |
+|             &lt;https://dvc.org/doc/user-guide/analytics&gt;              |
+|                                                                     |
++---------------------------------------------------------------------+
+
+What's next?
+------------
+- Check out the documentation: &lt;https://dvc.org/doc&gt;
+- Get help and share ideas: &lt;https://dvc.org/chat&gt;
+- Star us on GitHub: &lt;https://github.com/iterative/dvc&gt;
+</code></pre><h3 id="dvc-commit">DVC commit</h3>
+<p>첫번째 commit을 수행합니다.</p>
+<pre><code>$ git commit -m &quot;Initialize DVC&quot;
+[master (최상위-커밋) d2165ca] Initialize DVC
+ 4 files changed, 9 insertions(+)
+ create mode 100644 .dvc/.gitignore
+ create mode 100644 .dvc/config
+ create mode 100644 .dvcignore
+ create mode 100644 test.txt
+</code></pre><p>이후 원격 저장소(Amazon S3, SSH, Google Drive, Azure Blob Storage, and HDFS) 주소를 추가하고 add 할 수 있습니다. 아래 예시는 Amazon S3를 기준으로 합니다. DVC를 사용하여 데이터셋의 버전을 관리하려면, 먼저 데이터를 프로젝트 디렉토리에 추가해야 합니다. 데이터셋을 프로젝트에 추가하는 방법은 아래와 같습니다.</p>
+<pre><code>dvc remote add -d storage s3://mystorage/dvcstore
+git add .dvc/config
+git commit -m &quot;add dvc config&quot;
+</code></pre><p>첫번째 커밋이 이뤄졌습니다. 원격 저장소에서 data를 가져오려면 pull 명령을 사용합니다.</p>
+<pre><code>dvc pull
+</code></pre><h3 id="dvc-addpush">DVC add/push</h3>
+<p>데이터를 저장할 수 도 있습니다. dvc 명령은 dvc add 명령과 dvc push 명령을 주로 함께 사용합니다.</p>
+<pre><code>$ dvc add ./data/test.txt
+$ dvc push
+</code></pre><p><code>dvc add</code> 명령을 이용해 스테이지에 추가합니다.</p>
+<pre><code>$ dvc add ./data/test.txt
+100% Adding...|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████|1/1 [00:00,  5.07file/s]
+
+To track the changes with git, run:
+
+	git add data/.gitignore data/test.txt.dvc
+
+To enable auto staging, run:
+
+	dvc config core.autostage true
+</code></pre><p>다음과 같은 <code>./data/test.txt.dvc</code> 파일이 생깁니다. .dvc 메타 파일은 데이터 파이의 md5  값, size, path 정보를 포함하는 메타 파일입니다.</p>
+<pre><code>outs:
+- md5: 51b98813c49f7031395c63a33f7db50b
+  size: 9
+  path: test.txt
+</code></pre><p>마지막으로 원격 저장소에 push합니다.</p>
+<pre><code>dvc push
+</code></pre><p>dvc는 버전 제어 시스템이 아니며, Git  자체가 버전 컨트롤을 담당합니다. dvc 자체는 메타파일 기반으로 데이타 버전 컨트롤을 수행하며, 이렇게 add된 파일은 gitignore에 추가 되어 원격 저장소에 저장되는 것을 방지하는 방식이다.  <code>data/.gitignore</code> 파일을 열어보면 다음과 같이 원격 저장소로 푸시될때 무시될 파일이 저장되어 있다.</p>
+<pre><code>data/.gitignore
+</code></pre><h3 id="dvc---1">DVC  버전이동</h3>
+<p>dvc 버전 이동을 하려면 git 명령어와 함께 사용합니다.</p>
+<pre><code>git checkout HEAD~1
+dvc checkout
+</code></pre><h3 id="-">참고 문서</h3>
+<ul>
+<li>DVC 설치 : <a href="https://dvc.org/doc/install">https://dvc.org/doc/install</a></li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/mlops/dvc/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#--">데이터 버전 관리</a></li>
+        <li><a href="#dvc-">DVC 소개</a></li>
+        <li><a href="#dvc--1">DVC 설치</a></li>
+        <li><a href="#dvc--">DVC 저장소 초기화</a></li>
+        <li><a href="#dvc-commit">DVC commit</a></li>
+        <li><a href="#dvc-addpush">DVC add/push</a></li>
+        <li><a href="#dvc---1">DVC  버전이동</a></li>
+        <li><a href="#-">참고 문서</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/mlops/streamlit/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Streamlit 소개와 설치
+        </div>
+    </a>
+    
+    
+    <a href="/mlops/airflow/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Airflow 설치&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

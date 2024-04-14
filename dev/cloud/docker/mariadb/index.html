@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>도커에 Mariadb 설치</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="도커에 Mariadb 설치" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/cloud/docker/mariadb/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">도커에 Mariadb 설치</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/cloud/docker/mariadb/" class="article-date">
+                <time datetime='2020-03-01T00:55:12.000&#43;03:00' itemprop="datePublished">2020-03-01</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="---">도커 실행 여부 체크</h3>
+<p>설치를 진행하기 전에 도커 실행 여부를 확인합니다. 도커가 실행중인 상태가 아니면 다음과 같은 예외 메시지가 출력됩니다.</p>
+<pre><code>Using default tag: latest
+Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?
+</code></pre><p>지금 부터 mariadb를 다운로드 받아 설정 까지 진행하도록 하겠습니다.</p>
+<h3 id="--">도커 이미지 다운로드</h3>
+<pre><code>docker pull mariadb
+</code></pre><h3 id="-">컨테이너 실행</h3>
+<p>3306 port로 설정해 실행합니다.</p>
+<pre><code>docker container run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 --name mariadb mariadb
+</code></pre><p>docker 볼륨을 <code>/Users/Shared/data/mariadb</code>로 설정합니다.</p>
+<pre><code>docker container run -d -p 3306:3306 	\
+-e MYSQL_ROOT_PASSWORD=1234 		\
+-v /Users/Shared/happy/mariadb:/var/lib/mysql 	\
+--name mariadb mariadb
+</code></pre><p><code>-v</code>는 Bind mount a volume와 관련한 옵션입니다. 형식은 다음과 같습니다.</p>
+<pre><code>-v &lt;bind-path&gt;:&lt;file or directory on the host machine&gt;
+</code></pre><p>맥 OS에서 <code>/Users/Shared </code>는 공용 폴더이므로 <code>/Users/Shared/happy/mariadb</code> 디렉터리로 설정하였습니다.</p>
+<p>그리고 <code>--name</code> 옵션은 컨테이너 실행시 컨네이너 실행시 컨테이너 이름을 부여하기 위한 용도입니다.</p>
+<pre><code>--name &lt;original-container-name&gt; &lt;new-container-name&gt;
+</code></pre><ul>
+<li><code>--name</code> 옵션 없이 컨테이너 실행을 진행하면 임의의 이름으로 컨테이너가 실행됩니다. 이때 실행중인 컨테이너의 이름을 변경하려면 <code>docker rename [old-container-name] [new-container-name]</code>와 같이 명령어를 입력합니다.</li>
+</ul>
+<p>이어서 컨테이너가 정상적으로 실행 됐는지 확인합니다.</p>
+<pre><code>docker container ls -a
+</code></pre><p>이때 <code>-s</code>옵션을 붙여주면 컨테이너에서 사용량을 확인할 수 있습니다.</p>
+<pre><code>docker container ls -as
+</code></pre><pre><code>(base) dialogui-MacBookPro:~ smarthome$ docker container ls -as
+CONTAINER ID        IMAGE                   COMMAND                  CREATED             STATUS                    PORTS                    NAMES                   SIZE
+2463b80300ec        mariadb                 &quot;docker-entrypoint.s…&quot;   8 hours ago         Up 8 hours                0.0.0.0:3306-&gt;3306/tcp   mariadb                 82.8MB (virtual 438MB)
+</code></pre><h3 id="mariadb-">mariadb 접속</h3>
+<pre><code>docker exec -i -t mariadb bash
+mysql -uroot -p1234
+</code></pre><p>mariadb 커맨드 화면이 나타나며 <code>show databases;</code>명령어를 이용해 현재 추가된 데이터베이스를 확인합니다.</p>
+<pre><code>MariaDB [(none)]&gt; show databases;
++--------------------+
+| Database           |
++--------------------+
+| information_schema |
+| mysql              |
+| performance_schema |
++--------------------+
+3 rows in set (0.001 sec)
+</code></pre><h3 id="mycnf-">my.cnf 수정</h3>
+<p>vi 편집기 설치 후 my.cnf를 수정합니다.</p>
+<pre><code>apt-get update
+apt-get install vim
+vi /etc/mysql/my.cnf
+</code></pre><pre><code>character-set-client-handshake = FALSE
+init_connect=&quot;SET collation_connection = utf8_general_ci&quot;
+init_connect=&quot;SET NAMES utf8&quot;
+character-set-server = utf8
+
+[client]
+default-character-set = utf8
+
+[mysql]
+
+default-character-set = utf8
+
+[mysqldump]
+default-character-set = utf8
+</code></pre><p>위 옵션 중에서 <code>character-set-client-handshake</code>의 값이 <code>FALSE</code>이면 클라이언트 문자셋을 무시하고 서버 문자셋을 사용한다는 의미입니다.</p>
+<h3 id="--1">컨테이너 재시작</h3>
+<pre><code>docker stop mariadb
+docker start mariadb
+</code></pre><h3 id="mariadb--">mariaDB 로그 보기</h3>
+<pre><code>$ docker logs -f --tail=10 mariadb
+2020-02-29 22:13:47 0 [Note] InnoDB: 10.4.12 started; log sequence number 60990; transaction id 21
+...
+</code></pre>
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/cloud/docker/mariadb/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#---">도커 실행 여부 체크</a></li>
+        <li><a href="#--">도커 이미지 다운로드</a></li>
+        <li><a href="#-">컨테이너 실행</a></li>
+        <li><a href="#mariadb-">mariadb 접속</a></li>
+        <li><a href="#mycnf-">my.cnf 수정</a></li>
+        <li><a href="#--1">컨테이너 재시작</a></li>
+        <li><a href="#mariadb--">mariaDB 로그 보기</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/cloud/docker/docker-compose/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            도커 컴포즈 소개
+        </div>
+    </a>
+    
+    
+    <a href="/dev/frontend/angular/angular-cli/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Angular CLI 설치와 프로젝트 설정&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

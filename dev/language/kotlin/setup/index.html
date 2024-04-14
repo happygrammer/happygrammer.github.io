@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Mac에서 Kotlin 설치</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Mac에서 Kotlin 설치" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/language/kotlin/setup/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">Mac에서 Kotlin 설치</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/language/kotlin/setup/" class="article-date">
+                <time datetime='2023-01-09T03:39:17.000&#43;09:00' itemprop="datePublished">2023-01-09</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p><code>kotlin</code>은 IntelliJ IDEA 개발사로 유명한 <code>JetBrains</code>에서 2011년에 공개한 오픈 소스 프로그래밍 언어이다. Java와 유사하며 Java에 비해 조금 더 간결한 문법을 사용한다는 특징이 있다. Java와 100% 상호 호환이 가능하다. <code>Android</code>의 공식 언어로 채택된 언어이기도 하다. 코틀린 구성에 앞서 <code>java</code>를 설치하도록 한다. (환경 MacOS)</p>
+<pre><code>brew install openjdk@17
+</code></pre><p>설치가 완료되면 설치된 openjdk 경로를 bash_profile에 반영해준다.</p>
+<pre><code>echo 'export PATH=&quot;/usr/local/opt/openjdk@17/bin:$PATH&quot;' &gt;&gt; /Users/smarthome/.bash_profile
+source ~/.bash_profile
+</code></pre><p>어어서 <code>java</code>버전을 확인한다.</p>
+<pre><code>$ java -version
+openjdk version &quot;17.0.5&quot; 2022-10-18
+OpenJDK Runtime Environment Homebrew (build 17.0.5+0)
+OpenJDK 64-Bit Server VM Homebrew (build 17.0.5+0, mixed mode, sharing)
+</code></pre><p>이어서 brew를 이용해 kotlin 설치를 진행한다.</p>
+<pre><code>$ brew install kotlin
+Running `brew update --auto-update`...
+==&gt; Auto-updated Homebrew!
+Updated 1 tap (homebrew/core).
+
+You have 19 outdated formulae installed.
+You can upgrade them with brew upgrade
+or list them with brew outdated.
+
+==&gt; Fetching dependencies for kotlin: openjdk
+...
+</code></pre><p>kotline 설치가 완료되었다면 버전을 확인한다.</p>
+<pre><code>$ kotlinc -version
+info: kotlinc-jvm 1.8.0 (JRE 19.0.1)
+</code></pre><p>이어서 <code>ide</code> 상에 <code>kotline</code> 개발 환경을 구성한다. <a href="https://www.jetbrains.com/ko-kr/products/compare/?product=idea&amp;product=idea-ce">IntelliJ IDEA</a>를 이용 할 수 있지만 이 글에서는 <code>vscode</code>에서 kotlin을 구성을 사용하기로 한다. vscode의 확장 탭에서 <code>Kotlin Language</code> 확장을 설치한다.</p>
+<p><img src="../setup.jpeg" alt=""></p>
+<p>프로젝트를 생성하고 <code>hello.kt</code>파일을 생성하고 <code>Hello World</code>를 입력한다.</p>
+<p><img src="../setup-2.jpeg" alt=""></p>
+<p><code>kotline</code>을 간단히 실행해 보려면 Playground 사이트를 이용할 수 있다.</p>
+<ul>
+<li><a href="https://play.kotlinlang.org">https://play.kotlinlang.org</a></li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/language/kotlin/setup/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents"></nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/mlops/intro/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            MLOps란 무엇인가?
+        </div>
+    </a>
+    
+    
+    <a href="/dev/gpu/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">딥러닝 GPU 성능 비교&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

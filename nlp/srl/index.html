@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>시맨틱 롤 레이블링 소개</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="시맨틱 롤 레이블링 소개" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/srl/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/nlp/" class="archive-article-date">&lt; Nlps</a></div>
+            
+            <h1 class="article-title" itemprop="name">시맨틱 롤 레이블링 소개</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/srl/" class="article-date">
+                <time datetime='2021-11-21T20:19:26.000&#43;09:00' itemprop="datePublished">2021-11-21</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p><code>시맨틱 롤 레이블링</code>은 NLP 처리의 과정 중 하나이다. 시맨틱 롤 레이블링은 다른 말로 shallow semantic parsing, slot-filling, 의미역 결정과 같은 말로도 불린다. NLU를 하기 전의 가장 기본적인 접근은 형태소 분석과 구문 분석이다. 기본적인 처리가 끝나면 시맨틱 롤 레이블을 수행할 수 있다.</p>
+<h3 id="---">시맨틱 롤 레이블링 역사</h3>
+<p>SRL은 필모어(<a href="https://en.wikipedia.org/wiki/Charles_J._Fillmore">Charles J. Fillmore</a>) 연구자에 의해 제안된 방법이다. 초창기 연구에서는 predicate에 해당하는 역할을 찾으려는 시도들이 있었다. 이후 프레임 넷을 이용한  SRL이라는 방식으로 확장이 되었다.</p>
+<h3 id="--">시맨틱 롤의 종류</h3>
+<p>시맨틱 롤(role)이라는 것은 우리 말로 의미역(semantic role)이라고 볼 수 있다. 한국어에서 의미역은 크게 두가지 관점에서 볼수 있다.</p>
+<ol>
+<li>행위주(Agent) : 행위를 수행하는 주체</li>
+<li>피동주(Patient) : 행위에 영향 받는 대상</li>
+</ol>
+<p>가수 <code>싸이는 뉴욕 타임 스퀘어에서 춤을 췄다</code>라는 문장이 있다고 해보자. <code>가수 싸이</code>는 행위주(agent)가 되고 여기서 중요 동사(predicate)는 <code>춤을 췄다</code>이다. 이를 시맨틱 롤 레이블링을 처리하면 다음과 같다.</p>
+<pre><code>[PERSON:가수 싸이]는 [LOCATION:뉴욕 타임 스퀘어]에서 [V:춤을 췄다].
+</code></pre><p>단어는 주어, 동사, 목적어의 역할을 가질 수 있고, 주어는 행위주, 목적어는 주로 피동주가 된다. 행위주인지 피동주인지와 같이 역할 관점에서 분석을 수행하여 의미 태깅을 하는 과정을 시맨틱 롤 레이블링이라고 한다.</p>
+<h3 id="---1">프레임넷의 렉시컬 유닛</h3>
+<p>프레임 넷은 하나의 단어에 대해서 문장내에 어떤 의미로 쓰였는지를 태깅한 데이터로 구성된다.  역할의 틀에 해당하는 대표어는 Frame이라 부르고, 다양한 역할의 형태를 Lexical Unit이라 부른다. 예를 들어 <code>Chatting</code> 프레임은 다음과 같은  레시컬 유닛(Lexical Unit)를 포함하고 있다.</p>
+<pre><code>badinage.n, banter.n, chat.n, chat.v, chit-chat.n, colloquy.n, conversation.n, converse.v, gab.v, gossip.n, gossip.v, joke.v, shoot the breeze.v, speak.v, talk.v, yak.v
+</code></pre><p>담소를 의미하는 Chat(명사)일 수 있지만 농담을 수행하는 동사 joke.v 행위를 의미할 수 도 있다. 다음은 프레임넷의 <code>Chatting</code> 프레임에 대한 레시컬 유닛 인덱스 페이지이다.</p>
+<img src="../srl.png" style="width:80%;" alt="시맨틱 롤 레이블링">
+<h3 id="bert-----">BERT 모델 기반의 시맨틱 롤 레이블링</h3>
+<p>BERT 모델 기반의 시맨틱 롤 레이블링이 가능하다. BER 모델 기반의 출력 결과를 확인하려면 ipynb파일을 만들고 모델에 입력을 전달해 주면 출력을 확인할 수 있다.</p>
+<p>[실행예]</p>
+<pre><code>$ pip install allennlp==2.1.0 allennlp-models==2.1.0
+echo '{&quot;sentence&quot;: &quot;Neuro-linguistic programming is a psychological approach that involves analyzing strategies used by successful individuals and applying them to reach a personal goal.&quot;}' | \
+    allennlp predict https://storage.googleapis.com/allennlp-public-models/structured-prediction-srl-bert.2020.12.15.tar.gz -
+
+</code></pre><p>자세한 사용법은 allennlp<a href="https://pypi.org/project/allennlp-models/">[3]</a> 사이트를 참고한다. 시맨틱 롤 레이블링은 더 확장해 개체명 인식이나 질의 응답 태스크와 연관해 활용할 수 있다.</p>
+<h3 id="-">관련 자료</h3>
+<ul>
+<li>[1] <a href="https://framenet.icsi.berkeley.edu/fndrupal/about">Frame Net</a></li>
+<li>[2] <a href="https://framenet.icsi.berkeley.edu/fndrupal/frameIndex">Frame Index</a></li>
+<li>[3] <a href="https://pypi.org/project/allennlp-models/">allennlp</a></li>
+<li>[4] <a href="https://github.com/allenai/allennlp-models/tree/main/allennlp_models/structured_prediction">alllennlp SRL github</a></li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/nlp/srl/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#---">시맨틱 롤 레이블링 역사</a></li>
+        <li><a href="#--">시맨틱 롤의 종류</a></li>
+        <li><a href="#---1">프레임넷의 렉시컬 유닛</a></li>
+        <li><a href="#bert-----">BERT 모델 기반의 시맨틱 롤 레이블링</a></li>
+        <li><a href="#-">관련 자료</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/nlp/sub-words-model/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            서브워드 모델
+        </div>
+    </a>
+    
+    
+    <a href="/nlp/text-preprocessing/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">텍스트 전처리&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

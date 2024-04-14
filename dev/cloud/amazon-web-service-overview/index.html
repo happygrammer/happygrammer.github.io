@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>아마존 웹 서비스 개요</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="아마존 웹 서비스 개요" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/cloud/amazon-web-service-overview/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">아마존 웹 서비스 개요</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/cloud/amazon-web-service-overview/" class="article-date">
+                <time datetime='2021-07-17T15:11:42.000&#43;03:00' itemprop="datePublished">2021-07-17</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="aws-ovewview">AWS Ovewview</h3>
+<ul>
+<li>AWS 리전 한국에는 데이터 센터가 4개로 구성되어있고, 이를 <code>가용 영역</code>이라 부름(서울 리전인 경우)</li>
+<li>CDN(콘텐츠 전송 네트워크) <a href="https://aws.amazon.com/ko/cloudfront/">cloud front</a> 제공</li>
+<li>AWS 이점 - 보안, 가용성, 성능, 확장성, 유연성</li>
+</ul>
+<h3 id="vpcvirtual-private-computing">VPC(Virtual Private Computing)</h3>
+<ul>
+<li>
+<p>사용자가 정의한 네트워크 공간 제공</p>
+</li>
+<li>
+<p><code>NAT Gateway</code>는 내부 사설 IP(Private IP) 간의 Gate Way 역할., NAT Gateway에 EIP(Elastic IP)를 붙여서 외부 IP로 사용.</p>
+</li>
+<li>
+<p>InBound/OutBound</p>
+</li>
+<li>
+<p>Web Server는 443(port)에 대해 Any Open으로 제공</p>
+</li>
+<li>
+<p>Private subnet은 Application Server 운영, Security Group에 Application Server 확장 가능</p>
+</li>
+<li>
+<p>​	private subnet에서 외부 소유의 private subnet을 연결할 때는 security 그룹으로 묶어서 관리 가능</p>
+</li>
+<li>
+<p>동일 리전의 VPC peering으로 가능</p>
+</li>
+<li>
+<p>VPC &lt;-&gt; VPC 간에 Peering이 있는 경우만 상호 커넥션이 가능함</p>
+</li>
+<li>
+<p>서로 다른 리젼간의 커넥션도 가능</p>
+</li>
+<li>
+<p>VPC는 서로 다른 존에 존재하는 N개의 서브넷으로 구성이 가능함</p>
+</li>
+</ul>
+<h3 id="ec2">EC2</h3>
+<ul>
+<li>
+<p>AMI(Amazon Machine Image)</p>
+</li>
+<li>
+<p>EBS : 스토리지 서비스</p>
+</li>
+<li>
+<p>EC2 상태 : Runnig, stoppped(일정 기간 휴면한다 해도 삭제하지 않음;과금안됨), Terminated(완전히 제거된 상태; 과금안됨)</p>
+</li>
+<li>
+<p>인스턴스 타입 : 400여 개 이상(2020년에만 100개 이상 타입이 추가됨)</p>
+<ul>
+<li>크게 5가지 타입 - 범용적, 컴퓨팅 유형, 메모리 최적화, 컴퓨팅 가속화 타입</li>
+</ul>
+</li>
+<li>
+<p>인스턴스 크기</p>
+<ul>
+<li>xlarge=1시간 운영 비용, 8xlarge = 8시간 운영 비용</li>
+<li>큰 인스턴스(8xlarge)보다, 작은 인스턴스(xlarge 8개)로 구성하는 것이 비용상 이점이 있음</li>
+<li>예) 작은 인스턴스 vs 큰 인스턴스</li>
+</ul>
+</li>
+<li>
+<p>EC2 구매 옵션</p>
+<ul>
+<li>온디맨드는 초 단위 용량 지불, 예약 인스턴스(1년 단위, 3년 단위 등), 스팟 인스턴스(필요시에만 잠깐 사용)</li>
+</ul>
+</li>
+<li>
+<p>EC2 Auto Scaling을 이용해 변화하는 수요에 동적으로 대응하고 비용을 최적화</p>
+<p>(헬스 체크 후 불량 인스턴스는 신규 인스턴스로 붙임)</p>
+</li>
+</ul>
+<h3 id="db">DB</h3>
+<ul>
+<li>Aurora
+<ul>
+<li>기존 MariaDB, MySQL등을 Amazon Aurora로 전환가능</li>
+</ul>
+</li>
+<li>마이크로 서비스로 변화된 데이터 분석 요구</li>
+<li>자체 관리 DB의 경우 설치/구성/패치/백업 관리(성능 및 가용성 이슈)
+<ul>
+<li>완전 &lt;관리형 DB서비스&gt;를 이용하면, 백업&amp;복구 등의 기본적인 기능은 AWS를 이용</li>
+</ul>
+</li>
+<li>Legacy 상용 DB
+<ul>
+<li>비싼 비용, 소유권, 솔루션에 Lock In, 잦은 감사(audit)</li>
+<li>Amazon RDS : Amazon RDS, MySQL, PostgreSQL, MariaDB, SQLServer, Oracle</li>
+</ul>
+</li>
+<li>프로버저닝 기능</li>
+<li><code>CloudWatch</code>를 이용해 CPU/메모리 등에 대한 모니터링 제공</li>
+<li>가용성 유지를 위한 A/S 구조 지원
+<ul>
+<li>읽기에 대해서는 read replica를 두어 부하 분산 가능</li>
+</ul>
+</li>
+<li>Auto Scaling(사용량에 따라 증가)</li>
+<li><code>Amazon Aurora</code>
+<ul>
+<li>Amazon에서 개발한 자체 개발한 관리 도구( <em>Amazon RDS</em> AWS Management Console 인터페이스)</li>
+<li>MySQL 및 POSTgreSQL 호환</li>
+<li>Primary Instnat, Stand By Instant로 운영 가능</li>
+<li>6대(replica)가 동시에 썼을때 모두 Write가 성공한 경우 Write된것으로 확인(?퍼포먼스 악화 시키는 요인?)
+<ul>
+<li>replica instnat를 리전을 확장하더라도, 논리적으로 그룹핑하여 사용 가능.</li>
+</ul>
+</li>
+<li>Account 권한만 있으면 기존 DB를 가져다가 사용할 수 있음.</li>
+</ul>
+</li>
+</ul>
+<h3 id="storage">Storage</h3>
+<ul>
+<li>Storage Back&amp;Restore / Archive(장기보관) / Data Lakes(AI/ML 기반, Data Raw)</li>
+<li>서버리스 : 서버가 없는 것처럼 보이지만 실재 서버가 있는 방식으로 서버 구성
+<ul>
+<li>AWS는 서버리스더라도 Storage는 영구적으로 쓸 수 있도록 제공</li>
+<li>온프라미스 to 클라우드로 마이그레이션</li>
+</ul>
+</li>
+<li>스토리지 타입
+<ul>
+<li>블록스토리지, 파일스토리지(NAS)형태, 오브젝트 스토리지</li>
+</ul>
+</li>
+<li>EBS(Elastic 블록스토리지)
+<ul>
+<li>데이터 손실 방지 위해 볼륨 복제</li>
+</ul>
+</li>
+<li>EBS 볼륨 타입
+<ul>
+<li>일반적인 목적 - 일반적인 SSD 이용.</li>
+<li>I/O가 많은 DB 애플리케이션  등</li>
+<li>빅데이터, 분석</li>
+<li>파일, 미디어</li>
+</ul>
+</li>
+<li>EBS IO 볼륨 타입에 따라 io1, io2 등이 있음.
+<ul>
+<li>EBS Multi Attach
+<ul>
+<li>하나의 EBS를 여러 인스턴스에 붙일 수 있고. 최근부터 지원</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>EFS (NAS로 생각할 수 있음)</li>
+<li>자주 안쓰는 것은 infrequency access 스토리지로 구성(Policy Rule에 따라 N일 이상 접근안 한 경우 이동)</li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/cloud/amazon-web-service-overview/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#aws-ovewview">AWS Ovewview</a></li>
+        <li><a href="#vpcvirtual-private-computing">VPC(Virtual Private Computing)</a></li>
+        <li><a href="#ec2">EC2</a></li>
+        <li><a href="#db">DB</a></li>
+        <li><a href="#storage">Storage</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/frontend/javascript/closures/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            클로저란 무엇인가?
+        </div>
+    </a>
+    
+    
+    <a href="/insights/scope-creep/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">스코프 크리프 방지법&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

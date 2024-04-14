@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Netties on 해피그의 코드랩</title>
+    <link>https://happygrammer.github.io/netty/</link>
+    <description>Recent content in Netties on 해피그의 코드랩</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 22 Mar 2020 10:10:24 +0300</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/netty/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Netty 채널 소개와 채널 핸들러</title>
+      <link>https://happygrammer.github.io/netty/handler/</link>
+      <pubDate>Sun, 22 Mar 2020 10:10:24 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/netty/handler/</guid>
+      <description>채널은 IO 동작(파일, 소켓)을 수행할 수 있는 연결 상태를 의미합니다. Netty에서는 채널 핸들러를 이용해 관심사 분리를 수행합니다.
+채널 핸들러 종류    종류      Inbound Handler 입력 데이터(in bound)에 대한 변경 상태를 감시하고 처리하는 역할을 하는 핸들러   Outbound Handler 출력 데이터(out bound)에 대한 동작을 가로채 처리하는 역할을 하는 핸들러    ChannelInboundHandler 메소드    종류 설명     channelRegistered(&amp;hellip;) 채널이 이벤트 루프에 등록됐을때 호출됨   channelUnregistered(&amp;hellip;) 채널이 생성 됐지만, 이벤트 루프에 등록되지 않았을때 호출됨   channelActive(&amp;hellip;) 채널이 활성화 됐을때(peer와 연결됐을때) 호출됨.</description>
+    </item>
+    
+    <item>
+      <title>Netty 핵심 컴포넌트</title>
+      <link>https://happygrammer.github.io/netty/intro/</link>
+      <pubDate>Sat, 21 Mar 2020 21:29:30 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/netty/intro/</guid>
+      <description>네티는 자바 기반의 비동기 기반의 네트워크 프레임 워크입니다. 네티는 애플, 트위터, 페이스북, 구글, 인스타그램 등을 포함한 사용자 커뮤니티를 포함해 발전하고 있습니다. 네티는 JAVA 1.6 이상에서 외부 의존성 없이 동작 가능합니다.
+1. 채널 채널은 NIO의 기본 구조입니다. 네티는 싱글 쓰레드도 생성된 1개의 셀렉터가 N개의 채널을 관리합니다.
+ Thread -&amp;gt; Select -&amp;gt; {채널1, 채널2, 채널3, &amp;hellip;}  셀렉터는 이벤트 리스너 역할을 수행합니다. 클라이언트 요청이 들어 왔거나, 데이터가 도착했을 경우 셀렉터에 알립니다.
+[셀렉터를 이용한 Non-blocking I/O]</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>파이썬 for 루프 마스터하기</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="파이썬 for 루프 마스터하기" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/language/python3/python-for-loops/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">파이썬 for 루프 마스터하기</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/language/python3/python-for-loops/" class="article-date">
+                <time datetime='2024-03-31T04:33:40.000&#43;09:00' itemprop="datePublished">2024-03-31</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>안녕하세요, 파이썬 개발자 여러분! 오늘은 리스트의 요소를 출력하는 다양한 종류의 <code>for 루프</code> 사용법에 대해 알아보겠습니다.</p>
+<p>먼저, 주어진 리스트 <code>a</code>를 살펴봅시다.</p>
+<pre><code>a = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+</code></pre><ol>
+<li><code>for-each 루프</code>를 사용하여 리스트의 요소를 하나씩 출력할 수 있습니다.</li>
+</ol>
+<pre><code>for element in a:
+    print(element, end=' ')
+print()
+</code></pre><ol start="2">
+<li><code>인덱스를 사용한 for 루프</code>로 리스트의 요소에 접근할 수도 있습니다.</li>
+</ol>
+<pre><code>for i in range(len(a)):
+    print(a[i], end=' ')
+print()
+</code></pre><ol start="3">
+<li><code>while 루프와 인덱스</code>를 활용하여 리스트의 요소를 출력할 수 있습니다.</li>
+</ol>
+<pre><code>i = 0
+while i &lt; len(a):
+    print(a[i], end=' ')
+    i += 1
+print()
+</code></pre><ol start="4">
+<li><code>enumerate를 사용한 for 루프</code>로 요소의 인덱스와 값을 함께 출력할 수 있습니다.</li>
+</ol>
+<pre><code>for index, value in enumerate(a):
+    print(index, value)
+</code></pre><ol start="5">
+<li><code>조건에 따라 특정 요소를 건너뛰는 for 루프</code>도 활용할 수 있습니다.</li>
+</ol>
+<pre><code>for i in range(10):
+    if i % 2 == 0:
+        continue
+    print(i, end=' ')
+print()
+</code></pre><p>for 루프는 파이썬에서 가장 많이 사용되는 제어 구조 중 하나입니다. 상황에 맞게 적절한 for 루프를 선택하여 사용한다면 코드의 가독성과 효율성을 높일 수 있습니다.</p>
+<p>파이썬 개발자라면 다양한 for 루프 활용법을 익혀 코드를 더욱 간결하고 효과적으로 작성하는 것이 좋습니다. for 루프를 적재적소에 활용하여 파이썬 코드를 업그레이드해보세요!</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/language/python3/python-for-loops/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents"></nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/insights/ai-and-developer-future/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            AI 시대의 개발자 전망
+        </div>
+    </a>
+    
+    
+    <a href="/dev/language/python3/python-comprehensions-for-concise-code/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">파이썬 컴프리헨션: 한 줄로 자료구조 다루기&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

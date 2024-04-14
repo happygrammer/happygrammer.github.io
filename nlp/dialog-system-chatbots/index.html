@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>대화형 에이전트</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="대화형 에이전트" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/dialog-system-chatbots/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/nlp/" class="archive-article-date">&lt; Nlps</a></div>
+            
+            <h1 class="article-title" itemprop="name">대화형 에이전트</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/dialog-system-chatbots/" class="article-date">
+                <time datetime='2021-08-23T00:58:02.000&#43;03:00' itemprop="datePublished">2021-08-23</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>사람이 컴퓨터와 대화를 하는 시대가 열렸다. <code>가상 비서</code>(virtual assistant)를 통해 음성으로 영화를 예매하거나, 음성으로 음악 재생을 요청하는 등의 일을 처리할 수 있게 되었다. 가상 비서의 예로 시리, 알렉사, 구글 홈, 기가지니, SKT 누구 등이 있다. 가상 비서는 대화 알고리즘을 바탕으로 구현 된다. 대화 알고리즘을 포함해 대화 처리를 수행하는 시스템을  대화형 에이전트(conversational agents) 또는 대화 시스템(dialog system)이라고 부른다.</p>
+<p>대화 에이전트들은 영화 예매를 수행하거나, 주식 조회하거나, 근처 맛집을 찾는 등과 같이 미리 설계된 내용에 대한 특정 작업을 수행하도록 미리 설계 되어 있다. 태스크 중심으로 일을 수행하기에 태스크 중심의 대화 에이전트( <code>Task-Oriented dialog agent</code>)라고 부른다.</p>
+<p>태스크 중심의 시스템에 더 나아가 챗봇 시스템은 사람과 같이 생각하고 대화할 수 있게 하기 위해서 많은 기술 개발이 이뤄지고 있다. 기본적인 답변을 하는 것을 넘어서 먼저 질문도 하며, 좀더 긴 대화를 이어 나갈 수 있는 지능을 갖추기 시작했다. 긴 대화를 초점을 맞춰 대화 에이전트(convversational agents)들이 발전되어 가고 있고, 단순히 규칙 기반 챗봇(ELIZA방식), IR 기반의 챗봇에서 더 나아가, Seq to Seq 챗봇은 통계 추론 모델(transduction model)을 통해 답변을 생성하는 수준에 까지 발전되었다.</p>
+<h2 id="heading">챗봇</h2>
+<p>챗봇(chatbots)는 사람 처럼 의사 소통하기 위한 시스템이다. 태스크 중심의 대화에서 다소 구조화가 없으며 사람과 같이 대화하는 것에 초점을 맞추고 있다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/nlp/dialog-system-chatbots/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">챗봇</a></li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/algorithm/why/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            알고리즘, 문제해결 기법
+        </div>
+    </a>
+    
+    
+    <a href="/insights/business-writing/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">비즈니스 라이팅 방법&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>해피그의 코드랩</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="해피그의 코드랩" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<link href="https://happygrammer.github.io/index.xml" rel="alternate" type="application/rss+xml" title="해피그의 코드랩" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/netty/intro/">Netty 핵심 컴포넌트</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/netty/intro/" class="article-date">
+                        <time datetime='2020-03-21T21:29:30.000&#43;03:00' itemprop="datePublished">2020-03-21</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    네티는 자바 기반의 비동기 기반의 네트워크 프레임 워크입니다. 네티는 애플, 트위터, 페이스북, 구글, 인스타그램 등을 포함한 사용자 커뮤니티를 포함해 발전하고 있습니다. 네티는 JAVA 1.6 이상에서 외부 의존성 없이 동작 가능합니다.
+1. 채널 채널은 NIO의 기본 구조입니다. 네티는 싱글 쓰레드도 생성된 1개의 셀렉터가 N개의 채널을 관리합니다.
+ Thread -&gt; Select -&gt; {채널1, 채널2, 채널3, &hellip;}  셀렉터는 이벤트 리스너 역할을 수행합니다. 클라이언트 요청이 들어 왔거나, 데이터가 도착했을 경우 셀렉터에 알립니다.
+[셀렉터를 이용한 Non-blocking I/O]
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/netty/intro/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/dev/installing-apache-php-on-macos/">맥 OS에서 아파치, PHP 시작 설정</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/dev/installing-apache-php-on-macos/" class="article-date">
+                        <time datetime='2020-03-21T21:15:12.000&#43;03:00' itemprop="datePublished">2020-03-21</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    퍼미션 문제가 발생할 수 있어 루트 사용자로 권한을 변경합니다.
+sudo su - 맥 OS에서 아파치 시작 apachectl start http://localhost 접속해 서버 페이지 접속이 가능한지 확인합니다.
+맥 OS에서 PHP 시작 서버 페이지가 표시 됐다면 서버 시작은 정상적으로 수행된 것 입니다. 서버가 정상적으로 정상적으로 시작 됐더라도 별도 설정을 하지 않으면 PHP 페이지는 출력되지 않습니다. PHP 페이지를 출력하려면 아파치 설정을 수정해야 합니다. 먼저 아파치 설정을 백업해 둡니다. 앞으로 설정이 바뀌더라도 디폴트 설정이 무엇인지 참고할 때 사용할 수 있습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/dev/installing-apache-php-on-macos/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/dev/cloud/docker/docker-compose/">도커 컴포즈 소개</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/dev/cloud/docker/docker-compose/" class="article-date">
+                        <time datetime='2020-03-01T08:50:10.000&#43;03:00' itemprop="datePublished">2020-03-01</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    도커 컴포즈는 여러 컨테이너들의 상태를 관리하는 도구입니다. 일반적으로 도커에서 관리하는 컨테이너 상태는 다음과 같습니다.
+ created, restarting, running, removing, paused, exited, dead  이중 도커 컴포즈가 관리하는 상태는 다음과 같습니다. 도커 컴포즈는 도커 데스크탑 for MAC 설치시 이미 포함되어 있어 별도 설치를 하지 않아도 됩니다.
+도커 컴포즈 실행 도커 컴포즈는 여러 컨테이너의 실행을 docker-compose.yml 파일을 docker-compose up 명령어로 실행할 수 있게 합니다.
+docker-compose 파일에 서비스 정의 docker-compose.yml는 서비스를 정의하는 파일입니다. 도커 컴포즈에 정의한 서비스는 web과 redis입니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/dev/cloud/docker/docker-compose/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/dev/cloud/docker/mariadb/">도커에 Mariadb 설치</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/dev/cloud/docker/mariadb/" class="article-date">
+                        <time datetime='2020-03-01T00:55:12.000&#43;03:00' itemprop="datePublished">2020-03-01</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    도커 실행 여부 체크 설치를 진행하기 전에 도커 실행 여부를 확인합니다. 도커가 실행중인 상태가 아니면 다음과 같은 예외 메시지가 출력됩니다.
+Using default tag: latest Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running? 지금 부터 mariadb를 다운로드 받아 설정 까지 진행하도록 하겠습니다.
+도커 이미지 다운로드 docker pull mariadb 컨테이너 실행 3306 port로 설정해 실행합니다.
+docker container run -d -p 3306:3306 -e MYSQL_ROOT_PASSWORD=1234 --name mariadb mariadb docker 볼륨을 /Users/Shared/data/mariadb로 설정합니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/dev/cloud/docker/mariadb/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/dev/frontend/angular/angular-cli/">Angular CLI 설치와 프로젝트 설정</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/dev/frontend/angular/angular-cli/" class="article-date">
+                        <time datetime='2020-02-29T18:15:02.000&#43;03:00' itemprop="datePublished">2020-02-29</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    Angular는 Angular CLI를 이용해 프로젝트 관리의 복잡도를 낮추고 Angular 개발에만 집중할 수 있게 합니다.
+Angular CLI 소개와 설치 지금 소개하려는 Angular CLI(Angular Command Line Interface)는 개발자가 Angular 개발에 만 집중할 수 있도록 개발에 필요한 Angular 프로젝트의 설정이나 프로젝트의 전반적인 관리를 명령어 기반으로 수행할 수 있게 지원합니다. Angular CLI가 제공하는 기능은 다음과 같습니다.
+■ Angular 프로젝트 생성
+■ Angular의 중요 구성요소 추가(컴포넌트, 지시자, 파이프, 서비스)
+■ 코드 변경 시 빌드를 수행하고 애플리케이션을 재시작
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/dev/frontend/angular/angular-cli/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/dev/linux/shell/crontab/">crontab을 이용한 스케쥴 관리</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/dev/linux/shell/crontab/" class="article-date">
+                        <time datetime='2020-02-28T10:39:13.000&#43;03:00' itemprop="datePublished">2020-02-28</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    crontab 설정 # ┌───────────── min (0 - 59) # │ ┌────────────── hour (0 - 23) # │ │ ┌─────────────── day of month (1 - 31) # │ │ │ ┌──────────────── month (1 - 12) # │ │ │ │ ┌───────────────── day of week (0 - 6) (0 to 6는 일~토, 7=일) # │ │ │ │ │ # │ │ │ │ │ # * * * * * &lt;실행할 커맨드&gt; crontab 작업 리스트 $ crontab -l crontab 로그 확인 $ cat /var/log/cron crontab 설정 확인 $ cat /var/spool/cron/&lt;user_id&gt; crontab service 상태 확인과 재실행 $ service crond status crond (pid 2994)를 실행하고 있습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/dev/linux/shell/crontab/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/insights/astronomy/betelgeuse/">오리온의 별 베텔게우스</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/insights/astronomy/betelgeuse/" class="article-date">
+                        <time datetime='2020-02-25T06:49:47.000&#43;03:00' itemprop="datePublished">2020-02-25</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    베텔게우스(Betelgeuse)는 오리온자리의 좌상 꼭짓점에 위치해 있으며, 지름이 9억 6500만㎞로, 태양보다 800배 이상크다. 베텔게우스를 태양계에 두면 목성의 궤도까지 잡아먹을 정도이다.
+지구에서 650광년 떨어진 비교적 가까운 거리에 있으며, 망원경으로 표면 특징을 포착할 수 있는 몇 안 되는 별 중 하나이다. 별의 회전 속도가 시속 1만7700~5만3000㎞(미국천문학회 235차 회의에서 발표됨)라고 한다. 별의 밝기가 어두워져서 곧 초신성으로 폭발하게 될 것이 아닌지 하는 소식이 있다. 초신성이 폭발 했다면 650년 후에나 우주의 불꽃 놀이를 볼 수 있다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/insights/astronomy/betelgeuse/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/doc2vec/">Doc2vec를 이용한 문서의 벡터 변환</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/doc2vec/" class="article-date">
+                        <time datetime='2020-02-23T17:19:48.000&#43;03:00' itemprop="datePublished">2020-02-23</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    Doc2Vec(Document Embedding with Paragraph Vectors)은 Word2Vec에서 확장된 알고리즘입니다. Doc2Vec은 다량의 코퍼스를 문서 임베딩시에 훌륭한 성능을 보여줍니다. Word2VecDoc2Vec과 Word2Vec이 무엇이 다른지 다음 표로 정리했습니다.
+    Word2Vec Doc2Vec     년도 2013년 2015년   저자 Tomas Mikolov 와 동료들 Andrew M. Dai 와 동료들   feature word vector word vecotr + paragraph vector   주요 모델 CBOWSkip Gram PV-DM modelPV-DBOW    Doc2Vec은 기존 Word2Vec모델을 확장하기 위해 paragraph vector를 제안했습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/doc2vec/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/dev/cloud/docker/docker/">Docker 명령어 소개</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/dev/cloud/docker/docker/" class="article-date">
+                        <time datetime='2020-02-19T06:50:32.000&#43;03:00' itemprop="datePublished">2020-02-19</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    기본적인 명령어 컨테이너 확인 docker container ls $ docker container ls CONTAINER ID IMAGE COMMAND CREATED STATUS PORTS NAMES 2463b80300ec mariadb &quot;docker-entrypoint.s…&quot; 13 seconds ago Up 12 seconds 0.0.0.0:3306-&gt;3306/tcp mariadb  컨테이너 목록을 표시하는 명령어인 docker ps 는 오래전 방식입니다. 새로운 명령어 형식은 docker container &lt;subcommand&gt;입니다. 즉, docker container ls를 권장합니다. 이때 docker container ls는 docker container ps와 동일한 명령어입니다. 즉 아래 4개 명령어는 정확히 동일 기능을 수행하는 명령어입니다.  실행중인 컨테이너 정보를 표시하는 동일 명령어
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/dev/cloud/docker/docker/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/ai/tensorflow/serving-client-api/">Serving 클라이언트 API</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/ai/tensorflow/serving-client-api/" class="article-date">
+                        <time datetime='2020-02-18T08:00:08.000&#43;03:00' itemprop="datePublished">2020-02-18</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    RESTful API In addition to gRPC APIs TensorFlow ModelServer also supports RESTful APIs. This page describes these API endpoints and an end-to-end example on usage.
+The request and response is a JSON object. The composition of this object depends on the request type or verb. See the API specific sections below for details.
+In case of error, all APIs will return a JSON object in the response body with error as key and the error message as the value:
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/ai/tensorflow/serving-client-api/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+
+        
+
+<nav id="page-nav">
+    
+    <a href="/page/12/" rel="prev" class="extend prev">&laquo; Prev</a>
+    
+    
+    
+    <a href="/">1</a>
+    
+    
+    
+    <a href="/page/2/">2</a>
+    
+    
+    
+    <a href="/page/3/">3</a>
+    
+    
+    
+    <a href="/page/4/">4</a>
+    
+    
+    
+    <a href="/page/5/">5</a>
+    
+    
+    
+    <a href="/page/6/">6</a>
+    
+    
+    
+    <a href="/page/7/">7</a>
+    
+    
+    
+    <a href="/page/8/">8</a>
+    
+    
+    
+    <a href="/page/9/">9</a>
+    
+    
+    
+    <a href="/page/10/">10</a>
+    
+    
+    
+    <a href="/page/11/">11</a>
+    
+    
+    
+    <a href="/page/12/">12</a>
+    
+    
+    
+    <span class="page-number current">13</span>
+    
+    
+    
+    <a href="/page/14/">14</a>
+    
+    
+    
+    <a href="/page/15/">15</a>
+    
+    
+    
+    <a href="/page/16/">16</a>
+    
+    
+    
+    <a href="/page/17/">17</a>
+    
+    
+    
+    <a href="/page/18/">18</a>
+    
+    
+
+    
+    <a href="/page/14/" rel="next" class="extend next">Next &raquo;</a>
+    
+</nav>
+
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

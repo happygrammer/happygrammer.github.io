@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Doc2vec를 이용한 문서의 벡터 변환</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Doc2vec를 이용한 문서의 벡터 변환" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/doc2vec/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/nlp/" class="archive-article-date">&lt; Nlps</a></div>
+            
+            <h1 class="article-title" itemprop="name">Doc2vec를 이용한 문서의 벡터 변환</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/doc2vec/" class="article-date">
+                <time datetime='2020-02-23T17:19:48.000&#43;03:00' itemprop="datePublished">2020-02-23</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>Doc2Vec(Document Embedding with Paragraph Vectors)은 Word2Vec에서 확장된 알고리즘입니다. Doc2Vec은 다량의 코퍼스를 문서 임베딩시에 훌륭한 성능을 보여줍니다. Word2VecDoc2Vec과 Word2Vec이 무엇이 다른지 다음 표로 정리했습니다.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>Word2Vec</th>
+<th>Doc2Vec</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>년도</td>
+<td>2013년</td>
+<td><a href="https://arxiv.org/abs/1507.07998">2015년</a></td>
+</tr>
+<tr>
+<td>저자</td>
+<td><a href="https://en.wikipedia.org/wiki/Tomas_Mikolov">Tomas Mikolov</a> 와 동료들</td>
+<td><a href="https://arxiv.org/search/cs?searchtype=author&amp;query=Dai%2C+A+M">Andrew M. Dai</a> 와 동료들</td>
+</tr>
+<tr>
+<td>feature</td>
+<td>word vector</td>
+<td>word vecotr + paragraph vector</td>
+</tr>
+<tr>
+<td>주요 모델</td>
+<td>CBOW<br/>Skip Gram</td>
+<td>PV-DM model<br/>PV-DBOW</td>
+</tr>
+</tbody>
+</table>
+<p>Doc2Vec은 기존 Word2Vec모델을 확장하기 위해 paragraph vector를 제안했습니다. paragraph vector는 기존 word vector(window 사이즈내 단어 고려)에 paragraph matrix를 합한 벡터 입니다. 이러한 paragraph vector에 대한 모델이 PV-DM(Distributed Memory version of Paragraph Vector)입니다.</p>
+<p><img src="../doc2vec/PV-DM.png" alt=""></p>
+<p>이때, word vector를 제외하고 paragraph vector만을 이용해 학습을 진행하는 모델을 PV-DBOW(Distributed Bag of Words version of Paragraph Vector)라고 제안합니다. 이 모델은 word vector(문맥 단어)를 고려하지 않고 paragraph vector만을 사용해  단어 예측을 수행합니다.</p>
+<p><img src="../doc2vec/PV-DBOW.png" alt=""></p>
+<h3 id="gensim--doc2vec">GenSim을 이용한 Doc2Vec</h3>
+<pre><code>from gensim.test.utils import common_texts
+from gensim.models.doc2vec import Doc2Vec, TaggedDocument
+
+documents = [TaggedDocument(doc, [i]) for i, doc in enumerate(common_texts)]
+model = Doc2Vec(documents, vector_size=5, window=2, min_count=1, workers=4)
+inferred = model.infer_vector([&quot;system&quot;, &quot;response&quot;])
+sims = model.docvecs.most_similar([inferred])
+print(sims)
+</code></pre>
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/nlp/doc2vec/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#gensim--doc2vec">GenSim을 이용한 Doc2Vec</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/insights/astronomy/betelgeuse/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            오리온의 별 베텔게우스
+        </div>
+    </a>
+    
+    
+    <a href="/dev/cloud/docker/docker/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Docker 명령어 소개&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

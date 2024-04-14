@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>심볼릭 링크 사용시 주의사항</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="심볼릭 링크 사용시 주의사항" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/linux/symbolic-link-caution/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">심볼릭 링크 사용시 주의사항</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/linux/symbolic-link-caution/" class="article-date">
+                <time datetime='2024-04-01T23:36:13.000&#43;09:00' itemprop="datePublished">2024-04-01</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>심볼릭 링크(Symbolic Link)는 유닉스 계열 운영체제에서 파일이나 디렉터리에 대한 참조를 만드는 방법입니다. 이를 통해 파일 시스템 내에서 파일이나 디렉터리를 여러 위치에서 접근할 수 있게 됩니다. 하지만 심볼릭 링크 사용에는 주의해야 할 사항이 있습니다.</p>
+<p>첫째, 심볼릭 링크는 <code>읽기 전용</code>으로 관리하는 것이 좋습니다. 심볼릭 링크 자체를 수정하기보다는 원본 파일을 변경하는 것이 안전합니다. 이는 심볼릭 링크의 무결성을 유지하고, 예기치 않은 문제를 방지하는 데 도움이 됩니다.</p>
+<p>둘째, 심볼릭 링크가 가리키는 원본 파일이 삭제되거나 이동되면 링크가 깨질 수 있습니다. 이를 &ldquo;댕글링 링크(Dangling Link)&ldquo;라고 합니다. 따라서 원본 파일을 관리할 때는 연결된 심볼릭 링크들을 함께 고려해야 합니다.</p>
+<p>셋째, 심볼릭 링크를 포함한 디렉터리 경로를 사용할 때는 주의가 필요합니다. 상대 경로로 심볼릭 링크를 만들었다면, 링크를 사용하는 위치에 따라 원본 파일을 찾지 못할 수 있습니다. 따라서 가능하면 <code>절대 경로</code>를 사용하는 것이 좋습니다.</p>
+<p>넷째, 심볼릭 링크를 재귀적으로 따라가다 보면 무한 루프에 빠질 수 있습니다. 따라서 심볼릭 링크를 만들 때는 주의해야 하며, 필요한 경우 <code>링크 깊이 제한</code>을 설정하는 것이 좋습니다.</p>
+<p>다음은 파이썬에서 심볼릭 링크를 만드는 예시 코드입니다:</p>
+<pre><code>import os
+
+# 원본 파일 경로
+src = '/path/to/original/file'
+
+# 심볼릭 링크 경로
+dst = '/path/to/symlink'
+
+# 심볼릭 링크 생성
+os.symlink(src, dst)
+</code></pre><p>위 코드에서 <code>os.symlink()</code> 함수를 사용하여 <code>src</code> 경로의 파일을 <code>dst</code> 경로에 심볼릭 링크로 생성합니다.</p>
+<p>심볼릭 링크는 파일 시스템 관리를 유연하게 해주는 유용한 도구이지만, 사용할 때는 주의가 필요합니다. 체계적인 관리 정책을 세우고, 팀 내에서 협의하여 일관성 있게 사용하는 것이 중요합니다. 이를 통해 심볼릭 링크의 장점을 활용하면서도 잠재적인 문제를 예방할 수 있습니다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/linux/symbolic-link-caution/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents"></nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/insights/humble-developer-attitude/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            겸손한 개발자의 자세
+        </div>
+    </a>
+    
+    
+    <a href="/nlp/prompting/understanding-difference-between-prompt-and-prompting/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">[프롬프팅] 프롬프트와 프롬프팅의 차이점 이해&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

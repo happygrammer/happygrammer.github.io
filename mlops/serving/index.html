@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>모델 서빙 프레임워크</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="모델 서빙 프레임워크" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/mlops/serving/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/mlops/" class="archive-article-date">&lt; Mlops</a></div>
+            
+            <h1 class="article-title" itemprop="name">모델 서빙 프레임워크</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/mlops/serving/" class="article-date">
+                <time datetime='2023-03-14T23:16:52.000&#43;09:00' itemprop="datePublished">2023-03-14</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="mlops--">MLOps에서 모델 서빙</h3>
+<p>MLOps에서 모델 서빙은 운영 중인 머신 러닝 모델을 사용자와 상호작용할 수 있도록 만들어주는 프로세스입니다. 이는 모델의 성능, 안정성, 신뢰성을 보장하고, 실시간으로 모델을 업데이트하고 모델의 예측 결과를 모니터링할 수 있도록 해줍니다. 서빙은 대체로 세가지 기능을 포함할 수 있어야합니다.</p>
+<ul>
+<li>
+<p>사용자의 상호 작용 기능 : 모델 서빙은 사용자와의 상호작용 기능을 제공합니다. 이를 통해 모델이 실제 환경에서 사용되는 방식을 고려할 수 있습니다. 사용자의 요구사항에 따라 모델을 조정하고, 더 나은 성능을 위해 모델을 개선할 수 있습니다.</p>
+</li>
+<li>
+<p>모델 업데이트 기능 : 모델 서빙은 실시간 업데이트 기능을 제공합니다. 새로운 데이터가 들어오면, 모델을 업데이트하고 새로운 예측 결과를 제공할 수 있습니다. 이는 모델이 변화하는 환경에서 유연하게 대응할 수 있도록 해줍니다.</p>
+</li>
+<li>
+<p>모델 모니터링 기능 : 모델 서빙은 모델의 안정성과 신뢰성을 보장하는데 중요한 역할을 합니다. 모델 서빙은 모델의 예측 결과를 모니터링하고, 이상 현상이나 장애가 발생하면 이를 탐지하고 대응할 수 있도록 해줍니다. 이는 모델을 운영 중인 시스템의 안정성을 유지하는 데 도움을 줍니다.</p>
+</li>
+</ul>
+<p>모델 서빙은 MLOps에서 매우 중요한 역할을 합니다. 사용자와의 상호작용 기능, 실시간 업데이트 기능, 모니터링 기능을 제공하여 모델의 성능, 안정성, 신뢰성을 보장하고, 운영 중인 시스템의 안정성을 유지하는 데 도움을 줍니다.</p>
+<h3 id="--">모델 서빙의 종류</h3>
+<p>모델 서빙 프레임워크는 머신러닝 모델을 시시간으로 예측하기 위한 도구 모음입니다. 모델 서빙 프레임워크는 다양한 모델 포맷을 지원하며, 학습된 모델을 서버에 포팅해 서비스 형태로 제공한다. 대표적인 서빙 프레임워크로 다음과 같은 것들이 있습니다.</p>
+<table>
+<thead>
+<tr>
+<th align="center">종류</th>
+<th align="center">회사</th>
+<th align="center">모델 포맷</th>
+<th align="center">속도</th>
+<th align="center">장단점</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">TensorFlow Serving</td>
+<td align="center">Google</td>
+<td align="center">TensorFlow, Keras, SavedModel</td>
+<td align="center">높음</td>
+<td align="center">분산 시스템을 지원하며, TensorFlow 모델을 위해 최적화 되어있음.</td>
+</tr>
+<tr>
+<td align="center">Triton Inference Server</td>
+<td align="center">Nvidia</td>
+<td align="center">TensorFlow, TensorRT, ONNX</td>
+<td align="center">매우 높음</td>
+<td align="center">다양한 모델 포맷을 지원하며, GPU 가속을 통해 빠른 서빙 가능.</td>
+</tr>
+<tr>
+<td align="center">TorchServe</td>
+<td align="center">Facebook</td>
+<td align="center">PyTorch, TorchScript</td>
+<td align="center">중간</td>
+<td align="center">PyTorch 모델을 위해 최적화 되어있으며, 다양한 모델 포맷을 지원.</td>
+</tr>
+<tr>
+<td align="center">BentoML</td>
+<td align="center">BentoML</td>
+<td align="center">다양한</td>
+<td align="center">중간</td>
+<td align="center">모델 서빙뿐만 아니라, 모델 빌드, 테스트, 배포를 종합적으로 제공. 다양한 프레임워크와 클라우드 서비스를 지원하며, 코드 중복을 최소화할 수 있음.</td>
+</tr>
+<tr>
+<td align="center">MLflow</td>
+<td align="center">Databricks</td>
+<td align="center">다양한</td>
+<td align="center">중간</td>
+<td align="center">모델 학습, 추적, 서빙을 포함한 엔드 투 엔드 기계 학습 플랫폼. 다양한 프레임워크와 클라우드 서비스를 지원하며, 모델 버전 관리와 협업 기능을 제공.</td>
+</tr>
+</tbody>
+</table>
+<p>위에 언급 되지 않았지만 Cortex, KFServing, Multi Model Server, ForestFlow, DeepDetect, Seldon Core,DeepSparse 등이 존재합니다. 이러한 모델 서빙 프레임워크를 사용하여 모델을 배포하고 예측을 수행할 수 있습니다.</p>
+<p><img src="https://res.cloudinary.com/canonical/image/fetch/f_auto,q_auto,fl_sanitize,c_fill,w_720/https://lh3.googleusercontent.com/KJOdXP_cJG8AXC2JpFUekpe-6zJ-mnT1WruYwp_-0Z27GBsOhHQoAduusQNpqF9dsJng9iA2wxotVuz6CiTvz4u6oDfk43K-ZVrhg-GqY41XvmieoroF2J-q1TbSNEUbCDH8VICK" alt=""></p>
+<center>모델 서빙 가이드 <a href="https://ubuntu.com/blog/guide-to-ml-model-serving" target="_blank">출처</a></center>
+<p>이어서 주요 서빙 프레임워크에 대해서 간단히 소개를 드리고자 합니다. 서빙 프레임워크 마다 분명 장단 점이 존재하기 때문에, 각 서빙 프레임워크의 장단점을 고려해서 사용하면 될것 같습니다.</p>
+<h3 id="triton-inference-server">Triton Inference Server</h3>
+<p><a href="https://github.com/triton-inference-server/server">Triton Inference Server</a>는 Nvidia에서 개발한 오픈소스 모델 서빙 프레임워크입니다. 다양한 모델 포맷(TensorFlow, TensorRT, ONNX)을 지원하며, GPU 가속을 통해 빠른 추론(inference)을 제공합니다. Triton Inference Server의 장단점은 다음과 같습니다.</p>
+<p>장점:</p>
+<ul>
+<li>매우 높은 서빙 속도</li>
+<li>다양한 모델 포맷을 지원</li>
+<li>TensorRT와 같은 Nvidia의 최적화 엔진을 사용하여 높은 추론 성능을 제공</li>
+</ul>
+<p>단점:</p>
+<ul>
+<li>Nvidia GPU에 최적화되어 있어서 다른 GPU 또는 CPU에서의 성능은 상대적으로 떨어질 수 있음</li>
+<li>TensorFlow Serving과 같은 대중적인 모델 서빙 프레임워크와는 다르게 상대적으로 새로운 기술이기 때문에 커뮤니티와 문서가 상대적으로 덜 발전되어 있을 수 있음.</li>
+</ul>
+<h3 id="torch-serve">Torch Serve</h3>
+<p>orchServe는 PyTorch 모델의 서빙을 위한 오픈소스 모델 서빙 프레임워크이다. 다양한 모델 포맷(PyTorch, TensorFlow, ONNX)을 지원하며, 커스터마이즈가 용이하고 높은 성능을 제공합니다. TorchServe의 장단점은 다음과 같습니다.</p>
+<p>장점:</p>
+<ul>
+<li>PyTorch로 훈련된 모델에 대한 원활한 서빙을 지원</li>
+<li>다양한 모델 포맷을 지원</li>
+<li>커스터마이즈가 용이하고 사용자 정의 모델을 쉽게 추가할 수 있음</li>
+<li>비교적 직관적인 API를 제공하며, 높은 서빙 성능을 제공함</li>
+</ul>
+<p>단점:</p>
+<ul>
+<li>TensorFlow 2.x의 SavedModel 형식을 지원하지 않음</li>
+<li>실시간 모델 업데이트 기능이 아직 충분히 발전하지 않음</li>
+</ul>
+<h3 id="bentoml">BentoML</h3>
+<p>BentoML은 머신러닝 모델을 서빙하기 위한 프레임워크 중 하나로, 모델 서빙과 관련된 전반적인 문제를 해결하는 플랫폼이다. BentoML의 장단점은 다음과 같습니다.</p>
+<p>장점:</p>
+<ul>
+<li>다양한 머신러닝 프레임워크(PyTorch, TensorFlow, Scikit-learn 등)에서 생성된 모델들을 지원</li>
+<li>커스텀 모델 서빙 파이프라인을 쉽게 작성하고 관리할 수 있음</li>
+<li>배포된 모델에 대한 추적, 모니터링, 로깅 및 메트릭 수집을 지원</li>
+<li>높은 수준의 모델 버전 관리 및 관리도구</li>
+<li>클라우드 서비스 및 Kubernetes와 같은 대규모 클러스터에서 배포 가능</li>
+</ul>
+<p>단점:</p>
+<ul>
+<li>다른 서빙 프레임워크와 비교했을때 상대적으로 높은 학습 곡선</li>
+<li>일부 모델 포맷 및 옵션 지원이 부족할 수 있음</li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/mlops/serving/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#mlops--">MLOps에서 모델 서빙</a></li>
+        <li><a href="#--">모델 서빙의 종류</a></li>
+        <li><a href="#triton-inference-server">Triton Inference Server</a></li>
+        <li><a href="#torch-serve">Torch Serve</a></li>
+        <li><a href="#bentoml">BentoML</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/ai/ml/transformers/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            트랜스포머 모델의 개발
+        </div>
+    </a>
+    
+    
+    <a href="/mlops/voila/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Voila 소개와 설치&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

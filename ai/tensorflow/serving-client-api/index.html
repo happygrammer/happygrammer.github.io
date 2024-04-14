@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Serving 클라이언트 API</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Serving 클라이언트 API" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/ai/tensorflow/serving-client-api/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/ai/" class="archive-article-date">&lt; Ais</a></div>
+            
+            <h1 class="article-title" itemprop="name">Serving 클라이언트 API</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/ai/tensorflow/serving-client-api/" class="article-date">
+                <time datetime='2020-02-18T08:00:08.000&#43;03:00' itemprop="datePublished">2020-02-18</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="restful-api">RESTful API</h3>
+<p>In addition to <a href="https://github.com/tensorflow/serving/blob/master/tensorflow_serving/apis/prediction_service.proto">gRPC APIs</a> TensorFlow ModelServer also supports RESTful APIs. This page describes these API endpoints and an end-to-end <a href="https://www.tensorflow.org/tfx/serving/api_rest#example">example</a> on usage.</p>
+<p>The request and response is a JSON object. The composition of this object depends on the request type or verb. See the API specific sections below for details.</p>
+<p>In case of error, all APIs will return a JSON object in the response body with <code>error</code> as key and the error message as the value:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#e6db74">&#34;error&#34;</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">error</span> <span style="color:#a6e22e">message</span> <span style="color:#a6e22e">string</span><span style="color:#f92672">&gt;</span>
+}
+</code></pre></div><p>Model status API</p>
+<p>This API closely follows the <a href="https://github.com/tensorflow/serving/blob/5369880e9143aa00d586ee536c12b04e945a977c/tensorflow_serving/apis/model_service.proto#L17"><code>ModelService.GetModelStatus</code></a> gRPC API. It returns the status of a model in the ModelServer.</p>
+<p>URL</p>
+<pre><code>GET http://host:port/v1/models/${MODEL_NAME}[/versions/${MODEL_VERSION}]
+</code></pre><p><code>/versions/${MODEL_VERSION}</code> is optional. If omitted status for all versions is returned in the response.</p>
+<p>Response format</p>
+<p>If successful, returns a JSON representation of <a href="https://github.com/tensorflow/serving/blob/5369880e9143aa00d586ee536c12b04e945a977c/tensorflow_serving/apis/get_model_status.proto#L64"><code>GetModelStatusResponse</code></a> protobuf.</p>
+<p>Model Metadata API</p>
+<p>This API closely follows the <a href="https://github.com/tensorflow/serving/blob/5369880e9143aa00d586ee536c12b04e945a977c/tensorflow_serving/apis/prediction_service.proto#L29"><code>PredictionService.GetModelMetadata</code></a> gRPC API. It returns the metadata of a model in the ModelServer.</p>
+<p>URL</p>
+<pre><code>GET http://host:port/v1/models/${MODEL_NAME}[/versions/${MODEL_VERSION}]/metadata
+</code></pre><p><code>/versions/${MODEL_VERSION}</code> is optional. If omitted the model metadata for the latest version is returned in the response.</p>
+<p>Response format</p>
+<p>If successful, returns a JSON representation of <a href="https://github.com/tensorflow/serving/blob/5369880e9143aa00d586ee536c12b04e945a977c/tensorflow_serving/apis/get_model_metadata.proto#L23"><code>GetModelMetadataResponse</code></a> protobuf.</p>
+<p>Classify and Regress API</p>
+<p>This API closely follows the <code>Classify</code> and <code>Regress</code> methods of <a href="https://github.com/tensorflow/serving/blob/5369880e9143aa00d586ee536c12b04e945a977c/tensorflow_serving/apis/prediction_service.proto#L15"><code>PredictionService</code></a> gRPC API.</p>
+<p>URL</p>
+<pre><code>POST http://host:port/v1/models/${MODEL_NAME}[/versions/${MODEL_VERSION}]:(classify|regress)
+</code></pre><p><code>/versions/${MODEL_VERSION}</code> is optional. If omitted the latest version is used.</p>
+<p>Request format</p>
+<p>The request body for the <code>classify</code> and <code>regress</code> APIs must be a JSON object formatted as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#75715e">// Optional: serving signature to use.
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// If unspecifed default serving signature is used.
+</span><span style="color:#75715e"></span>  <span style="color:#e6db74">&#34;signature_name&#34;</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">string</span><span style="color:#f92672">&gt;</span>,
+
+  <span style="color:#75715e">// Optional: Common context shared by all examples.
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// Features that appear here MUST NOT appear in examples (below).
+</span><span style="color:#75715e"></span>  <span style="color:#e6db74">&#34;context&#34;</span><span style="color:#f92672">:</span> {
+    <span style="color:#e6db74">&#34;&lt;feature_name3&gt;&#34;</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">value</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">|</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">list</span><span style="color:#f92672">&gt;</span>
+    <span style="color:#e6db74">&#34;&lt;feature_name4&gt;&#34;</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">value</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">|</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">list</span><span style="color:#f92672">&gt;</span>
+  },
+
+  <span style="color:#75715e">// List of Example objects
+</span><span style="color:#75715e"></span>  <span style="color:#e6db74">&#34;examples&#34;</span><span style="color:#f92672">:</span> [
+    {
+      <span style="color:#75715e">// Example 1
+</span><span style="color:#75715e"></span>      <span style="color:#e6db74">&#34;&lt;feature_name1&gt;&#34;</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">value</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">|</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">list</span><span style="color:#f92672">&gt;</span>,
+      <span style="color:#e6db74">&#34;&lt;feature_name2&gt;&#34;</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">value</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">|</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">list</span><span style="color:#f92672">&gt;</span>,
+      ...
+    },
+    {
+      <span style="color:#75715e">// Example 2
+</span><span style="color:#75715e"></span>      <span style="color:#e6db74">&#34;&lt;feature_name1&gt;&#34;</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">value</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">|</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">list</span><span style="color:#f92672">&gt;</span>,
+      <span style="color:#e6db74">&#34;&lt;feature_name2&gt;&#34;</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">value</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">|</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">list</span><span style="color:#f92672">&gt;</span>,
+      ...
+    }
+    ...
+  ]
+}
+</code></pre></div><p><code>is a JSON number (whole or decimal) or string, and</code> is a list of such values. See <a href="https://www.tensorflow.org/tfx/serving/api_rest#encoding_binary_values">Encoding binary values</a> section below for details on how to represent a binary (stream of bytes) value. This format is similar to gRPC's <code>ClassificationRequest</code> and <code>RegressionRequest</code> protos. Both versions accept list of <a href="https://github.com/tensorflow/tensorflow/blob/92e6c3e4f5c1cabfda1e61547a6a1b268ef95fa5/tensorflow/core/example/example.proto#L13"><code>Example</code></a> objects.</p>
+<p>Response format</p>
+<p>A <code>classify</code> request returns a JSON object in the response body, formatted as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#e6db74">&#34;result&#34;</span><span style="color:#f92672">:</span> [
+    <span style="color:#75715e">// List of class label/score pairs for first Example (in request)
+</span><span style="color:#75715e"></span>    [ [<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">label1</span><span style="color:#f92672">&gt;</span>, <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">score1</span><span style="color:#f92672">&gt;</span>], [<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">label2</span><span style="color:#f92672">&gt;</span>, <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">score2</span><span style="color:#f92672">&gt;</span>], ... ],
+
+    <span style="color:#75715e">// List of class label/score pairs for next Example (in request)
+</span><span style="color:#75715e"></span>    [ [<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">label1</span><span style="color:#f92672">&gt;</span>, <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">score1</span><span style="color:#f92672">&gt;</span>], [<span style="color:#f92672">&lt;</span><span style="color:#a6e22e">label2</span><span style="color:#f92672">&gt;</span>, <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">score2</span><span style="color:#f92672">&gt;</span>], ... ],
+    ...
+  ]
+}
+</code></pre></div><p><code>is a string (which can be an empty string `&quot;&quot;` if the model does not have a label associated with the score).</code> is a decimal (floating point) number.</p>
+<p>The <code>regress</code> request returns a JSON object in the response body, formatted as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#75715e">// One regression value for each example in the request in the same order.
+</span><span style="color:#75715e"></span>  <span style="color:#e6db74">&#34;result&#34;</span><span style="color:#f92672">:</span> [ <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">value1</span><span style="color:#f92672">&gt;</span>, <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">value2</span><span style="color:#f92672">&gt;</span>, <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">value3</span><span style="color:#f92672">&gt;</span>, ...]
+}
+</code></pre></div><p>`` is a decimal number.</p>
+<p>Users of gRPC API will notice the similarity of this format with <code>ClassificationResponse</code> and <code>RegressionResponse</code> protos.</p>
+<p>Predict API</p>
+<p>This API closely follows the <a href="https://github.com/tensorflow/serving/blob/5369880e9143aa00d586ee536c12b04e945a977c/tensorflow_serving/apis/prediction_service.proto#L23"><code>PredictionService.Predict</code></a> gRPC API.</p>
+<p>URL</p>
+<pre><code>POST http://host:port/v1/models/${MODEL_NAME}[/versions/${MODEL_VERSION}]:predict
+</code></pre><p><code>/versions/${MODEL_VERSION}</code> is optional. If omitted the latest version is used.</p>
+<p>Request format</p>
+<p>The request body for <code>predict</code> API must be JSON object formatted as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#75715e">// (Optional) Serving signature to use.
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// If unspecifed default serving signature is used.
+</span><span style="color:#75715e"></span>  <span style="color:#e6db74">&#34;signature_name&#34;</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">string</span><span style="color:#f92672">&gt;</span>,
+
+  <span style="color:#75715e">// Input Tensors in row (&#34;instances&#34;) or columnar (&#34;inputs&#34;) format.
+</span><span style="color:#75715e"></span>  <span style="color:#75715e">// A request can have either of them but NOT both.
+</span><span style="color:#75715e"></span>  <span style="color:#e6db74">&#34;instances&#34;</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">value</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">|</span><span style="color:#f92672">&lt;</span>(<span style="color:#a6e22e">nested</span>)<span style="color:#a6e22e">list</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">|</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">list</span><span style="color:#f92672">-</span><span style="color:#66d9ef">of</span><span style="color:#f92672">-</span><span style="color:#a6e22e">objects</span><span style="color:#f92672">&gt;</span>
+  <span style="color:#e6db74">&#34;inputs&#34;</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">value</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">|</span><span style="color:#f92672">&lt;</span>(<span style="color:#a6e22e">nested</span>)<span style="color:#a6e22e">list</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">|</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">object</span><span style="color:#f92672">&gt;</span>
+}
+</code></pre></div><p>Specifying input tensors in row format.</p>
+<p>This format is similar to <code>PredictRequest</code> proto of gRPC API and the <a href="https://cloud.google.com/ml-engine/docs/v1/predict-request">CMLE predict API</a>. Use this format if all named input tensors have the <strong>same 0-th dimension</strong>. If they don't, use the columnar format described later below.</p>
+<p>In the row format, inputs are keyed to <strong>instances</strong> key in the JSON request.</p>
+<p>When there is only one named input, specify the value of <strong>instances</strong> key to be the value of the input:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#75715e">// List of 3 scalar tensors.
+</span><span style="color:#75715e"></span>  <span style="color:#e6db74">&#34;instances&#34;</span><span style="color:#f92672">:</span> [ <span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#e6db74">&#34;bar&#34;</span>, <span style="color:#e6db74">&#34;baz&#34;</span> ]
+}
+
+{
+  <span style="color:#75715e">// List of 2 tensors each of [1, 2] shape
+</span><span style="color:#75715e"></span>  <span style="color:#e6db74">&#34;instances&#34;</span><span style="color:#f92672">:</span> [ [[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>]], [[<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]] ]
+}
+</code></pre></div><p>Tensors are expressed naturally in nested notation since there is no need to manually flatten the list.</p>
+<p>For multiple named inputs, each item is expected to be an object containing input name/tensor value pair, one for each named input. As an example, the following is a request with two instances, each with a set of three named input tensors:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+ <span style="color:#e6db74">&#34;instances&#34;</span><span style="color:#f92672">:</span> [
+   {
+     <span style="color:#e6db74">&#34;tag&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;foo&#34;</span>,
+     <span style="color:#e6db74">&#34;signal&#34;</span><span style="color:#f92672">:</span> [<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>],
+     <span style="color:#e6db74">&#34;sensor&#34;</span><span style="color:#f92672">:</span> [[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>], [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]]
+   },
+   {
+     <span style="color:#e6db74">&#34;tag&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;bar&#34;</span>,
+     <span style="color:#e6db74">&#34;signal&#34;</span><span style="color:#f92672">:</span> [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>]],
+     <span style="color:#e6db74">&#34;sensor&#34;</span><span style="color:#f92672">:</span> [[<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>], [<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>]]
+   }
+ ]
+}
+</code></pre></div><p>Note, each named input (&ldquo;tag&rdquo;, &ldquo;signal&rdquo;, &ldquo;sensor&rdquo;) is implicitly assumed have same 0-th dimension (<em>two</em> in above example, as there are <em>two</em> objects in the <em>instances</em> list). If you have named inputs that have different 0-th dimension, use the columnar format described below.</p>
+<p>Specifying input tensors in column format.</p>
+<p>Use this format to specify your input tensors, if individual named inputs do not have the same 0-th dimension or you want a more compact representation. This format is similar to the <code>inputs</code> field of the gRPC <a href="https://github.com/tensorflow/serving/blob/a52e8181144a5d6acc96b3d57328c7f49f113ea9/tensorflow_serving/apis/predict.proto#L21"><code>Predict</code></a> request.</p>
+<p>In the columnar format, inputs are keyed to <strong>inputs</strong> key in the JSON request.</p>
+<p>The value for <strong>inputs</strong> key can either a single input tensor or a map of input name to tensors (listed in their natural nested form). Each input can have arbitrary shape and need not share the/ same 0-th dimension (aka batch size) as required by the row format described above.</p>
+<p>Columnar representation of the previous example is as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+ <span style="color:#e6db74">&#34;inputs&#34;</span><span style="color:#f92672">:</span> {
+   <span style="color:#e6db74">&#34;tag&#34;</span><span style="color:#f92672">:</span> [<span style="color:#e6db74">&#34;foo&#34;</span>, <span style="color:#e6db74">&#34;bar&#34;</span>],
+   <span style="color:#e6db74">&#34;signal&#34;</span><span style="color:#f92672">:</span> [[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>], [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>, <span style="color:#ae81ff">5</span>]],
+   <span style="color:#e6db74">&#34;sensor&#34;</span><span style="color:#f92672">:</span> [[[<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>], [<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>]], [[<span style="color:#ae81ff">4</span>, <span style="color:#ae81ff">5</span>], [<span style="color:#ae81ff">6</span>, <span style="color:#ae81ff">8</span>]]]
+ }
+}
+</code></pre></div><p>Note, <strong>inputs</strong> is a JSON object and not a list like <strong>instances</strong> (used in the row representation). Also, all the named inputs are specified together, as opposed to unrolling them into individual rows done in the row format described previously. This makes the representation compact (but maybe less readable).</p>
+<p>Response format</p>
+<p>The <code>predict</code> request returns a JSON object in response body.</p>
+<p>A request in <a href="https://www.tensorflow.org/tfx/serving/api_rest#specifying_input_tensors_in_row_format">row format</a> has response formatted as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#e6db74">&#34;predictions&#34;</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">value</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">|</span><span style="color:#f92672">&lt;</span>(<span style="color:#a6e22e">nested</span>)<span style="color:#a6e22e">list</span><span style="color:#f92672">&gt;</span><span style="color:#f92672">|</span><span style="color:#f92672">&lt;</span><span style="color:#a6e22e">list</span><span style="color:#f92672">-</span><span style="color:#66d9ef">of</span><span style="color:#f92672">-</span><span style="color:#a6e22e">objects</span><span style="color:#f92672">&gt;</span>
+}
+</code></pre></div><p>If the output of the model contains only one named tensor, we omit the name and <code>predictions</code> key maps to a list of scalar or list values. If the model outputs multiple named tensors, we output a list of objects instead, similar to the request in row-format mentioned above.</p>
+<p>A request in <a href="https://www.tensorflow.org/tfx/serving/api_rest#specifying_input_tensors_in_column_format">columnar format</a> has response formatted as follows:</p>
+<pre><code>{ &quot;outputs&quot;: |&lt;(nested)list&gt;|}
+</code></pre><p>If the output of the model contains only one named tensor, we omit the name and <code>outputs</code> key maps to a list of scalar or list values. If the model outputs multiple named tensors, we output an object instead. Each key of this object corresponds to a named output tensor. The format is similar to the request in column format mentioned above.</p>
+<p>Output of binary values</p>
+<p>TensorFlow does not distinguish between non-binary and binary strings. All are <code>DT_STRING</code> type. Named tensors that have <strong><code>_bytes</code></strong> as a suffix in their name are considered to have binary values. Such values are encoded differently as described in the <a href="https://www.tensorflow.org/tfx/serving/api_rest#encoding_binary_values">encoding binary values</a> section below.</p>
+<p>JSON mapping</p>
+<p>The RESTful APIs support a canonical encoding in JSON, making it easier to share data between systems. For supported types, the encodings are described on a type-by-type basis in the table below. Types not listed below are implied to be unsupported.</p>
+<table>
+<thead>
+<tr>
+<th align="left"><a href="https://www.tensorflow.org/versions/r1.1/programmers_guide/dims_types#data_types">TF Data Type</a></th>
+<th align="left"><a href="http://json.org/">JSON Value</a></th>
+<th align="left">JSON example</th>
+<th align="left">Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">DT_BOOL</td>
+<td align="left">true, false</td>
+<td align="left"><em>true, false</em></td>
+<td align="left"></td>
+</tr>
+<tr>
+<td align="left">DT_STRING</td>
+<td align="left">string</td>
+<td align="left"><em>&ldquo;Hello World!&quot;</em></td>
+<td align="left">If <code>DT_STRING</code> represents binary bytes (e.g. serialized image bytes or protobuf), encode these in Base64. See <a href="https://www.tensorflow.org/tfx/serving/api_rest#encoding_binary_values">Encoding binary values</a> for more info.</td>
+</tr>
+<tr>
+<td align="left">DT_INT8, DT_UINT8, DT_INT16, DT_INT32, DT_UINT32, DT_INT64, DT_UINT64</td>
+<td align="left">number</td>
+<td align="left"><em>1, -10, 0</em></td>
+<td align="left">JSON value will be a decimal number.</td>
+</tr>
+<tr>
+<td align="left">DT_FLOAT, DT_DOUBLE</td>
+<td align="left">number</td>
+<td align="left"><em>1.1, -10.0, 0, <code>NaN</code>, <code>Infinity</code></em></td>
+<td align="left">JSON value will be a number or one of the special token values - <code>NaN</code>, <code>Infinity</code>, and <code>-Infinity</code>. See <a href="https://www.tensorflow.org/tfx/serving/api_rest#json_conformance">JSON conformance</a> for more info. Exponent notation is also accepted.</td>
+</tr>
+</tbody>
+</table>
+<p>Encoding binary values</p>
+<p>JSON uses UTF-8 encoding. If you have input feature or tensor values that need to be binary (like image bytes), you <em>must</em> Base64 encode the data and encapsulate it in a JSON object having <code>b64</code> as the key as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{ <span style="color:#e6db74">&#34;b64&#34;</span><span style="color:#f92672">:</span> <span style="color:#f92672">&lt;</span><span style="color:#a6e22e">base64</span> <span style="color:#a6e22e">encoded</span> <span style="color:#a6e22e">string</span><span style="color:#f92672">&gt;</span> }
+</code></pre></div><p>You can specify this object as a value for an input feature or tensor. The same format is used to encode output response as well.</p>
+<p>A classification request with <code>image</code> (binary data) and <code>caption</code> features is shown below:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-javascript" data-lang="javascript">{
+  <span style="color:#e6db74">&#34;signature_name&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;classify_objects&#34;</span>,
+  <span style="color:#e6db74">&#34;examples&#34;</span><span style="color:#f92672">:</span> [
+    {
+      <span style="color:#e6db74">&#34;image&#34;</span><span style="color:#f92672">:</span> { <span style="color:#e6db74">&#34;b64&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;aW1hZ2UgYnl0ZXM=&#34;</span> },
+      <span style="color:#e6db74">&#34;caption&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;seaside&#34;</span>
+    },
+    {
+      <span style="color:#e6db74">&#34;image&#34;</span><span style="color:#f92672">:</span> { <span style="color:#e6db74">&#34;b64&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;YXdlc29tZSBpbWFnZSBieXRlcw==&#34;</span> },
+      <span style="color:#e6db74">&#34;caption&#34;</span><span style="color:#f92672">:</span> <span style="color:#e6db74">&#34;mountains&#34;</span>
+    }
+  ]
+}
+</code></pre></div><p>JSON conformance</p>
+<p>Many feature or tensor values are floating point numbers. Apart from finite values (e.g. 3.14, 1.0 etc.) these can have <code>NaN</code> and non-finite (<code>Infinity</code> and <code>-Infinity</code>) values. Unfortunately the JSON specification (<a href="https://tools.ietf.org/html/rfc7159">RFC 7159</a>) does <strong>NOT</strong> recognize these values (though the JavaScript specification does).</p>
+<p>The REST API described on this page allows request/response JSON objects to have such values. This implies that requests like the following one are valid:</p>
+<pre><code>{ &quot;example&quot;: [  {   &quot;sensor_readings&quot;: [ 1.0, -3.14, Nan, Infinity ]  } ]}
+</code></pre><p>A (strict) standards compliant JSON parser will reject this with a parse error (due to <code>NaN</code> and <code>Infinity</code> tokens mixed with actual numbers). To correctly handle requests/responses in your code, use a JSON parser that supports these tokens.</p>
+<p><code>NaN</code>, <code>Infinity</code>, <code>-Infinity</code> tokens are recognized by <a href="https://developers.google.com/protocol-buffers/docs/proto3#json">proto3</a>, Python <a href="https://docs.python.org/3/library/json.html">JSON</a> module and JavaScript language.</p>
+<p>Example</p>
+<p>We can use the toy <a href="https://github.com/tensorflow/serving/tree/master/tensorflow_serving/servables/tensorflow/testdata/saved_model_half_plus_three/00000123">half_plus_three</a> model to see REST APIs in action.</p>
+<p>Start ModelServer with the REST API endpoint</p>
+<p>Download the <code>half_plus_three</code> model from <a href="https://github.com/tensorflow/serving">git repository</a>:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ mkdir -p /tmp/tfserving
+$ cd /tmp/tfserving
+$ git clone --depth<span style="color:#f92672">=</span><span style="color:#ae81ff">1</span> https://github.com/tensorflow/serving
+</code></pre></div><p>We will use Docker to run the ModelServer. If you want to install ModelServer natively on your system, follow <a href="https://www.tensorflow.org/serving/setup">setup instructions</a> to install instead, and start the ModelServer with <code>--rest_api_port</code> option to export REST API endpoint (this is not needed when using Docker).</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ cd /tmp/tfserving
+$ docker pull tensorflow/serving:latest
+$ docker run --rm -p 8501:8501 <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    --mount type<span style="color:#f92672">=</span>bind,source<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>,target<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -e MODEL_BASE_PATH<span style="color:#f92672">=</span><span style="color:#66d9ef">$(</span>pwd<span style="color:#66d9ef">)</span>/serving/tensorflow_serving/servables/tensorflow/testdata <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>    -e MODEL_NAME<span style="color:#f92672">=</span>saved_model_half_plus_three -t tensorflow/serving:latest
+...
+.... Exporting HTTP/REST API at:localhost:8501 ...
+</code></pre></div><p>Make REST API calls to ModelServer</p>
+<p>In a different terminal, use the <code>curl</code> tool to make REST API calls.</p>
+<p>Get status of the model as follows:</p>
+<pre><code>$ curl http://localhost:8501/v1/models/saved_model_half_plus_three
+{
+ &quot;model_version_status&quot;: [
+  {
+   &quot;version&quot;: &quot;123&quot;,
+   &quot;state&quot;: &quot;AVAILABLE&quot;,
+   &quot;status&quot;: {
+    &quot;error_code&quot;: &quot;OK&quot;,
+    &quot;error_message&quot;: &quot;&quot;
+   }
+  }
+ ]
+}
+</code></pre><p>A <code>predict</code> call would look as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ curl -d <span style="color:#e6db74">&#39;{&#34;instances&#34;: [1.0,2.0,5.0]}&#39;</span> -X POST http://localhost:8501/v1/models/saved_model_half_plus_three:predict
+<span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;predictions&#34;</span>: <span style="color:#f92672">[</span>3.5, 4.0, 5.5<span style="color:#f92672">]</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>And a <code>regress</code> call looks as follows:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-shell" data-lang="shell">$ curl -d <span style="color:#e6db74">&#39;{&#34;signature_name&#34;: &#34;tensorflow/serving/regress&#34;, &#34;examples&#34;: [{&#34;x&#34;: 1.0}, {&#34;x&#34;: 2.0}]}&#39;</span> <span style="color:#ae81ff">\
+</span><span style="color:#ae81ff"></span>  -X POST http://localhost:8501/v1/models/saved_model_half_plus_three:regress
+<span style="color:#f92672">{</span>
+    <span style="color:#e6db74">&#34;results&#34;</span>: <span style="color:#f92672">[</span>3.5, 4.0<span style="color:#f92672">]</span>
+<span style="color:#f92672">}</span>
+</code></pre></div><p>Note, <code>regress</code> is available on a non-default signature name and must be specified explicitly. An incorrect request URL or body returns an HTTP error status.</p>
+<pre><code>$ curl -i -d '{&quot;instances&quot;: [1.0,5.0]}' -X POST http://localhost:8501/v1/models/half:predictHTTP/1.1 404 Not FoundContent-Type: application/jsonDate: Wed, 06 Jun 2018 23:20:12 GMTContent-Length: 65{ &quot;error&quot;: &quot;Servable not found for request: Latest(half)&quot; }$
+</code></pre><p>원문 : <a href="https://www.tensorflow.org/tfx/serving/api_rest">https://www.tensorflow.org/tfx/serving/api_rest</a></p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/ai/tensorflow/serving-client-api/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#restful-api">RESTful API</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/cloud/docker/docker/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Docker 명령어 소개
+        </div>
+    </a>
+    
+    
+    <a href="/ai/tensorflow/serving-server-api/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Serving 서버 API&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

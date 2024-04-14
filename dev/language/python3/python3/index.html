@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>파이썬 3 배열과 딕셔너리</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="파이썬 3 배열과 딕셔너리" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/language/python3/python3/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">파이썬 3 배열과 딕셔너리</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/language/python3/python3/" class="article-date">
+                <time datetime='2020-01-15T06:35:54.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="heading">배열</h2>
+<h3 id="-">배열 탐색</h3>
+<pre><code>token = [s.split() for s in arr] # 공백 단위로 split
+token = [s.split()[1:] for s in arr] # 공백 단위로 split
+</code></pre><h2 id="heading-1">딕셔너리</h2>
+<h3 id="--1">딕셔너리 선언</h3>
+<pre><code>#!/usr/bin/python3
+
+dict = {'Name': 'Sunflower', 'Kingdom': &quot;Plantae&quot;, 'Class': 'Magnoliopsida'}
+print (&quot;dict['Name']: &quot;, dict['Name'])
+print (&quot;dict['Kingdom']: &quot;, dict['Kingdom'])
+print (&quot;dict['Class']: &quot;, dict['Class'])
+</code></pre><h3 id="-keys-">딕셔너리 keys 사용</h3>
+<pre><code>for key in dict.keys():
+    print(key+&quot;:&quot;+dict[key])
+</code></pre><h3 id="--2">딕셔너리 메소드</h3>
+<table>
+<thead>
+<tr>
+<th>Sr.No.</th>
+<th align="center">Method &amp; Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td align="center"><a href="https://www.tutorialspoint.com/python3/dictionary_clear.htm">dict.clear()</a>는 딕셔너리의 모든 아이템을 삭제함</td>
+</tr>
+<tr>
+<td>2</td>
+<td align="center"><a href="https://www.tutorialspoint.com/python3/dictionary_copy.htm">dict.copy()</a> shallow copy하여 dict를 반환함*</td>
+</tr>
+<tr>
+<td>3</td>
+<td align="center"><a href="https://www.tutorialspoint.com/python3/dictionary_fromkeys.htm">dict.fromkeys()</a> Create a new dictionary with keys from seq and values <em>set</em> to <em>value</em>.</td>
+</tr>
+<tr>
+<td>4</td>
+<td align="center"><a href="https://www.tutorialspoint.com/python3/dictionary_get.htm">dict.get(key, default=None)</a>For <em>key</em> key, returns value or default if key not in dictionary</td>
+</tr>
+<tr>
+<td>5</td>
+<td align="center"><a href="https://www.tutorialspoint.com/python3/dictionary_has_key.htm">dict.has_key(key)</a>Removed, use the <em>in</em> operation instead.</td>
+</tr>
+<tr>
+<td>6</td>
+<td align="center"><a href="https://www.tutorialspoint.com/python3/dictionary_items.htm">dict.items()</a>Returns a list of <em>dict</em>&lsquo;s (key, value) tuple pairs</td>
+</tr>
+<tr>
+<td>7</td>
+<td align="center"><a href="https://www.tutorialspoint.com/python3/dictionary_keys.htm">dict.keys()</a>Returns list of dictionary dict's keys</td>
+</tr>
+<tr>
+<td>8</td>
+<td align="center"><a href="https://www.tutorialspoint.com/python3/dictionary_setdefault.htm">dict.setdefault(key, default = None)</a>Similar to get(), but will set dict[key] = default if <em>key</em> is not already in dict</td>
+</tr>
+<tr>
+<td>9</td>
+<td align="center"><a href="https://www.tutorialspoint.com/python3/dictionary_update.htm">dict.update(dict2)</a>Adds dictionary <em>dict2</em>&lsquo;s key-values pairs to <em>dict</em></td>
+</tr>
+<tr>
+<td>10</td>
+<td align="center"><a href="https://www.tutorialspoint.com/python3/dictionary_values.htm">dict.values()</a>Returns list of dictionary <em>dict</em>&lsquo;s values</td>
+</tr>
+</tbody>
+</table>
+<h3 id="---">더 읽어 볼만한 글</h3>
+<ul>
+<li>Python3 튜토리얼 문서 <a href="https://docs.python.org/3/tutorial/">https://docs.python.org/3/tutorial/</a></li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/language/python3/python3/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">배열</a>
+      <ul>
+        <li><a href="#-">배열 탐색</a></li>
+      </ul>
+    </li>
+    <li><a href="#heading-1">딕셔너리</a>
+      <ul>
+        <li><a href="#--1">딕셔너리 선언</a></li>
+        <li><a href="#-keys-">딕셔너리 keys 사용</a></li>
+        <li><a href="#--2">딕셔너리 메소드</a></li>
+        <li><a href="#---">더 읽어 볼만한 글</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/perl/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            1시간 안에 펄(Perl) 언어 익히기
+        </div>
+    </a>
+    
+    
+    <a href="/dev/java/processbuilder/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">ProcessBuilder 클래스 - 운영체제 프로세스 생성&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>해피그의 코드랩</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="해피그의 코드랩" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<link href="https://happygrammer.github.io/index.xml" rel="alternate" type="application/rss+xml" title="해피그의 코드랩" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/tokenizer_wordpiece_vs_sentencepiece/">토크나이저의 종류와 비교</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/tokenizer_wordpiece_vs_sentencepiece/" class="article-date">
+                        <time datetime='2021-11-21T20:19:26.000&#43;09:00' itemprop="datePublished">2021-11-21</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    안녕하세요, 개발자 여러분! 오늘은 자연어 처리에서 많이 사용되는 두 가지 토크나이저인 워드피스(WordPiece)와 센텐스피스(SentencePiece)에 대해 알아보고, 이들의 공통점과 차이점을 비교해 보겠습니다.
+1. 토크나이저 알고리즘의 종류 워드피스(WordPiece)와 센텐스피스(SentencePiece) 외에도 다양한 토크나이저(Tokenizer)들이 있습니다. 각 토크나이저마다 고유한 특징과 장단점이 있으며, 최근에는 언어 모델의 성능 향상을 위해 새로운 토크나이저들이 제안되고 있습니다. 아래에서 몇 가지 토크나이저와 그 특징에 대해 설명하겠습니다.
+1.1 Byte Pair Encoding (BPE):  BPE는 빈도수가 높은 바이트 쌍을 병합하여 단어를 분리하는 방식입니다. 어휘 크기를 제한할 수 있으며, 미등록 단어(OOV, Out-of-Vocabulary)에 대한 처리가 가능합니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/tokenizer_wordpiece_vs_sentencepiece/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/n-gram-model/">n-gram 모델</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/n-gram-model/" class="article-date">
+                        <time datetime='2021-11-20T20:19:26.000&#43;09:00' itemprop="datePublished">2021-11-20</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    n-gram 모델 n-gram 모델은 자연어 처리, 정보 검색 등에서 활용이 되는 시퀀스 데이터 표현 방식입니다. 자연어 처리에서는 문서 또는 문장을 벡터로 변환해 자연어 처리의 여러 응용 분야에 활용할 수 있도록 합니다. 예를 들어 다음 단어를 예측해야 하는 오타 교정과 같은 분야에 활용될 수 있습니다. 정보 검색에서는 문서에 나타난 단어들의 분포들을 고려해 문서 간의 유사도 계산해 문서 분류(document classification)에 활용합니다. ngram에서 n은 연속된 단어의 개수를 의미합니다. 여기서 각 단어는 토큰(token)이라 하며 토큰 개수(n)에 따라 다음과 같이 부릅니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/n-gram-model/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/nltk/">NLTK를 이용한 자연어 처리</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/nltk/" class="article-date">
+                        <time datetime='2021-11-20T20:19:26.000&#43;09:00' itemprop="datePublished">2021-11-20</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    NLTK(Natural Language Toolkit)는 언어 처리 기능을 제공하는 파이썬 라이브러리입니다. 손쉽게 이용할 수 있도록 모듈 형식으로 제공하고 있습니다. 이러한 모듈의 범주로 분류 토큰화(tokenization), 스테밍(stemming)와 같은 언어 전처리 모듈 부터 구문분석(parsing)과 같은 언어 분석, 클러스터링, 감정 분석(sentiment analysis), 태깅(tagging)과 같은 분석 모듈 시맨틱 추론(semantic reasoning)과 같이 보다 고차원 적인 추론 모듈도 제공하고 있습니다. 각 모듈에서 사용하는 알고리즘은 최소 2개 이상의 알고리즘을 제공하고 있어, 사용자가 원하는 알고리즘을 폭넓게 사용할 수 있도록 돕습니다. 예를 들어 분류 알고리즘의 경우 SVMs, 나이브 베이즈(Naive Bayes), 로지스틱 회귀(logistic regression)와 결정 트리(decision trees)를 제공하고 있고 이들 중 하나를 선택해 분류 알고리즘을 적용할 수 있습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/nltk/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/language-models/">언어 모델</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/language-models/" class="article-date">
+                        <time datetime='2021-11-20T20:19:26.000&#43;09:00' itemprop="datePublished">2021-11-20</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    언어 모델(language model)은 단어 시퀀스(word sequence)를 이용한 확률 모델입니다. 언어 모델은 기계 번역, 음성 인식, 오타 교정(spell correction), 손글씨 인식(handwriting recognition), 문서 요약, 질의 응답 생성 등과 같이 최종 출력인 단어 시퀀스를 예측하는 태스크에 사용됩니다.
+확률 언어 모델 확률 언어 모델(probabilistic langugage model)은 하나의 단어(w) 앞에 나온 n개의 단어 시퀀스(word sequence)을 고려해 다음에 나올 단어를 예측하는 확률 모델입니다. n개의 단어가 연속해서 나는 단어 시퀀스의 확률 P(w1,w2,w3,&hellip;,wn)는 다음과 같습니다.
+P(W)=P(w1,w2,w3,...,wn) 즉, n개의 단어를 하나의 시퀀스로 보고 단어 시퀀스들의 결합 확률을 계산해 언어 모델을 만듭니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/language-models/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/lm/">언어 모델에 대한 이해</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/lm/" class="article-date">
+                        <time datetime='2021-11-20T20:19:26.000&#43;09:00' itemprop="datePublished">2021-11-20</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    언어모델(Language Model)은 자연어처리 분야에서 주인공이죠. 대량의 텍스트 데이터에 대한 문장의 구조, 의미, 문맥을 완벽히 소화해내는 달인이라고 생각해요. 언어 모델은 새로운 문장을 생성하는 능력이 뛰어난데요, 가끔은 언어모델에게 배울게 많다는 생각이 들어요. 그래서 어떤 문장을 내뱉을지, 기대감이 느껴지기도 해요. 예를 들어, 텍스트 입력으로 '나는 점심에 식사를 하러 ____ ____'라는 입력이 들어왔을 때, 언어 모델은 빈칸에 알맞은 우주로 날아갔다' 와 같은 단어를 예측해줘요! 그래서 자동 요약, 기계 번역, 검색 엔진, 문장 완성 등 다양한 분야에서 활용되고 있답니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/lm/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/regular-expressions/">자연어 처리를 위한 정규식</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/regular-expressions/" class="article-date">
+                        <time datetime='2021-11-20T20:19:26.000&#43;09:00' itemprop="datePublished">2021-11-20</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    정규식(regular expressions)은 프로그래밍 언어 내장된 문자열 처리를 위한 언어입니다. 패턴을 기반으로 문자열에 대한 검색, 삭제, 치환 기능을 수행할 수 있습니다. 예를 들어 이메일 주소, 전화번호, 우편번호 등과 같이 널리 사용되는 형식의 패턴을 추출 하거나 문자열 분리, 삭제, 치환 등의 텍스트 정제에 사용할 수 있습니다.
+정규식 메타 문자열 메타 문자열은 정규식에서 문자열 매치 할 때 사용하는 문자열입니다. 다음과 같은 문자열이 있습니다.
+. ^ $ * + ? { } [ ] \ | ( ) 위에서 열거한 메타 문자는 정규식에서 특별한 의미가 있습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/regular-expressions/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/open-source/">자연어처리 라이브러리 소개</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/open-source/" class="article-date">
+                        <time datetime='2021-11-20T20:19:26.000&#43;09:00' itemprop="datePublished">2021-11-20</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    자연어처리 모듈을 처음 부터 모두 개발하는 것은 쉽지 않습니다. 따라서 필요로 하는 자언어 처리 알고리즘이 이미 구현되어 있다면 효율적인 진행을 위해 공개된 자연어처리 라이브러리를 적절히 이용하는 것이 좋습니다. 오픈소스로 공개된 자연어처리 라이브러리는 그 수가 많습니다. 본문에서는 주요 자연어처리 라이브러리를 소개하며 어떤 점을 활용하면 좋을지를 소개 하겠습니다.
+자연어처리 툴킷(NLTK) NLTK(Natural Language Toolkit)는 언어 처리 기능을 제공하는 파이썬 라이브러리입니다. 손쉽게 이용할 수 있도록 모듈 형식으로 제공하고 있습니다. 이러한 모듈의 범주로 분류 토큰화(tokenization), 스테밍(stemming)와 같은 언어 전처리 모듈 부터 구문분석(parsing)과 같은 언어 분석, 클러스터링, 감정 분석(sentiment analysis), 태깅(tagging)과 같은 분석 모듈 시맨틱 추론(semantic reasoning)과 같이 보다 고차원 적인 추론 모듈도 제공하고 있습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/open-source/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/postag-set/">품사와 품사 태그셋 소개</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/postag-set/" class="article-date">
+                        <time datetime='2021-11-20T20:19:26.000&#43;09:00' itemprop="datePublished">2021-11-20</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    POS tagging(part-of-speech tagging)은 형태소 분석 결과 분류된 품사를 태깅하는 작업을 의미한다. 여기서 품사는 단어의 공통 성질을 갈래 지어 놓은 이름이다. 태깅시 사용하는 품사에 대응하는 약속은 품사 태그(POS Tag : part-of-speech tag)라 하며 이들 품사 태그의 모음을 품사 태그 셋(tag set)이라고 한다. 품사 부착 말뭉치(corpus)는 품사 태그가 부착된 말뭉치를 의미한다. 고품질의 품사 부착 말뭉치의 규모가 커지면 언어 연구 진행이 용이해진다. 이 문서에는 품사 태그셋을 소개하기에 앞서 한국어와 영어의 품사를 소개하고, 영어의 품사 태그셋과 한국어의 품사 태그셋(POS Tag Set)을 소개한다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/postag-set/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/intro-nlp-2/">자연어 처리 과정</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/intro-nlp-2/" class="article-date">
+                        <time datetime='2021-11-19T20:19:26.000&#43;09:00' itemprop="datePublished">2021-11-19</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    컴퓨터가 사람의 언어를 이해하기 위해 일반적으로 다음과 같은 언어 처리 과정을 거칩니다.
+텍스트 입력 → 형태소 분석 → 구문 분석 → 의미 분석 → 화용 분석 → 분석 결과 출력 형태소 분석(morphological analysis)은 자연어의 최소 의미인 형태소를 식별하는 언어 처리 과정입니다. 구문 분석(syntax analysis)은 주어, 동사, 목적어등의 문장성분을 판별해 문장성분에 따른 문장 구조를 분석하는 과정입니다. 문장성분을 분석하기 위해 구문 분석기(parser)를 이용해 구문(構文) 분석을 수행하여 구문 트리(syntax tree)또는 파스 트리(parse tree)를 만듭니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/intro-nlp-2/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/dev/heuristic/">휴리스틱 가이드라인</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/dev/heuristic/" class="article-date">
+                        <time datetime='2021-11-02T23:37:11.000&#43;09:00' itemprop="datePublished">2021-11-02</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    휴리스틱 가이드라인은 직관적으로 판단할때 사용할 수 있는 UX적용 요소를 포함하고 있다. 웹에서 쓰이는 대표적인 휴리스틱 가이드라인으로는 제이콥 닐슨이 제시한 10가지 가이드라인이 있다.
+1. 가시성 시스템은 사용자에게 시스템 상태를 적절한 시기에 인지하기 좋은 형태로 전달함
+2. 익숙함 시스템은 사용자가 현실 세계에서 익숙한 단어를 사용함
+3. 자유성 사용자가 실수로 특정 기능을 선택하더라도 복구할 수 있는 제어 방법을 제공함
+4. 일관성 시스템에 사용하는 용어는 일관성 있게 사용
+5. 예방 에러 예방을 위해 에러 메시지가 어떤 의미인지 사용자에게 전달
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/dev/heuristic/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+
+        
+
+<nav id="page-nav">
+    
+    <a href="/page/7/" rel="prev" class="extend prev">&laquo; Prev</a>
+    
+    
+    
+    <a href="/">1</a>
+    
+    
+    
+    <a href="/page/2/">2</a>
+    
+    
+    
+    <a href="/page/3/">3</a>
+    
+    
+    
+    <a href="/page/4/">4</a>
+    
+    
+    
+    <a href="/page/5/">5</a>
+    
+    
+    
+    <a href="/page/6/">6</a>
+    
+    
+    
+    <a href="/page/7/">7</a>
+    
+    
+    
+    <span class="page-number current">8</span>
+    
+    
+    
+    <a href="/page/9/">9</a>
+    
+    
+    
+    <a href="/page/10/">10</a>
+    
+    
+    
+    <a href="/page/11/">11</a>
+    
+    
+    
+    <a href="/page/12/">12</a>
+    
+    
+    
+    <a href="/page/13/">13</a>
+    
+    
+    
+    <a href="/page/14/">14</a>
+    
+    
+    
+    <a href="/page/15/">15</a>
+    
+    
+    
+    <a href="/page/16/">16</a>
+    
+    
+    
+    <a href="/page/17/">17</a>
+    
+    
+    
+    <a href="/page/18/">18</a>
+    
+    
+
+    
+    <a href="/page/9/" rel="next" class="extend next">Next &raquo;</a>
+    
+</nav>
+
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

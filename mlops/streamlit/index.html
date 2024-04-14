@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Streamlit 소개와 설치</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Streamlit 소개와 설치" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/mlops/streamlit/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/mlops/" class="archive-article-date">&lt; Mlops</a></div>
+            
+            <h1 class="article-title" itemprop="name">Streamlit 소개와 설치</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/mlops/streamlit/" class="article-date">
+                <time datetime='2023-01-24T17:14:01.000&#43;09:00' itemprop="datePublished">2023-01-24</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="streamlit-">Streamlit 소개</h3>
+<p>treamlit은 Python으로 데이터 시각화 및 웹 애플리케이션 개발을 간단하게 할 수 있게 해주는 라이브러리입니다. 특히, 데이터 과학자나 머신 러닝 엔지니어들이 머신 러닝 모델의 결과를 쉽게 공유하고 데모를 만들 수 있도록 해줍니다.</p>
+<p>Streamlit은 다음과 같은 이점을 제공합니다.</p>
+<ol>
+<li>간편한 구현: Streamlit은 기본적인 웹 프레임워크와 비교하여 훨씬 적은 코드로 애플리케이션을 구현할 수 있습니다.</li>
+<li>반응성: Streamlit은 실시간으로 변경 사항을 업데이트하고, 자동으로 새로고침합니다.</li>
+<li>시각화: Streamlit은 matplotlib, bokeh, plotly 등과 같은 인기 있는 시각화 라이브러리와 함께 사용할 수 있습니다.</li>
+<li>대화형: Streamlit은 사용자 입력에 따라 결과를 동적으로 업데이트하고 다양한 인터랙티브 요소를 포함할 수 있습니다.</li>
+</ol>
+<p>Streamlit을 사용하면 머신 러닝 모델의 결과를 쉽게 공유하고, 데모를 만들어내는 등 다양한 용도로 사용할 수 있습니다. 또한 Streamlit은 Python으로 작성되어 있기 때문에, Python을 다룰 수 있다면 쉽게 사용할 수 있습니다.</p>
+<h3 id="streamlit--1">Streamlit 설치</h3>
+<pre><code>$ pip install streamlit
+</code></pre><p>streamlit의 hello 앱을 실행합니다.</p>
+<pre><code>$ streamlit hello
+
+  👋 Welcome to Streamlit!
+
+  If you’d like to receive helpful onboarding emails, news, offers, promotions,
+  and the occasional swag, please enter your email address below. Otherwise,
+  leave this field blank.
+
+  Email:
+
+  You can find our privacy policy at https://streamlit.io/privacy-policy
+
+  Summary:
+  - This open source library collects usage statistics.
+  - We cannot see and do not store information contained inside Streamlit apps,
+    such as text, charts, images, etc.
+  - Telemetry data is stored in servers in the United States.
+  - If you'd like to opt out, add the following to ~/.streamlit/config.toml,
+    creating that file if necessary:
+
+    [browser]
+    gatherUsageStats = false
+
+
+  Welcome to Streamlit. Check out our demo in your browser.
+
+  Local URL: http://localhost:8501
+  Network URL: http://192.168.0.74:8501
+
+  Ready to create your own Python apps super quickly?
+  Head over to https://docs.streamlit.io
+
+  May you create awesome apps!
+
+
+  For better performance, install the Watchdog module:
+
+  $ xcode-select --install
+  $ pip install wat
+</code></pre><p>hello 앱 실행 결과는 아래 화면과 같습니다.</p>
+<p><img src="../streamlit.jpeg" alt=""></p>
+<h3 id="--">사용자 앱 실행</h3>
+<p>streamlit에서 제공하는 API를 이용해 출력에 사용할 구성을 적용합니다.</p>
+<p>[app.py]</p>
+<pre><code>import streamlit as st
+
+st.title (&quot;app title입니다.&quot;)
+st.header(&quot;header입니다.&quot;)
+st.markdown(&quot;markdown입니다.&quot;)
+st.subheader(&quot;subheader입니다.&quot;)
+st.caption(&quot;caption입니다.&quot;)
+st.code(&quot;x=2023&quot;)
+st.latex(r''' a+a x^1+a x^2+a x^3 ''')
+</code></pre><p>streamlit을 이용해 app.py을 실행합니다.</p>
+<pre><code>$ streamlit run app.py
+</code></pre><p>브라우저(http://localhost:8501/)에 앱 실행결과가 출력됩니다.</p>
+<p><img src="../streamlit_user_app.jpeg" alt=""></p>
+<p>Streamlit은 데이터 과학자나 머신 러닝 엔지니어들에게 매우 유용한 도구입니다. 빠르고 간편하게 애플리케이션을 만들 수 있으며, 사용자 입력에 따라 동적으로 업데이트되기 때문에 대화형 요소도 쉽게 추가할 수 있습니다. 또한 Python으로 작성되어 있기 때문에, Python을 다룰 수 있다면 누구나 쉽게 사용할 수 있습니다.</p>
+<h3 id="-">참고 문서</h3>
+<ul>
+<li><a href="https://docs.streamlit.io/library/get-started/installation">https://docs.streamlit.io/library/get-started/installation</a></li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/mlops/streamlit/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#streamlit-">Streamlit 소개</a></li>
+        <li><a href="#streamlit--1">Streamlit 설치</a></li>
+        <li><a href="#--">사용자 앱 실행</a></li>
+        <li><a href="#-">참고 문서</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/mlops/voila/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Voila 소개와 설치
+        </div>
+    </a>
+    
+    
+    <a href="/mlops/dvc/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">DVC 소개와 설치&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

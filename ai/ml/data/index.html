@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>머신러닝 데이터 관리</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="머신러닝 데이터 관리" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/ai/ml/data/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/ai/" class="archive-article-date">&lt; Ais</a></div>
+            
+            <h1 class="article-title" itemprop="name">머신러닝 데이터 관리</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/ai/ml/data/" class="article-date">
+                <time datetime='2020-12-31T00:24:37.000&#43;03:00' itemprop="datePublished">2020-12-31</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="-">데이터의 종류</h3>
+<p>머신 러닝에서 문제 유형에 따라 사용하는 데이터가 다르다. 데이터는 크게 형태에 따라 음성, 이미지, 텍스트로 나뉜다. 이중 텍스트 데이터의 예로 <a href="https://meta.wikimedia.org/wiki/Data_dump_torrents#English_Wikipedia">위키피디아 데이터</a>가 있다.</p>
+<h3 id="--1">데이터 균형</h3>
+<p>데이터 양이 많아도 다음 두가지 유형 중 하나의 문제에 속해 있다면 학습이 잘 진행 되지 않을 수 있다.</p>
+<ul>
+<li>레이블링 편중 문제</li>
+<li>적은 데이터 문제</li>
+</ul>
+<p><code>레이블링 편중</code> 문제는 데이터 레이블링이 특정 카테고리로 편중되어 학습이 잘 되지 않는 문제다. loss function에 의해 데이터 레이블링이 많이 되어 있는 분류로 편중되어 학습될 수 있다. <code>레이블링 편중</code>의 해결법은 과소 표집 방식으로 데이터 레이블링이 많은 데이터의 레이블을 누락 시켜 데이터 균형을 맞추는 것이다. <code>적은 데이터 문제</code>는 학습 데이터가 없어 학습이 되지 않는 문제다. 학습 데이터 유형이 이미지 라면 <code>원샷러닝(one-shot learning) </code>또는 <code>퓨샷 러닝(few-shot learning)</code>등의 알고리즘을 적용해 보완이 가능하다. 만약 학습 데이터가 텍스트 라면 사전 학습된 모델을 활용해 학습을 진행하는 <code>전이 학습(transfer learning)</code>을 활용해 데이터 부족 문제를 보완할 수 있다.</p>
+<h3 id="--2">데이터 표준화</h3>
+<p>데이터 레이블링을 보다 원할히 수행하려면 수치, 카테고리와 같은 데이터를 표준화할 필요가 있다. 예를 들어 150cm 와 1.5미터는 <code>150cm</code>로 표준화한다. 예를 들어 성별을 카테고리 하면 1,2로 구분해 카테고리를 표준화 할 수 있다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/ai/ml/data/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-">데이터의 종류</a></li>
+        <li><a href="#--1">데이터 균형</a></li>
+        <li><a href="#--2">데이터 표준화</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/rust/control-if-else/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Rust if 조건문
+        </div>
+    </a>
+    
+    
+    <a href="/ai/ml/lstm/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">RNN 모델을 확장한 LSTM&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

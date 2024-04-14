@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>맥 OS에서 아파치, PHP 시작 설정</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="맥 OS에서 아파치, PHP 시작 설정" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/installing-apache-php-on-macos/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">맥 OS에서 아파치, PHP 시작 설정</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/installing-apache-php-on-macos/" class="article-date">
+                <time datetime='2020-03-21T21:15:12.000&#43;03:00' itemprop="datePublished">2020-03-21</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>퍼미션 문제가 발생할 수 있어 루트 사용자로 권한을 변경합니다.</p>
+<pre><code>sudo su -
+</code></pre><h2 id="-os--">맥 OS에서 아파치 시작</h2>
+<pre><code>apachectl start
+</code></pre><p><a href="http://localhost/">http://localhost</a> 접속해 서버 페이지 접속이 가능한지 확인합니다.</p>
+<h2 id="-os-php-">맥 OS에서 PHP 시작</h2>
+<p>서버 페이지가 표시 됐다면 서버 시작은 정상적으로 수행된 것 입니다. 서버가 정상적으로 정상적으로 시작 됐더라도 별도 설정을 하지 않으면 PHP 페이지는 출력되지 않습니다. PHP 페이지를 출력하려면 아파치 설정을 수정해야 합니다. 먼저 아파치 설정을 백업해 둡니다. 앞으로 설정이 바뀌더라도 디폴트 설정이 무엇인지 참고할 때 사용할 수 있습니다.</p>
+<pre><code>cd /etc/apache2/
+cp httpd.conf httpd.conf.Catalina
+</code></pre><p>vi를 이용해 아파치 설정을 수정합니다.</p>
+<pre><code>vi httpd.conf
+</code></pre><p>아래 라인에 해당하는 줄의 커멘트를 제거합니다. (#를 제거)</p>
+<pre><code>LoadModule php7_module libexec/apache2/libphp7.so
+</code></pre><p>아파치를 재시작합니다.</p>
+<pre><code>apachectl restart
+</code></pre><p><a href="http://php.net/manual/en/function.phpinfo.php"><code>phpinfo()</code></a> 를 출력하는 페이지를 만들어 보겠습니다. 먼저 DocumentRoot가 어디에 있는지 확인해 보겠습니다. 맥 OS를 사용중 이라면 <code>/Library/WebServer/Documents</code>에 해당하는 위치입니다.</p>
+<pre><code>grep DocumentRoot httpd.conf
+</code></pre><p>실행 결과</p>
+<pre><code>$ grep DocumentRoot httpd.conf
+# DocumentRoot: The directory out of which you will serve your
+DocumentRoot &quot;/Library/WebServer/Documents&quot;
+    # access content that does not live under the DocumentRoot.
+</code></pre><p><code>phpinfo()</code> 페이지를 만들겠습니다.</p>
+<pre><code>echo '&lt;?php phpinfo();' &gt; /Library/WebServer/Documents/phpinfo.php
+</code></pre><p>http://localhost/phpinfo.php 접속해 확인합니다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/installing-apache-php-on-macos/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-os--">맥 OS에서 아파치 시작</a></li>
+    <li><a href="#-os-php-">맥 OS에서 PHP 시작</a></li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/netty/intro/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Netty 핵심 컴포넌트
+        </div>
+    </a>
+    
+    
+    <a href="/dev/cloud/docker/docker-compose/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">도커 컴포즈 소개&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

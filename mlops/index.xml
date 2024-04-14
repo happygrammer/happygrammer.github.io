@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Mlops on 해피그의 코드랩</title>
+    <link>https://happygrammer.github.io/mlops/</link>
+    <description>Recent content in Mlops on 해피그의 코드랩</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 31 Mar 2024 00:15:15 +0900</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/mlops/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ml 모델과 Data 퀄리티</title>
+      <link>https://happygrammer.github.io/mlops/ml-models-and-data-quality/</link>
+      <pubDate>Sun, 31 Mar 2024 00:15:15 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/ml-models-and-data-quality/</guid>
+      <description>안녕하세요, 여러분. 오늘은 머신러닝(ML) 모델의 성능에 가장 큰 영향을 미치는 요소 중 하나인 데이터 품질에 대해 이야기하려 합니다. &amp;ldquo;쓰레기가 들어가면 쓰레기가 나온다&amp;quot;라는 말이 있듯이, ML 모델은 학습에 사용되는 데이터만큼만 신뢰할 수 있습니다. 따라서 양질의 데이터를 확보하는 것은 ML 프로젝트 성공의 핵심입니다.
+양질의 데이터란 무엇일까요? 양질의 데이터는 다음과 같은 특징을 가지고 있습니다:
+ 정확성: 데이터가 현실 세계를 정확하게 반영해야 합니다. 완전성: 데이터에 누락된 값이 없어야 합니다. 일관성: 데이터 간에 모순이 없어야 합니다.</description>
+    </item>
+    
+    <item>
+      <title>책임 있는 AI 개발</title>
+      <link>https://happygrammer.github.io/mlops/responsible-ai-development/</link>
+      <pubDate>Mon, 01 Jan 2024 00:23:10 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/responsible-ai-development/</guid>
+      <description>안녕하세요, 여러분. 오늘은 프로덕션 환경에서 책임감 있는 AI를 개발하는 방법에 대해 이야기하려 합니다. AI 시스템을 개발하고 배포할 때, 우리는 다양한 이해관계자들의 관점을 고려해야 합니다. 여기에는 모델 빌더, ML 엔지니어, 비즈니스 의사결정권자, 그리고 ML 시스템의 최종 사용자가 포함됩니다.
+책임감 있는 AI를 만들기 위해서는 다음과 같은 원칙을 따라야 합니다:
+ 공정성과 편향성 최소화: AI 모델이 특정 집단에 대해 차별적인 결과를 내지 않도록 주의해야 합니다. 이를 위해 데이터의 편향성을 검토하고, 모델의 공정성을 평가하는 것이 중요합니다.</description>
+    </item>
+    
+    <item>
+      <title>모델 서빙 프레임워크</title>
+      <link>https://happygrammer.github.io/mlops/serving/</link>
+      <pubDate>Tue, 14 Mar 2023 23:16:52 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/serving/</guid>
+      <description>MLOps에서 모델 서빙 MLOps에서 모델 서빙은 운영 중인 머신 러닝 모델을 사용자와 상호작용할 수 있도록 만들어주는 프로세스입니다. 이는 모델의 성능, 안정성, 신뢰성을 보장하고, 실시간으로 모델을 업데이트하고 모델의 예측 결과를 모니터링할 수 있도록 해줍니다. 서빙은 대체로 세가지 기능을 포함할 수 있어야합니다.
+  사용자의 상호 작용 기능 : 모델 서빙은 사용자와의 상호작용 기능을 제공합니다. 이를 통해 모델이 실제 환경에서 사용되는 방식을 고려할 수 있습니다. 사용자의 요구사항에 따라 모델을 조정하고, 더 나은 성능을 위해 모델을 개선할 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>Voila 소개와 설치</title>
+      <link>https://happygrammer.github.io/mlops/voila/</link>
+      <pubDate>Tue, 24 Jan 2023 17:42:28 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/voila/</guid>
+      <description>Voila는 Jupyter 노트북에서 생성된 대화형 웹 애플리케이션을 만드는 오픈 소스 도구입니다. Voila를 사용하면 Jupyter 노트북을 실행하면서 생성된 셀의 결과를 대화형 대시보드로 전환할 수 있습니다.
+Jupyter 노트북은 데이터 분석 및 인공 지능 작업을 위한 인기있는 도구 중 하나입니다. 그러나 노트북의 코드와 결과는 주로 노트북 파일 자체에서만 볼 수 있습니다. 이는 작업을 공유하거나 다른 사람에게 결과를 시각적으로 보여줄 때 제한적일 수 있습니다.
+Voila는 이러한 제한을 극복하기 위해 개발되었습니다. Jupyter 노트북을 실행하면 대화형 대시보드로 전환되며, 코드와 결과를 다른 사용자와 쉽게 공유할 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>Streamlit 소개와 설치</title>
+      <link>https://happygrammer.github.io/mlops/streamlit/</link>
+      <pubDate>Tue, 24 Jan 2023 17:14:01 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/streamlit/</guid>
+      <description>Streamlit 소개 treamlit은 Python으로 데이터 시각화 및 웹 애플리케이션 개발을 간단하게 할 수 있게 해주는 라이브러리입니다. 특히, 데이터 과학자나 머신 러닝 엔지니어들이 머신 러닝 모델의 결과를 쉽게 공유하고 데모를 만들 수 있도록 해줍니다.
+Streamlit은 다음과 같은 이점을 제공합니다.
+ 간편한 구현: Streamlit은 기본적인 웹 프레임워크와 비교하여 훨씬 적은 코드로 애플리케이션을 구현할 수 있습니다. 반응성: Streamlit은 실시간으로 변경 사항을 업데이트하고, 자동으로 새로고침합니다. 시각화: Streamlit은 matplotlib, bokeh, plotly 등과 같은 인기 있는 시각화 라이브러리와 함께 사용할 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>DVC 소개와 설치</title>
+      <link>https://happygrammer.github.io/mlops/dvc/</link>
+      <pubDate>Tue, 24 Jan 2023 15:02:39 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/dvc/</guid>
+      <description>데이터 버전 관리 대용량 파일 버저닝을 위한 도구로 git-lfs, LakeFS, DVC, DeltaLake, dolthhub, Pachyderm, Neptune 등이 있습니다. 이중 DVC에 대해 알아 보도록 하겠습니다.
+DVC 소개 DVC(data version control)는 데이터 과학자들을 위한 멋진 도구랍니다! 데이터와 모델을 버전 관리하는 데 사용됩니다. DVC를 사용하면 Git과 비슷한 방식으로 데이터셋의 버전을 추적하고, 원래대로 되돌리고, 변경사항을 쉽게 복원할 수 있습니다. Git에는 용량 제한이 있지만, DVC CLI를 이용하면 대용량 파일, 데이터셋 디렉토리, 머신러닝 모델 등을 작고 가벼운 메타 파일로 대체하여 데이터 버전 관리를 지원해주어 편리합니다.</description>
+    </item>
+    
+    <item>
+      <title>Airflow 설치</title>
+      <link>https://happygrammer.github.io/mlops/airflow/</link>
+      <pubDate>Tue, 24 Jan 2023 12:58:56 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/airflow/</guid>
+      <description>Airflow는 데이터 파이프라인을 관리하고 스케줄링하기 위한 오픈소스 플랫폼입니다. Airflow는 일련의 작업(Task)을 DAG(Directed Acyclic Graph)로 구성하고, 각 작업이 완료될 때까지 기다렸다가 다음 작업을 실행할 수 있도록 설정할 수 있습니다.
+Airflow의 가장 큰 장점 중 하나는 유연성입니다. 사용자는 Python으로 작성된 코드를 이용해 다양한 작업(Task)을 정의할 수 있습니다. 또한 Airflow는 다양한 플러그인을 지원하며, 다양한 데이터 소스와 연동이 가능합니다.
+Airflow는 초보 사용자들도 쉽게 사용할 수 있도록 웹 인터페이스를 제공합니다. 이를 통해 DAG를 만들고, 실행 및 모니터링할 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>MLFlow 소개</title>
+      <link>https://happygrammer.github.io/mlops/mlflow/</link>
+      <pubDate>Sun, 22 Jan 2023 06:10:22 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/mlflow/</guid>
+      <description>MLflow는 머신 러닝 모델의 라이프 사이클을 관리하기 위한 오픈소스 플랫폼입니다. MLflow는 다음과 같은 세 가지 주요 기능을 제공합니다. MLFlow는 머신러닝 학습 주기 관리를 위한 오픈소스 플랫폼이다. MLFlow의 주요 기능은 아래와 같습니다.
+ MLflow 트래킹(tracking) : MLflow Tracking은 실험 결과를 기록하여 실험간의 비교 지원을 할 수 있다. 기록 가능한 실험 요소로 실험시 사용한 하이퍼 파라메터나, 실험 결과 loss, auccracy 의 학습 과정에서 출력되는 주요 지표 들을 저장할 수 있다. 실험 결과들이 쌓이다 보면 각 실험들의 특징을 비교하기 어려울 수 있는데 이러한 경우는 는 tag 기능과 note 기능을 이용해 부가적인 정보를 기록함으로서 실험간의 비교시에 사용할 수 있도록 한다.</description>
+    </item>
+    
+    <item>
+      <title>MLOps 오픈소스</title>
+      <link>https://happygrammer.github.io/mlops/opensource/</link>
+      <pubDate>Wed, 11 Jan 2023 06:02:52 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/opensource/</guid>
+      <description>MLOps를 체계적으로 적용하기에 앞서 MLOps 도구를 도입할 필요가 있습니다. ML Ops의 도구 중 오픈소스는 기업이 도입하기에 유리한 방식입니다. 오픈소스 도입 전에 한가지 생각해 볼 점이 있습니다.
+오픈소스 선택 MLOps에서 오픈소스를 사용하는 것은 매우 일반적인 방법입니다. 오픈소스는 머신 러닝 개발자들에게 매우 유용한 도구입니다. 다양한 머신 러닝 라이브러리와 프레임워크를 제공하며, 이를 사용하여 머신 러닝 모델을 쉽게 개발할 수 있습니다. 특히, 오픈소스를 사용하면 머신 러닝 모델의 개발 속도를 높일 수 있습니다. 또한, 오픈소스 커뮤니티에서는 다양한 문제들에 대한 해결책을 제공하며, 이를 활용하여 머신 러닝 모델을 개발할 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>MLOps 플랫폼</title>
+      <link>https://happygrammer.github.io/mlops/mlops-platform/</link>
+      <pubDate>Tue, 10 Jan 2023 05:04:54 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/mlops-platform/</guid>
+      <description>MLOps 플랫폼이란? MLOps 플랫폼 기술은 상용을 위한 기계학습 애플리케이션 배포 및 확장과 관련한 기술이다. 크게 세가지 관점의 기술 내용을 포함합니다.
+ ML 모델 상태 관리 E2E 머신러닝 오케스트레이션 컨테이너 기술  ML 모델 상태 관리 기술은 머신러닝 모델의 생명 주기를 관리하고, 모델의 자동 배포 및 모델의 상태 정보를 관리하는 기술입니다. 이를 통해 모델의 생성 일자, 생성 주기, 모델의 성능 수치와 같은 모델의 특성 정보를 포함하여 모델을 모니터링하고, 모델의 사용량 및 처리량을 지속적으로 모니터링하고 제어할 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>머신러닝 엔지니어가 알아야 할 MLOps</title>
+      <link>https://happygrammer.github.io/mlops/mlops_essentials_for_ml_engineers/</link>
+      <pubDate>Tue, 10 Jan 2023 05:04:54 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/mlops_essentials_for_ml_engineers/</guid>
+      <description>안녕하세요, 개발자 여러분! 오늘은 머신러닝 엔지니어로서 꼭 알아야 할 MLOps에 대해 알아보겠습니다.
+MLOps의 필요성 MLOps(Machine Learning Operations)는 머신러닝 모델의 개발, 배포, 모니터링 등을 자동화하고 관리하는 일련의 프로세스를 의미합니다. 머신러닝 모델을 개발하는 것만큼이나 중요한 것이 바로 이 MLOps입니다.
+MLOps의 주요 구성 요소  데이터 수집 및 전처리 모델 학습 및 평가 모델 배포 및 서빙 모니터링 및 알림  데이터 수집 및 전처리 머신러닝 모델 개발에 있어 가장 중요한 부분 중 하나는 바로 데이터입니다.</description>
+    </item>
+    
+    <item>
+      <title>MLOps란 무엇인가?</title>
+      <link>https://happygrammer.github.io/mlops/intro/</link>
+      <pubDate>Tue, 10 Jan 2023 03:28:11 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/mlops/intro/</guid>
+      <description>MLOps는 머신러닝과 소프트웨어 분야의 DevOps를 합친 합성어입니다. ML은 머싱러닝(Machine Learning)을 의미하며 Ops는 시스템 운영을 의미합니다. 이름 그대로 머신러닝 시스템 운영을 지원하는 체계입니다. ML 모델의 생성 배포에 필요한 운영 비용을 낮추고 효율적으로 ML 모델을 운영하기 위해 필요한 모범 사례 모음이기도 합니다. MLOps는 생명 주기의 각 과정을 자동화하는 데 과업들을 포함합니다. MLOps라는 용어에서 느껴지듯 ML 영역과 IT 의 역할을 합쳐 놓은 합성어이다. MLOps는 크게 ML 영역과 DEV영역과 OPS영역을 포괄하는 용어로 데이터 구축, 모델 개발 및 훈련, 모델 배포와 관련해 효율성과 생산성을 개선시키는데 초점이 있습니다.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1시간 안에 Git 익히기</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="1시간 안에 Git 익히기" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/git/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">1시간 안에 Git 익히기</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/git/" class="article-date">
+                <time datetime='2020-01-06T01:26:13.000&#43;03:00' itemprop="datePublished">2020-01-06</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>Git은 분산 버전 관리 시스템으로 <code>리눅스 토발즈</code>가 만들었으며 파일의 변경사항을 추적하고 관리할 수 있습니다.</p>
+<h3 id="1-git-">1. Git 설치</h3>
+<ul>
+<li>GIt 설치 : <a href="https://git-scm.com/downloads">https://git-scm.com/downloads</a></li>
+<li>Github : 깃허브는 Git을 지원하는 웹 호스팅 서비스</li>
+<li>Github Desktop : <a href="https://desktop.github.com/,">https://desktop.github.com/,</a> Github을 편리하게 이용할 수 있도록 만든 소프트웨어</li>
+</ul>
+<h3 id="2-git---">2. Git을 이용한 형상 관리</h3>
+<p><img src="https://miro.medium.com/max/1222/1*AZa45AoRHDQJsMKdAkTlLA.png" alt="img"></p>
+<p><a href="http://nvie.com/posts/a-successful-git-branching-model/">http://nvie.com/posts/a-successful-git-branching-model/</a></p>
+<h3 id="3-git--">3. Git 쉘 명령어</h3>
+<h4 id="-">기본 명령어</h4>
+<ul>
+<li>git init: 깃 저장소를 초기화한다.</li>
+<li>git help: 깃 명령어를 확인한다.</li>
+<li>git status: 저장소 상태 정보 표시(저장소에 존재하는 파일, 커밋이 필요한 변경 사항, 현재 브랜치 위치 등)
+<ul>
+<li>상태 상태라면 <code>&quot;your branch is up-to-date with 'origin/master'&quot;</code>와 같이 표시</li>
+</ul>
+</li>
+</ul>
+<h4 id="--1">사용자 설정</h4>
+<ul>
+<li>git config &ndash;global user.name &ldquo;happygrammer&rdquo;</li>
+<li>git config &ndash;global user.email &ldquo;your-github-email&rdquo;</li>
+</ul>
+<h4 id="-add---commit">파일 add  파일 commit</h4>
+<ul>
+<li>git add: git이 새로운 파일을 지켜보도록 stage에 add함(staging)</li>
+</ul>
+<pre><code>git add . // 모든 파일을 add함
+git add test.js // test.js 파일만을 add함
+</code></pre><ul>
+<li>git commit: git의 가장 중요한 명령어로 스냅샷을 찍기 위해 커밋함.</li>
+</ul>
+<pre><code>git commit -m &quot;커밋 메시지&quot;
+</code></pre><h4 id="-checkout">브랜치 checkout</h4>
+<ul>
+<li>git checkout &lt;이동할 브랜치명&gt;</li>
+</ul>
+<pre><code>git checkout master // 마스터 브랜치로 변경
+git checkout -b hello // hello 브랜치를 새성하고 checkout함
+git checkout -m &lt;기존 브랜치&gt; &lt;새로운 브랜치&gt; // 브랜치명 변경하기
+</code></pre><h4 id="branch-merge">branch와 merge</h4>
+<ul>
+<li>git branch</li>
+</ul>
+<pre><code>git branch &lt;생성할 브랜치명&gt; // 브랜치 생성
+git branch -d &lt;삭제할 브랜치&gt; // 브랜치 삭제
+git branch -D mybranch // 브랜치 강제삭제(non-merged 브랜치 삭제)
+git branch -f master HEAD~3 // master 브랜치를 헤드로부터 위로 3단계 올라감
+git branch -m &lt;기존 브랜치&gt; &lt;수정할 브랜치명&gt; // 브랜치명 변경
+git branch -r // 원격 브랜치 목록
+git branch -l // 로컬 브랜치 목록
+git branch -v  // 마지막 커밋 메시지도 함께 출력
+git branch -vv  // 추적중인 브랜치 확인
+git branch --merged // 머지가 완료된 브랜치만 표시
+git branch --no-merged // 머시가 미완료인 브랜치만 표시
+</code></pre><ul>
+<li>git merge</li>
+</ul>
+<pre><code>git merge &lt;브랜치&gt; // 다른 브랜치를 현재 브랜치로 합치기
+git merge --no-commit &lt;브랜치&gt; // 커밋 없이 합치기
+git cherry-pick &lt;커밋명&gt; // 선택하여 합치기
+git cherry-pick -n &lt;커밋명&gt; // 커하지 않고 선택하여 합치기
+git merge --squash &lt;브랜치&gt; // 브랜치 이력을 다른 브랜치에 합치기
+</code></pre><ul>
+<li>git reset</li>
+</ul>
+<pre><code>git reset // add 한 파일 취소
+git reset —-merge // merge 한 코드 취소
+git reset —-hard HEAD^ // 이전 커밋 리셋하기
+git reset —-soft HEAD^ // 코드는 살리고 이전 커밋만 취소하기
+</code></pre><h4 id="--">원격 저장소 연결하기</h4>
+<p><code>git remote add &lt;단축이름&gt; &lt;url&gt;</code>을 이용해 원격 저장소 연결</p>
+<pre><code class="language-console" data-lang="console">git remote add happygrammer.blog https://github.com/happygrammer/happygrammer.github.io
+</code></pre><p>git remote 명령어로 등록된 단축이름 확인</p>
+<pre><code>$ git remote
+happygrammer.blog
+</code></pre><p>단축이름 활용 예로 단축 이름을 사용해 저장소 가져오기</p>
+<pre><code>git fetch happygrammer.blog
+</code></pre><h4 id="---">원격 저장소에서 가져오기와 반영하기</h4>
+<p>git merge: 브랜치 작업을 끝내고 master 브랜치로 병합. (예) cats 브랜치에서 만든 모든 변경사항을 master 브랜치로 병합하려면 &ldquo;git merge cats&quot;로 입력</p>
+<ul>
+<li>
+<p>git pull: 원격 저장소를 로컬 컴퓨터(서버)로 가져오기 위한 다운로드 명령어</p>
+</li>
+<li>
+<p>git push: 로컬 저장소를 원격 저장소(깃서버)로 업로드 하는 명령어</p>
+</li>
+</ul>
+<pre><code>git push origin master // 원격 저장소의 master 저장소로 업로드
+</code></pre><p>쉘스크립트로 만들어 둔다면 다음과 같이 합니다.</p>
+<pre><code>git add .
+git commit -m &quot;commit&quot;
+git remote add origin https://github.com/happygrammer/happygrammer.github.io.git
+git push -u origin master
+</code></pre><p>만야 push시 다른 저장소에서 commit해 update가 되어 충돌이 나면 다음과 같은 메시지가 나타날 수 있습니다.</p>
+<pre><code>fatal: remote origin already exists.
+To https://github.com/happygrammer/happygrammer.github.io.git
+ ! [rejected]        master -&gt; master (non-fast-forward)
+error: failed to push some refs to 'https://github.com/happygrammer/happygrammer.github.io.git'
+hint: Updates were rejected because the tip of your current branch is behind
+hint: its remote counterpart. Integrate the remote changes (e.g.
+hint: 'git pull ...') before pushing again.
+hint: See the 'Note about fast-forwards' in 'git push --help' for details.
+</code></pre><p>hint에서 안내 했듯이 먼저 <code>git pull</code>을 수행합니다. <code>git pull origin &lt;branch-name&gt;</code>을 입력합니다.</p>
+<pre><code>git pull origin master
+</code></pre><p>위와 같이 명령어를 입력했을때 다음과 같은 메시지를 만날 수 있습니다.</p>
+<pre><code>$ git pull origin master
+From https://github.com/happygrammer/happygrammer.github.io
+ * branch            master     -&gt; FETCH_HEAD
+fatal: refusing to merge unrelated histories
+</code></pre><p><code>--allow-unrelated-histories</code>옵션으로 강제 merge할 수 있으나 <a href="https://stackoverflow.com/questions/37937984/git-refusing-to-merge-unrelated-histories-on-rebase/37938036#37938036">비추천 방법</a>입니다. 이후 다음과 같은 에러 메시지를 만날 수 있습니다.</p>
+<pre><code>error: The following untracked working tree files would be overwritten by merge:
+	.DS_Store
+	README.md
+Please move or remove them before you merge.
+</code></pre><p>그런 먼저 다음과 같이 입력합니다. 그런데 아래 명령어의 주의 사항이 있는데요. tracking되지 않는 파일도 지울 수 있다는 점입니다.</p>
+<h3 id="untracked-file-">Untracked file 삭제</h3>
+<p>untracked file을 삭제 할 때는 아래 명령어를 이용하면됩니다. 주의 할점은 아래 명러어를 실행하면 untracked file을 모두 삭제합니다. 실수로 현재 디렉터리를 <code>git init</code> 후, 아래 명령어를 실행하면 현재 디렉터리의 파일이 삭제 되니 신중히 사용하시기 바랍니다.</p>
+<p><strong>Git 2.11이나 최신 버전</strong></p>
+<pre><code>git clean  -d  -f .
+</code></pre><p><strong>Git 구버전</strong></p>
+<pre><code>git clean  -d  -f &quot;&quot;
+</code></pre><h4 id="---1">깃 이력 보기</h4>
+<ul>
+<li>git log</li>
+</ul>
+<pre><code>git log // 모든 이력 보기
+git log -1 // 1개 이력만 표시
+git log --since=”6 hours” // 6시간 이후 커밋 이력 보기
+git log --before=”2 days” // 2일전까지 커밋 이력 보기
+git log --pretty=oneline // 로그 이력 한 줄씩 보기
+</code></pre>
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/git/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#1-git-">1. Git 설치</a></li>
+        <li><a href="#2-git---">2. Git을 이용한 형상 관리</a></li>
+        <li><a href="#3-git--">3. Git 쉘 명령어</a></li>
+        <li><a href="#untracked-file-">Untracked file 삭제</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/hugo/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Hugo 정적 사이트 생성기 가이드
+        </div>
+    </a>
+    
+    
+    <a href="/dev/vi/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">1시간 안에 Vi 익히기&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

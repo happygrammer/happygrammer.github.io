@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>파이썬 컴프리헨션: 한 줄로 자료구조 다루기</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="파이썬 컴프리헨션: 한 줄로 자료구조 다루기" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/language/python3/python-comprehensions-for-concise-code/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">파이썬 컴프리헨션: 한 줄로 자료구조 다루기</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/language/python3/python-comprehensions-for-concise-code/" class="article-date">
+                <time datetime='2024-03-31T04:25:40.000&#43;09:00' itemprop="datePublished">2024-03-31</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>안녕하세요, 파이썬 개발자 여러분! 오늘은 파이썬에서 자료구조를 더욱 효율적이고 간결하게 표현할 수 있는 <code>컴프리헨션(Comprehension)</code> 문법에 대해 알아보겠습니다.</p>
+<p>컴프리헨션은 리스트, 딕셔너리, 세트 등의 자료구조를 생성할 때 사용할 수 있는 강력한 문법입니다. 간단한 예시를 통해 살펴보겠습니다.</p>
+<p>먼저, <code>리스트 컴프리헨션</code>을 사용하여 리스트 &lsquo;a'에서 2보다 큰 요소로 이루어진 새 리스트 &lsquo;b'를 생성해보겠습니다.</p>
+<pre><code>a = [1, 2, 3, 4]
+b = [i for i in a if i &gt; 2]
+print(b) # [3, 4]
+</code></pre><p>리스트 컴프리헨션을 사용하면 한 줄의 코드로 간결하게 새로운 리스트를 생성할 수 있습니다.</p>
+<p>다음으로, <code>딕셔너리 컴프리헨션</code>을 사용하여 딕셔너리 &lsquo;a'에서 값이 2보다 큰 키-값 쌍으로 이루어진 새로운 딕셔너리 &lsquo;b'를 생성해보겠습니다.</p>
+<pre><code>a = {'a': 1, 'b': 2, 'c': 3}
+b = {i: j for i, j in a.items() if j &gt; 2}
+print(b) # {'c': 3}
+</code></pre><p>딕셔너리 컴프리헨션을 사용하면 딕셔너리의 키-값 쌍을 간단히 필터링하고 새로운 딕셔너리를 생성할 수 있습니다.</p>
+<p>마지막으로, <code>세트 컴프리헨션</code>을 사용하여 세트 &lsquo;a'에서 2보다 큰 요소로 이루어진 새 세트 &lsquo;b'를 생성해보겠습니다.</p>
+<pre><code>a = {1, 2, 3, 4}
+b = {i for i in a if i &gt; 2}
+print(b) # {3, 4}
+</code></pre><p>컴프리헨션을 사용하면 코드의 가독성과 성능을 높일 수 있습니다. 복잡한 for 루프와 조건문을 사용하는 대신, 간결하고 표현력 있는 컴프리헨션을 활용하는 것이 좋습니다. 파이썬 개발자라면 컴프리헨션 문법을 익히고 적극적으로 사용하여 코드의 효율성과 가독성을 높이는 것이 중요합니다. 컴프리헨션으로 더 간결하고 우아한 코드를 작성해보세요!</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/language/python3/python-comprehensions-for-concise-code/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents"></nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/language/python3/python-for-loops/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            파이썬 for 루프 마스터하기
+        </div>
+    </a>
+    
+    
+    <a href="/insights/life-lessons-from-park-chu-young/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">코드로 풀어보는 행복의 알고리즘&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

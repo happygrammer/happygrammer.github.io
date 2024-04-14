@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>코드 리뷰 어떻게 할 것인가</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="코드 리뷰 어떻게 할 것인가" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/code-review/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">코드 리뷰 어떻게 할 것인가</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/code-review/" class="article-date">
+                <time datetime='2021-04-09T23:29:22.000&#43;03:00' itemprop="datePublished">2021-04-09</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>코드리뷰는 코드 구조의 일관성과 안정성을 높이기 위해 진행하는 중요한 과정입니다. 코드리뷰를 통해 코드 스타일 준수, 잠재적 오류 예방, 성능 개선 등을 이룰 수 있죠.</p>
+<p>코드리뷰 진행 시에는 팀 내 컨벤션을 기준으로 하되, 구글의 코드 <a href="https://github.com/google/styleguide">스타일 가이드</a>를 참고하는 것도 좋습니다. 구글은 다음과 같은 방식으로 코드리뷰를 진행해요.</p>
+<ol>
+<li><code>change list</code> 준비 후 메일이나 <code>gerrit</code> 같은 코드리뷰 시스템으로 리뷰 신청</li>
+<li>리뷰어가 코멘트를 남기는 방식으로 리뷰 진행</li>
+<li>코드리뷰는 <code>24시간 내</code> 완료를 원칙으로 함</li>
+<li>주요 로직은 <code>unit test</code>로 검증</li>
+<li>실험적이거나 버려질 수 있는 코드는 <code>속도 중시</code></li>
+<li>불필요한 <code>공백 제거</code></li>
+<li>코멘트가 <code>code quality 향상</code>을 위한 것인지, <code>스타일 문제</code>인지 구분</li>
+</ol>
+<p>코드리뷰 문서는 누구나 이해할 수 있도록 다음 형식을 유지하는 게 좋아요.</p>
+<ul>
+<li><code>feat</code>(Feature), <code>fix</code>(Bug-fix) 구분</li>
+<li>목적 간략 기술</li>
+<li>관련 기능 또는 이슈 명시</li>
+</ul>
+<p>Description에는 추가/수정한 로직을 상세히 작성합니다.</p>
+<pre><code>[refactor] UserService 리팩토링 (US-2023)
+
+Description
+1. `@Cacheable` 어노테이션을 활용한 캐싱 적용
+2. 사용자 정보 조회 로직 분리
+
+```java
+@Service
+public class UserService {
+  @Cacheable(value = &quot;users&quot;, key = &quot;#userId&quot;)
+  public User getUserById(Long userId) {
+    // 사용자 정보 조회 로직
+  }
+
+  public List&lt;User&gt; getAllUsers() {
+    // 전체 사용자 목록 조회 로직
+  }
+}
+</code></pre><p>코드리뷰를 통해 다양한 리팩토링 아이디어를 제안하고 구현할 수 있습니다. 예를 들어, 캐싱 적용으로 자주 호출되는 메소드의 응답 속도를 높이거나, 메소드 분리로 코드의 가독성과 재사용성을 향상시킬 수 있죠. 이는 전반적인 코드 품질과 유지보수성을 높이는 데 큰 도움이 됩니다. 리뷰 항목은 개발 유형에 따라 조금씩 달라질 수 있어요. 각 유형별로 중점적으로 살펴볼 부분을 정리해 보겠습니다.</p>
+<ul>
+<li>
+<p>성능 개선 개발</p>
+<ul>
+<li>
+<p>시간복잡도: 알고리즘의 효율성을 분석하고, 개선 가능한 부분을 찾아봅니다.</p>
+</li>
+<li>
+<p>자원 사용량: 메모리, CPU 등 자원의 효율적 활용 여부를 체크합니다.</p>
+</li>
+<li>
+<p>병목 지점: 성능에 영향을 미치는 병목 지점을 파악하고 개선합니다.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>신규 feature 개발</p>
+<ul>
+<li>
+<p>요구사항 충족 여부: 구현된 기능이 요구사항을 충족하는지 확인합니다.</p>
+</li>
+<li>
+<p>잠재적 오류 케이스: 예외 상황이나 경계값 테스트를 통해 잠재적 오류를 찾아냅니다.</p>
+</li>
+<li>
+<p>사용성: 사용자 관점에서의 편의성과 직관성을 고려합니다.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>리팩토링</p>
+<ul>
+<li>
+<p>구조 개선: 코드의 구조를 더 효율적이고 이해하기 쉽게 개선합니다.</p>
+</li>
+<li>
+<p>테스트코드 강화: 리팩토링 후에도 기존 테스트코드가 깨지지 않고 새로운 케이스를 충분히 커버하는지 확인합니다.</p>
+</li>
+<li>
+<p>중복 제거: 중복되는 코드를 제거하고 재사용성을 높입니다.</p>
+</li>
+</ul>
+</li>
+<li>
+<p>신규 기술 도입</p>
+<ul>
+<li>기술 로직 검토: 도입한 신규 기술이 제대로 활용되었는지 점검합니다.</li>
+<li>최적의 사용 방법: 해당 기술을 어떻게 하면 효과적으로 사용할 수 있을지 고민합니다.</li>
+<li>장단점 분석: 신규 기술의 장점과 한계점을 파악하고 공유합니다.</li>
+</ul>
+</li>
+<li>
+<p>기타</p>
+<ul>
+<li>
+<p>코드 컨벤션: 일관된 코딩 스타일을 따르는지 확인합니다.</p>
+</li>
+<li>
+<p>변수명, 함수명: 명확하고 이해하기 쉬운 이름을 사용했는지 체크합니다.</p>
+</li>
+<li>
+<p>주석: 코드만으로는 이해하기 어려운 부분에 충분한 주석이 달려 있는지 봅니다.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>이처럼 개발 유형에 따라 중점적으로 볼 부분이 조금씩 다르지만, 결국 모든 리뷰는 코드의 품질을 높이는 데 그 목적이 있습니다. 서로의 의견을 존중하고 건설적으로 토론하는 자세가 무엇보다 중요해요. 코드리뷰를 통해 우리는 함께 성장할 수 있습니다. 코드리뷰 시 코멘트는 건설적이고 구체적으로 작성하는 것이 좋습니다. 다음과 같이 개선해 볼 수 있겠네요.</p>
+<ul>
+<li>여기서는 OO 방식보다 XX 방식이 더 효율적일 것 같아요. XX 방식으로 구현하면 가독성과 성능을 향상시킬 수 있을 거예요.</li>
+<li>XX 부분은 OO 클래스의 로직을 참고하면 더 깔끔하게 구현할 수 있을 것 같아요. OO 클래스의 XX 메소드를 활용해 보는 건 어떨까요?</li>
+<li>OO 변수를 사용할 경우 XX 상황에서 race condition이 발생할 수 있어 주의해야 할 것 같아요.
+<ul>
+<li>혹시 thread-safe한 자료구조로 변경하는 건 어떨까요?</li>
+<li>아니면 synchronized 키워드를 사용하는 것도 방법이 될 수 있겠어요.</li>
+</ul>
+</li>
+<li>XX 방식으로 구현하려 했는데 OO 방식으로 변경한 이유가 있나요?
+<ul>
+<li>XX 방식의 장단점과 OO 방식의 장단점을 비교해 보면 어떤 차이가 있을까요?</li>
+<li>상황에 따라 더 적합한 방식이 있을 것 같은데, 같이 이야기해 보면 좋겠어요.</li>
+</ul>
+</li>
+</ul>
+<p>코드리뷰 피드백은 상대방의 의견을 존중하면서도 개선점을 구체적으로 제시하는 것이 핵심입니다. 단순히 잘못된 점을 지적하기보다는 더 나은 대안을 제시하고, 토론을 통해 최선의 방법을 찾아가는 과정이 되어야 해요. 우리 모두 열린 마음으로 코드리뷰에 임하여 함께 성장해 나가기를 기대합니다! 코드리뷰가 통과되면 해당 브랜치를 통합하여 개발을 완료하게 됩니다.</p>
+<p>체계적인 코드리뷰를 통해 우리는 더 나은 품질의 코드를 만들어낼 수 있을 거예요. 개발자로서 코드리뷰에 적극 참여하여 코드 품질을 높이는 데 기여해 보는 건 어떨까요?</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/code-review/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents"></nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/ai/papers/conference/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            AI 관련 컨퍼런스와 출판물
+        </div>
+    </a>
+    
+    
+    <a href="/dev/linux/sudo/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Sudo 권한 획득(CVE-2021-3156) 취약점 조치방법&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

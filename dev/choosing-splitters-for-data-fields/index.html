@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>delimiter 종류와 선택 가이드</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="delimiter 종류와 선택 가이드" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/choosing-splitters-for-data-fields/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">delimiter 종류와 선택 가이드</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/choosing-splitters-for-data-fields/" class="article-date">
+                <time datetime='2024-04-03T07:16:52.000&#43;09:00' itemprop="datePublished">2024-04-03</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>Delimiter(구분문자)는 데이터를 분할하거나 구분하는 데 사용되는 문자 또는 문자열을 말합니다. 주로 데이터를 필드 또는 열 단위로 나눌 때 사용됩니다. 예를 들어, &ldquo;apple,banana,cherry&quot;라는 문자열이 있을 때, 콤마(,)를 Delimiter로 사용하면 &ldquo;apple&rdquo;, &ldquo;banana&rdquo;, &ldquo;cherry&quot;의 세 부분으로 나눌 수 있습니다. 데이터를 다룰 때 각 필드를 명확하게 구분할 수 있는 적절한 Delimiter를 선택하는 것이 중요합니다. 좋은 Delimiter는 데이터의 가독성을 높이고, 데이터 처리 과정에서 오류를 줄이는 데 도움을 줍니다. 다음은 데이터 필드를 구분할 때 사용할 수 있는 Delimiter들입니다:</p>
+<ol>
+<li>콤마(Comma) - &ldquo;,&rdquo; (추천)
+<ul>
+<li>콤마는 가장 널리 사용되는 Delimiter 중 하나입니다.</li>
+<li>CSV (Comma-Separated Values) 형식의 데이터에서 주로 사용됩니다.</li>
+<li>예: &ldquo;John,Doe,25,New York&rdquo;</li>
+</ul>
+</li>
+<li>탭(Tab) - &ldquo;\t&rdquo; (추천)
+<ul>
+<li>탭은 콤마와 함께 자주 사용되는 Delimiter입니다.</li>
+<li>TSV (Tab-Separated Values) 형식의 데이터에서 주로 사용됩니다.</li>
+<li>예: &ldquo;John\tDoe\t25\tNew York&rdquo;</li>
+</ul>
+</li>
+<li>파이프(Pipe) - &ldquo;|&rdquo; (추천)
+<ul>
+<li>파이프는 데이터에 콤마나 탭이 포함된 경우 유용한 Delimiter입니다.</li>
+<li>파이프는 데이터에서 자주 등장하지 않는 문자이므로 필드를 명확하게 구분할 수 있습니다.</li>
+<li>예: &ldquo;John|Doe|25|New York&rdquo;</li>
+</ul>
+</li>
+<li>세미콜론(Semicolon) - &ldquo;;&rdquo;
+<ul>
+<li>세미콜론은 유럽에서 자주 사용되는 Delimiter입니다.</li>
+<li>콤마 대신 세미콜론을 사용하는 경우가 있습니다.</li>
+<li>예: &ldquo;John;Doe;25;New York&rdquo;</li>
+</ul>
+</li>
+<li>콜론(Colon) - &ldquo;:&rdquo;
+<ul>
+<li>콜론은 키-값 쌍(Key-Value Pair) 형태의 데이터에서 유용한 Delimiter입니다.</li>
+<li>예: &ldquo;name:John,age:25,city:New York&rdquo;</li>
+</ul>
+</li>
+<li>사용자 정의 문자
+<ul>
+<li>데이터의 특성에 따라 사용자 정의 문자를 Delimiter로 사용할 수 있습니다.</li>
+<li>데이터에서 자주 등장하지 않고, 필드를 명확하게 구분할 수 있는 문자를 선택합니다.</li>
+<li>예: &ldquo;John#Doe#25#New York&rdquo;</li>
+</ul>
+</li>
+</ol>
+<p>다음으로 2글자 이상으로 구성된 splitter 예시입니다.</p>
+<ol>
+<li>화살표 (Arrow) - &ldquo;-&gt;&rdquo; 또는 &ldquo;=&gt;&rdquo;
+<ul>
+<li>화살표는 필드 간의 방향성이나 흐름을 나타낼 수 있습니다.</li>
+<li>예: &ldquo;John-&gt;Doe-&gt;25-&gt;New York&rdquo; 또는 &ldquo;John=&gt;Doe=&gt;25=&gt;New York&rdquo;</li>
+</ul>
+</li>
+<li>이중 콜론 (Double Colon) - &ldquo;::&rdquo;
+<ul>
+<li>이중 콜론은 네임스페이스나 범위를 구분할 때 사용되는 Delimiter입니다.</li>
+<li>예: &ldquo;person::name::John::age::25::city::New York&rdquo;</li>
+</ul>
+</li>
+<li>이중 대시 (Double Dash) - &ldquo;&ndash;&rdquo;
+<ul>
+<li>이중 대시는 명령줄 인터페이스(CLI)에서 자주 사용되는 Delimiter입니다.</li>
+<li>예: &ldquo;John&ndash;Doe&ndash;25&ndash;New York&rdquo;</li>
+</ul>
+</li>
+<li>이중 밑줄 (Double Underscore) - &ldquo;__&rdquo; (추천)
+<ul>
+<li>이중 밑줄은 파이썬에서 특수한 용도로 사용되는 Delimiter입니다.</li>
+<li>예: &ldquo;John__Doe__25__New York&rdquo;</li>
+</ul>
+</li>
+<li>별표 (Asterisk) - &ldquo;**&rdquo;
+<ul>
+<li>별표는 강조나 중요성을 나타낼 때 사용할 수 있는 Delimiter입니다.</li>
+<li>예: &ldquo;John<strong>Doe</strong>25**New York&rdquo;</li>
+</ul>
+</li>
+<li>물결 (Tilde) - &ldquo;~~&rdquo;
+<ul>
+<li>물결은 데이터에서 자주 등장하지 않는 문자로, 독특한 Delimiter로 사용할 수 있습니다.</li>
+<li>예: &ldquo;John<del>Doe</del>25~~New York&rdquo;</li>
+</ul>
+</li>
+<li>세로 막대 (Vertical Bar) - &ldquo;||&rdquo;
+<ul>
+<li>세로 막대는 데이터의 구분을 명확하게 나타내는 Delimiter입니다.</li>
+<li>예: &ldquo;John||Doe||25||New York&rdquo;</li>
+</ul>
+</li>
+<li>사용자 정의 문자 조합
+<ul>
+<li>데이터의 특성에 맞게 2~3글자로 이루어진 사용자 정의 문자 조합을 Delimiter로 사용할 수 있습니다.</li>
+<li>예: &ldquo;John##Doe##25##New York&rdquo; 또는 &ldquo;John+++Doe+++25+++New York&rdquo;</li>
+</ul>
+</li>
+</ol>
+<p>데이터 필드를 구분할 때 3글자 이상의 Delimiter를 사용하면 더욱 명확하고 가독성 높은 데이터 구조를 만들 수 있습니다. 마지막으로 3글자 이상의 Delimiter 예시입니다:</p>
+<ol>
+<li>삼중 대시 (Triple Dash) - &ldquo;&mdash;&rdquo;
+<ul>
+<li>삼중 대시는 마크다운(Markdown)에서 수평선을 나타내는 데 사용되는 Delimiter입니다.</li>
+<li>예: &ldquo;John&mdash;Doe&mdash;25&mdash;New York&rdquo;</li>
+</ul>
+</li>
+<li>삼중 콜론 (Triple Colon) - &ldquo;:::&rdquo;
+<ul>
+<li>삼중 콜론은 데이터의 계층 구조를 나타내는 데 사용할 수 있는 Delimiter입니다.</li>
+<li>예: &ldquo;person:::name:::John:::age:::25:::city:::New York&rdquo;</li>
+</ul>
+</li>
+<li>삼중 밑줄 (Triple Underscore) - &ldquo;___&rdquo; (추천)
+<ul>
+<li>삼중 밑줄은 파이썬에서 특수한 용도로 사용되는 Delimiter입니다.</li>
+<li>예: &ldquo;John___Doe___25___New York&rdquo;</li>
+</ul>
+</li>
+<li>화살표와 대시 조합 (Arrow and Dash) - &ldquo;-&gt;-&rdquo; 또는 &ldquo;-&lt;-&rdquo;
+<ul>
+<li>화살표와 대시를 조합하면 필드 간의 관계를 나타내는 Delimiter로 사용할 수 있습니다.</li>
+<li>예: &ldquo;John-&gt;-Doe-&gt;-25-&gt;-New York&rdquo; 또는 &ldquo;John-&lt;-Doe-&lt;-25-&lt;-New York&rdquo;</li>
+</ul>
+</li>
+<li>사용자 정의 문자 조합
+<ul>
+<li>데이터의 특성에 맞게 3글자 이상의 사용자 정의 문자 조합을 Delimiter로 사용할 수 있습니다.</li>
+<li>예: &ldquo;John@@@Doe@@@25@@@New York&rdquo; 또는 &ldquo;John###Doe###25###New York&rdquo; (추천)</li>
+</ul>
+</li>
+</ol>
+<p>Delimiter를 선택할 때는 다음 사항을 고려해야 합니다:</p>
+<ul>
+<li>
+<p>데이터에 포함된 문자: Delimiter로 사용할 문자가 데이터의 값으로 등장하지 않는지 확인합니다. 데이터 내에 Delimiter와 동일한 문자가 존재할 경우 데이터 분리에 혼란을 줄 수 있습니다.</p>
+</li>
+<li>
+<p>일관성: 선택한 Delimiter를 데이터 전체에 일관되게 사용합니다. 일관성을 유지하면 데이터 처리 시 오류를 줄일 수 있습니다.</p>
+</li>
+<li>
+<p>가독성: 선택한 Delimiter가 데이터의 가독성을 높이는지 고려합니다. 적절한 Delimiter 선택으로 데이터의 구조를 명확히 파악할 수 있습니다.</p>
+</li>
+<li>
+<p>데이터 처리 도구와의 호환성: 사용하는 데이터 처리 도구나 라이브러리에서 해당 Delimiter를 지원하는지 확인합니다. 호환되지 않는 Delimiter 사용 시 데이터 처리에 어려움이 발생할 수 있습니다.</p>
+</li>
+<li>
+<p>IDE에서의 선택 용이성: 많은 개발자들이 IDE를 사용하므로, IDE에서 쉽게 선택할 수 있는 Delimiter를 사용하는 것이 좋습니다. 이는 개발 과정에서의 편의성과 생산성 향상에 도움이 됩니다.</p>
+</li>
+</ul>
+<p>위의 사항들을 종합적으로 고려하여 적합한 Delimiter를 선택함으로써, 데이터 처리의 효율성과 정확성을 높일 수 있습니다.</p>
+<h3 id="-delimiter">리눅스에서 Delimiter</h3>
+<p>리눅스에서 사용하기 좋은 Delimiter는 다음과 같습니다:</p>
+<ol>
+<li>
+<p>콜론(:): 리눅스의 PATH 환경 변수 등에서 디렉토리를 구분할 때 사용되는 Delimiter입니다. 가독성이 좋고 데이터에서 잘 사용되지 않는 문자이기 때문에 Delimiter로 적합합니다.</p>
+</li>
+<li>
+<p>세미콜론(;): 리눅스 쉘 스크립트에서 명령어를 구분할 때 사용되는 Delimiter입니다. 데이터에서 잘 사용되지 않으며, 가독성도 좋아 Delimiter로 사용하기 적합합니다.</p>
+</li>
+<li>
+<p>파이프(|): 리눅스 쉘에서 명령어의 출력을 다른 명령어의 입력으로 전달할 때 사용되는 Delimiter입니다. 데이터에서 잘 사용되지 않으며, 가독성도 좋습니다.</p>
+</li>
+<li>
+<p>탭(\t): 탭 문자는 데이터를 열 단위로 정렬할 때 자주 사용되는 Delimiter입니다. 가독성이 좋고, 데이터에서 잘 사용되지 않는 문자이기 때문에 Delimiter로 적합합니다.</p>
+</li>
+<li>
+<p>쉼표(,): CSV(Comma-Separated Values) 형식의 데이터에서 많이 사용되는 Delimiter입니다. 리눅스에서도 쉽게 사용할 수 있는 문자입니다.</p>
+</li>
+</ol>
+<p>이러한 <code>Delimiter</code>는 리눅스 환경에서 널리 사용되며, 대부분의 데이터 처리 도구 및 라이브러리에서 지원됩니다. 또한, 이들은 대부분의 IDE에서도 쉽게 선택할 수 있는 문자들입니다. 하지만 최종적으로는 처리할 데이터의 특성과 요구사항에 맞춰 가장 적합한 Delimiter를 선택해야 합니다.</p>
+<h3 id="-----">파이썬에서의 ___ 사용</h3>
+<p>파이썬에서 외부 설정 파일의 Delimiter로는 <code>___</code>를 사용하는 것이 더 나은 선택일 수 있습니다. 언더스코어는 파이썬에서 널리 사용되는 기호이며, 가독성과 일관성 측면에서 장점이 있습니다. 또한, 호환성과 파싱의 용이성 측면에서도 안전한 선택입니다.</p>
+<p>설정 파일 예시:</p>
+<pre><code>database___mysql___host___localhost
+database___mysql___port___3306
+database___mysql___username___myuser
+database___mysql___password___secret
+</code></pre><p>위의 예시에서는 <code>___</code>를 사용하여 설정 파일의 계층 구조를 명확하게 표현하고 있습니다. 이를 파싱하여 사용하는 코드는 다음과 같을 수 있습니다:</p>
+<pre><code>config = {}
+with open('config.txt', 'r') as file:
+    for line in file:
+        key, value = line.strip().split('___', 1)
+        keys = key.split('___')
+        nested_dict = config
+        for k in keys[:-1]:
+            nested_dict = nested_dict.setdefault(k, {})
+        nested_dict[keys[-1]] = value
+
+print(config)
+</code></pre><p>위 코드를 실행하면 다음과 같은 결과를 얻을 수 있습니다:</p>
+<pre><code>{
+    'database': {
+        'mysql': {
+            'host': 'localhost',
+            'port': '3306',
+            'username': 'myuser',
+            'password': 'secret'
+        }
+    }
+}
+</code></pre><p>파이썬에서 외부 설정 파일의 Delimiter로는 <code>___</code>를 사용하는 것이 가독성, 일관성, 호환성, 파싱의 용이성 측면에서 좋은 선택입니다. 설정 파일의 구조를 명확하게 표현하고, 파이썬 코드와의 일관성을 유지할 수 있습니다.</p>
+<h3 id="splitter-delimiter">Splitter와 Delimiter</h3>
+<p>Splitter와 Delimiter는 모두 데이터를 구분하고 분리하는 데 사용되는 문자 또는 문자열을 지칭하는 용어입니다. 하지만 두 용어는 강조하는 부분에서 약간의 차이가 있습니다.</p>
+<p>Delimiter는 주로 데이터를 구분하는 역할에 초점을 맞추는 용어입니다. 예를 들어, CSV(Comma-Separated Values) 파일에서 콤마(,)는 각 필드를 구분하는 Delimiter로 사용됩니다. Delimiter는 데이터의 경계를 나타내고, 데이터를 열 또는 필드 단위로 구분하는 데 사용됩니다.</p>
+<p>반면에 Splitter는 데이터를 분할하거나 분리하는 기능에 더 초점을 맞추는 용어입니다. Splitter는 프로그래밍 관점에서 문자열을 분리하는 데 자주 사용됩니다. 예를 들어, 파이썬의 split() 함수에서 사용되는 문자를 Splitter라고 할 수 있습니다. Splitter를 기준으로 문자열을 분리하여 여러 부분으로 나눌 수 있습니다.</p>
+<p>일반적으로 Delimiter와 Splitter는 혼용되어 사용되기도 하며, 문맥에 따라 두 용어가 같은 의미로 사용되기도 합니다. 하지만 엄밀히 말하면, Delimiter는 데이터를 구분하는 역할에, Splitter는 데이터를 분리하는 역할에 초점을 맞춘 용어라고 볼 수 있습니다.</p>
+<p>결과적으로, Splitter와 Delimiter는 비슷한 개념이지만, Delimiter는 데이터의 경계를 나타내고 구분하는 역할에 중점을 두는 반면, Splitter는 데이터를 분할하고 분리하는 기능에 중점을 둡니다. 상황과 문맥에 따라 적절한 용어를 선택하여 사용할 수 있습니다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/choosing-splitters-for-data-fields/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-delimiter">리눅스에서 Delimiter</a></li>
+        <li><a href="#-----">파이썬에서의 ___ 사용</a></li>
+        <li><a href="#splitter-delimiter">Splitter와 Delimiter</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/insights/the-art-of-asking-questions/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            개발자를 위한 질문의 기술
+        </div>
+    </a>
+    
+    
+    <a href="/dev/frontend/javascript/removing-dependencies-with-callback-functions-in-javascript/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">자바스크립트 콜백 함수로 의존성 제거하기&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

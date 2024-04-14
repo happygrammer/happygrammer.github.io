@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>날짜와 시간 처리</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="날짜와 시간 처리" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/linux/shell/date-time/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">날짜와 시간 처리</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/linux/shell/date-time/" class="article-date">
+                <time datetime='2020-01-15T07:15:14.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="-">시간 설정</h3>
+<pre><code>$ date -s &quot;2020-02-02 04:00:20&quot;
+</code></pre><h4 id="---">날짜 포맷 출력(기본 포맷)</h4>
+<p>mm/dd/yy형식으로 날짜 출력</p>
+<pre><code>date +&quot;%D&quot;
+</code></pre><h4 id="----1">날짜 포맷 출력(지정 포맷)</h4>
+<p>yyyy-mm-dd 형식의 날짜 출력</p>
+<pre><code>date &quot;+%Y-%m-%d&quot;
+echo date # 2020-01-14
+</code></pre><h4 id="--">시간 출력(기본 포맷)</h4>
+<p>hh-mm-ss 형식의 시간 출력</p>
+<pre><code>date +&quot;%T&quot; # 04:09:51
+</code></pre><h4 id="-12-">시간 출력(12시간 기준)</h4>
+<pre><code>date +&quot;%r&quot; # 04:09:51 AM
+</code></pre><h4 id="----2">날짜와 시간 출력(기본 포맷)</h4>
+<pre><code>now=$(date)
+echo $no # 2020년 1월 15일 수요일 05시 19분 36초 MSK
+</code></pre><h4 id="----3">날짜와 시간 출력(지정 포맷)</h4>
+<p>yyyy-mm-dd_hh-mm-ss 형식으로 출력</p>
+<pre><code>echo $(date +%F_%H-%M-%S) # 2020-01-15_05-12-24
+</code></pre><h4 id="--12-">시간 조건 분기(12시간 기준)</h4>
+<p>쉘 코드로 오전(AM), 오후(PM)에 대한 조건 분기는 다음과 같습니다.</p>
+<pre><code>h=$(date +%H)
+if (( h &lt; 12)); then
+    echo YES # AM
+else
+    echo NO  # PM
+fi
+</code></pre><p>출력결과</p>
+<pre><code>YES
+</code></pre><hr>
+<h4 id="-date---">[첨부] Date 포맷 코드 목록</h4>
+<table>
+<thead>
+<tr>
+<th align="left">FORMAT code</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">%%</td>
+<td align="left">a literal %</td>
+</tr>
+<tr>
+<td align="left">%a</td>
+<td align="left">locale’s abbreviated weekday name (e.g., Sun)</td>
+</tr>
+<tr>
+<td align="left">%A</td>
+<td align="left">locale’s full weekday name (e.g., Sunday)</td>
+</tr>
+<tr>
+<td align="left">%b</td>
+<td align="left">locale’s abbreviated month name (e.g., Jan)</td>
+</tr>
+<tr>
+<td align="left">%B</td>
+<td align="left">locale’s full month name (e.g., January)</td>
+</tr>
+<tr>
+<td align="left">%c</td>
+<td align="left">locale’s date and time (e.g., Thu Mar 3 23:05:25 2005)</td>
+</tr>
+<tr>
+<td align="left">%C</td>
+<td align="left">century; like %Y, except omit last two digits (e.g., 20)</td>
+</tr>
+<tr>
+<td align="left">%d</td>
+<td align="left">day of month (e.g., 01)</td>
+</tr>
+<tr>
+<td align="left">%D</td>
+<td align="left">date; same as %m/%d/%y</td>
+</tr>
+<tr>
+<td align="left">%e</td>
+<td align="left">day of month, space padded; same as %_d</td>
+</tr>
+<tr>
+<td align="left">%F</td>
+<td align="left">full date; same as %Y-%m-%d</td>
+</tr>
+<tr>
+<td align="left">%g</td>
+<td align="left">last two digits of year of ISO week number (see %G)</td>
+</tr>
+<tr>
+<td align="left">%G</td>
+<td align="left">year of ISO week number (see %V); normally useful only with %V</td>
+</tr>
+<tr>
+<td align="left">%h</td>
+<td align="left">same as %b</td>
+</tr>
+<tr>
+<td align="left">%H</td>
+<td align="left">hour (00..23)</td>
+</tr>
+<tr>
+<td align="left">%I</td>
+<td align="left">hour (01..12)</td>
+</tr>
+<tr>
+<td align="left">%j</td>
+<td align="left">day of year (001..366)</td>
+</tr>
+<tr>
+<td align="left">%k</td>
+<td align="left">hour, space padded ( 0..23); same as %_H</td>
+</tr>
+<tr>
+<td align="left">%l</td>
+<td align="left">hour, space padded ( 1..12); same as %_I</td>
+</tr>
+<tr>
+<td align="left">%m</td>
+<td align="left">month (01..12)</td>
+</tr>
+<tr>
+<td align="left">%M</td>
+<td align="left">minute (00..59)</td>
+</tr>
+<tr>
+<td align="left">%n</td>
+<td align="left">a newline</td>
+</tr>
+<tr>
+<td align="left">%N</td>
+<td align="left">nanoseconds (000000000..999999999)</td>
+</tr>
+<tr>
+<td align="left">%p</td>
+<td align="left">locale’s equivalent of either AM or PM; blank if not known</td>
+</tr>
+<tr>
+<td align="left">%P</td>
+<td align="left">like %p, but lower case</td>
+</tr>
+<tr>
+<td align="left">%q</td>
+<td align="left">quarter of year (1..4)</td>
+</tr>
+<tr>
+<td align="left">%r</td>
+<td align="left">locale’s 12-hour clock time (e.g., 11:11:04 PM)</td>
+</tr>
+<tr>
+<td align="left">%R</td>
+<td align="left">24-hour hour and minute; same as %H:%M</td>
+</tr>
+<tr>
+<td align="left">%s</td>
+<td align="left">seconds since 1970-01-01 00:00:00 UTC</td>
+</tr>
+<tr>
+<td align="left">%S</td>
+<td align="left">second (00..60)</td>
+</tr>
+<tr>
+<td align="left">%t</td>
+<td align="left">a tab</td>
+</tr>
+<tr>
+<td align="left">%T</td>
+<td align="left">time; same as %H:%M:%S</td>
+</tr>
+<tr>
+<td align="left">%u</td>
+<td align="left">day of week (1..7); 1 is Monday</td>
+</tr>
+<tr>
+<td align="left">%U</td>
+<td align="left">week number of year, with Sunday as first day of week (00..53)</td>
+</tr>
+<tr>
+<td align="left">%V</td>
+<td align="left">ISO week number, with Monday as first day of week (01..53)</td>
+</tr>
+<tr>
+<td align="left">%w</td>
+<td align="left">day of week (0..6); 0 is Sunday</td>
+</tr>
+<tr>
+<td align="left">%W</td>
+<td align="left">week number of year, with Monday as first day of week (00..53)</td>
+</tr>
+<tr>
+<td align="left">%x</td>
+<td align="left">locale’s date representation (e.g., 12/31/99)</td>
+</tr>
+<tr>
+<td align="left">%X</td>
+<td align="left">locale’s time representation (e.g., 23:13:48)</td>
+</tr>
+<tr>
+<td align="left">%y</td>
+<td align="left">last two digits of year (00..99)</td>
+</tr>
+<tr>
+<td align="left">%Y</td>
+<td align="left">year</td>
+</tr>
+<tr>
+<td align="left">%z</td>
+<td align="left">+hhmm numeric time zone (e.g., -0400)</td>
+</tr>
+<tr>
+<td align="left">%:z</td>
+<td align="left">+hh:mm numeric time zone (e.g., -04:00)</td>
+</tr>
+<tr>
+<td align="left">%::z</td>
+<td align="left">+hh:mm:ss numeric time zone (e.g., -04:00:00)</td>
+</tr>
+<tr>
+<td align="left">%:::z</td>
+<td align="left">numeric time zone with : to necessary precision (e.g., -04, +05:30)</td>
+</tr>
+<tr>
+<td align="left">%Z</td>
+<td align="left">alphabetic time zone abbreviation (e.g., EDT)</td>
+</tr>
+</tbody>
+</table>
+<p>출처 : <a href="https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/">https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/</a></p>
+<h4 id="-gnudate-">[첨부] GNU/date 포맷코드</h4>
+<p>FORMAT controls the output. It can be the combination of any one of the following:</p>
+<table>
+<thead>
+<tr>
+<th align="left">%FORMAT String</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">%%</td>
+<td align="left">a literal %</td>
+</tr>
+<tr>
+<td align="left">%a</td>
+<td align="left">locale’s abbreviated weekday name (e.g., Sun)</td>
+</tr>
+<tr>
+<td align="left">%A</td>
+<td align="left">locale’s full weekday name (e.g., Sunday)</td>
+</tr>
+<tr>
+<td align="left">%b</td>
+<td align="left">locale’s abbreviated month name (e.g., Jan)</td>
+</tr>
+<tr>
+<td align="left">%B</td>
+<td align="left">locale’s full month name (e.g., January)</td>
+</tr>
+<tr>
+<td align="left">%c</td>
+<td align="left">locale’s date and time (e.g., Thu Mar 3 23:05:25 2005)</td>
+</tr>
+<tr>
+<td align="left">%C</td>
+<td align="left">century; like %Y, except omit last two digits (e.g., 21)</td>
+</tr>
+<tr>
+<td align="left">%d</td>
+<td align="left">day of month (e.g, 01)</td>
+</tr>
+<tr>
+<td align="left">%D</td>
+<td align="left">date; same as %m/%d/%y</td>
+</tr>
+<tr>
+<td align="left">%e</td>
+<td align="left">day of month, space padded; same as %_d</td>
+</tr>
+<tr>
+<td align="left">%F</td>
+<td align="left">full date; same as %Y-%m-%d</td>
+</tr>
+<tr>
+<td align="left">%g</td>
+<td align="left">last two digits of year of ISO week number (see %G)</td>
+</tr>
+<tr>
+<td align="left">%G</td>
+<td align="left">year of ISO week number (see %V); normally useful only with %V</td>
+</tr>
+<tr>
+<td align="left">%h</td>
+<td align="left">same as %b</td>
+</tr>
+<tr>
+<td align="left">%H</td>
+<td align="left">hour (00..23)</td>
+</tr>
+<tr>
+<td align="left">%I</td>
+<td align="left">hour (01..12)</td>
+</tr>
+<tr>
+<td align="left">%j</td>
+<td align="left">day of year (001..366)</td>
+</tr>
+<tr>
+<td align="left">%k</td>
+<td align="left">hour ( 0..23)</td>
+</tr>
+<tr>
+<td align="left">%l</td>
+<td align="left">hour ( 1..12)</td>
+</tr>
+<tr>
+<td align="left">%m</td>
+<td align="left">month (01..12)</td>
+</tr>
+<tr>
+<td align="left">%M</td>
+<td align="left">minute (00..59)</td>
+</tr>
+<tr>
+<td align="left">%n</td>
+<td align="left">a newline</td>
+</tr>
+<tr>
+<td align="left">%N</td>
+<td align="left">nanoseconds (000000000..999999999)</td>
+</tr>
+<tr>
+<td align="left">%p</td>
+<td align="left">locale’s equivalent of either AM or PM; blank if not known</td>
+</tr>
+<tr>
+<td align="left">%P</td>
+<td align="left">like %p, but lower case</td>
+</tr>
+<tr>
+<td align="left">%r</td>
+<td align="left">locale’s 12-hour clock time (e.g., 11:11:04 PM)</td>
+</tr>
+<tr>
+<td align="left">%R</td>
+<td align="left">24-hour hour and minute; same as %H:%M</td>
+</tr>
+<tr>
+<td align="left">%s</td>
+<td align="left">seconds since 1970-01-01 00:00:00 UTC</td>
+</tr>
+<tr>
+<td align="left">%S</td>
+<td align="left">second (00..60)</td>
+</tr>
+<tr>
+<td align="left">%t</td>
+<td align="left">a tab</td>
+</tr>
+<tr>
+<td align="left">%T</td>
+<td align="left">time; same as %H:%M:%S</td>
+</tr>
+<tr>
+<td align="left">%u</td>
+<td align="left">day of week (1..7); 1 is Monday</td>
+</tr>
+<tr>
+<td align="left">%U</td>
+<td align="left">week number of year, with Sunday as first day of week (00..53)</td>
+</tr>
+<tr>
+<td align="left">%V</td>
+<td align="left">ISO week number, with Monday as first day of week (01..53)</td>
+</tr>
+<tr>
+<td align="left">%w</td>
+<td align="left">day of week (0..6); 0 is Sunday</td>
+</tr>
+<tr>
+<td align="left">%W</td>
+<td align="left">week number of year, with Monday as first day of week (00..53)</td>
+</tr>
+<tr>
+<td align="left">%x</td>
+<td align="left">locale’s date representation (e.g., 12/31/99)</td>
+</tr>
+<tr>
+<td align="left">%X</td>
+<td align="left">locale’s time representation (e.g., 23:13:48)</td>
+</tr>
+<tr>
+<td align="left">%y</td>
+<td align="left">last two digits of year (00..99)</td>
+</tr>
+<tr>
+<td align="left">%Y</td>
+<td align="left">year</td>
+</tr>
+<tr>
+<td align="left">%z</td>
+<td align="left">+hhmm numeric timezone (e.g., <strong>-0400</strong>)</td>
+</tr>
+<tr>
+<td align="left">%:z</td>
+<td align="left">+hh:mm numeric timezone (e.g., <strong>-04</strong>:00)</td>
+</tr>
+<tr>
+<td align="left">%::z</td>
+<td align="left">+hh:mm:ss numeric time zone (e.g., <strong>-04</strong>:00:00)</td>
+</tr>
+<tr>
+<td align="left">%:::z</td>
+<td align="left">numeric time zone with : to necessary precision (e.g., <strong>-04</strong>, +05:30)</td>
+</tr>
+<tr>
+<td align="left">%Z</td>
+<td align="left">alphabetic time zone abbreviation (e.g., EDT)</td>
+</tr>
+</tbody>
+</table>
+<p>출처 : <a href="https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/">https://www.cyberciti.biz/faq/linux-unix-formatting-dates-for-display/</a></p>
+<h4 id="-bsddate-os-freebsd">[첨부] BSD/date 커맨드(맥OS, FreeBSD)</h4>
+<table>
+<thead>
+<tr>
+<th align="left">포맷 코드</th>
+<th align="left">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">%a</td>
+<td align="left">is replaced by national representation of the abbreviated weekday name.</td>
+</tr>
+<tr>
+<td align="left">%B</td>
+<td align="left">is replaced by national representation of the full month name.</td>
+</tr>
+<tr>
+<td align="left">%b</td>
+<td align="left">is replaced by national representation of the abbreviated month name.</td>
+</tr>
+<tr>
+<td align="left">%C</td>
+<td align="left">is replaced by (year / 100) as decimal number; single digits are preceded by a zero.</td>
+</tr>
+<tr>
+<td align="left">%c</td>
+<td align="left">is replaced by national representation of time and date.</td>
+</tr>
+<tr>
+<td align="left">%D</td>
+<td align="left">is equivalent to “%m/%d/%y”.</td>
+</tr>
+<tr>
+<td align="left">%d</td>
+<td align="left">is replaced by the day of the month as a decimal number (01-31).</td>
+</tr>
+<tr>
+<td align="left">%E* %O*</td>
+<td align="left">POSIX locale extensions. The sequences %Ec %EC %Ex %EX %Ey %EY %Od %Oe %OH %OI %Om %OM %OS %Ou %OU %OV %Ow %OW %Oy are supposed to provide alternate representations. Additionally %OB implemented to represent alternative months names (used standalone, without day mentioned).</td>
+</tr>
+<tr>
+<td align="left">%e</td>
+<td align="left">is replaced by the day of the month as a decimal number (1-31); single digits are preceded by a blank.</td>
+</tr>
+<tr>
+<td align="left">%G</td>
+<td align="left">is replaced by a year as a decimal number with century. This year is the one that contains the greater part of the week (Monday as the first day of the week).</td>
+</tr>
+<tr>
+<td align="left">%g</td>
+<td align="left">is replaced by the same year as in “%G”, but as a decimal number without century (00-99).</td>
+</tr>
+<tr>
+<td align="left">%H</td>
+<td align="left">is replaced by the hour (24-hour clock) as a decimal number (00-23).</td>
+</tr>
+<tr>
+<td align="left">%h</td>
+<td align="left">the same as %b.</td>
+</tr>
+<tr>
+<td align="left">%I</td>
+<td align="left">is replaced by the hour (12-hour clock) as a decimal number (01-12).</td>
+</tr>
+<tr>
+<td align="left">%j</td>
+<td align="left">is replaced by the day of the year as a decimal number (001-366).</td>
+</tr>
+<tr>
+<td align="left">%k</td>
+<td align="left">is replaced by the hour (24-hour clock) as a decimal number (0-23); single digits are preceded by a blank.</td>
+</tr>
+<tr>
+<td align="left">%l</td>
+<td align="left">is replaced by the hour (12-hour clock) as a decimal number (1-12); single digits are preceded by a blank.</td>
+</tr>
+<tr>
+<td align="left">%M</td>
+<td align="left">is replaced by the minute as a decimal number (00-59).</td>
+</tr>
+<tr>
+<td align="left">%m</td>
+<td align="left">is replaced by the month as a decimal number (01-12).</td>
+</tr>
+<tr>
+<td align="left">%n</td>
+<td align="left">is replaced by a newline.</td>
+</tr>
+<tr>
+<td align="left">%O*</td>
+<td align="left">the same as %E*.</td>
+</tr>
+<tr>
+<td align="left">%p</td>
+<td align="left">is replaced by national representation of either “ante meridiem” (a.m.) or “post meridiem” (p.m.) as appropriate.</td>
+</tr>
+<tr>
+<td align="left">%R</td>
+<td align="left">is equivalent to “%H:%M”.</td>
+</tr>
+<tr>
+<td align="left">%r</td>
+<td align="left">is equivalent to “%I:%M:%S %p”.</td>
+</tr>
+<tr>
+<td align="left">%S</td>
+<td align="left">is replaced by the second as a decimal number (00-60).</td>
+</tr>
+<tr>
+<td align="left">%s</td>
+<td align="left">is replaced by the number of seconds since the Epoch, UTC (see mktime(3)).</td>
+</tr>
+<tr>
+<td align="left">%T</td>
+<td align="left">is equivalent to “%H:%M:%S”.</td>
+</tr>
+<tr>
+<td align="left">%t</td>
+<td align="left">is replaced by a tab.</td>
+</tr>
+<tr>
+<td align="left">%U</td>
+<td align="left">is replaced by the week number of the year (Sunday as the first day of the week) as a decimal number (00-53).</td>
+</tr>
+<tr>
+<td align="left">%u</td>
+<td align="left">is replaced by the weekday (Monday as the first day of the week) as a decimal number (1-7).</td>
+</tr>
+<tr>
+<td align="left">%V</td>
+<td align="left">is replaced by the week number of the year (Monday as the first day of the week) as a decimal number (01-53). If the week containing January 1 has four or more days in the new year, then it is week 1; otherwise it is the last week of the previous year, and the next week is week 1.</td>
+</tr>
+<tr>
+<td align="left">%v</td>
+<td align="left">is equivalent to “%e-%b-%Y”.</td>
+</tr>
+<tr>
+<td align="left">%W</td>
+<td align="left">is replaced by the week number of the year (Monday as the first day of the week) as a decimal number (00-53).</td>
+</tr>
+<tr>
+<td align="left">%w</td>
+<td align="left">is replaced by the weekday (Sunday as the first day of the week) as a decimal number (0-6).</td>
+</tr>
+<tr>
+<td align="left">%X</td>
+<td align="left">is replaced by national representation of the time.</td>
+</tr>
+<tr>
+<td align="left">%x</td>
+<td align="left">is replaced by national representation of the date.</td>
+</tr>
+<tr>
+<td align="left">%Y</td>
+<td align="left">is replaced by the year with century as a decimal number.</td>
+</tr>
+<tr>
+<td align="left">%y</td>
+<td align="left">is replaced by the year without century as a decimal number (00-99).</td>
+</tr>
+<tr>
+<td align="left">%Z</td>
+<td align="left">is replaced by the time zone name.</td>
+</tr>
+<tr>
+<td align="left">%z</td>
+<td align="left">is replaced by the time zone offset from UTC; a leading plus sign stands for east of UTC, a minus sign for west of UTC, hours and minutes follow with two digits each and no delimiter between them (common form for RFC 822 date headers).</td>
+</tr>
+<tr>
+<td align="left">%+</td>
+<td align="left">is replaced by national representation of the date and time (the format is similar to that produced by date(1)).</td>
+</tr>
+<tr>
+<td align="left">%-*</td>
+<td align="left">GNU libc extension. Do not do any padding when performing numerical outputs.</td>
+</tr>
+<tr>
+<td align="left">%_*</td>
+<td align="left">GNU libc extension. Explicitly specify space for padding.</td>
+</tr>
+<tr>
+<td align="left">%0*</td>
+<td align="left">GNU libc extension. Explicitly specify zero for padding.</td>
+</tr>
+<tr>
+<td align="left">%%</td>
+<td align="left">is replaced by %.</td>
+</tr>
+</tbody>
+</table>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/linux/shell/date-time/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-">시간 설정</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/clean-code/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            클린코드를 위한 중요 원칙 5가지
+        </div>
+    </a>
+    
+    
+    <a href="/nlp/wsd/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">중의성의 분류와 중의성 해소&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

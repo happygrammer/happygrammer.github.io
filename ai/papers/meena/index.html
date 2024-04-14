@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Meena 논문, 리서치 리뷰</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Meena 논문, 리서치 리뷰" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/ai/papers/meena/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/ai/" class="archive-article-date">&lt; Ais</a></div>
+            
+            <h1 class="article-title" itemprop="name">Meena 논문, 리서치 리뷰</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/ai/papers/meena/" class="article-date">
+                <time datetime='2020-02-14T01:10:05.000&#43;03:00' itemprop="datePublished">2020-02-14</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>이 문서는 <a href="https://arxiv.org/abs/2001.09977">Meena 논문</a>의  연구 결과를 되짚어 보기 위한 리서치 리뷰 문서이며 새로운 연구 결과를 포함하고 있지 않습니다.</p>
+<p>Meena는 멀티턴 도메인 챗봇. <code>end-to-end</code> 방식의 데이터 학습 진행. public 도메인인 소셜 미디어 대화를 대상으로 하였음. 341 GB의 텍스트를 학습하였고 <code>26억(2.6 billions) </code> 파라메터를 사용한 뉴럴넷입니다. 다음 토큰의 perplexity가 최소화 되도록 학습됨.</p>
+<pre><code>낮은 perplexity는 샘플에 대해 잘 설명할 수 있는 확률분포를 가졌음을 의미함
+</code></pre><p><code>OpenAI GPT-2</code>에 비해 1.7배 모델이 크고, 8.5배의 학습 데이터를 사용하였습니다.</p>
+<ul>
+<li>참고로 GPT-2는 40G의 사이즈(8백만 웹페이지)</li>
+</ul>
+<h3 id="sensibleness-and-specificity-average-ssa">Sensibleness and Specificity Average (SSA)</h3>
+<p>챗봇 품질의 사람 평가 기준이 복잡하고 일관성이 결여 되는 경향이 있습니다. 그래서 <code>Sensibleness and Specificity Average (SSA)</code>라고 하는 새로운 <code>사람 평가 지표</code>를 설계했습니다.</p>
+<h4 id="meena-ssa-">Meena의 SSA 점수</h4>
+<p>아래 결과는 Meena가 SSA 점수에 있어 기존 최신 챗봇에 비해 성능상의 큰 차이가 있음을 보이고 있고, SSA 점수에 있어 사람의 성능에 좁혀지고 있음을 보이고 있습니다</p>
+<p><img src="https://1.bp.blogspot.com/-ziInMSwWjhw/Xi9uCT3FnBI/AAAAAAAAFOM/-gk3XI9tH7AwLjPZdxoTd8GSHux_7kPyACEwYBhgL/s640/image2.png" alt=""></p>
+<ul>
+<li>end-tp-end 훈련시 Meena는 SSA (72% 멀티턴 평가)를 기록함. 여기서 복잡성을 최적화 할 수 있다면 86%의 사람 수준까지 도달할 수 있음을 시사합니다.</li>
+<li>Meena의 풀버전(필터링 매커니즘과 튜닝된 디코딩 포함)은 79%의 SSA를 달성했습니다.
+<ul>
+<li>기존 챗봇보다 23%더 높은 점수를 받은 것입니다.</li>
+</ul>
+</li>
+</ul>
+<h4 id="sensible-specific">sensible과 specific</h4>
+<p>sensible 구체적이지는 않지만 말이 되는지를 의미하며, 답변이 혼란스럽거나 구체적이지 않으면 0(doest not make sense)가 됨. specific은 대답히 구체적인지를 평가하는 척도가 되며, 좀더 섬세하게 이해가 있는지를 평가하는 척도입니다.</p>
+<pre><code>sensible : &quot;나는 유재석을 좋아해 &quot; =&gt; &quot;잘 모르겠어&quot;(구체적이지 않음)
+specific : &quot;나는 유재석을 좋아해 &quot; =&gt; &quot;나도 유재석이 좋더라&quot;(구체적임)
+</code></pre><h3 id="introduction">Introduction</h3>
+<p>we present Meena, a generative chatbot model that was trained end-to-end on 40B words mined and filtered from public domain social media conversations. With Meena, we push the limits of the end-to-end approach and show that a largescale low-perplexity model can be a good conversationalist.</p>
+<h3 id="meena---">Meena 모델 학습 설정</h3>
+<p>Meena는 s<strong>eq2seq model</strong> (Sutskever et al., 2014; Bahdanau et al., 2015)을 이용했습니다. 이 모델은 진화된 트랜스 포머Evolved Transformer (So et al., 2019)를 메인 아키텍처로 이용했습니다. 모델은 멀티 턴 대화를 학습하였고, 입력 시퀀스는 최대 7까지의 맥락을 고려하고 있습니다. 출력 시퀀스는 답변이 됩니다.</p>
+<ul>
+<li>26억 파라메터</li>
+<li>최대 7턴을 고려하였으며, 입려 시퀀스와 출력 시퀀스의 Pair로 학습셋을 구성(입력 시퀀스=7턴의 대화, 출력 시퀀스=답변)</li>
+<li>전체 페어는 8어 6천 7백만개</li>
+<li>tokenization: 8K(20^3) BPE with sentencepiece(Sennrich et al., 2016).</li>
+</ul>
+<h3 id="meena-chatbot">Meena chatbot</h3>
+<p>Meena chatbot은 end-to-end 대화 모델이며 2개의 카테고리로 나뉩니다.</p>
+<ul>
+<li>(1) complex models with human-designed components</li>
+<li>(2) 큰 뉴럴넷 모델(end-to-end 모델)은 일반 학습 프레임워크에 가까움. End-to-end은 유망하나 한계가 있음 (Gao et al., 2019a)</li>
+</ul>
+<p>An open question has been: in order to reach a point where a model can carry out high-quality, multi-turn conversations with humans, could we simply take an end-to-end model and make it bigger—by adding more training data and increasing its parameter count—or is it necessary to combine such a model with other components? In this section we describe the Meena model, the largest end-to-end model to enter the field so far. We believe it answers the open research question, by showing that a large end-toend model can generate almost humanlike chat responses in an open-domain setting. In this section, we will describe the training data, architecture, and decoding algorithm. We will also provide a few sample conversations that Meena has had with humans.</p>
+<h2 id="-">논문 링크</h2>
+<p><a href="https://arxiv.org/abs/2001.09977?fbclid=IwAR2-Ob6mlon0hqInSINRMmHDyo9Sigr4Y7rvlZFgaq-iuHOGP5k5NHPIUf4">https://arxiv.org/abs/2001.09977</a></p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/ai/papers/meena/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#sensibleness-and-specificity-average-ssa">Sensibleness and Specificity Average (SSA)</a></li>
+        <li><a href="#introduction">Introduction</a></li>
+        <li><a href="#meena---">Meena 모델 학습 설정</a></li>
+        <li><a href="#meena-chatbot">Meena chatbot</a></li>
+      </ul>
+    </li>
+    <li><a href="#-">논문 링크</a></li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/ai/tensorflow/serving/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            서빙 모델
+        </div>
+    </a>
+    
+    
+    <a href="/nlp/dataset/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">NLP 데이터셋 소개(SQuAD, KoQuAD, KLUE)&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

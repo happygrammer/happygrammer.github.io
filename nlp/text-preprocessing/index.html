@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>텍스트 전처리</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="텍스트 전처리" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/text-preprocessing/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/nlp/" class="archive-article-date">&lt; Nlps</a></div>
+            
+            <h1 class="article-title" itemprop="name">텍스트 전처리</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/text-preprocessing/" class="article-date">
+                <time datetime='2021-11-21T20:19:26.000&#43;09:00' itemprop="datePublished">2021-11-21</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p><strong>텍스트 전처리</strong>(text preprocessing)은 입력 데이터셋에 섞여 있는 불필요한 노이즈를 제거하거나 데이터를 일관성있게 만드는 정규화 과정을 포함한다. 전처리는 크게 두 단계의 작업을 수행한다.</p>
+<ul>
+<li>노이즈 제거</li>
+<li>텍스트 정규화</li>
+</ul>
+<p>노이즈 제거(Noise removal)는 불필요한 태그 제거, 특수 문자 제거, 구두점 제거, 공백 제거등 실질 데이터와 무관한 문자를 삭제해 단어나 문장 인식을 명확히 할 수 있도록 만드는 전 처리 단계다. 텍스트 정규화(Text normalization)는 계산량을 줄이기 위한 처리다. 텀 매트릭스의 차원 축소(dimensionally reduction)을 축소해 계산을 빠르고 효율적이도록 한다. 텍스트 정규화의 예로 오타 교정, 대소문자 치환, 단위 치환,  불용어 삭제, 스테밍, 렘마티제이션를 처리하는 과정다. 이러한 전 처리 과정이 이뤄지고 나면 단어 단위로 토큰화를 하거나, 문장 분리 등을 처리하게 됩니다.</p>
+<h2 id="1--">1. 노이즈 제거</h2>
+<h3 id="-">태그 제거</h3>
+<p>HTML 태그 제거는 Beautiful 스프를 이용하면 좋다. Beautiful는 파스 트리를 탐색해 XML, html에 대한 검색, 생성, 수정을 수행할 수 있다. 설치 방법은 간단한다.</p>
+<p>우분투/데비안(python3)</p>
+<pre><code>apt-get install python3-bs4
+</code></pre><p>맥OS</p>
+<pre><code>pip install beautifulsoup4
+</code></pre><p>설치를 마치면 간단히 테스트해볼 수 있다. 예를 들어 soup에서 제공하는 pretty() 함수 기능은 아래와 같이 사용한다.</p>
+<pre><code>from bs4 import BeautifulSoup
+
+html_doc = &quot;&quot;&quot;
+&lt;html&gt;&lt;head&gt;&lt;title&gt;Happygrammer's story&lt;/title&gt;&lt;/head&gt;
+&lt;body&gt;
+&lt;p class=&quot;title&quot;&gt;&lt;b&gt;Happygrammer's story&lt;/b&gt;&lt;/p&gt;
+&lt;p class=&quot;story&quot;&gt;Hello, Happygrammer World
+&lt;a href=&quot;http://happygrammer.com/hello&quot; class=&quot;sister&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,
+&lt;a href=&quot;http://example.com/happy&quot; class=&quot;sister&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;
+&quot;&quot;&quot;
+
+soup = BeautifulSoup(html_doc, 'html.parser')
+print(soup.prettify())
+</code></pre><p>html_doc 개체는 검색, 생성, 수정에 활용됩니다.</p>
+<pre><code>from bs4 import BeautifulSoup
+soup = BeautifulSoup(html_doc, 'html.parser')
+
+print(soup.prettify())
+soup.title
+# &lt;title&gt;The Dormouse's story&lt;/title&gt;
+
+soup.title.name
+# u'title'
+
+soup.title.string
+# u'The Dormouse's story'
+
+soup.title.parent.name
+# u'head'
+
+soup.p
+# &lt;p class=&quot;title&quot;&gt;&lt;b&gt;The Dormouse's story&lt;/b&gt;&lt;/p&gt;
+
+soup.p['class']
+# u'title'
+
+soup.a
+# &lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;
+
+soup.find_all('a')
+# [&lt;a class=&quot;sister&quot; href=&quot;http://example.com/elsie&quot; id=&quot;link1&quot;&gt;Elsie&lt;/a&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/lacie&quot; id=&quot;link2&quot;&gt;Lacie&lt;/a&gt;,
+#  &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;]
+
+soup.find(id=&quot;link3&quot;)
+# &lt;a class=&quot;sister&quot; href=&quot;http://example.com/tillie&quot; id=&quot;link3&quot;&gt;Tillie&lt;/a&gt;
+</code></pre><p>이때 hrml 태그를 제거한 텍스트를 얻으려면 &ldquo;html.parser&rdquo; 인자 값을 넘깁니다.</p>
+<pre><code>def removeHtmlTags(text):
+    soup = BeautifulSoup(text, &quot;html.parser&quot;)
+    txt = soup.get_text(separator=&quot; &quot;)
+    return txt
+</code></pre><h3 id="--1">구두점 제거</h3>
+<p>구두점 제거는 간단한다.</p>
+<pre><code>out = &quot;&quot;.join(c for c in asking if c not in ('!','.',':'))
+</code></pre><h2 id="2--">2. 텍스트 정규화</h2>
+<p>텍스트 정규화는 자연어 처리에 앞서 처리 형태에 맞추는 정제 작업다. 텍스트 정규화를 하는 목적은 표준화된 단어를 식별해 계산 또는 처리 성능을 높이기 위한 목적다. 한국어는 교착어(agglutinative langauge)의 특성이 있다. 교착어는 고립어와 굴절어의 중간 정도에 행당하는 언어이다.</p>
+<pre><code>고립어 : 교착어는 낱말 변형이 없는 언어
+굴절어 : 문장속의 문법적 기능에 따라 단어의 형태가 변하는 언어
+</code></pre><p><code>액자를 붙였다</code> 라고 했을때 여기서 <code>붙</code> (어간)이 중심 의미에 해당하고 <code>액자를 붙였다</code>, 액자를 <code>붙이었다</code>  대신에 <code>액자를 붙</code> 과 같은 형태로 어간 자체를 중심 의미로 두어 임베딩 하면 의미를 유지하면서도, N개의 워드 임베딩을 1개의 워드 임베딩만 해도 되도록 계산량을 줄일 수 있다. 텍스트 정규화 처리를 위한 방식에는 단위 치환, 스테밍과 같은 표준화 방식과 토큰화, 문장 분리와 같은 분리 방식이 있다.</p>
+<p>단위 치환, 스테밍, 토큰화, 문장 분리 등의 처리가 있다.</p>
+<h3 id="--2">단위 치환</h3>
+<p>단위를 나타내는 명사는 띄어쓰기 표준이 존재한다.</p>
+<pre><code>제2절   의존 명사, 단위를 나타내는 명사 및 열거하는 말 등
+제42항  의존 명사는 띄어 쓴다.
+제43항  단위를 나타내는 명사는 띄어 쓴다.
+제44항  수를 적을 적에는 ‘만(萬)’ 단위로 띄어 쓴다.
+십이억 삼천사백오십육만 칠천팔백구십팔, 12억 3456만 7898
+</code></pre><p>그런데 위와 같은 띄어쓰기 표준을 지켜 단위 치환도 고려할 수 있다. 화폐 단위를 치환해 정규화 전 후를 보면 다음과 같다.</p>
+<table>
+<thead>
+<tr>
+<th>정규화 전</th>
+<th>정규화 후</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>300 달러, <code>$ 300</code>, <code>300 $</code>,<code>300 dollors</code>, &hellip;</td>
+<td><code>$300</code>, 300 달러</td>
+</tr>
+<tr>
+<td>300 <code>삼백만원</code>, 300 만(WON), 3백만원, 3백(만원), 3,000,000원, 3,000,000 ₩, &hellip;</td>
+<td><code>₩3,000,000</code>, 300만</td>
+</tr>
+</tbody>
+</table>
+<p>화폐 단위 표기를 일관성 있게 표기 함으로서 계산 비용을 낮추고 코퍼스 분석 오류를 줄일 수 있다.</p>
+<h3 id="heading">스테밍</h3>
+<p>스테밍(stemming)은 어형 변화를 일으키는 접사(의존 형태소)를 제거하여 어간을 분리하는 처리다. 스테밍을 처리할 때는 품사 정보를 고려해 임베딩 하기 위해 형태소 분석기를 이용할 수 있다. <code>덧붙이다</code>의 형태소는 다음과 같이 분석될 수 있다.</p>
+<table>
+<thead>
+<tr>
+<th>단어</th>
+<th>어간</th>
+<th>어미</th>
+<th>어근</th>
+<th>접사</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>덧붙이다</td>
+<td>덧부</td>
+<td>다</td>
+<td>붙</td>
+<td>덧, 이</td>
+</tr>
+</tbody>
+</table>
+<p>스테밍은 변형 단어들을 어근(root)으로 치환해 계산량을 줄이려는 목적이 있다. 한글에서 어근은 단어의 실질적인 의미로 조사 외의 8품사에만 어근이 존재한다. 조사를 제외한 8품사는 <code>명사, 대명사, 수사, 동사, 형용사, 관형사, 부사, 감탄사</code> 가 있다.</p>
+<table>
+<thead>
+<tr>
+<th>단어</th>
+<th>출력(접두사)</th>
+<th>출력(어근)</th>
+<th>출력(접미사)</th>
+<th>출력(어미)</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>간단하다</td>
+<td></td>
+<td>간단</td>
+<td>하</td>
+<td>다</td>
+</tr>
+<tr>
+<td>거무스름하다</td>
+<td></td>
+<td>거무스름</td>
+<td>하</td>
+<td>다</td>
+</tr>
+<tr>
+<td>그만하다</td>
+<td></td>
+<td>그만</td>
+<td>하</td>
+<td>다</td>
+</tr>
+<tr>
+<td>샛노랗다</td>
+<td>샛</td>
+<td>노랗</td>
+<td></td>
+<td>다</td>
+</tr>
+<tr>
+<td>짓밞히다</td>
+<td>짓</td>
+<td>밟</td>
+<td>히</td>
+<td>다</td>
+</tr>
+</tbody>
+</table>
+<p>스테밍을 처리할때 어근은 다른 형태소(접두사, 접미사, 어미)와 분리한다. 어근에는 접미사가 붙는 경우가 많은데 역할이 어근에 붙어 의미를 더해주는 역할을 한다.</p>
+<p>[스테밍 처리 생략]</p>
+<table>
+<thead>
+<tr>
+<th>단어</th>
+<th>어근</th>
+<th>접미사</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>지우개</td>
+<td>지우</td>
+<td>개</td>
+</tr>
+<tr>
+<td>먹이</td>
+<td>먹</td>
+<td>이</td>
+</tr>
+</tbody>
+</table>
+<h3 id="segmentation-">세그멘테이션(segmentation)과 토큰화</h3>
+<p>세그멘테이션(segmentation)은 텍스트를 문단, 문장 단위로 분리하는 정규화 작업을 일컫다. 이러한 세그멘테이션 종류에는 문단 세그멘테이션과 문장 세그멘테이션이 있다. <code>문단 세그멘테이션</code>은 n개의 문장으로 이뤄진 문장 그룹을 분리하는 처리를 일컫다. 문단은 중심 문장과 뒷받침 문장으로 이뤄집니다. <code>문장 세그멘테이션</code>은 문단을 구성하는 문장을 분리하는 처리를 일컫다. 문장은 주어와 동사를 포함한 단어의 집합다.</p>
+<p>토큰화(tokenization)는 언어 통계 모델을 고려할때 필요한 정규화 방법다. 문장을 공백 단위로 분절한 각 단어를 토큰(token)이라 하며, 토큰 n개에 대해 토큰열 이라 한다. 컴파일러에서 토큰은 예약어, 식별자, 리터럴 상수, 특수 기호 등을 의미한다. 비슷한 맥락으로 자연어 처리에서 토큰은 <code>단어</code>를 의미한다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/nlp/text-preprocessing/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#1--">1. 노이즈 제거</a>
+      <ul>
+        <li><a href="#-">태그 제거</a></li>
+        <li><a href="#--1">구두점 제거</a></li>
+      </ul>
+    </li>
+    <li><a href="#2--">2. 텍스트 정규화</a>
+      <ul>
+        <li><a href="#--2">단위 치환</a></li>
+        <li><a href="#heading">스테밍</a></li>
+        <li><a href="#segmentation-">세그멘테이션(segmentation)과 토큰화</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/nlp/srl/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            시맨틱 롤 레이블링 소개
+        </div>
+    </a>
+    
+    
+    <a href="/nlp/tokenizer_wordpiece_vs_sentencepiece/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">토크나이저의 종류와 비교&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

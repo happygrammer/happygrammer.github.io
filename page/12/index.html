@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>해피그의 코드랩</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="해피그의 코드랩" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<link href="https://happygrammer.github.io/index.xml" rel="alternate" type="application/rss+xml" title="해피그의 코드랩" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/rust/data_types/">Rust 데이터 타입</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/rust/data_types/" class="article-date">
+                        <time datetime='2020-06-07T15:00:03.000&#43;03:00' itemprop="datePublished">2020-06-07</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    Rust는 두개의 서브 데이터 타입이 있다. scalar와 compound이다. Rust는 정적 타입 언어(statically typed language)이다. 따라서 값을 기반으로 타입을 추론할 수 있지만, 모든 변수에 대한 타입을 알아야 컴파일이 가능하다.
+Scalar Types Integer Types    Length Signed Unsigned     8-bit i8 u8   16-bit i16 u16   32-bit i32 u32   64-bit i64 u64   128-bit i128 u128   arch isize usize    Floating-Point Types fn main() { let x = 2.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/rust/data_types/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/rust/install/">Rust 설치하기</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/rust/install/" class="article-date">
+                        <time datetime='2020-06-07T14:35:56.000&#43;03:00' itemprop="datePublished">2020-06-07</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    리눅스, 맥OS 환경이면 명령 인터페이스 1줄로 Rust 설치가 가능하다.
+Rust 설치 명령 Rust 설치는 rustup를 다운로드 하여 설치 하는 명령어이다.
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh 설치 과정 Welcome to Rust! This will download and install the official compiler for the Rust programming language, and its package manager, Cargo. It will add the cargo, rustc, rustup and other commands to Cargo's bin directory, located at: /Users/smarthome/.cargo/bin This can be modified with the CARGO_HOME environment variable.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/rust/install/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/hangeul/ambiguitymd/">중의성의 종류와 중의성 해소</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/hangeul/ambiguitymd/" class="article-date">
+                        <time datetime='2020-05-17T21:07:45.000&#43;03:00' itemprop="datePublished">2020-05-17</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    중의성은 하나의 언어 표현이 둘 이상의 의미로 해석될 수 있는 언어의 특성을 의미합니다. 중의성은 어휘 중의성과 구조 중의성으로 구분됩니다.
+어휘 중의성  동음 이의어 : 차를 준비했다. 1) 자동차를 의미하지만 2) 마시는 차를 의미하기도 한다. 다의어 : 오늘 아침 1) 아침에 일어 났어 2) 아침 먹고 나왔어  &lsquo;동음이의어(同音異義語; homonym)&lsquo;는 소리 같은 단어로, 어원도 다릅니다. 예를 들어 &lsquo;차'는 마시는 차를 의미하기도 하지만, 소리가는 동일하지만 어원 자체가 다른 운송 수단인 &lsquo;차'를 의미하기도 합니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/hangeul/ambiguitymd/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/nlp_vocabulary/">자연어처리/머신러닝 용어집</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/nlp_vocabulary/" class="article-date">
+                        <time datetime='2020-04-07T00:15:52.000&#43;03:00' itemprop="datePublished">2020-04-07</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    본 문서는 자연어처리/머신러닝 용어 목록을 소개합니다.
+  Auto ML(Automated machine learning)
+ 엔지니어의 도움 없이도 머신 러닝 모델을 생성할 수 있는 머신러닝 솔루션 &ldquo;Data 처리, Feature 엔지니어링, Feature 추출, Feature 선택&quot;의 자동화 지원 관련 솔루션  Google Cloud Platform - Cloud AutoML Google Cloud Platform - AutoML NLP Azure - Azure Machine Learning AWS - Amazon SageMaker      Auto Regressive
+ AR(순차적인 데이터 처리) 이러한 관점에서 ELmo, GPT를 AR 계열로 볼 수 있음    BERT
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/nlp_vocabulary/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/insights/statistics/">한국의 경제 지표</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/insights/statistics/" class="article-date">
+                        <time datetime='2020-04-05T17:49:27.000&#43;03:00' itemprop="datePublished">2020-04-05</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    통계 지표는 현재 한국의 경제 상황을 확인 하는 것이 보다 객관적인 사고를 하는데 도움이 됩니다. 그래서 경제 상황을 이해할 수 있는 몇가지 주요 지표 들에 대해서 확인해 보도록 하겠습니다.
+비정규직 비율의 증가 비정규직 근로자와 정규직 근로자 사이에는 임금 등에서 보상의 차이가 존재합니다. 비정규직 비율이 36.4%에 해당합니다. 비정규직의 발생 배경은 경제의 불확실성입니다. 경제의 불확실성으로 인해, 비정규직 비율이 높아지면 기업 관점에서 기술 축적을 방해하고, 노동자 관점에서는 고용불안을 가져다 줍니다. 요즘 코로나 상태로 인해 세계 경제가 꽁꽁 얼어 붙고, 소비가 위축되면서 경제의 불확실성이 높아진 상태입니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/insights/statistics/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/insights/insight/">본질을 꿰뚫는 통찰력</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/insights/insight/" class="article-date">
+                        <time datetime='2020-04-05T14:39:37.000&#43;03:00' itemprop="datePublished">2020-04-05</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    기업의 성장 하려면 통찰을 통해 숨은 본질을 파악해 문제를 해결해 나가는 것이 필요하다. 기업에 있어서 본질은 기업의 존립을 좌우하는 핵심 가치이다.
+세계적 기업들은 저마다 본질을 추구하고 있다. 구글은 최근 유튜브, 클라우드 서비스 등의 사업 영역을 확장하고 있지만, 구글의 본질은 검색이다. 애플은 아이폰과 같은 혁신 제품을 생산 했지만 컴퓨터 그 이상의 가치를 추구한다. 바로, 심플이다. 애플은 경쟁사 델과 달리 제품군이 단 4가지였지만, 천문학적인 이윤을 달성할 수 있었다. 애플은 고객에게 심플한 구매 경험을 제공함으로서 애플 브랜드를 더욱 신뢰하게 만들었다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/insights/insight/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/hangeul/abbreviations/">한글 준말의 규칙성</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/hangeul/abbreviations/" class="article-date">
+                        <time datetime='2020-04-02T07:56:10.000&#43;03:00' itemprop="datePublished">2020-04-02</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    본말과 준말 준말 준말은 긴말을 의미가 왜곡되지 않으면서 줄인말입니다. 낱말에서 소리가 탈락 되는 위치는 첫소리, 중간 소리, 끝소리, 앞뒤소리가 있습니다.
+ 첫소리 탈락 예 : 배 안 윗 냄새 - 배 ㄴ 앳 냄새 - 배냇냄새 중간 소리 탈락 예 : 바깥-사돈 - 바ㅌ-사돈 - 밭사돈 끝소리 탈락  어제-저녁 - 어ㅈ 저녁 - 엊저녁 그것 은 - 그거-은 - 그건 허송하지 - 허송치 깨끗하지 - 깨끗지 섭섭하지 - 섭섭지 (한글 맞춤법 40항)  ㄱ,ㄷ,ㅂ 소리가 나는 경우는 &lsquo;하'가 탈락됩니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/hangeul/abbreviations/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/ai/tensorflow/tf-architecture/">텐서플로우 아키텍처</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/ai/tensorflow/tf-architecture/" class="article-date">
+                        <time datetime='2020-03-29T18:50:40.000&#43;03:00' itemprop="datePublished">2020-03-29</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    텐서플로우는 큰 규모의 분산 기반의 학습과 추론을 고려해 설계 됐습니다. 새로운 기계 학습 알고리즘이 나오더라도 이를 지원할 수 있으며, 시스템 레벨의 최적화도 지원합니다. 다음 그림은 텐서플로우의 아키텍처입니다.
+왼쪽은 텐서플로우를 구성하는 컴포넌트들에 대한 그림이며, 오른쪽은 텐서 플로우가 어떠한 방식으로 컴포넌트간의 데이터를 주고 받으면서 실행 되는지를 나타내는 그림입니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/ai/tensorflow/tf-architecture/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/ai/papers/roberta/">Roberta</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/ai/papers/roberta/" class="article-date">
+                        <time datetime='2020-03-28T20:53:21.000&#43;03:00' itemprop="datePublished">2020-03-28</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    RoBERTa: A Robustly Optimized BERT Pretraining Approach
+언어 모델 프리트레이닝은 상당한 성능 향상을 가져 왔지만, 다른 접근방식 간의 비교는 어렵다. 훈련은 계산 비용이 높은 이유도 있지만, 접근 마다 데이터을 저마다 이용하기 때문이다. 이 논문은 BERT 프리트레이닝(Devlin et al., 2019)의 복제 연구이다. 이 논문은 하이퍼 파라미터 선택이 실험 결과에 많은 영향을 줄 수 있음을 가정하고 있다. 레이블 데이터를 이용해 end-task에 대한 파인 튜닝(finetuned)을 적용한 모델을 만든다다. BERT가 상당히 불충분한 훈련을 받았고, BERT 이후의 모델의 성능은 BERT 모델과 유사하거나, 초과할 수 있다는 점을 지적한다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/ai/papers/roberta/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/netty/handler/">Netty 채널 소개와 채널 핸들러</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/netty/handler/" class="article-date">
+                        <time datetime='2020-03-22T10:10:24.000&#43;03:00' itemprop="datePublished">2020-03-22</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    채널은 IO 동작(파일, 소켓)을 수행할 수 있는 연결 상태를 의미합니다. Netty에서는 채널 핸들러를 이용해 관심사 분리를 수행합니다.
+채널 핸들러 종류    종류      Inbound Handler 입력 데이터(in bound)에 대한 변경 상태를 감시하고 처리하는 역할을 하는 핸들러   Outbound Handler 출력 데이터(out bound)에 대한 동작을 가로채 처리하는 역할을 하는 핸들러    ChannelInboundHandler 메소드    종류 설명     channelRegistered(&hellip;) 채널이 이벤트 루프에 등록됐을때 호출됨   channelUnregistered(&hellip;) 채널이 생성 됐지만, 이벤트 루프에 등록되지 않았을때 호출됨   channelActive(&hellip;) 채널이 활성화 됐을때(peer와 연결됐을때) 호출됨.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/netty/handler/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+
+        
+
+<nav id="page-nav">
+    
+    <a href="/page/11/" rel="prev" class="extend prev">&laquo; Prev</a>
+    
+    
+    
+    <a href="/">1</a>
+    
+    
+    
+    <a href="/page/2/">2</a>
+    
+    
+    
+    <a href="/page/3/">3</a>
+    
+    
+    
+    <a href="/page/4/">4</a>
+    
+    
+    
+    <a href="/page/5/">5</a>
+    
+    
+    
+    <a href="/page/6/">6</a>
+    
+    
+    
+    <a href="/page/7/">7</a>
+    
+    
+    
+    <a href="/page/8/">8</a>
+    
+    
+    
+    <a href="/page/9/">9</a>
+    
+    
+    
+    <a href="/page/10/">10</a>
+    
+    
+    
+    <a href="/page/11/">11</a>
+    
+    
+    
+    <span class="page-number current">12</span>
+    
+    
+    
+    <a href="/page/13/">13</a>
+    
+    
+    
+    <a href="/page/14/">14</a>
+    
+    
+    
+    <a href="/page/15/">15</a>
+    
+    
+    
+    <a href="/page/16/">16</a>
+    
+    
+    
+    <a href="/page/17/">17</a>
+    
+    
+    
+    <a href="/page/18/">18</a>
+    
+    
+
+    
+    <a href="/page/13/" rel="next" class="extend next">Next &raquo;</a>
+    
+</nav>
+
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

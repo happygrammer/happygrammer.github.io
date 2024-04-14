@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TensorRT 소개</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="TensorRT 소개" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/ai/tensorrt/intro/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/ai/" class="archive-article-date">&lt; Ais</a></div>
+            
+            <h1 class="article-title" itemprop="name">TensorRT 소개</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/ai/tensorrt/intro/" class="article-date">
+                <time datetime='2023-01-14T04:40:46.000&#43;09:00' itemprop="datePublished">2023-01-14</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p><code>TensorRT</code>는 NVIDIA GPU상에서 모델의 추론 속도를 최적화해 주는 프레임워크이다.</p>
+<h3 id="tensorrt--">TensorRT 최적화 방식</h3>
+<p>TensorRT는 GPU의 <code>cuda 코어</code>에서 시행된다. <code>cuda</code>는 GPU와 직접 통신하기 위한 API에 해당한다. (<code>cudo 코어</code>와 유사하게  <code>Tensor 코어</code> 방식이 있지만 구글 직원이 아니라면 TPU 배포는 좋은 선택지는 아닐 수 있다.) TensorRT는 다음 그림에 소개된 크게 6가지 방식으로 최적화를 수행한다.</p>
+<p><img src="https://developer.nvidia.com/sites/default/files/akamai/Tensor-rt-optimizer-850x480.svg" alt=""></p>
+<p>위에서 몇가지만 살펴보면 <code>Kernel Auto-tuning</code>은 Cuda 드라이버에 맞춰 최적의 런타임을 생성할 수 있도록 한다. GPU 플랫폼 기반으로 최상의 레이어와 알고리즘, 최적의 배치 크기를 선택하는 방식이다. <code>Laye &amp; Tensor Fusion</code>은 Tensor Fusion을 이용해 커널의 노드를 수직 또는 수평으로 융합해 GPU 메모리와 대역폭을 최적화해, 각 계층에 대한 텐서 데이터를 읽고 쓰는 오버헤드 비용을 낮추는 방식이다.</p>
+<p><img src="https://developer.nvidia.com/blog/parallelforall/wp-content/uploads/2017/12/pasted-image-0-3.png" alt=""></p>
+<p><code>Dynamic Tensor memory</code>는 Tensor에 사용 기간동안에만 메모리를 할당해 메모리 재사용을 개선하는 방식이다. <code>Multi-Stream Execution</code>이라는 방식은 여러 스트림을 병렬로 처리 하는 방식이다. GPU가 지원하는 활용 가능한 연산을 자동으로 사용할 수 있도록 실행 바이너리를 빌드해 주기에 Latency와 Throughput 향상이 가능하다.</p>
+<h3 id="tensorrt-">TensorRT 호환</h3>
+<p>TensorRT는 C++또는 Python API를 제공해 <a href="https://caffe.berkeleyvision.org/">Caffe</a>, <a href="https://onnx.ai/">ONNX</a> 또는 <a href="https://www.tensorflow.org/">TensorFlow</a> 모델을 가져올 수 있도록 제공한다. 또한 Pytorch나 TensorFlow에 직접 통합이 가능하다. 예를 들어 Pytorch는 Torch-TensorRT를 사용해 통합이 가능하고, Tensorflow는 Tensorflow-TensorRT를 이용해 통합이 가능하다. TensorRT는 GPU 추론 가속에 사용할 수 있다. 만약 CPU 추론 최적을 목표로 한다면 OpenVINO 및 ONNX 프레임워크 프레임웍 확인이 필요하다.</p>
+<h3 id="-">참고 문서</h3>
+<ul>
+<li><a href="https://developer.nvidia.com/tensorrt">https://developer.nvidia.com/tensorrt</a></li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/ai/tensorrt/intro/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tensorrt--">TensorRT 최적화 방식</a></li>
+        <li><a href="#tensorrt-">TensorRT 호환</a></li>
+        <li><a href="#-">참고 문서</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/ai/tensorrt/setup/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            TensorRT 설치
+        </div>
+    </a>
+    
+    
+    <a href="/mlops/opensource/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">MLOps 오픈소스&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

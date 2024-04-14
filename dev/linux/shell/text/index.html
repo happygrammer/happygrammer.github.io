@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[쉘스크립트] 텍스트 처리를 위한 쉘 명령어</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="[쉘스크립트] 텍스트 처리를 위한 쉘 명령어" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/linux/shell/text/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">[쉘스크립트] 텍스트 처리를 위한 쉘 명령어</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/linux/shell/text/" class="article-date">
+                <time datetime='2020-01-15T06:38:03.000&#43;03:00' itemprop="datePublished">2020-01-15</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>본 문서는 실무를 하면서 자주 쓰는 리눅스 쉘 명령어 소개하기 위한 목적이 있습니다.</p>
+<h3 id="cat-">cat 명령어</h3>
+<p>cat 명령어는 <code>concatenate</code>의 줄임말입니다. 리눅스에서 빈번하게 사용하는 <code>파일 보기</code> 명령어입니다.</p>
+<p>기본 문법으로 <strong>파일 내용 출력</strong>가 있습니다.</p>
+<pre><code>$ cat &lt;file-name&gt;
+</code></pre><p><strong>파일 내용을 출력</strong>해 특정 파일명으로 저장 할 수 있습니다.</p>
+<pre><code>$ cat &lt;file-name&gt; &gt; &lt;output-file-name&gt;
+</code></pre><p><strong>여러 파일 출력</strong>이 가능합니다.</p>
+<pre><code>cat sample1.txt sample2.txt &gt; sample3.txt
+</code></pre><p><strong>파일 내용 출력</strong>시 -n 옵션을 추가하면 줄번호 표시가 가능합니다.</p>
+<pre><code>cat -n &lt;file-name&gt;
+</code></pre><p><strong>grep</strong> 명령어와 조합해서 무자열 필터에 사용할 수 있습니다.</p>
+<pre><code>$ cat &lt;file-name&gt; | grep -E &quot;&lt;tag&gt;[a-zA-Z ]+&lt;/tag&gt;&quot; &gt; &lt;output-file-name&gt;
+</code></pre><p>grep에서 <strong>-E</strong> 옵션은 <strong>확장 정규식</strong> 옵션으로 정규식을 이용해 문자열을 찾습니다.</p>
+<h3 id="sed">Sed</h3>
+<p>***sed(stream editor)***은 편집기 입니다. ed 명령어와 grep 명령어를 일부 합친 명령어입니다.$/</p>
+<h4 id="-">명령어 옵션</h4>
+<ul>
+<li><strong>a</strong> : 현재 행에 하나 이상의 새로운 행을 추가</li>
+<li><strong>c</strong> : 현재 행의 내용을 새로운 내용으로 바꿈</li>
+<li><strong>d</strong> : 행을 삭제</li>
+<li><strong>i</strong> : 현재 행의 위에 삽입</li>
+<li><strong>l</strong> : 출력되지 않는 특수문자를 출력</li>
+<li><strong>n</strong> : 다음 입력 행을 첫 번째 명령어가 아닌 다음 명령어에서 처리</li>
+<li><strong>p</strong> : 행을 출력</li>
+<li><strong>q</strong> : sed를 종료</li>
+<li><strong>r</strong> : 파일로부터 행을 읽어옴</li>
+<li><strong>!</strong> : 선택된 줄을 제외한 나머지 전체 줄에 명령어 적용</li>
+<li><strong>s</strong> : 문자열을 치환한다.</li>
+</ul>
+<h4 id="heading">옵션</h4>
+<ul>
+<li><strong>-e</strong> : 다중 편집시 사용</li>
+<li><strong>-f</strong> : sed 스크립트 파일 지정에 사용</li>
+<li><strong>-n</strong> : 출력을 생략</li>
+</ul>
+<p>명령어 예시는 다음과 같습니다.</p>
+<pre><code>sed '/hello/d' 1.html : hello 문자가 포함된 줄을 삭제하여 출력
+sed '/hello/!d' 1.html : hello 문자가 있는 줄만 제외 하고 삭제
+sed '1,2d' 1.html : 처음 1줄, 2줄을 지움
+sed '/^$/d 1.html : 빈줄을 삭제:
+</code></pre><p><strong>sed</strong> 명령어는 치환해 유용합니다. <strong>/s</strong>은 치환을 의미합니다. <code>/g</code>을 추가하면 전역 치환을 수행한다는 의미입니다.</p>
+<pre><code>sed 's/foo/bar/g' hello.txt
+</code></pre><p>옵션으로 <strong>-i</strong>를 추가하면 <strong>변경 내용을 실재 반영해 저장</strong> 한다는 의미입니다. 아래 명령어를 입력하면 의 내용중 “foo&quot;라는 문자열을 “bar&quot;로 치환합니다.</p>
+<pre><code>sed -i 's/foo/bar/g' &lt;file-name&gt;
+</code></pre><p>숨김줄 제거 명령어입니다.</p>
+<pre><code>sed -i 's/\r//' &lt;file-name&gt;
+</code></pre><p>만약 텍스트 파일에서 중복 줄을 제거하려면 sort 명령어를 이용합니다.</p>
+<pre><code>sort -u &lt;file-name&gt;
+</code></pre>
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/linux/shell/text/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#cat-">cat 명령어</a></li>
+        <li><a href="#sed">Sed</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/nlp/hangeul/hangeul-spelling/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            한글 표기의 원칙과 자모의 분류
+        </div>
+    </a>
+    
+    
+    <a href="/dev/perl/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">1시간 안에 펄(Perl) 언어 익히기&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

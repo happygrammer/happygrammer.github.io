@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MLFlow 소개</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="MLFlow 소개" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/mlops/mlflow/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/mlops/" class="archive-article-date">&lt; Mlops</a></div>
+            
+            <h1 class="article-title" itemprop="name">MLFlow 소개</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/mlops/mlflow/" class="article-date">
+                <time datetime='2023-01-22T06:10:22.000&#43;09:00' itemprop="datePublished">2023-01-22</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>MLflow는 머신 러닝 모델의 라이프 사이클을 관리하기 위한 오픈소스 플랫폼입니다. MLflow는 다음과 같은 세 가지 주요 기능을 제공합니다. MLFlow는 머신러닝 학습 주기 관리를 위한 오픈소스 플랫폼이다. MLFlow의 주요 기능은 아래와 같습니다.</p>
+<ul>
+<li>MLflow 트래킹(tracking) : <code>MLflow Tracking</code>은 실험 결과를 기록하여 실험간의 비교 지원을 할 수 있다. 기록 가능한 실험 요소로 실험시 사용한 하이퍼 파라메터나, 실험 결과 loss, auccracy 의 학습 과정에서 출력되는 주요 지표 들을 저장할 수 있다. 실험 결과들이 쌓이다 보면 각 실험들의 특징을 비교하기 어려울 수 있는데 이러한 경우는 는 tag 기능과 note 기능을 이용해 부가적인 정보를 기록함으로서 실험간의 비교시에 사용할 수 있도록 한다.</li>
+<li>MLflow 프로젝트(proejct) : ML 코드 재사용, 공유를 위한 패키징을 지원합니다. 모델 개발 과정에서 코드, 데이터, 환경, 매개변수 등의 정보를 관리하고, 쉽게 재현할 수 있는 방법을 제공합니다</li>
+<li>MLflow 모델(model) : 모델을 저장하고, 버전을 관리하며, 배포할 수 있는 방법을 제공합니다. 아마존 S3와 같은 외부 저장소의 모델을 로컬로 가져와 평가시 사용할 수 있습니다.</li>
+<li>MLFlow 모델 레지스트리(model registry) : 중앙 저장소와 셋 API, UI와 관련한 기능늘 지원합니다.</li>
+</ul>
+<p>MLflow는 쉽게 사용할 수 있으며, 다양한 머신 러닝 라이브러리와 프레임워크를 지원합니다. 또한, MLflow는 다양한 환경에서 동작할 수 있으며, 로컬 컴퓨터부터 클라우드까지 다양한 환경에서 사용할 수 있습니다. MLflow는 머신 러닝 모델의 라이프 사이클 관리를 위한 매우 유용한 도구입니다. 초보자도 쉽게 사용할 수 있도록 간단하게 설계되어 있으며, 머신 러닝 모델의 개발, 평가, 배포를 위한 다양한 기능을 제공합니다. 따라서 머신 러닝 모델 개발을 하시는 분들께 추천합니다.</p>
+<h3 id="mlflow-">MLflow 설치</h3>
+<p><a href="https://github.com/mlflow/mlflow/pkgs/container/mlflow">MLflow 문서를 확인</a>하고 공식 MLflow <a href="https://mlflow.org/docs/latest/docker.html">docker 이미지</a>를 다운로드 받습니다.</p>
+<pre><code># Pull the latest version
+docker pull ghcr.io/mlflow/mlflow
+# Pull 2.0.1
+docker pull ghcr.io/mlflow/mlflow:v2.0.1
+</code></pre><p>다운로드가 완료되면 아래 형태의 결과를 확인할 수 있습니다.</p>
+<pre><code>$ docker pull ghcr.io/mlflow/mlflow
+Using default tag: latest
+latest: Pulling from mlflow/mlflow
+7a6db449b51b: Pull complete
+e238bceb2957: Pull complete
+ce77f44508b5: Pull complete
+455a39ac3ab8: Pull complete
+f8c2fbfe5046: Pull complete
+6850db957020: Pull complete
+Digest: sha256:11894a74c6aef77a3aa80bcac78c05228283412890de2978f3ae3f00c64f1b23
+Status: Downloaded newer image for ghcr.io/mlflow/mlflow:latest
+ghcr.io/mlflow/mlflow:latest
+</code></pre><pre><code>$ docker images
+REPOSITORY              TAG       IMAGE ID       CREATED       SIZE
+ghcr.io/mlflow/mlflow   latest    fedb32c6994e   3 weeks ago   829MB
+</code></pre><p>MLflow 컨테이너를 생성합니다.</p>
+<pre><code>$ docker images
+REPOSITORY              TAG       IMAGE ID       CREATED       SIZE
+ghcr.io/mlflow/mlflow   latest    fedb32c6994e   3 weeks ago   829MB
+$ docker run \
+-itd \
+--name mlflow_v1 \
+-p 15000:5000 \
+-v &lt;마운트할 Path&gt;:/home \
+ghcr.io/mlflow/mlflow:latest \
+/bin/sh
+
+</code></pre><p>위 docker 실행 명령에서 <code>--name</code> 옵션을 주어 컨테이너 이름은 <code>mlflow_v1</code>로 주었습니다. <code>--network host</code> 옵션을 추가해 <code>container가 localhost의 네임스페이스를 공유</code>하도록해 컨테이너의 모든 포트를 별도 포트포워딩 없이도 외부에서도 접근할 수 있도록 합니다. 컨테이너 생성 확인 후 컨테이너에 접속합니다.</p>
+<pre><code>$ docker ps  // 표시 되지 않는 경우 docker ps -a 입력
+CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS              PORTS     NAMES
+7b36c456a67b   fedb32c6994e   &quot;/bin/bash&quot;   4 minutes ago   Up About a minute             mlflow_v1
+$ docker exec -it mlflow_v1 /bin/bash
+</code></pre><p>이후 컨테이너 작업 환경 구성을 위해 vim 과 git을 설치해 줍니다.</p>
+<pre><code>$ apt-get update
+$ apt-get install vim
+$ apt-get install git
+</code></pre><p>참고로 vim을 설치하는 이유는 vi를 사용하는 일이 종종 있는데 설치 되어 있지 않아서입니다. <code>git</code>을 설치하는 mlflow.utils.git_utils와 관련한 오류를 방지 하기 위함입니다. Mlflow 공식 기본 예제를 실행해 보도록 합니다.</p>
+<pre><code>$ cd /home
+$ vi mlflow_tracking.py
+</code></pre><p>[python mlflow_tracking.py]</p>
+<pre><code>import os
+from random import random, randint
+from mlflow import log_metric, log_param, log_artifacts
+
+if __name__ == &quot;__main__&quot;:
+    # Log a parameter (key-value pair)
+    log_param(&quot;param1&quot;, randint(0, 100))
+
+    # Log a metric; metrics can be updated throughout the run
+    log_metric(&quot;foo&quot;, random())
+    log_metric(&quot;foo&quot;, random() + 1)
+    log_metric(&quot;foo&quot;, random() + 2)
+
+    # Log an artifact (output file)
+    if not os.path.exists(&quot;outputs&quot;):
+        os.makedirs(&quot;outputs&quot;)
+    with open(&quot;outputs/test.txt&quot;, &quot;w&quot;) as f:
+        f.write(&quot;hello world!&quot;)
+    log_artifacts(&quot;outputs&quot;)
+</code></pre><p>이후 샘플 예제를 실행해 봅니다.</p>
+<pre><code>$ python mlflow_tracking.py
+</code></pre><p>실행 결과 <code>./mlruns</code>, <code>./outputs/test.txt</code> 결과가 생성된다. 추적 API는 데이터를 로컬 <code>./mlruns</code>디렉터리의 파일에 기록한다. 이후 MLflow의 추적 UI를 실행해봅니다.</p>
+<pre><code>$ mlflow ui --host 0.0.0.0
+[2023-01-21 22:31:29 +0000] [894] [INFO] Starting gunicorn 20.1.0
+[2023-01-21 22:31:29 +0000] [894] [INFO] Listening at: http://127.0.0.1:5000 (894)
+[2023-01-21 22:31:29 +0000] [894] [INFO] Using worker: sync
+[2023-01-21 22:31:29 +0000] [895] [INFO] Booting worker with pid: 895
+[2023-01-21 22:31:30 +0000] [896] [INFO] Booting worker with pid: 896
+[2023-01-21 22:31:30 +0000] [897] [INFO] Booting worker with pid: 897
+[2023-01-21 22:31:30 +0000] [898] [INFO] Booting worker with pid: 898
+...
+</code></pre><p>이후 브라우저에서 URL 입력하면 별도 계정관리 화면 없이 MLflow UI 화면을 바로 접근해 확인할 수 있습니다.</p>
+<pre><code>http://127.0.0.1:15000/
+</code></pre><p><img src="../mlflow_first_page.jpeg" alt=""></p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/mlops/mlflow/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#mlflow-">MLflow 설치</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/mlops/airflow/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Airflow 설치
+        </div>
+    </a>
+    
+    
+    <a href="/ai/tensorrt/setup/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">TensorRT 설치&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

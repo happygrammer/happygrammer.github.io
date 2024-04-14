@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>코드로 구현하는 머니볼</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="코드로 구현하는 머니볼" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/insights/moneyball-strategy-for-team-success/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/insights/" class="archive-article-date">&lt; Insights</a></div>
+            
+            <h1 class="article-title" itemprop="name">코드로 구현하는 머니볼</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/insights/moneyball-strategy-for-team-success/" class="article-date">
+                <time datetime='2024-02-10T03:57:47.000&#43;09:00' itemprop="datePublished">2024-02-10</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>안녕하세요, 스포츠 팬 여러분! 오늘은 야구 구단 운영에 혁신을 가져온 <code>머니볼 전략</code>에 대해 알아보겠습니다.</p>
+<p>머니볼 전략의 핵심은 다음과 같습니다:</p>
+<ol>
+<li><code>나보다 뛰어난 스태프 고용</code></li>
+<li><code>스포츠에 대한 열정</code> 필요</li>
+<li><code>성별과 국적에 관계없는 직원 채용</code></li>
+<li>수퍼스타보다는 <code>평균 이상의 선수들로 팀 구성</code>하여 서로의 단점 보완 (원 소스 멀티유즈)</li>
+</ol>
+<p>머니볼 실현을 위한 5단계는 다음과 같습니다:</p>
+<ol>
+<li>목표 설정: TV 시청률 or 관중 수 증대 등 <code>명확한 목표 설정</code></li>
+<li>한계가치 계산: 승패에 영향을 미치는 <code>핵심 지표 파악</code> 및 선수별 한계가치 산출</li>
+<li>한계가치의 균등화: 스타 선수보다는 <code>여러 선수 영입으로 한계가치 분산</code></li>
+<li>거래와 투자: <code>저평가된 선수 영입</code>, 고평가된 선수 판매 or 은퇴로 효율적 거래와 투자</li>
+<li>조직 설계: 출루율 높은 선수는 장타율 향상 전략 구성 등 <code>팀 내 조직 설계</code></li>
+</ol>
+<p>다음은 Python으로 구현한 머니볼 전략 예시입니다:</p>
+<pre><code>def moneyball_strategy(player_data):
+    # 핵심 지표 계산
+    for player in player_data:
+        player['on_base_percentage'] = (player['hits'] + player['walks']) / player['at_bats']
+
+    # 한계가치 계산
+    marginal_values = calculate_marginal_values(player_data)
+
+    # 저평가된 선수 영입
+    undervalued_players = find_undervalued_players(player_data, marginal_values)
+    acquire_players(undervalued_players)
+
+    # 고평가된 선수 판매 or 은퇴
+    overvalued_players = find_overvalued_players(player_data, marginal_values)
+    trade_or_retire_players(overvalued_players)
+
+    # 조직 설계
+    team_lineup = design_team_lineup(player_data)
+
+    return team_lineup
+</code></pre><p>위 코드는 머니볼 전략의 핵심 단계를 간략히 구현한 예시입니다. 데이터 분석을 통해 선수들의 가치를 평가하고, 이를 바탕으로 효율적인 팀 구성을 하는 과정을 보여줍니다.</p>
+<p>빌리 빈은 <code>&quot;머니볼은 단순히 야구에 관한 것이 아니라, 사고의 혁신에 관한 것이다&quot;</code>라고 말했습니다.</p>
+<p>(In English: &ldquo;Moneyball is not about baseball. It's about a shift in thinking.&rdquo; - Billy Beane)</p>
+<p>머니볼 전략은 스포츠뿐만 아니라 비즈니스에서도 적용될 수 있는 혁신적인 사고방식입니다. 데이터에 기반한 의사결정과 효율성 추구는 어느 분야에서나 성과 향상에 도움이 될 것입니다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/insights/moneyball-strategy-for-team-success/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents"></nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/insights/choosing_the_right_programming_language/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            목적에 맞는 개발 언어 찾기
+        </div>
+    </a>
+    
+    
+    <a href="/insights/grasping-the-core-of-work-and-efficient-task-management/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">코드로 풀어보는 효율적 업무 처리&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>해피그의 코드랩</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="해피그의 코드랩" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<link href="https://happygrammer.github.io/index.xml" rel="alternate" type="application/rss+xml" title="해피그의 코드랩" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/ai/tensorflow/serving-server-api/">Serving 서버 API</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/ai/tensorflow/serving-server-api/" class="article-date">
+                        <time datetime='2020-02-18T08:00:00.000&#43;03:00' itemprop="datePublished">2020-02-18</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    TensorFlow 서빙 API 레퍼런스 tensorflow::serving
+   Classes      tensorflow::serving::AspiredVersionPolicy An interface for the policy to be applied for transitioning servable versions in a servable stream.   tensorflow::serving::AspiredVersionPolicy::ServableAction Action and the id of the servable associated with it.   tensorflow::serving::AspiredVersionsManager A manager that implements the Target&lt;Loader&gt; API which uses aspired-versions callbacks to dictate which servable versions to load.   tensorflow::serving::AspiredVersionsManager::Options Config options and pluggable objects that will be used by the AspiredVersionsManager.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/ai/tensorflow/serving-server-api/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/ai/tensorflow/serving-architecture-overview/">서빙 아키텍처 개요</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/ai/tensorflow/serving-architecture-overview/" class="article-date">
+                        <time datetime='2020-02-18T07:45:19.000&#43;03:00' itemprop="datePublished">2020-02-18</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    텐서 플로 서빙은 유영하며 머신러닝을 위한 고수준 서빙 모델입니다. 제품 환경을 고려해 디자인 됐습니다. 텐서 플로 서빙은 동일 서버 아키텍처와 API를 유지하고 새로운 알고리즘과 환경을 손쉽게 deploy있습니다. 텐서 플로 서빙은 텐서 플로 모델을 즉시 통합할 수 있고, 다른 타입의 모델과 데이터로 확장할 수 있습니다.
+키 컨셉 텐서 플로 서빙 아키텍처 이해를 위해서, 키 컨셉을 이해 할 필요가 있습니다.
+Servables
+Servables은 텐서 플로 서빙의 주요 개념입니다. Servables은 Servables은 클라이언트가 계산 할 때 사용하는 기본 개체입니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/ai/tensorflow/serving-architecture-overview/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/ai/tensorflow/serving/">서빙 모델</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/ai/tensorflow/serving/" class="article-date">
+                        <time datetime='2020-02-18T07:39:29.000&#43;03:00' itemprop="datePublished">2020-02-18</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    텐서 플로 서빙은 유영하며 머신러닝을 위한 고수준 서빙 모델입니다. 제품 환경을 고려해 디자인 됐습니다. 텐서 플로 서빙은 동일 서버 아키텍처와 API를 유지하고 새로운 알고리즘과 환경을 손쉽게 deploy있습니다. 텐서 플로 서빙은 텐서 플로 모델을 즉시 통합할 수 있고, 다른 타입의 모델과 데이터로 확장할 수 있s습니다.
+텐서 플로 서빙의 자세한 개발 문서는 아래와 같습니다.
+ Architecture Overview Server API REST Client API  
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/ai/tensorflow/serving/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/ai/papers/meena/">Meena 논문, 리서치 리뷰</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/ai/papers/meena/" class="article-date">
+                        <time datetime='2020-02-14T01:10:05.000&#43;03:00' itemprop="datePublished">2020-02-14</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    이 문서는 Meena 논문의 연구 결과를 되짚어 보기 위한 리서치 리뷰 문서이며 새로운 연구 결과를 포함하고 있지 않습니다.
+Meena는 멀티턴 도메인 챗봇. end-to-end 방식의 데이터 학습 진행. public 도메인인 소셜 미디어 대화를 대상으로 하였음. 341 GB의 텍스트를 학습하였고 26억(2.6 billions)  파라메터를 사용한 뉴럴넷입니다. 다음 토큰의 perplexity가 최소화 되도록 학습됨.
+낮은 perplexity는 샘플에 대해 잘 설명할 수 있는 확률분포를 가졌음을 의미함 OpenAI GPT-2에 비해 1.7배 모델이 크고, 8.5배의 학습 데이터를 사용하였습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/ai/papers/meena/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/dataset/">NLP 데이터셋 소개(SQuAD, KoQuAD, KLUE)</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/dataset/" class="article-date">
+                        <time datetime='2020-02-10T23:38:39.000&#43;03:00' itemprop="datePublished">2020-02-10</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    SQuAD 최근에는 기계 독해를 평가하기 위한 SQuAD(The Stanford Question Answering Dataset)와 같은 위키피디아 기반 데이터 셋이 있다. 이 데이터셋은 기계 독해 알고리즘을 객관적으로 평가할 수 있는 벤치마크 데이터 셋으로 알고리즘의 우수성을 평가하기 위해 리더 보드를 운영하고 있다. 전체 데이터셋의 사이이즈는 학습셋=40MB, 개발셋=4MB정도이다.
+ https://rajpurkar.github.io/SQuAD-explorer/  SQuAD 2.0 데이터 셋의 구조는 다음과 같다.
+{ &quot;version&quot;: &quot;v2.0&quot;, // SQuAD 버전 정보 &quot;data&quot;: [ { &quot;title&quot;: &quot;Normans&quot;, // 출처 문서의 제목 &quot;paragraphs&quot;: [ { &quot;qas&quot;: [ { &quot;question&quot;: &quot;In what country is Normandy located?
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/dataset/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/hangeul/punctuation-mark/">한글에서 사용하는 문장 부호</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/hangeul/punctuation-mark/" class="article-date">
+                        <time datetime='2020-02-09T10:03:15.000&#43;03:00' itemprop="datePublished">2020-02-09</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    문장 부호는 문장간의 관계나 문장 내의 논리 구조를 명시해 정확한 의미 전달에 필요한 부호입니다. 본 글은 2017에 고시된 한글 맞춤법 일부 개정안의 문장 부호들을 소개한 문장 부호 해설을 참고 하였습니다.
+문장 부호 표     의미 사용 예제     1. 마침표(.) 서술, 명령, 청유 등을 나타내는 문장 부호의 끝에 사용 제 손을 꼭 잡으세요.   2. 물음표(?) 의문문이나 의문을 나타내는 어구의 끝에 사용 점심 먹었어?
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/hangeul/punctuation-mark/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/ai/data_science/math/probaility/joint-probability/">결합 확률 분포</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/ai/data_science/math/probaility/joint-probability/" class="article-date">
+                        <time datetime='2020-02-05T01:33:53.000&#43;03:00' itemprop="datePublished">2020-02-05</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    랜덤 변수 $X, Y, &hellip;,$ 는 확률 공간(probaility space)에 정의됩니다. 여기서 $X, Y$ 는 확률 분포(probability distribution)을 의미합니다. 이들 확률 분포 $X, Y$에 속한 값은 이산 집합 내에 속하거나 특정 범위 내에 속합니다. 이때 두 랜덤 변수 $X, Y$는 이변수 분포(bivariate distribution)입니다.
+결합 확률 분포(joint probability distribution)는 결합 누적 분포 함수(joint cumulative distribution function) 또는 결합 확률 밀도 함수(joint probability density function )라고 부르기도 합니다. 결합 화률 분포는 두 분포를 찾는데 사용됩니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/ai/data_science/math/probaility/joint-probability/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/hangeul/part-of-speech/">한글 9품사 5언</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/hangeul/part-of-speech/" class="article-date">
+                        <time datetime='2020-02-02T23:03:00.000&#43;03:00' itemprop="datePublished">2020-02-02</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    품사(part-of-speech)는 공통 성질이 비슷한 분류이며 한글에서는 9품사로 나뉩니다.
+명사, 대명사, 수사, 동사, 형용사, 관형사, 부사, 조사, 감탄사 그리고 위 9품사는 문장내의 역할에 따라 5언으로 나뉩니다.
+체언, 용언, 수식언, 관계언, 독립언 5언의 역할과 품사 구성은 아래와 같습니다.
+   언 역할 품사     체언 문장에서 주어나 목적어 등의 용도로 쓰이는 역할 명사, 대명사, 수사   용언 문장에서 주어의 서술 용도로 쓰이는 역할 동사, 형용사   수식언 문장에서 다른 말을 꾸며주는 역할 관형사, 부사   관계언 체언 뒤에 붙어 문법 관계를 나타내 주거나, 특별한 의미를 더해주는 역할 조사   독립언 감정을 나타내는 역할 감탄사    
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/hangeul/part-of-speech/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/bow/">Bag-Of-Words 모델</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/bow/" class="article-date">
+                        <time datetime='2020-01-31T01:21:05.000&#43;03:00' itemprop="datePublished">2020-01-31</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    Bag-Of-Words Bag-Of-Word는 순서를 단어 순서를 고려하지 않고 출현 빈도만 고려합니다. Bag-Of-Words 관점에서 &ldquo;the dog bite you&quot;와 &ldquo;you bite the dog&quot;는 어순은 다르지만 동일한 벡터로 표현 되어 동일한 문장으로 취급됩니다. 이들 두 문장에 대한 BoW를 만드는 방법은 두 단계로 진행합니다.
+ 데이터 준비 : 텍스트를 수집합니다. 그리고 토큰화(tokenize)를 합니다. 어휘 벡터 만들기 : 단어를 토큰화(tokenize) 하여 어휘(vocabulary 벡터(0으로 초기화된 zero 벡터)를 만듭니다. 단어가 문서에 있으면 1, 단어가 문서에 없으면 0으로 표시합니다.  {&quot;the&quot;:1, &quot;dog&quot;:1, &quot;bite&quot;:1 ,&quot;you&quot;,1} {&quot;the&quot;:1, &quot;dog&quot;:1, &quot;bite&quot;:1 ,&quot;you&quot;,1} BoW를 코드로 구현해 보겠습니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/bow/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/intro-nlp/">자연어 처리란 무엇인가?</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/intro-nlp/" class="article-date">
+                        <time datetime='2020-01-29T00:37:57.000&#43;03:00' itemprop="datePublished">2020-01-29</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    자연어 처리는 컴퓨터가 사람의 언어를 이해하고 컴퓨터와 사람이 상호 작용할 수 있도록 돕는 기술입니다. 자연어 처리의 궁극적인 목표는 컴퓨터가 사람과 같은 언어지능(linguistic Intelligence)을 갖추도록 하는 것 입니다. 언어지능은 사람의 언어 이해하고 다시 사람의 언어로 표현할 수 있는 능력입니다. 컴퓨터가 사람의 언어를 이해하면 사람 처럼 주어진 문제를 해결 하거나 언어에 나타난 말들을 개념화해 생각할 수 있는 추상화 추론(abstract reasoning) 능력도 갖출 수 있게 됩니다.
+자연어와 인공어 자연어(natural languge)는 사람이 일상적으로 사용하는 언어이며 사람과 사람이 의사 소통을 위해 자연적으로 발생한 언어입니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/intro-nlp/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+
+        
+
+<nav id="page-nav">
+    
+    <a href="/page/13/" rel="prev" class="extend prev">&laquo; Prev</a>
+    
+    
+    
+    <a href="/">1</a>
+    
+    
+    
+    <a href="/page/2/">2</a>
+    
+    
+    
+    <a href="/page/3/">3</a>
+    
+    
+    
+    <a href="/page/4/">4</a>
+    
+    
+    
+    <a href="/page/5/">5</a>
+    
+    
+    
+    <a href="/page/6/">6</a>
+    
+    
+    
+    <a href="/page/7/">7</a>
+    
+    
+    
+    <a href="/page/8/">8</a>
+    
+    
+    
+    <a href="/page/9/">9</a>
+    
+    
+    
+    <a href="/page/10/">10</a>
+    
+    
+    
+    <a href="/page/11/">11</a>
+    
+    
+    
+    <a href="/page/12/">12</a>
+    
+    
+    
+    <a href="/page/13/">13</a>
+    
+    
+    
+    <span class="page-number current">14</span>
+    
+    
+    
+    <a href="/page/15/">15</a>
+    
+    
+    
+    <a href="/page/16/">16</a>
+    
+    
+    
+    <a href="/page/17/">17</a>
+    
+    
+    
+    <a href="/page/18/">18</a>
+    
+    
+
+    
+    <a href="/page/15/" rel="next" class="extend next">Next &raquo;</a>
+    
+</nav>
+
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Insights on 해피그의 코드랩</title>
+    <link>https://happygrammer.github.io/insights/</link>
+    <description>Recent content in Insights on 해피그의 코드랩</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 12 Apr 2024 05:30:55 +0900</lastBuildDate>
+    
+	<atom:link href="https://happygrammer.github.io/insights/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>개발자를 위한 질문의 기술</title>
+      <link>https://happygrammer.github.io/insights/the-art-of-asking-questions/</link>
+      <pubDate>Fri, 12 Apr 2024 05:30:55 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/the-art-of-asking-questions/</guid>
+      <description>안녕하세요, 저는 오늘 질문의 기술에 대해 이야기해보려고 합니다. 질문은 우리가 새로운 것을 배우고, 상대방과 소통하며, 문제를 해결하는 데 있어 매우 중요한 역할을 합니다. 하지만 많은 사람들이 질문하는 것을 두려워하거나, 질문을 어떻게 해야 할지 모르는 경우가 많습니다.
+먼저, 질문을 할 때는 폭넓고 개방적인 질문을 하는 것이 좋습니다. 단순히 &amp;ldquo;예&amp;rdquo; 또는 &amp;ldquo;아니오&amp;quot;로 대답할 수 있는 질문보다는, 상대방이 자신의 생각과 의견을 자유롭게 표현할 수 있는 질문을 하는 것이 효과적입니다. 예를 들어, &amp;ldquo;이 프로젝트에 대해 어떻게 생각하시나요?</description>
+    </item>
+    
+    <item>
+      <title>개발자 경력의 핵심 요소들</title>
+      <link>https://happygrammer.github.io/insights/essential-elements-developer-career/</link>
+      <pubDate>Tue, 02 Apr 2024 00:03:48 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/essential-elements-developer-career/</guid>
+      <description>개발자로서의 경력을 쌓아 나가는 데 있어, 기술적 역량 못지않게 중요한 것이 바로 팀 조직과 개발 프로세스에 대한 경험입니다. 이는 개발자의 성장에 있어 결정적인 역할을 합니다.
+우선, 애자일 프로세스는 팀이 유연하고 적응력 있게 일할 수 있도록 도와줍니다. 고객 요구사항의 변화에 신속히 대응하고, 짧은 주기로 작동 가능한 소프트웨어를 제공하는 것이 핵심입니다. 짝 프로그래밍은 두 명의 개발자가 한 컴퓨터에서 함께 작업하는 방식으로, 실시간 코드 리뷰와 지식 공유가 이루어집니다. 이는 코드 품질 향상과 팀워크 강화에 큰 도움이 됩니다.</description>
+    </item>
+    
+    <item>
+      <title>개발자의 프레젠테이션 비결</title>
+      <link>https://happygrammer.github.io/insights/developer-presentation-tips/</link>
+      <pubDate>Mon, 01 Apr 2024 23:52:04 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/developer-presentation-tips/</guid>
+      <description>개발자로서 우리는 종종 후배 개발자들에게 지식을 전달하고 경험을 공유할 기회를 갖게 됩니다. 이때 어떻게 하면 효과적으로 전달할 수 있을까요? TED 대표 크리스 앤더슨의 조언을 참고해 보는 것은 어떨까요?
+먼저, 프레젠테이션의 핵심 아이디어에 초점을 맞추는 것이 중요합니다. 모든 내용이 이 중심 주제와 연결되어야 합니다. 청중이 주제에서 벗어나지 않도록 이끄는 것이 관건이죠.
+다음으로, 청중과 친밀감을 형성하세요. eye contact를 유지하고 솔직하게 자신의 약점을 드러내는 것도 좋습니다. 완벽함을 추구하기보다는 진정성을 보여주는 것이 오히려 강점이 될 수 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>겸손한 개발자의 자세</title>
+      <link>https://happygrammer.github.io/insights/humble-developer-attitude/</link>
+      <pubDate>Mon, 01 Apr 2024 23:44:30 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/humble-developer-attitude/</guid>
+      <description>개발자에게 있어 겸손은 매우 중요한 자질입니다. 세계적인 물리학자 리처드 파인만의 명언에 이런 말이 있죠. &amp;ldquo;The more you know, the more you realize how little you know.&amp;rdquo; 우리가 알면 알수록, 우리가 모르는 것이 얼마나 많은지 깨닫게 된다는 뜻입니다.
+개발 세계에서는 새로운 기술이 끊임없이 등장하고 있습니다. 잠시라도 주의를 놓치면 금세 뒤처질 수 있죠. 그렇기에 개발자는 항상 겸손한 자세를 유지하고, 자신이 아는 것이 많지 않다는 사실을 인지해야 합니다.
+하지만 겸손하다는 것이 자신의 지식을 나누지 않는다는 뜻은 아닙니다.</description>
+    </item>
+    
+    <item>
+      <title>제텔카스텐으로 글쓰기 혁신하기</title>
+      <link>https://happygrammer.github.io/insights/zettelkasten_writing_innovation/</link>
+      <pubDate>Sun, 31 Mar 2024 12:21:01 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/zettelkasten_writing_innovation/</guid>
+      <description>안녕하세요, 개발자 여러분! 오늘은 글쓰기에 혁신을 가져다 줄 수 있는 제텔카스텐(Zettelkasten) 기법에 대해 소개하고자 합니다.
+제텔카스텐이란? 제텔카스텐은 독일어로 &amp;ldquo;메모 상자&amp;quot;를 의미하는 단어입니다. 이는 철학자이자 사회학자인 니클라스 루만(Niklas Luhmann)이 개발한 지식 관리 시스템으로, 작은 메모들을 연결하여 새로운 아이디어와 통찰을 얻는 방법론입니다.
+제텔카스텐의 핵심 원리  새로운 교훈을 다른 사람이 이해할 수 있도록 짧게 정리한 메모를 쓴다. 기존 노트와 연결한다. 특정 주제로 묶을 수 있도록 메모를 충분히 쌓고, 그것들을 연결해서 긴 글을 쓴다.</description>
+    </item>
+    
+    <item>
+      <title>AI 시대의 개발자 전망</title>
+      <link>https://happygrammer.github.io/insights/ai-and-developer-future/</link>
+      <pubDate>Sun, 31 Mar 2024 09:44:09 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/ai-and-developer-future/</guid>
+      <description>최근 cognition-labs 데빈(Devin)이라는 AI가 등장하여 자동으로 코딩을 처리한다는 소식이 개발자 커뮤니티에 큰 파장을 일으키고 있습니다. GPT와 같은 대규모 언어 모델(Larse Language Model, LLM)의 발전으로 인해 리팩토링, 단순한 코드, 그리고 알려진 패턴의 코드 작성은 이제 AI의 영역이 된 것으로 보입니다.
+ AI가 개발자들의 시간을 절약해 준다는 점은 분명한 사실입니다. 그러나 역설적이게도, 개발해야 할 일들은 오히려 더 늘어나고 있습니다. 우리는 점점 더 빠른 속도로 움직여야 하는 개발자로 변모하고 있으며, 이로 인해 개발의 본질적인 재미와 창의성이 사라지는 것 같아 안타까운 마음이 듭니다.</description>
+    </item>
+    
+    <item>
+      <title>코드로 풀어보는 행복의 알고리즘</title>
+      <link>https://happygrammer.github.io/insights/life-lessons-from-park-chu-young/</link>
+      <pubDate>Sun, 31 Mar 2024 03:52:18 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/life-lessons-from-park-chu-young/</guid>
+      <description>안녕하세요, 독자 여러분. 오늘은 축구선수 박주영의 사례를 통해 우리 삶에 적용할 수 있는 교훈에 대해 생각해보려 합니다. 박주영 선수는 한때 한국 축구의 미래로 불리며 큰 기대를 모았습니다. 하지만 세계 최고 리그인 잉글랜드 프리미어 리그로 이적한 후, 주전 경쟁에서 밀리며 어려움을 겪었죠. 기대만큼의 활약을 보여주지 못한 것이지요. 이는 우리가 인생의 선택의 기로에 섰을 때도 마찬가지입니다. 예를 들어 대학을 선택할 때, 많은 학생들이 이름난 명문대만 바라보곤 합니다. 하지만 그보다 덜 유명한 대학에 진학해서도 열심히 노력하며 멋진 성과를 이뤄낸 사람들이 많습니다.</description>
+    </item>
+    
+    <item>
+      <title>코드로 풀어보는 명화의 가치 평가 알고리즘</title>
+      <link>https://happygrammer.github.io/insights/factors-behind-picasso-paintings-value/</link>
+      <pubDate>Sun, 31 Mar 2024 03:42:48 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/factors-behind-picasso-paintings-value/</guid>
+      <description>안녕하세요, 미술 애호가 여러분! 오늘은 피카소의 그림이 높은 가치를 지니는 이유에 대해 알아보도록 하겠습니다.
+첫째, 피카소는 전에 없던 혁신적인 작품을 선보였습니다. 그의 작품은 후대 작가들에게 영감을 주었고, 현대 미술의 발전에 큰 기여를 했습니다.
+둘째, 피카소는 순수한 추상미술과 콜라주 기법을 도입하여 새로운 표현 방식을 제시했습니다. 이는 그의 작품 가치를 더욱 높이는 요인으로 작용합니다.
+또한, 그림의 가격 형성에는 소장 기록(Provenance)이 중요한 역할을 합니다. 작품을 보유했던 사람, 중개 딜러, 전시 장소 등의 정보는 그림의 가치에 영향을 미칩니다.</description>
+    </item>
+    
+    <item>
+      <title>개발자도 모든 것을 이해할 순 없습니다</title>
+      <link>https://happygrammer.github.io/insights/accepting-differences/</link>
+      <pubDate>Sun, 31 Mar 2024 03:11:24 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/accepting-differences/</guid>
+      <description>우리는 종종 상대방의 행동이나 생각이 이해가 가지 않을 때가 있습니다. 그럴 때 많은 사람들은 &amp;ldquo;그냥 그런가 보다&amp;quot;라고 생각하곤 합니다. 하지만 이것은 단순히 상황을 회피하는 것일 수 있습니다.
+사실 모든 것을 이해하는 사람은 없습니다. 우리 각자는 자신만의 경험, 가치관, 성격을 가지고 있기 때문입니다. 따라서 서로 다른 것은 당연한 일이며, 이를 인정하는 것이 중요합니다.
+유명한 심리학자 칼 융은 이렇게 말했습니다:
+ &amp;ldquo;The meeting of two personalities is like the contact of two chemical substances: if there is any reaction, both are transformed.</description>
+    </item>
+    
+    <item>
+      <title>앱 정리, 이렇게 하세요!</title>
+      <link>https://happygrammer.github.io/insights/app-organization-tips/</link>
+      <pubDate>Sun, 31 Mar 2024 03:06:37 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/app-organization-tips/</guid>
+      <description>앱이 많아짐에 따라 관리가 어려워질 수 있습니다. 이럴 때는 앱을 폴더별로 분류하여 관리하는 것이 효과적입니다. 폴더 구조를 잘 짜는 것만으로도 앱 관리에 큰 도움이 됩니다.
+폴더 내 앱 정렬 시에는 가장 자주 사용하는 앱을 최상위에 배치하고, 그 다음으로는 최근에 사용한 앱 순으로 정렬하는 것이 좋습니다. 이렇게 하면 필요한 앱을 빠르게 찾을 수 있습니다.
+그 외에 이름순, 확장자순, 용량순 정렬은 특정 목적이 있을 때만 사용하는 것이 좋습니다. 예를 들어, txt 파일만 따로 모아야 할 때는 확장자순으로, 파일 정리 시에는 용량순으로 정렬하면 편리합니다.</description>
+    </item>
+    
+    <item>
+      <title>개발자를 위한 습관 형성 전략</title>
+      <link>https://happygrammer.github.io/insights/habit_formation_for_developers/</link>
+      <pubDate>Sun, 31 Mar 2024 02:49:31 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/habit_formation_for_developers/</guid>
+      <description>안녕하세요, 개발자 여러분! 습관 형성은 우리 개발자들에게도 매우 중요한 주제입니다. 코딩을 무의식적으로 하거나 새로운 언어를 자연스럽게 익히는 것, 이 모든 것이 바로 습관의 힘이라고 할 수 있죠. 하지만 많은 분들이 습관 형성을 단순히 반복의 산물로 생각하는 경향이 있습니다. 과연 그럴까요?
+습관 형성의 핵심은 자신에게 동기부여가 되는 것을 찾고, 그것을 꾸준히 실천하는 데 있습니다. 개발자에게 있어 이는 더욱 중요한데, 우리는 늘 새로운 기술과 언어를 학습해야 하기 때문이죠. 단순히 책을 읽거나 강의를 듣는 것만으로는 부족합니다.</description>
+    </item>
+    
+    <item>
+      <title>개발자라면 파인만처럼 만들자</title>
+      <link>https://happygrammer.github.io/insights/make_it_like_feynman/</link>
+      <pubDate>Sun, 31 Mar 2024 02:11:01 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/make_it_like_feynman/</guid>
+      <description>리처드 파인만은 노벨 물리학상을 수상한 세계적인 물리학자입니다. 그는 &amp;ldquo;What I cannot create, I do not understand.&amp;ldquo;이라는 유명한 말을 남겼는데, 이를 한국어로 번역하면 &amp;quot;만들지 못하는 것은 이해도 하지 못한다.&amp;quot;입니다.
+def understand(concept): try: create(concept) return True except: return False 위 코드는 파인만의 사상을 단순화시킨 예시입니다. 어떤 개념을 진정으로 이해했는지 확인하는 방법은 그것을 직접 만들어보는 것입니다. 만약 만들 수 없다면 아직 완전히 이해하지 못한 것이죠.
+이는 개발자에게도 마찬가지입니다. 우리는 종종 새로운 기술이나 개념을 접하게 됩니다.</description>
+    </item>
+    
+    <item>
+      <title>개발자의 필수 스킬, 핵심 기술력 키우기</title>
+      <link>https://happygrammer.github.io/insights/mastering-core-technologies/</link>
+      <pubDate>Fri, 01 Mar 2024 03:24:41 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/mastering-core-technologies/</guid>
+      <description>안녕하세요, 독자 여러분! 오늘은 개발자로서 성공하기 위해 필수적인 핵심 기술력에 대해 이야기하고자 합니다.
+변두리 기술에 집중하기보다는 자신만의 핵심 기술력을 확보하는 것이 중요합니다. 프레드 브룩스의 말처럼 &amp;ldquo;과학자는 배우기 위해 개발하지만 엔지니어는 개발하기 위해 배웁니다.&amp;rdquo; 우리는 엔지니어로서 개발에 필요한 기술을 배우고 익혀야 합니다.
+핵심 기술력을 키우기 위해서는 끊임없는 학습과 실践이 필요합니다. 게으른 사람에게 어려운 일을 맡기면 쉽게 처리하는 방법을 찾아낸다는 말처럼, 우리도 효율적인 방법을 찾아야 합니다. 이를 위해 다음과 같은 코드를 참고해 보세요:</description>
+    </item>
+    
+    <item>
+      <title>개발자라면 아인슈타인처럼!</title>
+      <link>https://happygrammer.github.io/insights/curiosity_for_developers/</link>
+      <pubDate>Sun, 25 Feb 2024 02:30:52 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/curiosity_for_developers/</guid>
+      <description>안녕하세요, 독자 여러분. 오늘은 위대한 과학자 알버트 아인슈타인의 삶에서 개발자로서 배울 수 있는 교훈에 대해 이야기해보려 합니다.
+ 열정적인 호기심을 가져라    &amp;ldquo;I have no special talents. I am only passionately curious.&amp;rdquo; &amp;ldquo;나는 특별한 재능을 갖지 못했다. 다만 호기심이 유달리 강하였을 뿐이다.&amp;rdquo;
+ 아인슈타인은 자신의 성공 비결로 열정적인 호기심을 꼽았습니다. 개발자에게도 새로운 기술과 지식에 대한 호기심은 성장의 원동력이 됩니다.
+인내하라!    &amp;ldquo;I&#39;m not particularly clever. I just stick with the problems longer.</description>
+    </item>
+    
+    <item>
+      <title>목적에 맞는 개발 언어 찾기</title>
+      <link>https://happygrammer.github.io/insights/choosing_the_right_programming_language/</link>
+      <pubDate>Thu, 15 Feb 2024 11:51:02 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/choosing_the_right_programming_language/</guid>
+      <description>안녕하세요, 개발자 여러분! 오늘은 다양한 프로그래밍 언어의 목적과 특징에 대해 알아보고, 여러분의 프로젝트에 가장 적합한 언어를 선택하는 방법에 대해 이야기해보려 합니다.
+먼저, 웹 개발에서 가장 기본이 되는 언어들을 살펴보겠습니다:
+ HTML: 웹 페이지의 구조(Structure)를 정의하는 데 사용됩니다. CSS: 웹 페이지의 스타일(Style)을 지정하는 역할을 합니다. JavaScript: 웹 페이지에 인터랙티브한 요소(Fun)를 추가합니다. React: 효율적인 사용자 인터페이스를 구축하여 작업(Work)을 단순화합니다. Angular: TypeScript 기반의 웹 애플리케이션 프레임워크로, 대규모 프로젝트에 적합합니다. Vue.js: 간편하고 직관적인 웹 애플리케이션 개발을 위한 프레임워크입니다.</description>
+    </item>
+    
+    <item>
+      <title>코드로 구현하는 머니볼</title>
+      <link>https://happygrammer.github.io/insights/moneyball-strategy-for-team-success/</link>
+      <pubDate>Sat, 10 Feb 2024 03:57:47 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/moneyball-strategy-for-team-success/</guid>
+      <description>안녕하세요, 스포츠 팬 여러분! 오늘은 야구 구단 운영에 혁신을 가져온 머니볼 전략에 대해 알아보겠습니다.
+머니볼 전략의 핵심은 다음과 같습니다:
+ 나보다 뛰어난 스태프 고용 스포츠에 대한 열정 필요 성별과 국적에 관계없는 직원 채용 수퍼스타보다는 평균 이상의 선수들로 팀 구성하여 서로의 단점 보완 (원 소스 멀티유즈)  머니볼 실현을 위한 5단계는 다음과 같습니다:
+ 목표 설정: TV 시청률 or 관중 수 증대 등 명확한 목표 설정 한계가치 계산: 승패에 영향을 미치는 핵심 지표 파악 및 선수별 한계가치 산출 한계가치의 균등화: 스타 선수보다는 여러 선수 영입으로 한계가치 분산 거래와 투자: 저평가된 선수 영입, 고평가된 선수 판매 or 은퇴로 효율적 거래와 투자 조직 설계: 출루율 높은 선수는 장타율 향상 전략 구성 등 팀 내 조직 설계  다음은 Python으로 구현한 머니볼 전략 예시입니다:</description>
+    </item>
+    
+    <item>
+      <title>코드로 풀어보는 효율적 업무 처리</title>
+      <link>https://happygrammer.github.io/insights/grasping-the-core-of-work-and-efficient-task-management/</link>
+      <pubDate>Thu, 01 Feb 2024 04:44:36 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/grasping-the-core-of-work-and-efficient-task-management/</guid>
+      <description>안녕하세요, 업무 효율성 향상에 관심 있는 여러분! 오늘은 일의 맥을 잘 짚는 것이 얼마나 중요한지, 그리고 이를 통해 어떻게 효율적으로 업무를 처리할 수 있는지에 대해 이야기해보려 합니다.
+우선, 일의 맥을 잘 짚는다는 것은 업무의 핵심을 파악하는 것을 의미합니다. 일의 핵심은 사실 별것 아닙니다. 업무 처리 단계별로 중요한 내용을 의사결정자와 논의하고 결정하면 됩니다.
+효율적인 업무 처리를 위해서는 혼자 결정할 사항과 다른 사람들과 함께 결정해야 할 사항을 구분하는 것이 중요합니다. 이를 위해서는 업무 처리 단계별로 결정 사항을 정리하고, 필요한 사람들과 소통하면서 진행해야 합니다.</description>
+    </item>
+    
+    <item>
+      <title>개발자가 본 도구의 본질</title>
+      <link>https://happygrammer.github.io/insights/essence_of_tools/</link>
+      <pubDate>Thu, 01 Feb 2024 01:47:23 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/essence_of_tools/</guid>
+      <description>우리는 살면서 도구를 사용하지 않을 때가 없습니다. 벽에 액자를 걸려고 해도 망치라는 도구가 필요하고, 종이를 자르려고 하면 가위라는 도구가 필요합니다. 도구는 저마다 목적을 가지고 있습니다. 사전적 정의에 따르면 도구(道具)란 다음 두 가지 의미를 갖습니다.
+ &amp;lsquo;일을 할 때 쓰는 연장을 통틀어 이르는 말&amp;rsquo; &amp;lsquo;어떤 목적을 이루기 위한 수단이나 방법&amp;rsquo;  여기서는 &amp;lsquo;어떤 목적을 이루기 위한 수단이나 방법&#39;으로서의 도구에 대해 살펴보겠습니다. 한자어 도구(道具)의 의미를 보면, 道(길, 도리, 이치, 재주), 具(갖추다, 구비하다, 온전하다)라는 뜻을 담고 있습니다.</description>
+    </item>
+    
+    <item>
+      <title>개발자의 상상력과 호기심</title>
+      <link>https://happygrammer.github.io/insights/imagination_and_curiosity/</link>
+      <pubDate>Thu, 01 Feb 2024 01:43:58 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/imagination_and_curiosity/</guid>
+      <description>상상력은 어떻게 정의할 수 있을까요? 사전에서는 &amp;quot;실제로 경험하지 않은 현상이나 사물에 대하여 마음속으로 그려 보는 힘&amp;quot;이라고 정의하고 있습니다. 하지만 저는 조금 다른 관점에서 바라보고 싶습니다. 제 나름대로 정의한 상상력은 &amp;quot;제한을 가지지 않는 생각들을 구체화하는 힘&amp;quot;입니다.
+상상력의 원천은 무엇일까요? 바로 호기심이라고 생각합니다. 호기심이 없다면 상상력을 발휘하기 어려울 것입니다. 그렇다면 호기심을 자극하기 위해서는 어떻게 해야 할까요? 지식으로 &amp;lsquo;정답&#39;을 제한하지 않는 것이 중요합니다. 정해진 틀에 갇히지 않고 자유롭게 사고하는 것, 그것이 바로 상상력의 시작점이 되는 것입니다.</description>
+    </item>
+    
+    <item>
+      <title>개발자의 자존감을 높이는 마법의 말</title>
+      <link>https://happygrammer.github.io/insights/magic_words_for_developers_self_esteem/</link>
+      <pubDate>Tue, 30 Jan 2024 01:58:23 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/magic_words_for_developers_self_esteem/</guid>
+      <description>개발자로서 우리는 종종 코딩에 막혀 좌절감을 느낄 때가 있습니다. 이럴 때 우리는 흔히 &amp;ldquo;I have to&amp;quot;라는 말을 사용하곤 합니다. &amp;ldquo;나는 이 버그를 고쳐야 해&amp;rdquo;, &amp;ldquo;나는 이 기능을 구현해야만 해&amp;quot;와 같은 식으로 말이죠.
+그러나 이런 표현은 마치 우리가 외부의 압력에 의해 어쩔 수 없이 일을 해야 한다는 느낌을 줍니다. 이는 자존감을 낮추고 스트레스를 유발할 수 있습니다.
+대신에 우리가 &amp;ldquo;I choose to&amp;quot;라는 말을 사용한다면 어떨까요? &amp;ldquo;나는 이 버그를 고치기로 선택했어&amp;rdquo;, &amp;ldquo;나는 이 기능을 구현하기로 결정했어&amp;quot;와 같이 말입니다.</description>
+    </item>
+    
+    <item>
+      <title>개발자의 성공 키워드, 속도</title>
+      <link>https://happygrammer.github.io/insights/speed_is_key_to_success/</link>
+      <pubDate>Thu, 25 Jan 2024 02:22:33 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/speed_is_key_to_success/</guid>
+      <description>안녕하세요, 독자 여러분. 오늘은 개발자의 성공에 있어 속도가 얼마나 중요한지에 대해 이야기해보려 합니다.
+성공하는 개발자들의 공통점 중 하나는 바로 빠른 실행력입니다. 그들은 완벽을 추구하기보다는 과감히 실천하는 경향이 있습니다. 물론 꼼꼼함도 중요하지만, 지나친 완벽주의는 오히려 발전을 더디게 만들 수 있습니다.
+def achieve_success(idea): while True: plan = make_plan(idea) action = take_action(plan) result = evaluate(action) if is_successful(result): break idea = improve(result) 위 코드는 성공에 이르는 과정을 단순화하여 표현한 것입니다. 아이디어가 있다면 바로 실행 계획을 세우고, 주저하지 않고 행동으로 옮깁니다.</description>
+    </item>
+    
+    <item>
+      <title>OpenAI의 차별화된 인터페이스 전략</title>
+      <link>https://happygrammer.github.io/insights/openai_differentiated_interface_strategy/</link>
+      <pubDate>Sun, 21 Jan 2024 02:05:57 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/openai_differentiated_interface_strategy/</guid>
+      <description>API를 아무리 잘 만들어도 결국 사용자와의 접점은 인터페이스라는 생각이 듭니다. OpenAI는 이 점을 잘 이해하고 있는 것 같습니다. 단순히 API를 제공하는 데 그치지 않고, 별도의 앱과 보이스 인터페이스 등을 지원함으로써 사용자 경험을 한층 더 높이고 있습니다.
+class OpenAI: def __init__(self): self.api = self.create_api() self.app = self.create_app() self.voice_interface = self.create_voice_interface() def create_api(self): # Create a powerful API pass def create_app(self): # Create a user-friendly app pass def create_voice_interface(self): # Create an intuitive voice interface pass 위 코드는 OpenAI의 전략을 간단히 표현한 것입니다.</description>
+    </item>
+    
+    <item>
+      <title>개발 팀을 이끄는 리더십 전략</title>
+      <link>https://happygrammer.github.io/insights/leadership-secrets-for-developers/</link>
+      <pubDate>Wed, 10 Jan 2024 03:32:19 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/leadership-secrets-for-developers/</guid>
+      <description>안녕하세요, 독자 여러분! 오늘은 리더십에 대해 이야기하고자 합니다. 리더십은 개발자에게도 매우 중요한 역량입니다.
+리더십의 핵심은 쫓지 말고 리드하는 것입니다. 제로에서 시작하여 승리를 이끌어내려면 선두에 서서 팀을 이끌어야 합니다. 이를 위해서는 각 분야의 핵심 요점을 정리한 한 장의 요약지를 관리하는 것이 도움이 됩니다.
+또한, 개발자로서 생존 코딩과 생존 글쓰기 능력을 갖추는 것이 중요합니다. 코딩과 글쓰기는 개발자의 기본 무기입니다. 다음 코드를 참고해 보세요:
+def survive_as_developer(): while True: improve_coding_skills() practice_writing_skills() summarize_key_points() if became_a_leader(): break return &amp;quot;개발 팀의 리더가 되었습니다!</description>
+    </item>
+    
+    <item>
+      <title>개발에서의 품질 단서 활용</title>
+      <link>https://happygrammer.github.io/insights/quality-cues-for-consumer-expectations/</link>
+      <pubDate>Sat, 06 Jan 2024 01:25:03 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/quality-cues-for-consumer-expectations/</guid>
+      <description>소비자는 제품을 구매할 때, 실제로 사용해보기 전에 제품의 포장이나 겉모습을 보고 판단한다. 이때 소비자의 기대를 좌우하는 것이 바로 품질 단서(quality cue) 또는 품질 신호(quality signal)이다.
+품질 단서의 종류  도상(icon): 있는 그대로를 표현한 것. 예를 들어, 우유 패키지에 우유를 마시는 장면을 그려넣는 것. 지표(index): 간접적으로 사물을 인식할 수 있게 하는 표지. 계절밥상 매장의 식재료 사진이 이에 해당. 상징(symbol): 대상과 직접적 연관은 없지만, 의미를 부여하는 것. 덴마크 우유 포장의 명화가 이에 해당.</description>
+    </item>
+    
+    <item>
+      <title>구글 개발자의 겸손한 자세</title>
+      <link>https://happygrammer.github.io/insights/google-developers-humility/</link>
+      <pubDate>Fri, 05 Jan 2024 01:09:36 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/google-developers-humility/</guid>
+      <description>구글에서 엔지니어로 일했던 첸 왕은 구글에서 최고로 손꼽혔던 개발자들 가운데 겸손한 개발자가 많다고 강조했다. 왕은 &amp;ldquo;구글의 강력한 인프라를 구축하는데 아주 중요한 역할을 한 개발자들이다. 그런데 이들 가운데 &amp;lsquo;지적 거만&#39;을 떠는 사람은 단 한 사람도 없었다&amp;quot;고 말했다.1
+그는 &amp;ldquo;겸손만으로 뛰어난 개발자가 될 수는 없다. 그러나 통상 겸손하지 않은 개발자는 평범한 개발자&amp;quot;라고 덧붙였다. 이는 실력과 겸손함이 모두 갖추어져야 진정한 의미의 뛰어난 개발자가 될 수 있음을 시사한다.
+구글의 성공 요인 중 하나는 이렇게 실력과 인성을 겸비한 개발자들의 존재가 아닐까?</description>
+    </item>
+    
+    <item>
+      <title>좋은 개발자로 성장하기</title>
+      <link>https://happygrammer.github.io/insights/becoming-a-good-developer/</link>
+      <pubDate>Fri, 05 Jan 2024 00:46:13 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/becoming-a-good-developer/</guid>
+      <description>안녕하세요, 개발자 여러분. 오늘은 좋은 개발자로 성장하기 위해 우리가 어떤 노력을 해야 하는지 이야기해보려 합니다. 개발자로서의 성장 과정은 결코 쉽지 않습니다. 열악한 환경 탓에 발전이 더뎌질 수도 있지만, 결국 개발자의 실력은 자신의 노력에 달려 있습니다.
+저 역시 완벽하지는 않지만, 오랜 경험을 바탕으로 몇 가지 조언을 드리고자 합니다. 먼저, 새로운 기술에 도전하는 것이 중요합니다. 익숙한 기술에 안주하지 않고, 끊임없이 배우려는 자세가 필요합니다. 그리고 지식을 공유하기 위해 노력해야 합니다. 자신의 업무와 관련된 지식을 문서화하고, 팀원들과 공유하는 것이 좋습니다.</description>
+    </item>
+    
+    <item>
+      <title>코드로 살펴보는 특허 명세서 작성 가이드</title>
+      <link>https://happygrammer.github.io/insights/patent-specification-requirements/</link>
+      <pubDate>Mon, 01 Jan 2024 03:38:50 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/patent-specification-requirements/</guid>
+      <description>안녕하세요, 특허에 관심 있는 여러분! 오늘은 특허 명세서 작성 시 주의해야 할 기재불비에 대해 알아보도록 하겠습니다.
+특허 명세서의 발명의 설명 부분은 해당 기술 분야의 통상의 지식을 가진 사람이 쉽게 발명을 실시할 수 있도록 작성되어야 합니다. 만약 이 요건을 충족하지 못한다면, 기재불비로 판단될 수 있습니다.
+또한, 특허청구범위에 기재된 용어나 표현이 발명의 설명 부분에서 뒷받침되지 않거나, 그 의미가 불명확한 경우에도 기재불비에 해당됩니다.
+예를 들어, 다음과 같은 코드가 특허청구범위에 기재되어 있다고 가정해 보겠습니다.</description>
+    </item>
+    
+    <item>
+      <title>개발자는 학벌보다 실력이다</title>
+      <link>https://happygrammer.github.io/insights/skill_over_academic_background/</link>
+      <pubDate>Mon, 25 Dec 2023 01:51:35 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/skill_over_academic_background/</guid>
+      <description>회사가 원하는 개발자는 단순히 좋은 학교의 컴퓨터 공학과를 졸업한 사람이 아닙니다. 회사에서 진정으로 필요로 하는 것은 일을 잘하는 개발자입니다. 학벌보다 실력이 중요하다는 것은 개발자 업계에서 이미 공공연한 사실입니다.
+&amp;quot;Action is the foundational key to all success.&amp;quot; - Pablo Picasso &amp;quot;행동은 모든 성공의 기초적인 열쇠이다.&amp;quot; - 파블로 피카소 피카소의 말처럼, 개발자에게 있어서도 실제로 코드를 작성하고 문제를 해결하는 행동이 성공의 핵심입니다. 아래 코드는 이러한 점을 잘 보여주는 예시입니다.
+def solve_problem(problem): # Analyze the problem analysis = analyze(problem) # Plan a solution solution = plan(analysis) # Implement the solution result = implement(solution) return result 위 코드에서 볼 수 있듯이, 문제를 분석하고(analyze) 해결책을 계획하며(plan) 이를 실제로 구현하는(implement) 일련의 과정이 개발자의 실력을 나타냅니다.</description>
+    </item>
+    
+    <item>
+      <title>시스템 사고로 장애를 방지하세요</title>
+      <link>https://happygrammer.github.io/insights/system-thinking/</link>
+      <pubDate>Fri, 16 Sep 2022 06:58:08 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/system-thinking/</guid>
+      <description>안녕하세요, 개발자 여러분! 오늘은 시스템 장애 발생 시 효과적으로 대응하기 위한 전략에 대해 알아보겠습니다.
+시스템 장애의 불가피성 아무리 단단한 시스템이라 하더라도 서버의 장애나 성능 이슈에 있어서 자유로울 수 없습니다. 시스템 운영자는 장애가 발생했을 때 당황하기 쉽지만, 문제 원인을 빠르게 분석하고 처리할 수 있는 방법과 절차가 필요합니다.
+APM을 활용한 모니터링과 트러블슈팅 APM(Application Performance Management)와 같은 시스템을 이용해 모니터링과 트러블슈팅을 위한 시스템의 각종 정보들을 평소에 확인하여 대비해야 합니다. APM은 애플리케이션의 성능을 실시간으로 모니터링하고, 문제 발생 시 신속하게 대응할 수 있도록 도와줍니다.</description>
+    </item>
+    
+    <item>
+      <title>간결하게 코딩하기</title>
+      <link>https://happygrammer.github.io/insights/coding-concisely/</link>
+      <pubDate>Fri, 09 Sep 2022 22:01:15 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/coding-concisely/</guid>
+      <description>코드를 작성할때 간결함이란 그저 짧게만 작성한 코드를 의미하지 않는다. 꼭 필요한 코드를 충분히 잘 작성하여 목적에 맞는 기능이 동작해야 한다. 코드 작성 시의 간결함은 그저 잘 동작하는 코드만을 작성하는 것을 의미하지는 않는다. 불필요한 코드 작성을 제거하여 목적지가 분명한 방향성을 포함한다.
+간결한 코드는 경험에서 나온다. 가볍고 간결한 코드는 정확한 이해 없이 그저 짧게 작성한 코드를 의미한다. 깊이있고 간결한 코드는 관련 지식을 바탕으로 간단명료하게 작성된 코드를 의미한다. 간결한 코드를 잘 작성하기 위해 코드를 깊숙이 파고들어가 분석하고 이해해야 한다.</description>
+    </item>
+    
+    <item>
+      <title>못난 코드 알아보기</title>
+      <link>https://happygrammer.github.io/insights/find-out-the-bad-code/</link>
+      <pubDate>Thu, 08 Sep 2022 13:33:15 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/find-out-the-bad-code/</guid>
+      <description>훌륭한 코드를 작성하고 싶다면 코드를 잘 쓰려고 노력하는데 그치지 말고 잘못 작성된 코드를 알아보는 감각을 키우는 노력이 필요하다. 바이올린과 같은 현악기는 연주자가 줄을 팅겨 보면서 음높이를 조절한다. 음높이를 조절할때는 음감을 이용하여 조율한다. 악보를 외우고 숙달하면 숙달된 바이올리니스트의 시늉을 하면서 한두 곡 정도는 연주가 가능할 수 있지만 모든 연주를 그렇게 할수는 없다. 올바른 코드를 작성하려면 잘못 작성된 코드를 먼저 알아보는 감각이 필요하다.
+어떻게 하면 못난 코드를 알아볼까? 쉽고 간단한 방법이 있다. 셀프 코드 리뷰를 진행해 보는 것이다.</description>
+    </item>
+    
+    <item>
+      <title>아인슈타인의 문제 해결법</title>
+      <link>https://happygrammer.github.io/insights/break_the_rules/</link>
+      <pubDate>Wed, 24 Nov 2021 22:14:45 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/break_the_rules/</guid>
+      <description>필자는 아인슈타인에 대해 관심이 많다. 인류가 알지 못했던 물리학의 비밀을 밝혀준 천재여서 이기도 하지만, 그의 인생 철학들이 많이 공감되고, 필자가 추구하는 방향이기도 하다.
+같은 일을 반복하면서 다른 결과가 나오기를 기대하는 것보다더 확실한 정신병 증세는 없다. 아인슈타인은 무한한 상상력으로 자유로운 사고가 가능했다. 그의 자유로운 사고의 원천은 순응하지 않는 태도였다.
+나는 학습을 방해하는 유일한 훼방꾼은 나의 교육이다. 교육을 받고 자란 우리들은 사회화 과정을 겪어 법칙에 복종하도록 교육을 받았다. 교육은 권위에 복종하는 것 가르친다.</description>
+    </item>
+    
+    <item>
+      <title>합의의 기술</title>
+      <link>https://happygrammer.github.io/insights/agreement/</link>
+      <pubDate>Sat, 23 Oct 2021 12:59:12 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/agreement/</guid>
+      <description>청주시 노인 전문 병원의 경우 100억 투자 후 만든 신축병원이었지만 노사 갈등으로 5개월 만에 폐업으로 인해, 청주 시민들은 의료서비스를 못 받게 되는 간접 손해가 발생했다. 갈등이 늘어날수록 손실 비용이 증간한다. 즉, 사회적 비용이 증가하는 것이다. 갈등이 해결되지 않는다는 것은 각자의 목표만 있고 평행선을 달리고 있다는 것을 의미한다. 이런 경우 변화에 대한 사회적 합의를 위해 토론이 필요하다.
+시민합의회의(Consensus Conference)에 참석한 시민들 과거에 하르츠 개혁은 노동개혁위원회 15명을 구성하여 합의된 내용은 쟁점화하지 않는다는 원칙을 세웠다.</description>
+    </item>
+    
+    <item>
+      <title>비즈니스 라이팅 방법</title>
+      <link>https://happygrammer.github.io/insights/business-writing/</link>
+      <pubDate>Sat, 21 Aug 2021 20:08:07 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/business-writing/</guid>
+      <description>쉬운 비즈니스 라이팅을 위한 5가지 방법
+ 쉬운 용어  전문 용어 대신 듣는이가 이해할 수 있는 쉬운 용어를 사용한다.  (예) &amp;lsquo;리팩토링&amp;rsquo; → &amp;lsquo;프로그램 코드 개선&amp;rsquo;, (예) &amp;lsquo;ER&amp;rsquo; → &amp;lsquo;응급실&amp;rsquo; (예) &amp;lsquo;프로시저&amp;rsquo; → &amp;lsquo;시술&amp;rsquo;     부연 설명  단순 정보만 전달하지 말고 부연 설명을 곁들인다. 어려운 내용은 결론만 말하지 말고, 결론의 배경을 차례대로 설명한다.   명확하게  적절한 슬라이드 제목, 폰트, 적절히 사용하고 중요한 단어에 볼드체를 사용한다.</description>
+    </item>
+    
+    <item>
+      <title>스코프 크리프 방지법</title>
+      <link>https://happygrammer.github.io/insights/scope-creep/</link>
+      <pubDate>Sun, 30 May 2021 09:46:03 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/scope-creep/</guid>
+      <description>어느 프로젝트나 &amp;lsquo;품질&amp;rsquo;, &amp;lsquo;비용&amp;rsquo;, &amp;lsquo;시간&#39;라는 요소가 프로젝트 성공에 영향을 미친다. 이러한 요소들간의 관계를 보여주는 것이 스코프 삼각형(Scope Triangle)이다. 스코프 삼각형은 프로젝트의 성공 요인들에 대한 트레이드 오프 관계가 존재함을 나타낸다.
+스코프 삼각형에서 시간은 프로젝트가 성공하기 위해 필요한 최소한의 가용한 시간이고, 비용은 프로젝트에서 프로젝트를 성공적으로 완수하기 위해 필요한 자원의 양을 나타낸다. 품질은 프로젝트가 성공하기 위해 달성해야 하는 목표 또는 기능 범위에 해당한다. 프로젝트를 성공적으로 수행하기 위해 세 요소는 적절히 조정이 될 필요가 있다.</description>
+    </item>
+    
+    <item>
+      <title>우주의 이해</title>
+      <link>https://happygrammer.github.io/insights/astronomy/universe/</link>
+      <pubDate>Sun, 21 Mar 2021 22:58:56 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/astronomy/universe/</guid>
+      <description>빅뱅우주론 빅뱅우주론은 13.7 억년전 한점으로 부터 폭발했고, 확장되어 왔다. 우주의 역사를 이해하는 기본적인 핵심은 빛의 속력이 일정하다는 것이다. 1초 지구를 7바퀴 반을 돈다. 빛이 1년간 날아가는 거리는 광년이다. 10억년전, 50억년전의 우주를 보고 있다.
+변화하는 우주 우주는 끈임없이 자기 모습을 변화해간다. 모든 별은 생겨나고 자라나고 죽어간다. 일정한 순명을 가지고 있다. 천문학 연구에 의하면, 별들의 수명은 수백만년 ~ 수백억년에 이른다. 밤하늘에 존재하는 별 탄생하는별, 죽어가는 별, 죽어서 별의 잔재들을 확인할 수 있다. 별들을 보면 별의 일생을 논리적으로 이해할 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>소프트웨어 라이프사이클</title>
+      <link>https://happygrammer.github.io/insights/software-lifecycle/</link>
+      <pubDate>Sat, 06 Feb 2021 11:51:28 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/software-lifecycle/</guid>
+      <description>프로젝트 진행 단계 소프트웨어를 개발을 시작하려는 사회 초년개발자들은 소프트웨어 라이프 사이클에 익숙하지 안습니다. 업무를 시작하면 프로젝트에 참가하고, 프로젝트는 하나의 라이프 사이클이 존재하고, 투자에 대한 아웃풋과 기간이 분명히 정해져 있습니다. 프로젝트 라이프 사이클 단계를 보면 요청 단계, 제안서 작성 단계, 프로젝트 시작 단계, 그리고 프로젝트 수행 단계, 프로젝트 종료 단계가 있습니다.
+첫 번째로 고객 요청 단계에서는 RFP(Request for Proposal)를 고객으로부터 받아요. RFP는 발주자가 특정 과제의 수행에 필요한 요구사항을 체계적으로 정리하여 제시함으로써 제안자가 제안서를 작성하는데 도움을 주기 위한 문서입니다.</description>
+    </item>
+    
+    <item>
+      <title>단순함에 대한 명언들</title>
+      <link>https://happygrammer.github.io/insights/simple/</link>
+      <pubDate>Sun, 22 Nov 2020 21:19:37 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/simple/</guid>
+      <description>바보는 사물을 크고 복잡하게 만든다. 반대로 가려면 천재성과 용기가 필요하다. 아인슈타인의 말이다. 삶이란 정말 단순한 것이지만, 우리는 그것을 계속 복잡하게 만들고 있다. 단순하고 평범한 몇개의 원리만 알면 해당 분야의 80%는 소화할 수 있다. 논문이나 전문 분야에서도 그대로 적용된다.
+ Everything should be made as simple as possible, but no simpler  모든 것은 더 단순하게 할 수 없을 만큼 가능한 한 단순하게 해야한다. (아인슈타인)   If you can’t explain it simply, you don&#39;t understand it well enough  단순하게 설명할 수 없다면 제대로 이해하지 하지 못한 것이다.</description>
+    </item>
+    
+    <item>
+      <title>한국의 경제 지표</title>
+      <link>https://happygrammer.github.io/insights/statistics/</link>
+      <pubDate>Sun, 05 Apr 2020 17:49:27 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/statistics/</guid>
+      <description>통계 지표는 현재 한국의 경제 상황을 확인 하는 것이 보다 객관적인 사고를 하는데 도움이 됩니다. 그래서 경제 상황을 이해할 수 있는 몇가지 주요 지표 들에 대해서 확인해 보도록 하겠습니다.
+비정규직 비율의 증가 비정규직 근로자와 정규직 근로자 사이에는 임금 등에서 보상의 차이가 존재합니다. 비정규직 비율이 36.4%에 해당합니다. 비정규직의 발생 배경은 경제의 불확실성입니다. 경제의 불확실성으로 인해, 비정규직 비율이 높아지면 기업 관점에서 기술 축적을 방해하고, 노동자 관점에서는 고용불안을 가져다 줍니다. 요즘 코로나 상태로 인해 세계 경제가 꽁꽁 얼어 붙고, 소비가 위축되면서 경제의 불확실성이 높아진 상태입니다.</description>
+    </item>
+    
+    <item>
+      <title>본질을 꿰뚫는 통찰력</title>
+      <link>https://happygrammer.github.io/insights/insight/</link>
+      <pubDate>Sun, 05 Apr 2020 14:39:37 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/insight/</guid>
+      <description>기업의 성장 하려면 통찰을 통해 숨은 본질을 파악해 문제를 해결해 나가는 것이 필요하다. 기업에 있어서 본질은 기업의 존립을 좌우하는 핵심 가치이다.
+세계적 기업들은 저마다 본질을 추구하고 있다. 구글은 최근 유튜브, 클라우드 서비스 등의 사업 영역을 확장하고 있지만, 구글의 본질은 검색이다. 애플은 아이폰과 같은 혁신 제품을 생산 했지만 컴퓨터 그 이상의 가치를 추구한다. 바로, 심플이다. 애플은 경쟁사 델과 달리 제품군이 단 4가지였지만, 천문학적인 이윤을 달성할 수 있었다. 애플은 고객에게 심플한 구매 경험을 제공함으로서 애플 브랜드를 더욱 신뢰하게 만들었다.</description>
+    </item>
+    
+    <item>
+      <title>오리온의 별 베텔게우스</title>
+      <link>https://happygrammer.github.io/insights/astronomy/betelgeuse/</link>
+      <pubDate>Tue, 25 Feb 2020 06:49:47 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/astronomy/betelgeuse/</guid>
+      <description>베텔게우스(Betelgeuse)는 오리온자리의 좌상 꼭짓점에 위치해 있으며, 지름이 9억 6500만㎞로, 태양보다 800배 이상크다. 베텔게우스를 태양계에 두면 목성의 궤도까지 잡아먹을 정도이다.
+지구에서 650광년 떨어진 비교적 가까운 거리에 있으며, 망원경으로 표면 특징을 포착할 수 있는 몇 안 되는 별 중 하나이다. 별의 회전 속도가 시속 1만7700~5만3000㎞(미국천문학회 235차 회의에서 발표됨)라고 한다. 별의 밝기가 어두워져서 곧 초신성으로 폭발하게 될 것이 아닌지 하는 소식이 있다. 초신성이 폭발 했다면 650년 후에나 우주의 불꽃 놀이를 볼 수 있다.</description>
+    </item>
+    
+    <item>
+      <title>조선 최고의 메모광 다산 정약용</title>
+      <link>https://happygrammer.github.io/insights/jeong-yak-young/</link>
+      <pubDate>Wed, 15 Jan 2020 06:31:12 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/jeong-yak-young/</guid>
+      <description>기록은 남겨야 보존된다. 메모하지 않으면 기억의 저장고에서 깊은 잠에 빠지고 만다. 생각은 메모를 통해서만 싹을 틔운다. 메모의 습관은 꾸준한 연습 없이는 몸에 잘 붙지 않는다. 밥 먹듯이 메모하고, 숨 쉬듯이 메모해야 습관이 된다. 무심코 기록한 일기가 사료가 되고, 한 시대의 소중한 증언이 된다. 말은 항상 떠돌지만, 기록은 남기는 자를 통해서만 보존된다. 기록되는 순간 그것은 비로소 제 생명을 갖는다.
+옛사람의 메모벽 옛사람의 메모벽은 자못 유난스럽다. 책을 읽다가 번뜩 떠오른 생각이 있으면 메모지에 옮겨 적었다.</description>
+    </item>
+    
+    <item>
+      <title>스티브잡스, Stay Hungry. Stay Foolish</title>
+      <link>https://happygrammer.github.io/insights/steven-jobs/</link>
+      <pubDate>Wed, 15 Jan 2020 06:30:21 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/steven-jobs/</guid>
+      <description>하는 일을 사랑하는 것 여러분이 진정으로 만족하는 유일한 길은 여러분 스스로 훌륭하다고 믿는 일을 하는 것입니다. 그리고 훌륭한 일을 하는 유일한 길은 여러분이 하는 일을 사랑하는 것입니다. 만일 그것을 아직 찾지 못했다면, 계속 찾으십시오. 주저앉지 마십시오. 언젠가 그것을 발견할 때 여러분은 마음으로부터 그것을 알게 될 것입니다.
+마음과 직관을 따라가는 용기 시간은 한정되어 있습니다. 그러므로 다른 사람의 삶을 사느라고 시간을 허비하지 마십시오. 다른 사람들의 견해가 여러분 자신의 내면의 목소리를 가리는 소음이 되게 하지 마십시오.</description>
+    </item>
+    
+    <item>
+      <title>수학이 우리에게 필요한 이유</title>
+      <link>https://happygrammer.github.io/insights/interesting-mathematics/</link>
+      <pubDate>Wed, 01 Jan 2020 01:33:53 +0300</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/interesting-mathematics/</guid>
+      <description>본 글은 조선일보에 실린 세계수학자대회 개막 기사의 중요 내용을 옮겨 보았다. 이 글이 좋았던 점은 수학이 왜 우리에게 필요한지, 수학 교육의 방향을 어때야 하는지, 수학자들에게 수학이라는 것이 어떤 의미였는지를 옅볼 수 있었던 기사였기 때문이다.
+수학 응용에 대한 역사  구글은 검색엔진에 이용하였다. 토이스토리는 컴퓨터 그래픽의 조절기술, 애니메이션에 기하학·미분 적용, 제작비 등 줄여 아폴로 11호는 지구를 떠난 후, 뉴턴 수학을 이용해 어느 지점에서 가속을 해야 달의 궤도에 정확히 들어갈 수 있는지 계산해 냈다.</description>
+    </item>
+    
+    <item>
+      <title> 희소성의 원칙</title>
+      <link>https://happygrammer.github.io/insights/economics/</link>
+      <pubDate>Sun, 03 Jun 2018 15:07:58 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/economics/</guid>
+      <description>희소성은 경제학 이론의 출발이다. 사람의 욕망에 비하여 그것을 충족 시켜주는 수단이 양적이나 질적으로 유한하여 부족한 상태를 이르는 말이다.
+기회비용 경제학은 한정적인 자원을 가장 효율적으로 배분하는 것을 연구하는 학문이다. 하나를 택하면 하나를 버려야 한다.  그래서 세상에 공짜 점심은 없다고 말한다. 어떤 선택을 위해 포기한 모든 것을 경제학에서는 기회비용이라고 부른다. 예를 들어서 식당을 운영하다가 영하를 보러 갔다가 해보자. 영화 비용으로 쓴 1만원은 명시적인 비용이고, 식당 운영 수익은 암묵적 비용이다. 회계사 관점에서 영화 비용으로 쓴 1만원을 기회 비용이라고 계산한다.</description>
+    </item>
+    
+    <item>
+      <title>짧은순으로 정렬한 격언</title>
+      <link>https://happygrammer.github.io/insights/proverb/</link>
+      <pubDate>Fri, 03 Jun 2016 07:28:33 +0900</pubDate>
+      
+      <guid>https://happygrammer.github.io/insights/proverb/</guid>
+      <description>개발자 격언 중에 변수명은 짧을수록 좋다라는 말이 있다. 쉽고 짧은 격언은 기억하기 쉽고 일깨움을 준다.
+ Keep oaring. 계속 노를 저어라. None of your lips. 신소리 마라 All or nothing. 전부냐, 無냐. Walls have ears. 벽에도 귀가 있다. Finding&#39;s keeping. 찾는 것이 갖는 것 Make haste slowly. 급할수록 신중히. The more the merrier. 많을수록 즐겁다. Store is no sore. 저장은 고통이 아니다. Resolve lasts three days. 작심 삼일 Time tries truth.</description>
+    </item>
+    
+  </channel>
+</rss>

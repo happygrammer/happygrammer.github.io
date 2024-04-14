@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>[프롬프팅] 프롬프트와 프롬프팅의 차이점 이해</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="[프롬프팅] 프롬프트와 프롬프팅의 차이점 이해" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/prompting/understanding-difference-between-prompt-and-prompting/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/nlp/" class="archive-article-date">&lt; Nlps</a></div>
+            
+            <h1 class="article-title" itemprop="name">[프롬프팅] 프롬프트와 프롬프팅의 차이점 이해</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/prompting/understanding-difference-between-prompt-and-prompting/" class="article-date">
+                <time datetime='2024-04-01T07:28:00.000&#43;09:00' itemprop="datePublished">2024-04-01</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>안녕하세요, 여러분! 오늘은 대화형 AI 시스템에서 중요한 개념인 프롬프트(Prompt)와 프롬프팅(Prompting)에 대해 알아보려고 합니다. 이 두 용어는 비슷해 보이지만, 사실 약간의 차이가 있습니다.</p>
+<h4 id="heading">프롬프트</h4>
+<p>프롬프트는 AI 모델에 제공되는 입력 텍스트를 의미합니다. 사용자가 AI 모델과 상호 작용할 때, 프롬프트를 통해 대화를 시작하게 됩니다. 프롬프트는 <code>질문, 지시문, 문맥 정보 등을 포함</code>할 수 있으며, AI 모델이 생성할 응답의 방향을 결정하는 데 중요한 역할을 합니다. 예를 들어, &ldquo;오늘 날씨가 어떤지 알려줘&quot;라는 프롬프트를 제공하면, AI 모델은 해당 지역의 날씨 정보를 생성하게 됩니다.</p>
+<h3 id="heading-1">프롬프팅</h3>
+<p>반면에 프롬프팅은 프롬프트를 활용하여 AI 모델과 상호 작용하는 <code>전체 과정</code>을 의미합니다. 사용자가 프롬프트를 입력하고, AI 모델이 응답을 생성하는 일련의 과정이 프롬프팅에 해당합니다. 프롬프팅을 통해 사용자는 AI 모델과 대화를 진행하며, 원하는 정보나 답변을 얻을 수 있습니다.</p>
+<p>프롬프팅에서는 프롬프트 엔지니어링(Prompt Engineering)도 중요한 개념입니다. 프롬프트 엔지니어링은 <code>효과적인 프롬프트를 설계하고 최적화하는 과정</code>을 말합니다. 적절한 프롬프트를 통해 AI 모델의 성능을 향상시키고, 원하는 결과를 더욱 잘 이끌어낼 수 있습니다. 프롬프트 엔지니어링에서는 프롬프트의 구조, 문맥, 명확성 등을 고려하여 최적의 프롬프트를 설계합니다.</p>
+<p>아래는 사용자와 AI 모델 간의 프롬프팅 과정을 나타낸 예시 코드입니다:</p>
+<pre><code>while True:
+    user_input = input(&quot;User: &quot;)
+    if user_input.lower() == 'bye':
+        print(&quot;AI: 좋은 하루 되세요!&quot;)
+        break
+
+    prompt = f&quot;User: {user_input}\nAI:&quot;
+    response = generate_response(prompt)
+    print(f&quot;AI: {response}&quot;)
+</code></pre><p>위 코드에서는 사용자의 입력을 받아 프롬프트를 구성하고, <code>generate_response</code> 함수를 통해 AI 모델의 응답을 생성합니다. 이 과정이 반복되면서 사용자와 AI 모델 간의 대화가 이루어집니다.</p>
+<p>프롬프트와 프롬프팅은 대화형 AI 시스템에서 사용자와 AI 모델 간의 상호 작용을 가능하게 하는 핵심 요소입니다. 프롬프트는 AI 모델에 제공되는 입력 텍스트 자체를, 프롬프팅은 프롬프트를 활용한 전체 상호 작용 과정을 나타냅니다.</p>
+<p>효과적인 프롬프팅을 위해서는 적절한 프롬프트 설계가 필수적이며, 이를 통해 AI 모델의 성능을 극대화할 수 있습니다. 프롬프트 엔지니어링을 통해 최적의 프롬프트를 설계하고, 사용자와 AI 모델 간의 자연스러운 대화를 이끌어내는 것이 중요합니다.</p>
+<h3 id="-">프롬프트 엔지니어링</h3>
+<p>프롬프팅에서는 <code>프롬프트 엔지니어링(Prompt Engineering)</code>이라는 개념도 중요합니다. 프롬프트 엔지니어링은 AI 모델에게 효과적인 프롬프트를 설계하고 최적화하는 과정을 말합니다. 적절한 프롬프트를 통해 AI 모델의 성능을 향상시키고, 원하는 결과를 더 잘 이끌어낼 수 있습니다. 프롬프트 엔지니어링에서는 프롬프트의 구조, 문맥, 명확성 등을 고려하여 프롬프트를 설계합니다.</p>
+<pre><code>사용자: AI에게 질문이나 지시를 제공 (프롬프트)
+AI 모델: 사용자의 프롬프트를 받아 응답을 생성
+사용자: AI 모델의 응답을 확인하고 필요에 따라 추가 프롬프트 제공
+AI 모델: 사용자의 추가 프롬프트에 따라 응답을 생성
+...
+</code></pre><p>위 예시처럼 사용자와 AI 모델 간의 상호 작용이 반복되는 과정을 프롬프팅이라고 할 수 있습니다.</p>
+<p>따라서 프롬프트는 AI 모델에 제공되는 입력 텍스트 자체를 의미하고, 프롬프팅은 프롬프트를 사용하여 AI 모델과 상호 작용하는 전체 과정을 나타냅니다. 효과적인 프롬프팅을 위해서는 적절한 프롬프트 설계가 중요하며, 이를 통해 AI 모델의 성능을 극대화할 수 있습니다.</p>
+<p>앞으로 대화형 AI 시스템은 더욱 발전하고 다양한 분야에서 활용될 것으로 예상됩니다. 프롬프트와 프롬프팅에 대한 이해를 바탕으로, 보다 효과적이고 사용자 친화적인 AI 시스템을 개발할 수 있을 것입니다. 개발자 여러분도 프롬프트 엔지니어링에 대해 깊이 공부하고, 창의적인 프롬프트 설계를 통해 AI 모델의 잠재력을 최대한 끌어올리시길 바랍니다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/nlp/prompting/understanding-difference-between-prompt-and-prompting/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#heading-1">프롬프팅</a></li>
+        <li><a href="#-">프롬프트 엔지니어링</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/linux/symbolic-link-caution/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            심볼릭 링크 사용시 주의사항
+        </div>
+    </a>
+    
+    
+    <a href="/dev/linux/analyze_dataset/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">학습셋 통계 내기&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>TensorRT 설치</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="TensorRT 설치" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/ai/tensorrt/setup/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/ai/" class="archive-article-date">&lt; Ais</a></div>
+            
+            <h1 class="article-title" itemprop="name">TensorRT 설치</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/ai/tensorrt/setup/" class="article-date">
+                <time datetime='2023-01-14T05:40:46.000&#43;09:00' itemprop="datePublished">2023-01-14</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>TensorRT를 실행하려면 NVIDIA GPU 드라이버와 CUDA와 관련한 환경 설치를 먼저 진행하고 이후 NGC 컨테이너를 이용해 TensorRT를 실행할 수 있다.</p>
+<p><img src="https://developer-blogs.nvidia.com/wp-content/uploads/2020/07/triton-1.png" alt=""></p>
+<p>출처 : <a href="https://developer.nvidia.com/blog/optimizing-and-accelerating-ai-inference-with-tensorrt-container-from-ngc/">Optimizing and Accelerating AI Inference with the TensorRT Container from NVIDIA NGC</a></p>
+<h3 id="tensorrt--">TensorRT 환경 설치</h3>
+<p>TensorRT 설치를 위해서는 GPU가 있는 우분투 환경이 필요하다. 이어서 다음 순서대로 설치를 진행한다.</p>
+<ul>
+<li><code>NVIDIA GPU 드라이버</code>를 설치</li>
+<li>Cuda 설치</li>
+</ul>
+<p>먼저 <code>NVIDIA GPU 드라이버</code> 설치를 진행한다. 권장 드라이버를 자동으로 설치하려면 아래 명령을 입력한다.</p>
+<pre><code>sudo ubuntu-drivers autoinstall
+</code></pre><p>원하는 버전으로 수동 설치하려면 아래 명령을 입력한다. (<a href="https://packages.ubuntu.com/search?suite=default&amp;section=all&amp;arch=any&amp;keywords=nvidia-driver&amp;searchon=names">버전 확인</a>)</p>
+<pre><code>sudo apt install nvidia-driver-440
+</code></pre><p>이후 리부팅을 한다.</p>
+<pre><code>sudo reboot
+</code></pre><p>이어서 nvidia-smi를 확인한다. 작동하지 않는다면 문제점 점검이 필요하다.</p>
+<pre><code>nvida-smi
+</code></pre><p>이어서 cuda 배포판을 다운로드 후 설치한다.</p>
+<pre><code>sudo dpkg -i cuda-repo-ubuntu1804–10–0-local-10.0.130–410.48_1.0–1_amd64.deb
+sudo apt-key add /cuda-repo-10–0-local-10.0.130.410.48/7fa2af80.pub
+sudo apt-get update
+sudo apt-get install cuda
+</code></pre><h3 id="tensorrt-">TensorRT 설치</h3>
+<p>NVIDIA GPU 드라이버와 CUDA 설치가 완료되었다면 TensorRT 실행 환경 설치를 진행한다. NVIDIA 시스템에 맞는 TensorRT를 직접 설치할 수 있다.</p>
+<p>[직접설치 명령 예시]</p>
+<pre><code>sudo dpkg -i nv-tensorrt-repo-ubuntu1804-cuda10.0-trt6.0.1.5-ga-20190913_1-1_amd64
+sudo apt-key add /var/nv-tensorrt-repo-ubuntu1804-cuda10.0-trt6.0.1.5-ga-20190913_1-1_amd64/7fa2af80.pub
+sudo apt-get update
+sudo apt-get install tensorrt
+# this is for python2 installation
+sudo apt-get install python-libnvinfer-dev
+#this is for python3 installation
+sudo apt-get install python3-libnvinfer-dev
+sudo apt-get install uff-converter-tf
+sudo apt-get install onnx-graphsurgeon
+dpkg -l | grep TensorRT
+</code></pre><p>NVIDIA GPU를 이용한다면 NVIDIA 공식 컨테이너인 NVIDIA NGC 딥 러닝 프레임워크 컨테이너(이하 NGC 컨테이너)를 이용한다.  NGC 컨테이너는 도커 기반으로 TensorRT를 실행할 수 있게 해 준다. 도커 19.03 이상 기준으로 컨테이너 시작 명령은 다음과 같다.</p>
+<pre><code>docker run --gpus all -it --rm -v local_dir:container_dir nvcr.io/nvidia/tensorrt:xx.xx-py3
+</code></pre><p>도커 19.03 미만이라면 아래 명령어를 이용한다.</p>
+<pre><code>nvidia-docker run -it --rm -v local_dir:container_dir nvcr.io/nvidia/tensorrt:xx.xx-py3
+</code></pre><p>컨테이너 내에서 TensorRT C++ 샘플 실행이 가능하다.</p>
+<pre><code>cd /workspace/tensorrt/samples
+make -j4
+cd /workspace/tensorrt/bin
+./sample_mnist
+</code></pre><p>공간 절약을 위해 파이썬 종속성이 설치 되지 않았기 때문에 다음 명령을 실행해 파이썬을 설치한다.</p>
+<pre><code>/opt/tensorrt/python/python_setup.sh
+</code></pre><h3 id="-">참고 문서</h3>
+<ul>
+<li><a href="https://developer.nvidia.com/tensorrt">https://developer.nvidia.com/tensorrt</a></li>
+<li><a href="https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorrt">https://catalog.ngc.nvidia.com/orgs/nvidia/containers/tensorrt</a></li>
+<li><a href="https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html">https://docs.nvidia.com/deeplearning/tensorrt/developer-guide/index.html</a></li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/ai/tensorrt/setup/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#tensorrt--">TensorRT 환경 설치</a></li>
+        <li><a href="#tensorrt-">TensorRT 설치</a></li>
+        <li><a href="#-">참고 문서</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/mlops/mlflow/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            MLFlow 소개
+        </div>
+    </a>
+    
+    
+    <a href="/ai/tensorrt/intro/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">TensorRT 소개&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

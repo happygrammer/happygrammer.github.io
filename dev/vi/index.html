@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>1시간 안에 Vi 익히기</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="1시간 안에 Vi 익히기" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/vi/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">1시간 안에 Vi 익히기</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/vi/" class="article-date">
+                <time datetime='2020-01-06T01:26:13.000&#43;03:00' itemprop="datePublished">2020-01-06</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>vi 에디터는 유닉스 에디터다. 터미널에서 쉘이나 각종 txt 파일, 스크립트를 수정할때 종종 사용한다. 단축키를 알아 두면 터미널 작업시 도움이 된다. 많은 명령어가 있지만 본 포스팅은 자주 쓰는 명령어만 추가해 두었다.</p>
+<h2 id="heading">실행</h2>
+<ul>
+<li>view filename : 읽기전용으로</li>
+<li>vi filename : 에디팅모드로 파일을 연다.</li>
+</ul>
+<h2 id="heading-1">커서이동</h2>
+<ul>
+<li>
+<p>^ : 문장 시작으로 (또는 0)</p>
+</li>
+<li>
+<p><code>$</code> 문장 끝으로</p>
+</li>
+<li>
+<p><code>gg</code> : 문서 시작으로</p>
+</li>
+<li>
+<p><code>:$</code> 문서 끝으로</p>
+</li>
+<li>
+<p><code>:숫자</code> 해당 라인으로</p>
+</li>
+</ul>
+<h2 id="heading-2">화면이동</h2>
+<ul>
+<li>ctrl + f : 한 화면 위로 이동</li>
+<li>ctrl  + b : 한 화면 아래로 이동</li>
+</ul>
+<h2 id="-">복사, 붙여넣기</h2>
+<ul>
+<li><code>shift + v</code> : 영역 지정하기</li>
+<li><code>y</code> : 복사하기(copy; yank)</li>
+<li><code>p</code>  : 붙여 넣기(paste)</li>
+</ul>
+<h2 id="heading-3">삭제</h2>
+<ul>
+<li>x : 커서가 있는 문자 삭제</li>
+<li>2x : 커서가 있는 위치로부터 2개의 문자를 삭제</li>
+<li>dd : 커서가 위치한 라인 삭제</li>
+<li>5dd : 커서가 있는 라인으로 부터 5개 라인 삭제</li>
+</ul>
+<h2 id="heading-4">탐색</h2>
+<ul>
+<li>/검색할 문자열/ : 오른쪽 아래 방향으로 문자열 검색</li>
+<li>?검색할 문자열? : 왼쪽 위 방향으로 문자열 검색</li>
+<li>n 누르면 다음, shift+n 누르면 이전</li>
+</ul>
+<h2 id="heading-5">교체</h2>
+<ul>
+<li>현재 라인에서 foo를 bar로 교체
+<ul>
+<li>:s/foo/bar/g</li>
+</ul>
+</li>
+<li>전체 라인에서 foo를 bar로 교체
+<ul>
+<li>:%s/foo/bar/g</li>
+</ul>
+</li>
+</ul>
+<h2 id="heading-6">저장</h2>
+<ul>
+<li>:w : 저장</li>
+<li>:w filename : 버퍼를 저장</li>
+<li>:wq : 변경사항 반영후 종료</li>
+<li>:q! : 변경사항 반영하지 않고 종료</li>
+<li>u : 이전명령취소</li>
+</ul>
+<h2 id="heading-7">쉘</h2>
+<ul>
+<li>ctrl + z : 쉘로 잠시 빠져나옴</li>
+<li>fg : 다시 복귀
+<ul>
+<li>jobs : 프로세스 확인</li>
+<li>fg %num : 해당 vi 를 포그라운드로 다시 시작</li>
+</ul>
+</li>
+</ul>
+<h2 id="--1">기타 설정명령</h2>
+<ul>
+<li>:set nu : 행 번호 표시</li>
+<li>:set nonu : 행 번호 숨기기</li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/vi/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#heading">실행</a></li>
+    <li><a href="#heading-1">커서이동</a></li>
+    <li><a href="#heading-2">화면이동</a></li>
+    <li><a href="#-">복사, 붙여넣기</a></li>
+    <li><a href="#heading-3">삭제</a></li>
+    <li><a href="#heading-4">탐색</a></li>
+    <li><a href="#heading-5">교체</a></li>
+    <li><a href="#heading-6">저장</a></li>
+    <li><a href="#heading-7">쉘</a></li>
+    <li><a href="#--1">기타 설정명령</a></li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/git/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            1시간 안에 Git 익히기
+        </div>
+    </a>
+    
+    
+    <a href="/nlp/the-journey-of-nlp-development/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">NLP 개발의 여정&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Netty 채널 소개와 채널 핸들러</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Netty 채널 소개와 채널 핸들러" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/netty/handler/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/netty/" class="archive-article-date">&lt; Netties</a></div>
+            
+            <h1 class="article-title" itemprop="name">Netty 채널 소개와 채널 핸들러</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/netty/handler/" class="article-date">
+                <time datetime='2020-03-22T10:10:24.000&#43;03:00' itemprop="datePublished">2020-03-22</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>채널은 IO 동작(파일, 소켓)을 수행할 수 있는 연결 상태를 의미합니다. Netty에서는 채널 핸들러를 이용해 관심사 분리를 수행합니다.</p>
+<h4 id="--">채널 핸들러 종류</h4>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Inbound Handler</td>
+<td>입력 데이터(in bound)에 대한 변경 상태를 감시하고 처리하는 역할을 하는 핸들러</td>
+</tr>
+<tr>
+<td>Outbound Handler</td>
+<td>출력 데이터(out bound)에 대한 동작을 가로채 처리하는 역할을 하는 핸들러</td>
+</tr>
+</tbody>
+</table>
+<h3 id="channelinboundhandler-">ChannelInboundHandler 메소드</h3>
+<table>
+<thead>
+<tr>
+<th>종류</th>
+<th>설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>channelRegistered(&hellip;)</td>
+<td>채널이 이벤트 루프에 등록됐을때 호출됨</td>
+</tr>
+<tr>
+<td>channelUnregistered(&hellip;)</td>
+<td>채널이 생성 됐지만, 이벤트 루프에 등록되지 않았을때 호출됨</td>
+</tr>
+<tr>
+<td>channelActive(&hellip;)</td>
+<td>채널이 활성화 됐을때(peer와 연결됐을때) 호출됨. 채널이 활성화 됐다는 의미는 데이터를 받거나 보낼 수 있는 상태를 의미함</td>
+</tr>
+<tr>
+<td>channelInactive(&hellip;)</td>
+<td>채널이 remote peer와 연결할 수 없을때</td>
+</tr>
+<tr>
+<td>channelReadComplete(&hellip;)</td>
+<td>채널 읽기 동작시 채널이 완료 되었을때 한번 호출됨.</td>
+</tr>
+<tr>
+<td>channelRead(&hellip;)</td>
+<td>inbound buffer에서 읽을 값이 있을 경우 호출</td>
+</tr>
+<tr>
+<td>userEventTriggered(&hellip;)</td>
+<td>유저가 커스텀 객체에 연결해 트리거된 이벤트가 있을때 호출됨.</td>
+</tr>
+</tbody>
+</table>
+<h4 id="---">서버 비즈니스 코드 개발</h4>
+<p>netty는 callback과 future라는 컨셉을 이용한다. 이 때문에 이벤트 타입(event types)에 따라 다르게 반응합니다.</p>
+<pre><code>@Sharable                                                                  #1
+public class EchoServerHandler extends ChannelInboundHandlerAdapter {
+      @Override  #2
+      public void channelRead(ChannelHandlerContext ctx, Object msg) {
+           System.out.println(ìServer received: ì + msg);
+           ctx.write(msg)
+      }
+      @Override #3
+      public void channelReadComplete(ChannelHandlerContext ctx) {
+           ctx.writeAndFlush(Unpooled.EMPTY_BUFFER)
+                   .addListener(ChannelFutureListener.CLOSE);
+			}
+      @Override  #4
+      public void exceptionCaught(ChannelHandlerContext ctx,Throwable cause) {
+					cause.printStracktrace();
+					ctx.close();
+			}
+}
+</code></pre><p><code>#1</code>에서 @Sharable 어노테이션은 여러 채널에서 Handler를 공유 할 수 있음을 나타냅니다. <code>#2</code>는 메시지가 들어올때마다 호출되는 메소드입니다. <code>#3</code>은 channelRead 메소드가 처리 완료 되었다는 것을 핸들러에게 통보 처리를 하고 있습니다. #4는 읽기 작업중 오류가 발생 했을때 호출 됩니다. 참고할 만한 전체 예시는 <a href="https://github.com/netty/netty/blob/4.0/example/src/main/java/io/netty/example/http/helloworld/HttpHelloWorldServerHandler.java">HttpHelloWorldServerHandler.java</a> 내용을 참고 합니다.</p>
+<h4 id="---1">서버 로직 개발</h4>
+<pre><code>@Sharable                                                                  #1
+public class EchoClientHandler extends SimpleChannelInboundHandlerAdapter&lt;ByteBuf&gt; {
+
+
+			@Override
+	  public void channelActive(ChannelHandlerContext ctx) {
+	      ctx.write(Unpooled.copiedBuffer(ìNetty rocks!ì, CharsetUtil.UTF_8);   #2
+	  }
+	  @Override
+	  public void channelRead0(ChannelHandlerContext ctx, ByteBuf in) {
+	      System.out.println(ìClient received: ì + ByteBufUtil
+	      .hexDump(in.readBytes(in.readableBytes())));                          #3
+	  }
+	  @Override
+	  public void exceptionCaught(ChannelHandlerContext ctx,Throwable cause) {    #4
+	    cause.printStracktrace();
+	  	ctx.close();
+	  }
+
+}
+</code></pre>
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/netty/handler/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li></li>
+        <li><a href="#channelinboundhandler-">ChannelInboundHandler 메소드</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/ai/papers/roberta/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Roberta
+        </div>
+    </a>
+    
+    
+    <a href="/netty/intro/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Netty 핵심 컴포넌트&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Use_strict</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Use_strict" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/frontend/javascript/use_strict/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">Use_strict</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/frontend/javascript/use_strict/" class="article-date">
+                <time datetime='2014-11-28T08:17:03.000&#43;09:00' itemprop="datePublished">2014-11-28</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p><code>use strict</code> 키워드는  ECMAScript 언어 사양(5번째 버전)에 포함되어 있다. ECMA스크립트는 ECMA-262에 의해 표준화된 언어의 이름이다. 자바스크립트와 J스크립트는 모두 ECMA스크립트와의 호환을 목표로 하면서, ECMA 규격에 포함되지 않는 확장 기능을 제공한다. 자바스크립트 라이브러리를 보다보면 <code>strict mode</code> 키워드를 만나볼 수 있다. <code>strict mode</code>는 자바스크립트를 좀더 엄격하게 다루고자 하는 의미이다.</p>
+<h2 id="strict-mode---">Strict Mode를 사용하는 두가지 이유</h2>
+<ul>
+<li>
+<p>모듈화 작업시 모호한 변수선언에 대해 제한과 엄격한 규칙을 통한 오류 발생 가능성을 낮춘다.</p>
+</li>
+<li>
+<p>전역변수와 지역변수간 Scope에 따른 변수 충돌을 방지할 수 있다.</p>
+</li>
+</ul>
+<h2 id="strict-mode--">Strict Mode의 예외 상황</h2>
+<p>Strict 모드를 적용을 통해 속성제약을 할 수 있다. 속성제약은 곧 좀더 엄격한 의미에서 자바스크립트의 규칙을 적용하겠다는 것이다. 다음 사례는 strict mode 사용시 제한되는 상황이다.</p>
+<ul>
+<li>delete 사용을 막는다.</li>
+</ul>
+<pre><code>'use strict';
+var x;
+delete x;   // synctax 에러 발생, delete 대신 x = null 을 할당해서 삭제한다.
+</code></pre><ul>
+<li>한 속성을 여러번 정의하는 형태를 막는다.</li>
+</ul>
+<pre><code>var testObj = {
+    prop1: 10,
+    prop2: 15,
+    prop1: 20   // synctax 에러 발생
+};
+</code></pre><ul>
+<li>매개변수가 중복되는 상황을 막는다.</li>
+</ul>
+<pre><code>function testFunc(param1, param1) {   // synctax 에러 발생
+    return 1;
+};
+</code></pre><h2 id="strict-">Strict 선언위치</h2>
+<ol>
+<li>
+<h3 id="-">전역에서 사용</h3>
+<p><code>use strict</code>를 전역에 선언하면 모든 함수와 전역에 존재하는 모든 변수에 <code>strict</code>가 적용된다.</p>
+</li>
+</ol>
+<pre><code>&quot;use strict&quot;;
+
+function testFunction(){
+    var testvar = 4;
+    return testvar;
+}
+testvar = 5;  // synctax 에러 발생
+</code></pre><ol start="2">
+<li>
+<h3 id="heading">함수내</h3>
+<p>함수 내에 <code>use strict</code>를 선언하면 함수 내에만 적용된다.</p>
+</li>
+</ol>
+<pre><code>x = 3.14; // synctax 에러가 발생하지 않음
+myFunction();
+function myFunction() {
+   &quot;use strict&quot;;
+    x = 3.14;
+}
+</code></pre>
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/frontend/javascript/use_strict/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#strict-mode---">Strict Mode를 사용하는 두가지 이유</a></li>
+    <li><a href="#strict-mode--">Strict Mode의 예외 상황</a></li>
+    <li><a href="#strict-">Strict 선언위치</a>
+      <ul>
+        <li><a href="#-">전역에서 사용</a></li>
+        <li><a href="#heading">함수내</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/insights/proverb/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            짧은순으로 정렬한 격언
+        </div>
+    </a>
+    
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

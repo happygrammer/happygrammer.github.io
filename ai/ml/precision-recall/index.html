@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Precision과 Recall의 이해</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Precision과 Recall의 이해" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/ai/ml/precision-recall/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/ai/" class="archive-article-date">&lt; Ais</a></div>
+            
+            <h1 class="article-title" itemprop="name">Precision과 Recall의 이해</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/ai/ml/precision-recall/" class="article-date">
+                <time datetime='2021-01-01T20:02:08.000&#43;09:00' itemprop="datePublished">2021-01-01</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="-">적합 문서</h3>
+<p>검색엔진의 성능은 <code>적합 문서</code>(relevant document)를 잘 찾는 능력이다. 적합 문서를 잘 찾으려면 적합성을 고려해야 한다. 적합성은 <code>사용자 적합성</code>과 <code>주제 적합성</code>을 고려한다. 사용자 적합성은 사용자에게 맞는 적합한 문서를 찾았는지에 대한 것이다. 예를 들어 질의에 맞는 문서를 찾았지만, 사용자에게 올바른 답변을 줄 수 없는 문서라면 사용자 적합성이 없다고 본다. <code>주제 적합성</code>은 사용자 질의에 맞는 적합한 문서를 찾았는지에 대한 것이다. 단순 <code>grep</code>과 같은 키워드 일치 만으로 문서를 찾았다면 관련 문서는 찾았지만, 사용자 주제에 맞지 않는 문서가 검색될 수 있다.</p>
+<h3 id="heading">평가</h3>
+<p><code>적합 문서</code>를 얼마 잘 찾을 수 있는지를 객관적으로 측정하기 위해 <code>평가(evaluation)</code>를 고려한다. 검색 엔진은 이진 분류(binary classification) 관점에서 평가를 한다. 평가의 측도 정밀도(precision)와 재현율(recall)을 이용한다. 정밀도는 검색된 문서 중에 실재 적합 문서의 비율을 의미한다.
+$$
+precision=\frac{actual값이~TRUE인~개수}{predicted~값이~TRUE인~개수}
+$$</p>
+<p>정밀도는 검색된 문서 중에 실재 적합한 문서의 비율을 찾는다. 재현율은 전체 적합 문서 중에 검색된 문서 중에 적합 문서의 비율을 의미한다. 재현율을 계산할 수 있다는 것은 모든 적합 문서의 개수가 몇 개인지를 안다는 것을 의미한다. 다른 관점에서 재현율을 계산하려면 적합 문서 개수와 적합 문서의 대상을 모두 알 수 있어야 하므로, 소규모 컬렉션에 대해 사용될 수 있다.</p>
+<p>$$
+recall=\frac{predicted~값이~TRUE인~개수}{actual~값이~TRUE인~개수}
+$$</p>
+<p>웹 검색엔진에 대해서 수십억 이상의 문서들에 대해서 <code>적합 문서</code>를 알기 어렵기 때문에 보통 <a href="https://trec.nist.gov/data.html">TREC</a>과 같은 평가셋을 이용한다.</p>
+<h3 id="confusion-matrix">confusion matrix</h3>
+<p>머신러닝의 이진 분류에서, 통계적 분류 관점에서 정밀도과 재현율을 정의하기 위해 먼저 confusion matrix를 정의한다.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th></th>
+<th>PREDICTION</th>
+<th>PREDICTION</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td></td>
+<td></td>
+<td>TRUE(class)</td>
+<td>FALSE(class)</td>
+</tr>
+<tr>
+<td><strong>ACTUAL</strong></td>
+<td>TRUE(class)</td>
+<td>TP (True Positive)</td>
+<td>FN (False Negative)</td>
+</tr>
+<tr>
+<td><strong>ACTUAL</strong></td>
+<td>FALSE(class)</td>
+<td>FP (False Positive)</td>
+<td>TN (True Negative)</td>
+</tr>
+</tbody>
+</table>
+<p>벤다이어그램으로 직관적으로 실제 결과와 예측 결과간의 관계를 살펴 볼 수 있다.</p>
+<p><img src="../precision_recall.png" alt=""></p>
+<h3 id="heading-1">정밀도</h3>
+<p>정밀도(precision)은 <code>모델의 출력이 TRUE</code>라고 판정한 결과 중에 실재  <code>TRUE</code> 인 예제의 비율이다. 정밀도가 높다는 것은 <code>모델의 정확도</code>가 높아진다고 볼 수 있다.
+$$
+precision=\frac{TP}{TP + FP}
+$$</p>
+<h3 id="heading-2">재현율</h3>
+<p>재현율(recall)은 <code>실재 TRUE</code>  인 결과 중에서 <code>모델의 출력이 TRUE</code>라고 판정한 예제의 비율이다. 재현율이 높다는 것은 <code>모델의 정답 커버리지</code>가 높다고 볼 수 있다.
+$$
+recall=\frac{TP}{TP + FN}
+$$</p>
+<h3 id="heading-3">정확도</h3>
+<p>정확도(accuracy, 정확률)은 얼마나 정확한지를 나타이다. 분류 문제에 있어 100개 예제 중 90개를 정확히 분류했다면 정확도는 90%가 된다.</p>
+<p>$$
+accuracy=\frac{TP + TN}{TP+FN+FP+TN}=\frac{correct~predictions}{total~predictions}
+$$</p>
+<h3 id="f1-score">F1 Score</h3>
+<p>F1 Score은 분류 모델의 평가지표(metric)이다. F1 Score는 recall과 precision의 조화 평균이다.
+$$
+F1~Score=2*\frac{recall*precision}{recall+precision}
+$$</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/ai/ml/precision-recall/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#-">적합 문서</a></li>
+        <li><a href="#heading">평가</a></li>
+        <li><a href="#confusion-matrix">confusion matrix</a></li>
+        <li><a href="#heading-1">정밀도</a></li>
+        <li><a href="#heading-2">재현율</a></li>
+        <li><a href="#heading-3">정확도</a></li>
+        <li><a href="#f1-score">F1 Score</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/rust/problem/cross-compile/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Rust 크로스 컴파일 방법
+        </div>
+    </a>
+    
+    
+    <a href="/dev/kanban-and-scrum/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">애자일 칸반과 스크럼&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>의존 구문 분석시 단어간의 관계 태깅</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="의존 구문 분석시 단어간의 관계 태깅" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/dependency-tag-set/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/nlp/" class="archive-article-date">&lt; Nlps</a></div>
+            
+            <h1 class="article-title" itemprop="name">의존 구문 분석시 단어간의 관계 태깅</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/dependency-tag-set/" class="article-date">
+                <time datetime='2021-01-30T22:30:35.000&#43;03:00' itemprop="datePublished">2021-01-30</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>의존 구문 분석이 이뤄 지면 문장에서 중심이 되는 요소는 <code>지배소(governor)</code>가 되고 <code>의존소(dependent)</code>는 지배소의 의미를 보완해 주는 역할을 하는 요소이다. 예를 들어 <code>아름다운 한라산</code>에서 <code>한라산</code>이 지배소가 되고 <code>아름다운	</code>이 의존소가 된다. 의존 문법 관점에서 두 단어가 의존 관계에 있는지 그렇지 않은지를 판단할 수 있으며, 만약 두 단어가 의존 관계가 있다면 의존 관계 태그(예:NP_SBJ, VP_MODE 등)를 부착해 두 단어간의 관계를 표시한다. <code>의존 관계 태그</code>는 <a href="https://aiopen.etri.re.kr/data/003.%EC%9D%98%EC%A1%B4%EA%B5%AC%EB%AC%B8%EB%B6%84%EC%84%9D_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8.pdf">정보통신단체표준</a> 문서의 제안에 따라 구문 태그와 기능 태그를 결합해해 사용함을 원칙으로 하고 있다.</p>
+<h3 id="--">구문 태그 세트</h3>
+<table>
+<thead>
+<tr>
+<th align="center">구문 태그</th>
+<th align="center">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">NP</td>
+<td align="center">체언(명사구 : 명사, 대명사, 수사)</td>
+</tr>
+<tr>
+<td align="center">VP</td>
+<td align="center">용언(동사구 : 동사, 형용사, 보조용언)</td>
+</tr>
+<tr>
+<td align="center">AP</td>
+<td align="center">부사구</td>
+</tr>
+<tr>
+<td align="center">VNP</td>
+<td align="center">명사+이다 (지정사)</td>
+</tr>
+<tr>
+<td align="center">DP</td>
+<td align="center">관용사구</td>
+</tr>
+<tr>
+<td align="center">IP</td>
+<td align="center">감탄사 (호칭 및 대답 등의 표현)</td>
+</tr>
+<tr>
+<td align="center">X</td>
+<td align="center">의사 구(pseudo phrase, 조사 단독 어절 또는 기호 등)</td>
+</tr>
+<tr>
+<td align="center">L</td>
+<td align="center">부호(왼쪽 괄호 및 따옴표)</td>
+</tr>
+<tr>
+<td align="center">R</td>
+<td align="center">부호(오른쪽 괄호 및 따옴표)</td>
+</tr>
+</tbody>
+</table>
+<p>위에 표준에 명시 되어 있지 않지만 문장은 통상 <code>S</code>라는 태그로 정의해 사용한다.</p>
+<h3 id="---1">기능 태그 세트</h3>
+<table>
+<thead>
+<tr>
+<th align="center">기능 태그</th>
+<th align="center">설명</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">SBJ</td>
+<td align="center">주격</td>
+</tr>
+<tr>
+<td align="center">OBJ</td>
+<td align="center">목적격</td>
+</tr>
+<tr>
+<td align="center">MOD</td>
+<td align="center">관형격 수식어</td>
+</tr>
+<tr>
+<td align="center">AJT</td>
+<td align="center">부사격 수식어</td>
+</tr>
+<tr>
+<td align="center">CNJ</td>
+<td align="center">연결 (~와)</td>
+</tr>
+<tr>
+<td align="center">CMP</td>
+<td align="center">보격</td>
+</tr>
+<tr>
+<td align="center">INT</td>
+<td align="center">독립어</td>
+</tr>
+</tbody>
+</table>
+<p>의존 관계 설정 및 의존 관계 태그 부착 결과 (출처 : <a href="https://aiopen.etri.re.kr/data/003.%EC%9D%98%EC%A1%B4%EA%B5%AC%EB%AC%B8%EB%B6%84%EC%84%9D_%EA%B0%80%EC%9D%B4%EB%93%9C%EB%9D%BC%EC%9D%B8.pdf">정보통신단체표준</a> 문서)</p>
+<pre><code>(가) 멜라닌은 사람의 피부색을 결정하는 중요한 요소이다.
+- 멜라닌은 -&gt; NP_SBJ 요소이다.
+- 사람의 -&gt; NP_MOD 피부색을
+- 피부색을 -&gt; NP_OBJ 결정하는
+- 결정하는 -&gt; VP_MOD 요소이다.
+- 중요한 -&gt; VP_MOD 요소이다.
+- 요소이다. -&gt; VNP ROOT
+
+(나) 역린은 용 목에 거꾸로 난 비늘을 의미한다.
+- 역린은 -&gt; NP_SBJ 의미한다.
+- 용 -&gt; NP 목에
+- 목에 -&gt; NP_AJT 난
+- 거꾸로 -&gt; AP 난
+- 난 -&gt; VP_MOD 비늘을
+- 비늘을 -&gt; NP_OBJ 의미한다.
+- 의미한다. -&gt; VP ROOT
+</code></pre>
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/nlp/dependency-tag-set/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#--">구문 태그 세트</a></li>
+        <li><a href="#---1">기능 태그 세트</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/rust/cheat-seat/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Rust 입문용 치트시트
+        </div>
+    </a>
+    
+    
+    <a href="/rust/problem/cross-compile/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Rust 크로스 컴파일 방법&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

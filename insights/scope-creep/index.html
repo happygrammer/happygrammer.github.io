@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>스코프 크리프 방지법</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="스코프 크리프 방지법" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/insights/scope-creep/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/insights/" class="archive-article-date">&lt; Insights</a></div>
+            
+            <h1 class="article-title" itemprop="name">스코프 크리프 방지법</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/insights/scope-creep/" class="article-date">
+                <time datetime='2021-05-30T09:46:03.000&#43;03:00' itemprop="datePublished">2021-05-30</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>어느 프로젝트나 &lsquo;품질&rsquo;, &lsquo;비용&rsquo;, &lsquo;시간'라는 요소가 프로젝트 성공에 영향을 미친다. 이러한 요소들간의 관계를 보여주는 것이 스코프 삼각형(Scope Triangle)이다. 스코프 삼각형은 프로젝트의 성공 요인들에 대한 트레이드 오프 관계가 존재함을 나타낸다.</p>
+<p><img src="../scope-triangle.png" alt=""></p>
+<p>스코프 삼각형에서 <code>시간</code>은 프로젝트가 성공하기 위해 필요한 최소한의 가용한 시간이고, <code>비용</code>은 프로젝트에서 프로젝트를 성공적으로 완수하기 위해 필요한 자원의 양을 나타낸다. <code>품질</code>은 프로젝트가 성공하기 위해 달성해야 하는 목표 또는 기능 범위에 해당한다. 프로젝트를 성공적으로 수행하기 위해 세 요소는 적절히 조정이 될 필요가 있다. 어느 요소든지 지나치게 축소되거나 확대되면 <code>스코프 크리프(scope creep) </code>가 발생한다. <code>스코프 크리프 </code>는 범위(scope)가 슬금 슬금(creep) 확대 된다는 의미로, <code>추가적인 자원이나 일정 조정 없이 일이 추가되면서 프로젝트 범위가 확대되는 문제</code>를 의미한다.</p>
+<p><code>스코프 크리프</code>의 대표적인 예로 품질을 높인다는 목적으로 많은 기능을 추가해 프로젝트 진행에 영향을 미치는 것이다. 새로운 기능 추가가 많아진다는 것은 프로젝트의 목표나 기능이 정확히 정의되지 않았음을 의미한다. 또 다른 예로 <code>골드 플레이팅(gold plating)</code> 현상이다. <code>골드 플레이팅</code>은 금박을 입힌다는 뜻이다. 고객의 요구수준을 넘어서 과도하게 프로젝트 품질을 높이려다 프로젝트 범위가 확대되면서 프로젝트 진행을 어렵게 하는 현상이다.</p>
+<p>스코프 크리프에 대한 대응 방안은 세 가지 요소들의 강조점을 옮겨가며 절충하는 결정을 내리는 것이다.</p>
+<ul>
+<li>품질 타협 : 핵심 기능 외의 기능은 버리거나 적절한 수준에서 타협함</li>
+<li>비용 조절 : 추가적인 비용(인력 등)을 투입하거나 인력을 재배치함</li>
+<li>시간 조율 : 프로젝트가 완료될 수 있는 적절한 시간을 기간을 산정해 프로젝트 일정을 조정함</li>
+</ul>
+<p>스코프 크리프로 인해 기능이 계속 늘어나  <code>시간이 부족한 경우</code>는 품질을 보장할 수 있는 <code>핵심 기능만 남기고 불필요한 기능은 다음 릴리즈에 포함</code>하는 것이다. 그래야 프로젝트를 정해진 시간 안에 출시할 수 있다. 만약 추가된 기능이 품질에 결정적인 영향을 미쳐서 포기할 수 없는 상황이라면 <code>추가적인 인력을 투입</code>하고 <code>프로젝트 기간을 조정</code>하는 방식이 필요하다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/insights/scope-creep/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents"></nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/cloud/amazon-web-service-overview/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            아마존 웹 서비스 개요
+        </div>
+    </a>
+    
+    
+    <a href="/dev/cloud/distributed-system/fault-tolerance/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">장애 허용 시스템&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

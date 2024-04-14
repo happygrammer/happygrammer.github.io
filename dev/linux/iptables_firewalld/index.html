@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>방화벽 설정 관리 iptables, firewalld</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="방화벽 설정 관리 iptables, firewalld" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/linux/iptables_firewalld/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">방화벽 설정 관리 iptables, firewalld</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/linux/iptables_firewalld/" class="article-date">
+                <time datetime='2020-12-30T16:47:03.000&#43;03:00' itemprop="datePublished">2020-12-30</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="iptables----">Iptables 명령어를 이용한 방화벽 관리</h2>
+<p>Iptables 명령어는 Cent OS 6이하에서 사용하는 방화벽 설정 관리 명령이다.</p>
+<h3 id="----">방화벽 설정 확인 후 삭제</h3>
+<p>방화벽 설정 상태를 보려면 <code>-L</code> 옵션을 이용해 목록을 표시할 수 있다.</p>
+<pre><code># iptables -L
+Chain INPUT (policy ACCEPT)
+target     prot opt source               destination
+
+Chain FORWARD (policy ACCEPT)
+target     prot opt source               destination
+
+Chain OUTPUT (policy ACCEPT)
+target     prot opt source               destination
+ACCEPT     tcp  --  anywhere             anywhere             tcp spt:40050
+ACCEPT     tcp  --  anywhere             anywhere             tcp spt:40050
+</code></pre><p>iptables <code>-L</code> 옵션을 주었을때 출력되는 <code>prot</code> 열은 프로토콜을 의미하며, 프로토콜의 종류로 <code>tcp</code>, <code>udp</code>, <code>icmp</code>, 또는 <code>all</code>가 있다. 이때 방화벽이 입력에 대한 방화벽이라면 INPUT 체인으로 묶어서 관리하고, 외부로 나가는 것과 관련한 방화벽이면 OUTPUT 체인으로 관리한다. 만약 NAT(Network Address Translation)으로 사설 네트워크를 사용하려면 FORWARD 체인을 이용한다. 특정 체인명만 출력 하려면 <code>-L</code> 옵션 뒤에 &lt;체인명&gt;을 전달해 준다.</p>
+<pre><code>iptables -L OUTPUT --line-numbers
+Chain OUTPUT (policy ACCEPT)
+num  target     prot opt source               destination
+1    ACCEPT     tcp  --  anywhere             anywhere             tcp spt:9000
+2    ACCEPT     tcp  --  anywhere             anywhere             tcp spt:9000
+</code></pre><p>만약 &lsquo;IP 주소와 포트번호를 포함한 numeric 형식으로 표시하려면 <code>-n</code>옵션을 추가한다.</p>
+<pre><code>iptables -nL
+</code></pre><p>특정 체인에 특정 번호를 삭제하는 명령어 형식은 다음과 같다.</p>
+<pre><code>iptables -D &lt;chain name&gt; &lt;rule number&gt;
+</code></pre><p>만약 OUTPUT 체인명의 1번째 RULE을 삭제하려면 다음과 같이 입력해 준다.</p>
+<pre><code>iptables -D OUTPUT 1
+</code></pre><h3 id="--">방화벽 설정 적용</h3>
+<pre><code>service iptables restart # 재시작
+service iptables start # 시작
+service iptables stop  # 중지
+service iptables save  # iptables 내용을 실재 /etc/sysconfig/iptables에 저장
+</code></pre><h2 id="firewall----">firewall 명령어를 이용한 방화벽 설정관리</h2>
+<p>CentOS 7이상 부터 firewall 명령어를 이용한다.</p>
+<h3 id="---1">방화벽 상태 확인</h3>
+<pre><code>$ firewall-cmd --state
+</code></pre><h3 id="-">방화벽 설정</h3>
+<p>새로운 방화벽 설정 규칙을 추가하기 위해 <code>-A</code>(&ndash;append) 옵션을 이용한다.</p>
+<pre><code>firewall-cmd --zone=public --add-port=9000/tcp # 9000 포트 추가
+firewall-cmd --permanent --add-remove=9000/tcp # 9000 포트 삭제
+</code></pre><h3 id="---2">방화벽 적용 관리</h3>
+<p>CentOS7부터 방화벽 설정 방법이 <code>firewalld</code>로 바뀌었다.</p>
+<pre><code>systemctl restart firewalld
+</code></pre><p><code>systemctl</code> 관련 명령어를 나열해 보면 다음과 같다.</p>
+<pre><code>systemctl enable firewalld # 방화벽 사용
+systemctl disable firewalld # 방화벽 비사용
+systemctl start firewalld # 방화벽 시작
+systemctl stop firewalld # 방화벽 중지
+</code></pre>
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/linux/iptables_firewalld/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#iptables----">Iptables 명령어를 이용한 방화벽 관리</a>
+      <ul>
+        <li><a href="#----">방화벽 설정 확인 후 삭제</a></li>
+        <li><a href="#--">방화벽 설정 적용</a></li>
+      </ul>
+    </li>
+    <li><a href="#firewall----">firewall 명령어를 이용한 방화벽 설정관리</a>
+      <ul>
+        <li><a href="#---1">방화벽 상태 확인</a></li>
+        <li><a href="#-">방화벽 설정</a></li>
+        <li><a href="#---2">방화벽 적용 관리</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/linux/permissions/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Linux 권한 관리
+        </div>
+    </a>
+    
+    
+    <a href="/dev/linux/commands-basic/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Linux 기본 관리 명령어&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

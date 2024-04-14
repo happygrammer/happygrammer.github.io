@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>해피그의 코드랩</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="해피그의 코드랩" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+<link href="https://happygrammer.github.io/index.xml" rel="alternate" type="application/rss+xml" title="해피그의 코드랩" />
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+<body>
+<div id="container">
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/dev/git/">1시간 안에 Git 익히기</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/dev/git/" class="article-date">
+                        <time datetime='2020-01-06T01:26:13.000&#43;03:00' itemprop="datePublished">2020-01-06</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    Git은 분산 버전 관리 시스템으로 리눅스 토발즈가 만들었으며 파일의 변경사항을 추적하고 관리할 수 있습니다.
+1. Git 설치  GIt 설치 : https://git-scm.com/downloads Github : 깃허브는 Git을 지원하는 웹 호스팅 서비스 Github Desktop : https://desktop.github.com/, Github을 편리하게 이용할 수 있도록 만든 소프트웨어  2. Git을 이용한 형상 관리 http://nvie.com/posts/a-successful-git-branching-model/
+3. Git 쉘 명령어 기본 명령어  git init: 깃 저장소를 초기화한다. git help: 깃 명령어를 확인한다. git status: 저장소 상태 정보 표시(저장소에 존재하는 파일, 커밋이 필요한 변경 사항, 현재 브랜치 위치 등)  상태 상태라면 &quot;your branch is up-to-date with 'origin/master'&quot;와 같이 표시    사용자 설정  git config &ndash;global user.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/dev/git/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/dev/vi/">1시간 안에 Vi 익히기</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/dev/vi/" class="article-date">
+                        <time datetime='2020-01-06T01:26:13.000&#43;03:00' itemprop="datePublished">2020-01-06</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    vi 에디터는 유닉스 에디터다. 터미널에서 쉘이나 각종 txt 파일, 스크립트를 수정할때 종종 사용한다. 단축키를 알아 두면 터미널 작업시 도움이 된다. 많은 명령어가 있지만 본 포스팅은 자주 쓰는 명령어만 추가해 두었다.
+실행  view filename : 읽기전용으로 vi filename : 에디팅모드로 파일을 연다.  커서이동   ^ : 문장 시작으로 (또는 0)
+  $ 문장 끝으로
+  gg : 문서 시작으로
+  :$ 문서 끝으로
+  :숫자 해당 라인으로
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/dev/vi/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/nlp/the-journey-of-nlp-development/">NLP 개발의 여정</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/nlp/the-journey-of-nlp-development/" class="article-date">
+                        <time datetime='2020-01-01T20:19:26.000&#43;09:00' itemprop="datePublished">2020-01-01</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    자연어 처리(NLP)는 인간의 언어를 컴퓨터가 이해하고 처리할 수 있도록 하는 인공지능의 한 분야입니다. NLP의 역사는 1940년대로 거슬러 올라가는데요, 그 발전 과정을 함께 살펴보겠습니다.
+1949년, 워런 위버(Warren Weaver)는 &ldquo;Translation&rdquo; 이라는 보고서에서 기계 번역의 가능성을 제시했습니다. 이는 NLP 연구의 시발점이 되었죠. 이후 1950년대에는 Georgetown-IBM 실험으로 러시아어를 영어로 자동 번역하는 데 성공했습니다.
+1960년대에는 ELIZA라는 대화형 시스템이 등장했는데, 이는 제한된 패턴 매칭 기반이었지만 인간과 컴퓨터의 상호작용 가능성을 보여주었습니다. 1970년대에는 챗봇 PARRY가 개발되어 정신분열증 환자와 비슷한 대화를 수행할 수 있게 되었죠.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/nlp/the-journey-of-nlp-development/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/dev/linux/iconv/">ICONV 인코딩 형식 변환</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/dev/linux/iconv/" class="article-date">
+                        <time datetime='2020-01-01T17:53:20.000&#43;09:00' itemprop="datePublished">2020-01-01</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    iconv 명령어는 입력 파일의 인코딩을 지정한 인코딩으로 변경할 수 있는 명령어(/usr/bin/iconv)이다.
+EUC KR을 UTF 8로 변경 iconv 명령어에 -c 옵션을 이용해 컨버팅이 되지 않는 문자열은 무시 하도록 할수 있다. 아래 명령어는 euc-kr에서 utf-8로 변경하는 명령이다.
+iconv -c -f euc-kr -t utf-8 FILE_EUCKR.txt &gt; FILE_UTF8.txt UTF-8을 EUC-KR로 변경 iconv -c -f utf-8 -t euc-kr FILE_UTF8.txt &gt; FILE_EUCKR.txt ICONV 옵션    옵션 설명     -c 변환할 수 없는 문자는 버림   -f ENCODING, &ndash;from-code=ENCODING 입력 파일의 인코딩   -t ENCODING, &ndash;to-code=ENCODING 출력 파일의 인코딩   &ndash;list, -l 지원하는 인코딩 목록들을 출력   &ndash;output, -o file 변환 내용을 터미널 추력 대신 지정한 파일로 출력   &ndash;silent, -s 경고 메시지를 출력하지 않음   &ndash;verbose 자세한 상태 정보를 출력    ICONV &ndash;help 옵션 상세 내용 $ iconv --help Usage: iconv [OPTION.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/dev/linux/iconv/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/insights/interesting-mathematics/">수학이 우리에게 필요한 이유</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/insights/interesting-mathematics/" class="article-date">
+                        <time datetime='2020-01-01T01:33:53.000&#43;03:00' itemprop="datePublished">2020-01-01</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    본 글은 조선일보에 실린 세계수학자대회 개막 기사의 중요 내용을 옮겨 보았다. 이 글이 좋았던 점은 수학이 왜 우리에게 필요한지, 수학 교육의 방향을 어때야 하는지, 수학자들에게 수학이라는 것이 어떤 의미였는지를 옅볼 수 있었던 기사였기 때문이다.
+수학 응용에 대한 역사  구글은 검색엔진에 이용하였다. 토이스토리는 컴퓨터 그래픽의 조절기술, 애니메이션에 기하학·미분 적용, 제작비 등 줄여 아폴로 11호는 지구를 떠난 후, 뉴턴 수학을 이용해 어느 지점에서 가속을 해야 달의 궤도에 정확히 들어갈 수 있는지 계산해 냈다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/insights/interesting-mathematics/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/dev/backend/spring/mvc-restful/">@Controller와 @RestController 어노테이션</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/dev/backend/spring/mvc-restful/" class="article-date">
+                        <time datetime='2019-11-20T06:37:32.000&#43;03:00' itemprop="datePublished">2019-11-20</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    @Controller 어노테이션을 이용한 MVC 패턴 MVC는 @Controller에 기반해 작동하는 View 기반의 기술이며, REST는 @RestController 어노테이션을 이용해 객체 데이터 응답 기술입니다. 아래 그림은 전통적인 MVC 패턴 방식의 처리 과정을 보여주고 있습니다.
+스프링은 사용자 요청에 대해 Dispatcher Servlet는 최종 처리 결과로 View를 Return해줍니다. DispatchServlet은 아래 각 하위 요소들을 호출함으로서 클라이언트에 최종 http 응답을 만듭니다. URI가 입력되는 Handler mapping을 이용해 컨트롤러로 연결해 줍니다. 컨트롤러에서는 MovelAndView 객체를 View Resolver로 반환합니다. View Resolver는 ModelAndView 객체를 이용해 View를 생성합니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/dev/backend/spring/mvc-restful/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/dev/backend/spring/spring-boot/">Spring Boot 시작하기</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/dev/backend/spring/spring-boot/" class="article-date">
+                        <time datetime='2019-11-20T06:37:32.000&#43;03:00' itemprop="datePublished">2019-11-20</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    스프링 부트는 쉽게 제품 등급의 독립형 스프링 기반 애플리케이션을 만들 수 있습니다. 대부분의 스프링 부트 애플리케케이션은 적은 설정을 필요로 합니다.
+특징  독립형 애플리케이셩 생성 내장 톰캣, 제티 포함. (WAR파일 배포 불필요) 스타터는 단순한 빌드 설정을 이용합니다. Spring 및 타사 의존 라이브러리를 자동으로 설정 되도록 합니다. 운영에 필요한 health 체크, 외부 설정 등의 기능을 제공합니다. 코드를 생성하거나 XML 설정을 요구 하지 않습니다.  스프링 부트 소개 이 문서는 레퍼런스 문서의 번역 문서입니다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/dev/backend/spring/spring-boot/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/insights/economics/"> 희소성의 원칙</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/insights/economics/" class="article-date">
+                        <time datetime='2018-06-03T15:07:58.000&#43;09:00' itemprop="datePublished">2018-06-03</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    희소성은 경제학 이론의 출발이다. 사람의 욕망에 비하여 그것을 충족 시켜주는 수단이 양적이나 질적으로 유한하여 부족한 상태를 이르는 말이다.
+기회비용 경제학은 한정적인 자원을 가장 효율적으로 배분하는 것을 연구하는 학문이다. 하나를 택하면 하나를 버려야 한다.  그래서 세상에 공짜 점심은 없다고 말한다. 어떤 선택을 위해 포기한 모든 것을 경제학에서는 기회비용이라고 부른다. 예를 들어서 식당을 운영하다가 영하를 보러 갔다가 해보자. 영화 비용으로 쓴 1만원은 명시적인 비용이고, 식당 운영 수익은 암묵적 비용이다. 회계사 관점에서 영화 비용으로 쓴 1만원을 기회 비용이라고 계산한다.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/insights/economics/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/dev/design-pattern/">디자인패턴 적용 Guide</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/dev/design-pattern/" class="article-date">
+                        <time datetime='2018-06-02T23:32:10.000&#43;03:00' itemprop="datePublished">2018-06-02</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    디자인 패턴이란 특정 컨텍스트 내에서 주어진 문제에 대한 해결책이다. 어떤 컨텍스트 내에서 일련의 제약조건에 의해 영향을 받을 수 있는 문제에 봉착했다면, 그 제약조건 내에서 목적을 달성하기 위한 해결책을 찾아낼 수 있는 디자인을 적용한다. 디자인 패턴의 과다한 사용은 불필요하게 복잡한 코드를 초래할 수 있다. 항상 가장 간단한 해결책으로 목적을 달성할 수 있도록 하고, 반드시 필요할 때만 디자인 패턴을 적용하자. 코딩할 때 어떤 패턴을 사용하고 있는지 주석으로 적어주자. 클래스와 메서드 이름을 만들 때도 사용 중인 패턴이 분명하게 드러날 수 있도록 해보자.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/dev/design-pattern/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+            <div class="article-inner">
+                
+                
+                <header class="article-header">
+                    <h1 itemprop="name"><a class="article-title" href="/insights/proverb/">짧은순으로 정렬한 격언</a></h1>
+                </header>
+                
+                <div class="article-meta">
+                    <a href="/insights/proverb/" class="article-date">
+                        <time datetime='2016-06-03T07:28:33.000&#43;09:00' itemprop="datePublished">2016-06-03</time>
+                    </a>
+                    
+                    
+                    
+                </div>
+                <div class="article-entry" itemprop="articleBody">
+                    <p>
+                        
+                    개발자 격언 중에 변수명은 짧을수록 좋다라는 말이 있다. 쉽고 짧은 격언은 기억하기 쉽고 일깨움을 준다.
+ Keep oaring. 계속 노를 저어라. None of your lips. 신소리 마라 All or nothing. 전부냐, 無냐. Walls have ears. 벽에도 귀가 있다. Finding's keeping. 찾는 것이 갖는 것 Make haste slowly. 급할수록 신중히. The more the merrier. 많을수록 즐겁다. Store is no sore. 저장은 고통이 아니다. Resolve lasts three days. 작심 삼일 Time tries truth.
+                    </p>
+                    <p class="article-more-link">
+                        <a href="/insights/proverb/">More</a>
+                    </p>
+                </div>
+
+                
+            </div>
+        </article>
+        
+
+        
+
+<nav id="page-nav">
+    
+    <a href="/page/16/" rel="prev" class="extend prev">&laquo; Prev</a>
+    
+    
+    
+    <a href="/">1</a>
+    
+    
+    
+    <a href="/page/2/">2</a>
+    
+    
+    
+    <a href="/page/3/">3</a>
+    
+    
+    
+    <a href="/page/4/">4</a>
+    
+    
+    
+    <a href="/page/5/">5</a>
+    
+    
+    
+    <a href="/page/6/">6</a>
+    
+    
+    
+    <a href="/page/7/">7</a>
+    
+    
+    
+    <a href="/page/8/">8</a>
+    
+    
+    
+    <a href="/page/9/">9</a>
+    
+    
+    
+    <a href="/page/10/">10</a>
+    
+    
+    
+    <a href="/page/11/">11</a>
+    
+    
+    
+    <a href="/page/12/">12</a>
+    
+    
+    
+    <a href="/page/13/">13</a>
+    
+    
+    
+    <a href="/page/14/">14</a>
+    
+    
+    
+    <a href="/page/15/">15</a>
+    
+    
+    
+    <a href="/page/16/">16</a>
+    
+    
+    
+    <span class="page-number current">17</span>
+    
+    
+    
+    <a href="/page/18/">18</a>
+    
+    
+
+    
+    <a href="/page/18/" rel="next" class="extend next">Next &raquo;</a>
+    
+</nav>
+
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

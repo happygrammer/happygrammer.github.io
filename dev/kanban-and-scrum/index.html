@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>애자일 칸반과 스크럼</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="애자일 칸반과 스크럼" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/kanban-and-scrum/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">애자일 칸반과 스크럼</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/kanban-and-scrum/" class="article-date">
+                <time datetime='2020-12-31T11:00:24.000&#43;03:00' itemprop="datePublished">2020-12-31</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h3 id="--">칸반과 스크럼의 차이</h3>
+<p>칸반과 스크럼은 프로젝트 목적 달성을 위해 사용하는 <code>프로세스 도구</code>이다.  스크럼은  럭비에서 차용된 것으로 스크럼은 세 명 이상의 선수가 공을 에워싸고 서로 어깨를 맞대어 버티는 공격 태세를 의미하는데, 팀워크를 강조하기 위한 용어다. 스크럼은 스프린트 기반의 점직적인 개발 방법론 이다. 칸반은 칸반이란 일본어로 카드나 눈에 보이는 기록이라는 것을 뜻한다.  적시생산시스템(Just in time)과 같이 순서가 정해진 공정에서 작업의 순서를 통제하는데 사용된다.  칸반과 스크럼의 차이는 다음과 같다.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>칸반</th>
+<th>스크럼</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>규범 수</td>
+<td>많다</td>
+<td>적다</td>
+</tr>
+<tr>
+<td>역할 구분</td>
+<td>없음</td>
+<td>Product Owner, Scrum Master, Team</td>
+</tr>
+<tr>
+<td>작업 추가</td>
+<td>가능</td>
+<td>어려움</td>
+</tr>
+<tr>
+<td>스프린트</td>
+<td>스프린트 수행 여부는 팀이 결정</td>
+<td>N번의 스프린트(2~4주) 진행</td>
+</tr>
+<tr>
+<td>백로그 우선순위</td>
+<td>백로그 우선순위를 고려하지 않음</td>
+<td>백로그 우선순위를 고려함</td>
+</tr>
+<tr>
+<td>일의 양 결정</td>
+<td>X</td>
+<td>O - 스프린트 마다 일의 양이 결정됨</td>
+</tr>
+</tbody>
+</table>
+<p>규범수와 역할 구분 관점에서 보면 이 둘 간의 차이를 알 수 있다.</p>
+<ul>
+<li>
+<p>규범 수 : 칸반은 스크럼에 비해 덜 규범 적이며 일의 우선 순위를 강요하지 않는다. 다른 방법론과 규범 개수 기준으로 비교해 보았을때 규범 정도는  <code>RUP &gt;&gt;&gt; XP &gt;스크럼 &gt; 칸반</code>순으로 볼 수 있다.</p>
+</li>
+<li>
+<p>역할 구분 : 칸반은 역할 구분이 없지만, 스크럼의 역할 구분은 세가지 종류로 구분되며 Product Owner는 무엇을 할지를 결정 하는 역할을 하며,Scrum Master는 프로세스 적용을 지원하며 장애물 제거 역할을 하는 사람을 말한다. Team은 실재 개발에 관여하는 개발팀을 의미한다.</p>
+</li>
+</ul>
+<p>나머지 요소도 살펴 보면, 칸반은 스크럼에 비해 작업 추가에 있어서 유연하며, 스프린트를 수행할지 여부를 팀이 결정한다. 따라서 생성된 백로그도 우선순위를 고려 할지를 고려하지 않아도 되며, 일의 양을 결정하지 않아도 된다.</p>
+<h3 id="-">칸반 보드</h3>
+<p>간트 차트의 맹점은 작업 단위에 이슈 여부가 있는지 확인이 되지 않는다는 점이다. 이렇게 되면 간트 차트에 등록된 태스크는 완료 되지 않은 상태로 존재한다. 칸반 보드는 이러한 문제를 해결 책이 된다.</p>
+<p><img src="../kanban-board-example.png" alt=""></p>
+<p>칸반은 게시판은 크게 BACKLOG, TO-DO, IN PROGRESS, TESTING, DONE으로 나눠 의 흐름을 시각적으로 파악할 수 있게 돕는다.  여기서 BACKLOG는 프로젝트의 요구사항, 이슈 사항등을 포함해 우선 순위로 나열한다. 칸반은 서비스를 이용해 작성 관리할 수 있지만 포스트잇을 이용해 할 수 도 있다.</p>
+<p>Rust</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/kanban-and-scrum/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#--">칸반과 스크럼의 차이</a></li>
+        <li><a href="#-">칸반 보드</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/ai/ml/precision-recall/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Precision과 Recall의 이해
+        </div>
+    </a>
+    
+    
+    <a href="/rust/control-if-else/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Rust if 조건문&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

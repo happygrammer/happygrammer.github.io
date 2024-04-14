@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Word2vec를 이용한 임베딩</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Word2vec를 이용한 임베딩" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/word2vec/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/nlp/" class="archive-article-date">&lt; Nlps</a></div>
+            
+            <h1 class="article-title" itemprop="name">Word2vec를 이용한 임베딩</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/word2vec/" class="article-date">
+                <time datetime='2021-11-21T20:19:26.000&#43;09:00' itemprop="datePublished">2021-11-21</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p><strong>Word2vec</strong>은 워드 고품질의 워드 벡터를 생성하는 임베딩 태스크에 사용할 수 있는 모델입니다. 구글의 <a href="https://en.wikipedia.org/wiki/Tomas_Mikolov">Tomas Mikolov</a>이 2013년에  <a href="https://arxiv.org/abs/1301.3781">논문</a>으로 발표했습니다. 이 논문에서 소개하는 단어 예측 모델로 크게 CBOW와 Skip-gram을 소개합니다. CBOW는 Context 정보를 활용해 현재 단어를 예측 하는 모델이라면 Skip-gram은 현재 워드 주변의 단어를 예측하는 모델입니다. Word2vec을 실행하면 입력으로 대규모 텍스트 코퍼스를 수백 차원의 벡터 스페이스(vector space)로 만듭니다. 기존 LSA(latent semantic analysis)에 비해 여러 장점이 있습니다.</p>
+<ul>
+<li>계산 비용이 적습니다.</li>
+<li>정확도(accuracy)가 개선 됐습니다.</li>
+</ul>
+<h2 id="gensim--word2vec">gensim을 이용한 word2vec</h2>
+<h3 id="gensim-">gensim 설치</h3>
+<pre><code>pip install --upgrade gensim
+</code></pre><h3 id="gensim-api">gensim api</h3>
+<p>word2vec model 호출</p>
+<pre><code>import gensim.downloader as api
+wv = api.load('word2vec-google-news-300')
+</code></pre><p>Gensim 모델 확인</p>
+<pre><code>word2vec.Word2Vec([&quot;happy&quot;], size=5, window=1, negative=3, min_count=1)
+</code></pre><p>size는 워드 벡터 차원입니다. window는 현재 단어와 예측 단어의 최대 윈도우 사이즈입니다. negative는 얼마나 많은 노이즈 워드를 사용할지를 설정합니다. min_count는 무시할 단어가 있다면 min_count값을 설정합니다. min_count가 1이면 1개 이하로 출현한 단어는 무시라는 의미입니다.</p>
+<h3 id="gensim--word2vec-">gensim을 이용한 word2vec 임베딩</h3>
+<p>분석을 위해 전세계에서 가장 많이 판매된 것으로 알려진 성경 코퍼스를 준비합니다.</p>
+<pre><code>from gensim.models import word2vec
+
+with open('./gensim/input/bible.txt', 'r') as f:
+     text = f.readlines()
+
+token = []
+for txt in text:
+    token.append(txt.split()[1:])
+
+embedding = word2vec.Word2Vec(token, size=10, window=5, negative=3, min_count=1, workers=3, sg=1)
+embedding.save('./gensim/model/window-5-bible_without_analysis.model')
+</code></pre><p>Word2Vec 모델 학습에 사용된 하이퍼 파라메터를 보면 다음과 같습니다.</p>
+<ul>
+<li>sentences : 각 문장 마다 하나의 토큰 list를 생성하며 토큰 list의 개수는 문장 개수 n개 만큼 생성하여 sentences에 저장해둠</li>
+<li>size : word 벡터 차원</li>
+<li>window : 현재 단어와 예측 단어의 최대 거리</li>
+<li>negative : 0으로 두면 negative smapling을 하지하지 않으며, 0보다 큰 값이면 negative sampling을 수행함</li>
+<li>min_count : min_count의 빈도수보다 낮은 빈도수인 단어는 무시합니다.</li>
+<li>worker : 모델 생성시 사용할 쓰레드 개수</li>
+<li>sg : sg 값이 1이면 skip-gram이지만 그렇지 않으면 CBOW 알고리즘을 이용합니다.</li>
+</ul>
+<p>임베딩 모델을 ./gensim/bible.model에 저장했습니다. 해당 로드를 로드해 &ldquo;사랑&quot;이라는 어휘의 분석 결과를 확인해 보겠습니다.</p>
+<pre><code>from gensim.models import word2vec
+
+input = &quot;여호와는&quot;
+model = word2vec.Word2Vec.load('./gensim/model/window-5-bible_without_analysis.model')
+try:
+    arrSimilar = model.wv.most_similar(input)
+    print(arrSimilar)
+except:
+    print(&quot;탐색 불가&quot;)
+</code></pre><p>실행 결과</p>
+<pre><code>[('예수', 0.9934951663017273), ('구별하여', 0.992172122001648), ('이스라엘의', 0.9916245937347412), ('여호와의', 0.9914567470550537), ('찬양을', 0.9897100925445557), ('여호와를', 0.9891390800476074), ('우리', 0.9884810447692871), ('아버지와', 0.9881623387336731), ('앞에서', 0.9866857528686523), ('위하여', 0.9842418432235718)]
+</code></pre><h3 id="konlp--word2vec-">konlp를 이용한 word2vec 임베딩</h3>
+<p>워드 임베딩 품질을 위해 특수  형태소 분석, 특수문자 제거와 같은 전처리가 필요할 수 있습니다.</p>
+<p>konlp 설치</p>
+<pre><code>$ python3 -m pip install --upgrade pip
+$ python3 -m pip install konlpy # 파이썬 3.x 버전에서 실행
+</code></pre><p>mecab설치</p>
+<pre><code>bash &lt;(curl -s https://raw.githubusercontent.com/konlpy/konlpy/master/scripts/mecab.sh)
+</code></pre><p>먼저 word2vec을 이용한 임베딩 벡터를 만들어 보겠습니다.</p>
+<pre><code>
+from gensim.models import word2vec
+from konlpy.tag import Kkma
+from konlpy.utils import pprint
+
+kkma = Kkma()
+
+with open('./gensim/input/bible.txt', 'r') as f:
+     text = f.readlines()
+
+token = []
+for txt in text:
+    refinedTxt = &quot; &quot;.join(txt.split()[1:])
+    print(refinedTxt)
+    token.append(kkma.nouns(refinedTxt))
+
+embedding = word2vec.Word2Vec(token, size=10, window=5, negative=3, min_count=0)
+embedding.save('./gensim/model/window-5-bible.model')
+</code></pre><p>만들어진 임베딩 벡터를 테스트 해보겠습니다.</p>
+<pre><code>from gensim.models import word2vec
+from konlpy.tag import Kkma
+from konlpy.utils import pprint
+
+kkma = Kkma()
+
+input = &quot;믿음&quot;
+input = &quot; &quot;.join(kkma.nouns(input))
+print(input)
+model = word2vec.Word2Vec.load('./gensim/model/bible.model')
+try:
+    arrSimilar = model.wv.most_similar(input)
+    print(arrSimilar)
+except:
+    print(&quot;탐색 불가&quot;)
+</code></pre><p>실행 결과</p>
+<pre><code>
+</code></pre>
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/nlp/word2vec/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#gensim--word2vec">gensim을 이용한 word2vec</a>
+      <ul>
+        <li><a href="#gensim-">gensim 설치</a></li>
+        <li><a href="#gensim-api">gensim api</a></li>
+        <li><a href="#gensim--word2vec-">gensim을 이용한 word2vec 임베딩</a></li>
+        <li><a href="#konlp--word2vec-">konlp를 이용한 word2vec 임베딩</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/nlp/t5/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            T5 모델 소개 및 실습
+        </div>
+    </a>
+    
+    
+    <a href="/nlp/sub-words-model/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">서브워드 모델&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

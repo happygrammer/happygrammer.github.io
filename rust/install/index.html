@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Rust 설치하기</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Rust 설치하기" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/rust/install/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/rust/" class="archive-article-date">&lt; Rusts</a></div>
+            
+            <h1 class="article-title" itemprop="name">Rust 설치하기</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/rust/install/" class="article-date">
+                <time datetime='2020-06-07T14:35:56.000&#43;03:00' itemprop="datePublished">2020-06-07</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>리눅스, 맥OS 환경이면 명령 인터페이스 1줄로 Rust 설치가 가능하다.</p>
+<h3 id="rust--">Rust 설치 명령</h3>
+<p>Rust 설치는 <code>rustup</code>를 다운로드 하여 설치 하는 명령어이다.</p>
+<pre><code>curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+</code></pre><h3 id="-">설치 과정</h3>
+<pre><code>Welcome to Rust!
+
+This will download and install the official compiler for the Rust
+programming language, and its package manager, Cargo.
+
+It will add the cargo, rustc, rustup and other commands to
+Cargo's bin directory, located at:
+
+  /Users/smarthome/.cargo/bin
+
+This can be modified with the CARGO_HOME environment variable.
+
+Rustup metadata and toolchains will be installed into the Rustup
+home directory, located at:
+
+  /Users/smarthome/.rustup
+
+This can be modified with the RUSTUP_HOME environment variable.
+
+This path will then be added to your PATH environment variable by
+modifying the profile files located at:
+
+  /Users/smarthome/.profile
+/Users/smarthome/.bash_profile
+
+You can uninstall at any time with rustup self uninstall and
+these changes will be reverted.
+
+Current installation options:
+
+
+   default host triple: x86_64-apple-darwin
+     default toolchain: stable
+               profile: default
+  modify PATH variable: yes
+
+1) Proceed with installation (default)
+2) Customize installation
+3) Cancel installation
+</code></pre><p>설치 옵션 중에서 디폴트 옵션인 <code>1</code>번을 선택한다.</p>
+<pre><code>info: profile set to 'default'
+info: default host triple is x86_64-apple-darwin
+info: syncing channel updates for 'stable-x86_64-apple-darwin'
+info: latest update on 2020-06-04, rust version 1.44.0 (49cae5576 2020-06-01)
+info: downloading component 'cargo'
+info: downloading component 'clippy'
+info: downloading component 'rust-docs'
+ 12.2 MiB /  12.2 MiB (100 %)   9.1 MiB/s in  1s ETA:  0s
+info: downloading component 'rust-std'
+ 16.5 MiB /  16.5 MiB (100 %)   9.3 MiB/s in  1s ETA:  0s
+info: downloading component 'rustc'
+ 55.9 MiB /  55.9 MiB (100 %)   9.4 MiB/s in  6s ETA:  0s
+info: downloading component 'rustfmt'
+info: installing component 'cargo'
+info: installing component 'clippy'
+info: installing component 'rust-docs'
+ 12.2 MiB /  12.2 MiB (100 %)   7.5 MiB/s in  1s ETA:  0s
+info: installing component 'rust-std'
+info: installing component 'rustc'
+ 55.9 MiB /  55.9 MiB (100 %)  15.8 MiB/s in  3s ETA:  0s
+info: installing component 'rustfmt'
+info: default toolchain set to 'stable'
+
+  stable installed - rustc 1.44.0 (49cae5576 2020-06-01)
+
+
+Rust is installed now. Great!
+
+To get started you need Cargo's bin directory ($HOME/.cargo/bin) in your PATH
+environment variable. Next time you log in this will be done
+automatically.
+
+To configure your current shell run source $HOME/.cargo/env
+</code></pre><h3 id="-path">시스템 Path</h3>
+<p>설치 완료후 PATH를 수동으로 설정한다.</p>
+<pre><code>$ source $HOME/.cargo/env
+</code></pre><p>이때 ~/.bash_profile에 PATH를 추가해 시스템 PATH에 등록 한다.</p>
+<pre><code>$ export PATH=&quot;$HOME/.cargo/bin:$PATH&quot;
+</code></pre><h3 id="rust-">Rust 업데이트</h3>
+<p>Rust를 업데이트 하려면 rustup 명령어를 통해 쉽게 업데이트할 수 있다.</p>
+<pre><code>$ rustup update
+</code></pre><p>rustup은 Rust의 인스톨러 명령어다.($HOME/.cargo/bin/rustup 디렉터리에 위치함)</p>
+<pre><code>The Rust toolchain installer
+
+USAGE:
+    rustup [FLAGS] [+toolchain] &lt;SUBCOMMAND&gt;
+</code></pre><h3 id="hello-world">Hello World</h3>
+<p>설치가 완료 되었다면 Rust를 컴파일 하여 <code>hello, world!</code>를 출력 하고자 한다.</p>
+<pre><code>$ cargo new helloworld --bin
+     Created binary (application) `helloworld` package
+</code></pre><p>위 전달 오션에서 <code>-bin</code>는 바이너리 생성용 옵션이며 <code>-lib</code>는 라이브러리 생성용 옵션이다. 프로젝트 생성 후 다음과 같이 프로젝트가 구성된다.</p>
+<pre><code>./helloworld/Cargo.toml
+./helloworld/src/main.rs
+</code></pre><p>일단 hello world를 출력한다.</p>
+<pre><code>$ cargo build
+   Compiling helloworld v0.1.0 (/Users/smarthome/Documents/RustTutorial/ch2/helloworld)
+    Finished dev [unoptimized + debuginfo] target(s) in 0.42s
+dialogui-MacBookPro:helloworld smarthome$ cargo run
+    Finished dev [unoptimized + debuginfo] target(s) in 0.00s
+     Running `target/debug/helloworld`
+Hello, world!
+</code></pre><p>이때 Cargo.toml는 패키징 설정 파일 역할을 한다.</p>
+<pre><code>[package]
+name = &quot;helloworld&quot;
+version = &quot;0.1.0&quot;
+authors = [&quot;happygrammer &lt;happygrammer.dev@gmail.com&gt;&quot;]
+edition = &quot;2018&quot;
+
+[dependencies]
+</code></pre><p>[main.rs]</p>
+<pre><code>fn main() {
+    println!(&quot;Hello, world!&quot;);
+}
+</code></pre><h3 id="heading">언인스톨</h3>
+<p><code>rustc</code> 컴파일이 정상적으로 동작할 수 없는 경우 언인스톨이 필요한 경우가 있다. <code>rustc</code>를 언인스톨 하기 위해서는<code> rustup</code> 명령어이용해 언인스톨을 수행한다.</p>
+<pre><code>$ rustup self uninstall
+</code></pre><p>그리고 재설치한다.</p>
+<pre><code>$ curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+</code></pre><h3 id="rust--1">Rust 설치(윈도우)</h3>
+<p>윈도우에서 Rust를 설치 하려면 <a href="https://www.rust-lang.org/tools/install">https://www.rust-lang.org/tools/install</a>의 안내를 따른다.</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/rust/install/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#rust--">Rust 설치 명령</a></li>
+        <li><a href="#-">설치 과정</a></li>
+        <li><a href="#-path">시스템 Path</a></li>
+        <li><a href="#rust-">Rust 업데이트</a></li>
+        <li><a href="#hello-world">Hello World</a></li>
+        <li><a href="#heading">언인스톨</a></li>
+        <li><a href="#rust--1">Rust 설치(윈도우)</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/rust/data_types/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Rust 데이터 타입
+        </div>
+    </a>
+    
+    
+    <a href="/nlp/hangeul/ambiguitymd/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">중의성의 종류와 중의성 해소&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

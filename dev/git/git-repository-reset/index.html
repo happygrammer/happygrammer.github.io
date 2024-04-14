@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Git 저장소 히스토리 초기화하기</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Git 저장소 히스토리 초기화하기" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/git/git-repository-reset/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">Git 저장소 히스토리 초기화하기</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/git/git-repository-reset/" class="article-date">
+                <time datetime='2024-03-30T23:20:00.000&#43;09:00' itemprop="datePublished">2024-03-30</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>안녕하세요, 여러분! 오늘은 Git 저장소의 히스토리를 초기화하는 방법에 대해 알아보도록 하겠습니다. 가끔 프로젝트를 진행하다 보면, 저장소의 커밋 히스토리를 초기화해야 할 때가 있죠. 그럴 때 아래 방법을 따라해 보시면 쉽게 해결할 수 있습니다.</p>
+<p>먼저, 작업을 진행하는 로컬 컴퓨터에 Git이 설치되어 있는지 확인해 주세요. 터미널에서 아래 명령어를 입력하면 설치된 Git의 버전을 확인할 수 있습니다.</p>
+<pre><code>$ git --version
+git version 2.39.0
+</code></pre><p>Git이 설치되어 있다면, 아래 단계를 따라 저장소 히스토리를 초기화해 봅시다.</p>
+<ol>
+<li>새로운 브랜치 생성
+<ul>
+<li><code>git checkout --orphan tmp_branch</code> 명령어를 사용하여 <code>tmp_branch</code>라는 이름의 새 브랜치를 생성합니다.</li>
+<li><code>--orphan</code> 옵션은 기존 커밋 히스토리와 완전히 분리된 새로운 브랜치를 만듭니다.</li>
+</ul>
+</li>
+<li>전체 파일 추가
+<ul>
+<li><code>git add -A</code> 명령어를 사용하여 저장소의 모든 파일을 새로 만든 <code>tmp_branch</code>브랜치에 추가합니다.</li>
+<li><code>-A</code> 옵션은 저장소 내 모든 파일을 스테이징 영역에 추가합니다.</li>
+</ul>
+</li>
+<li>초기 커밋 생성
+<ul>
+<li><code>git commit -am &quot;Initial commit&quot;</code> 명령어를 사용하여 추가된 파일들을 <code>tmp_branch</code> 브랜치에 초기 커밋으로 커밋합니다.</li>
+<li><code>-a</code> 옵션은 수정된 파일을 자동으로 스테이징 영역에 추가하고, <code>-m</code> 옵션은 커밋 메시지를 지정합니다.</li>
+</ul>
+</li>
+<li>기존 브랜치 삭제
+<ul>
+<li><code>git branch -D master</code> 명령어를 사용하여 기존의 <code>master</code> 브랜치를 삭제합니다.</li>
+<li><code>-D</code> 옵션은 병합되지 않은 브랜치도 강제로 삭제합니다.</li>
+<li>이 단계에서 기존 커밋 히스토리도 함께 삭제됩니다.</li>
+</ul>
+</li>
+<li>새 브랜치 이름 변경
+<ul>
+<li><code>git branch -m master</code> 명령어를 사용하여 <code>tmp_branch</code> 브랜치의 이름을 <code>master</code>으로 변경합니다.</li>
+<li><code>-m</code> 옵션은 브랜치의 이름을 변경합니다.</li>
+</ul>
+</li>
+<li>원격 저장소에 강제 업데이트
+<ul>
+<li><code>git push -f origin +master</code> 명령어를 사용하여 로컬의 <code>master</code> 브랜치를 원격 저장소에 강제로 업데이트합니다.</li>
+<li><code>-f</code> 옵션은 강제 업데이트를 수행하며, <code>+</code> 기호는 브랜치를 강제로 덮어씁니다.</li>
+</ul>
+</li>
+</ol>
+<p>이제 Git 저장소의 히스토리가 초기화되었습니다! 이 방법은 저장소의 모든 커밋 히스토리를 삭제하므로, 주의 깊게 사용해야 합니다. 필요한 경우에만 사용하시길 바라며, 항상 백업을 해두는 것이 좋습니다. 오늘도 함께 Git을 배워 가는 시간이었습니다. 다음에는 또 어떤 유용한 팁을 소개해 드릴 수 있을지 기대해 주세요!</p>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/git/git-repository-reset/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents"></nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/dev/git/git_convention/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Git을 일관되게 사용하는 팁
+        </div>
+    </a>
+    
+    
+    <a href="/insights/mastering-core-technologies/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">개발자의 필수 스킬, 핵심 기술력 키우기&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

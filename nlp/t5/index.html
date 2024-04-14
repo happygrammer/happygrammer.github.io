@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>T5 모델 소개 및 실습</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="T5 모델 소개 및 실습" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/nlp/t5/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/nlp/" class="archive-article-date">&lt; Nlps</a></div>
+            
+            <h1 class="article-title" itemprop="name">T5 모델 소개 및 실습</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/nlp/t5/" class="article-date">
+                <time datetime='2021-11-21T20:19:26.000&#43;09:00' itemprop="datePublished">2021-11-21</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>사전 훈련된 모델이 다운스트림 태스크로의 전이학습은 자연어처리의 강력한 기술로 부상했다. 전이학습 모델 중 <code>T5모델</code>에 살펴보고자 한다.</p>
+<h3 id="t5--">T5 모델 소개</h3>
+<p>T5<a href="https://arxiv.org/abs/1910.10683">[1]</a>는 모든 텍스트 기반 언어 문제를 텍스트 대 텍스트 형식으로 변환하는 통합 프레임워크(unified framework)를 도입했다. 이 연구는 C4(Colossal Clean Crawled Corpus) 코퍼스를 결합하여, 요약, 질의응답, 분류 및 기타 문제에 대해서 최신 SOTA(state-of-the-art)를 달성했다.</p>
+<p>사전 훈련된 모델이 다운스트림 태스크로의 전이학습은 자연어처리의 강력한 기술로 부상했다.  T5는 모든 텍스트 기반 언어 문제를 텍스트 대 텍스트 형식으로 변환하는 통합 프레임워크(unified framework)를 도입했다. 이 연구는 C4(Colossal Clean Crawled Corpus) 코퍼스를 결합하여, 요약, 질의응답, 분류 및 기타 문제에 대해서 최신 SOTA(state-of-the-art)를 달성했다.</p>
+<img src="../t5.jpg" style="width:80%;" alt="T5 모델 학습과 응용">
+<p>T5는 Raffel과 동료들(2019)이 개발한 모델이다. T5 모델은 표준 입력 포맷에 대한 텍스트 출력의 관점에서 설계 되었다. 구글 T5 팀은 BERT와 다른 새로운 아키텍처를 만들지 않았다. BERT는 인코더만이 있었고, GPT는 디코더 레이어만 있었는데, 이들을 합쳐 T5라는 형태의 아키텍처를 만들었다. 그들이 만든 T5를 이용한 트랜스퍼 모델은 다음과 같은 형태로 설계되었다.</p>
+<img src="../t5_2.png" style="width:80%;" alt="T5을 사용한 트랜스포머 모델">
+<p>위 모델에서 볼 수 있듯이 인코더와 디코더를 유지하고 있다. 인코더와 디코더는 <code>블록(block)</code>에 해당하고 , 인코더와 디코더 내부의 <code>서브 컴포넌트(sub-components)</code>에는 셀프 어텐션 레이어와 피드포워드 네트워크가 존재한다.</p>
+<h3 id="t5---1">T5 모델 실습</h3>
+<p>T5 모델을 이용해 실습 하려면 Hugging Face's framework<a href="https://huggingface.co/t5-large">[2]</a>를 이용해서 구현할 수 있다. t5-large 모델은 구글 <code>Colaboratory</code>에서 실행가능하다.</p>
+<pre><code>!pip install transformers==4.0.0
+</code></pre><p>이후 <code>sentence piece</code> 라이브러리 <code>0.1.94</code>버전을 설치한다.</p>
+<pre><code>!pip install sentencepiece==0.1.94
+</code></pre><p>이후 해당 모델의 상세 실습 방법은 <a href="https://huggingface.co/transformers/model_doc/t5.html">[3]</a> 문서를 확인한다.</p>
+<h3 id="-">관련 자료</h3>
+<ul>
+<li>[1] <a href="https://arxiv.org/abs/1910.10683">Exploring the Limits of Transfer Learning with a Unified Text-to-Text Transformer</a>, Raffel et al. (2019)</li>
+<li>[2] hugging face T5 모델 <a href="https://huggingface.co/t5-large">t5-large</a></li>
+<li>[3] <a href="https://huggingface.co/transformers/model_doc/t5.html">hugging face t5 실습</a></li>
+<li>[4] google <a href="https://github.com/google-research/text-to-text-transfer-transformer">t5 깃헙</a></li>
+<li>[5] <a href="https://www.tensorflow.org/datasets/catalog/c4">c4 dataset 소개</a></li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/nlp/t5/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#t5--">T5 모델 소개</a></li>
+        <li><a href="#t5---1">T5 모델 실습</a></li>
+        <li><a href="#-">관련 자료</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/insights/break_the_rules/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            아인슈타인의 문제 해결법
+        </div>
+    </a>
+    
+    
+    <a href="/nlp/word2vec/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Word2vec를 이용한 임베딩&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

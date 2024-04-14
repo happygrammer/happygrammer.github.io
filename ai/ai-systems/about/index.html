@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>상용 AI 시스템 설계</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="상용 AI 시스템 설계" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/ai/ai-systems/about/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/ai/" class="archive-article-date">&lt; Ais</a></div>
+            
+            <h1 class="article-title" itemprop="name">상용 AI 시스템 설계</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/ai/ai-systems/about/" class="article-date">
+                <time datetime='2021-09-26T09:34:35.000&#43;03:00' itemprop="datePublished">2021-09-26</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <p>AI 시스템은 머신러닝 모델의 생성에 필요한 서버 환경을 바탕으로 데이터 관리, 모델 관리, API 인터페이스를 제공하는 시스템이다. AI 시스템이 안정적인 서비스를 제공하려면 신뢰성과 확장성을 바탕으로 한다.</p>
+<p>하나의 AI 시스템은 추천 모델, 언어 모델, 음성 모델 등 다양한 모델들을 운영한다. 이것은 서비스 관점에 따라서 상이한 모델을 호출해서 사용하기 때문이다. 여러 모델을 하나로 합치려는 방식도 있지만, 이는 현실적으로 어려운 점이 있다. 머신러닝 모델을 실재 상용에 운영하기 위해서는 기본적인 규모 있는 데이터를 관리할 수 있어야 하고, 이를 바탕으로 머신러닝 모델을 생성할 수 있어야 한다. 데이터 관리의 경우 최근 불거진 데이터 윤리 문제와도 무관하지 않다. 데이터 윤리를 고려한 데이터 설계가 필요하며, 이를 바탕으로 한 데이터 관리를 해야 한다. 성차별, 윤리 문제등 사회 이슈로 쟁점화 되지 않도록 데이터를 관리하고 학습한 머신러닝 모델이 상업적으로 제약이 발생하지 않는다.</p>
+<h3 id="---">연구 영역과 상용 영역</h3>
+<p>연구(Research) 영역에서는 모델의 정확도, 그리고 모델의 성능에 관심이 많지만, 실재 상용(Production) 관점에서는 세일즈맨은 세이즈 포인트에 관심을 두고, 소비자는 AI 시스템이 좀 더 생활에 유용하기를 바라고, 다양한 관점으로 AI 시스템을 이용한다.</p>
+<p>상용 관점에서는 대기시간(latency)가 짧은 것과 Throughput(처리량)에 대한 처리가 많은 것이 중요하다. 대기 시간은 시스템이 응답하기까지의 지연시간을 의미한다. 처리량은 1초 안에 얼마나 많은 일을 할 수 있는지와 관련되어 있다.</p>
+<h3 id="-ai-">신뢰할만한 AI 시스템</h3>
+<p>신뢰할만한 AI 시스템은 다음과 같은 요소를 고려한다.</p>
+<ul>
+<li>Reliability: 데이터 응답이 신뢰할 만해야 한다. 모델 자체의 성능과 관련 되어 있다.</li>
+<li>Scalability: 요청에 따라 규모를 확장할 수 있는 형태로 시스템 내부 요소들이 연길되도록 설계 해야한다.</li>
+<li>Maintainability: 손쉽게 모델 업데이트가 지속적으로 가능해야한다.</li>
+</ul>
+<h3 id="--">예측의 두가지 방식</h3>
+<p>AI 시스템이 결과를 예측하는 방법에는 배치 예측(batch prediction)과 온라인 예측(onlie prediction) 방법이 존재한다. 배치 예측은 대량의 데이터가 존재하고 이를 모델에 반영하기까지 시간이 걸려, 일정 주기 정책에 따라 예측 결과를 생성해 두었다가 결과를 내놓는 방식이다. 좀 더 복잡한 모델인 경우 시간이 오래 걸릴 수 있어 배치 예측 방식으로 결과를 제공하고 있다. 온라인 예측은 상대적으로 덜 복잡한 예측에 대해서 미리 준비된 모델로 요청 시 마다 결과를 내놓는 방식이다. 대부분 상용 서비스는 이러한 온라인 예측 방식으로 예측 결과를 제공하고 있다. 검색어 자동 추천과 같은 것이 예이다.</p>
+<p>이 둘간을 비교하자면 다음과 같다.</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>배치 예측</th>
+<th>온라인 예측</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>예측 주기</td>
+<td>일정 시간 마다(precomputed and stored)</td>
+<td>요청시</td>
+</tr>
+<tr>
+<td>최적화 관점</td>
+<td>높은 throughput 필요</td>
+<td>Low 레이턴시 필요</td>
+</tr>
+<tr>
+<td>예측 다양성</td>
+<td>예측 가능한 범위내에서 예측</td>
+<td>예측 가능한 범위가 무한대에 가까운</td>
+</tr>
+<tr>
+<td>예제</td>
+<td>넷플릭스 컨텐츠 추천, 숙박 업소 랭킹 추천, 관련 상품 추천, 검색어 추천</td>
+<td>음성 인식, 사용자 맛집 추천, 상품평 요약, 주식 주가 예측</td>
+</tr>
+</tbody>
+</table>
+<p>위 두가지 방식은 Hybrid 방식으로 섞어 사용할 수 있다. 예를 들어서 숙박 업소 랭킹 추천 목록은 배치 예측을 적용할 수 있지만, 각 숙박 업소의 사용자가 좋아할만한 맛집 추천 등은 온라인으로 추천하는 방식과 같은것이다.</p>
+<p>응용예</p>
+<ul>
+<li>
+<p>구글 <a href="https://cloud.google.com/vertex-ai/docs/start/introduction-unified-platform">Vertext AI</a>에서는 TensorFlow, scikit-learn, XGBoost와 같은 머신러닝 프레임워크와 결합해 예측 모델을 생성하고 배포할 수 있는 플랫폼을 제공하고 있다.</p>
+<ul>
+<li><a href="https://cloud.google.com/architecture/ml-on-gcp-best-practices">Google Cloud에서 머신러닝 구현을 위한 권장사항</a></li>
+</ul>
+<p><img src="https://cloud.google.com/architecture/images/ml-on-gcp-workflow.jpeg" alt=""></p>
+</li>
+</ul>
+
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/ai/ai-systems/about/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#---">연구 영역과 상용 영역</a></li>
+        <li><a href="#-ai-">신뢰할만한 AI 시스템</a></li>
+        <li><a href="#--">예측의 두가지 방식</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/insights/agreement/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            합의의 기술
+        </div>
+    </a>
+    
+    
+    <a href="/dev/algorithm/why/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">알고리즘, 문제해결 기법&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>

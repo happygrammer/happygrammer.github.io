@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Docker 명령어 소개</title>
+    <meta charset="utf-8">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    
+    
+    
+
+        <meta property="og:title" content="Docker 명령어 소개" />
+    
+    <meta property="og:description" content="" />
+    <meta property="og:type" content="website" />
+    <meta property="og:locale" content="en" />
+    <meta property="og:url" content="https://happygrammer.github.io/dev/cloud/docker/docker/" />
+    
+    <meta property="og:image" content="https://happygrammer.github.io/thumnail.jpg" />
+    <meta name="twitter:image" content="https://happygrammer.github.io/thumnail.jpg" />
+
+    <script src="https://happygrammer.github.io/js/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});
+</script>
+
+    <link rel="shortcut icon" href="/favicon.ico">
+    <link href="https://happygrammer.github.io/webfonts/ptserif/main.css" rel='stylesheet' type='text/css'>
+    <link href="https://happygrammer.github.io/webfonts/source-code-pro/main.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="https://happygrammer.github.io/css/style.css">
+    
+    <meta name="generator" content="Hugo 0.62.0" />
+</head>
+
+
+<body>
+<div id="container">
+	<div id="fb-root"></div>
+	
+    <header id="header">
+    <div id="header-outer" class="outer">
+        <div id="header-inner" class="inner">
+            <a id="main-nav-toggle" class="nav-icon" href="javascript:;"></a>
+            <a id="logo" class="logo-text" href="https://happygrammer.github.io/">해피그</a>
+            <nav id="main-nav">
+                
+                <a class="main-nav-link" href="/about/">About</a>
+                
+                <a class="main-nav-link" href="/ai">AI</a>
+                
+                <a class="main-nav-link" href="/dev">Dev</a>
+                
+                <a class="main-nav-link" href="/insights">Insights</a>
+                
+                <a class="main-nav-link" href="/mlops">MLOps</a>
+                
+                <a class="main-nav-link" href="/nlp">NLP</a>
+                
+                <a class="main-nav-link" href="/rust">Rust</a>
+                
+		</nav>
+            <nav id="sub-nav">
+		<div id="search-form-wrap"></div>
+            </nav>
+        </div>
+    </div>
+</header>
+
+    <section id="main" class="outer">
+        <article class="article article-type-post" itemscope itemprop="blogPost">
+    <div class="article-inner">
+        
+        <header class="article-header">
+            
+            <div><a href="/dev/" class="archive-article-date">&lt; Devs</a></div>
+            
+            <h1 class="article-title" itemprop="name">Docker 명령어 소개</h1>
+        </header>
+        
+        <div class="article-meta">
+            <a href="/dev/cloud/docker/docker/" class="article-date">
+                <time datetime='2020-02-19T06:50:32.000&#43;03:00' itemprop="datePublished">2020-02-19</time>
+            </a>
+            
+            
+            
+        </div>
+        <div class="article-entry" itemprop="articleBody">
+            <h2 id="-">기본적인 명령어</h2>
+<h3 id="--1">컨테이너 확인</h3>
+<pre><code>docker container ls
+</code></pre><pre><code>$ docker container ls
+CONTAINER ID        IMAGE               COMMAND                  CREATED             STATUS              PORTS                    NAMES
+2463b80300ec        mariadb             &quot;docker-entrypoint.s…&quot;   13 seconds ago      Up 12 seconds       0.0.0.0:3306-&gt;3306/tcp   mariadb
+</code></pre><ul>
+<li>컨테이너 목록을 표시하는 명령어인 <code>docker ps</code> 는 오래전 방식입니다. 새로운 명령어 형식은 <code>docker container &lt;subcommand&gt;</code>입니다. 즉, <code>docker container ls</code>를 권장합니다. 이때 <code>docker container ls</code>는 <code>docker container ps</code>와 동일한 명령어입니다. 즉 아래 4개 명령어는 정확히 동일 기능을 수행하는 명령어입니다.</li>
+</ul>
+<p><strong>실행중인 컨테이너 정보를 표시하는 동일 명령어</strong></p>
+<pre><code>$ docker container ls
+$ docker container list
+$ docker container ps
+$ docker ps
+</code></pre><ul>
+<li><code>docker container run</code>(최신 방식)과 <code>docker run</code>(1.13 이전 버전에서 사용)은 동일한 명령어입니다. 결론적으로 <code>docker + &lt;command&gt; + &lt;sub-command&gt;</code>의 조합을 사용하는 <code>docker container run</code>의 방식이 최신입니다.</li>
+</ul>
+<p>이때 실행중인 컨테이너나 실행중이지 않은 컨테이너 모두를 표시하려면 <code>-a</code>옵션을 주면 출력됩니다.</p>
+<pre><code>$ docker container ls -a
+</code></pre><h3 id="--2">에러 메시지</h3>
+<p><code>Cannot connect to the Docker daemon at unix:///var/run/docker.sock. Is the docker daemon running?</code></p>
+<p>프로세스가 실행 되지 않아서 입니다. 도커 실행 <a href="https://docs.docker.com/config/daemon/systemd/">명령어</a>는 다음과 같습니다.</p>
+<p>Linux</p>
+<pre><code class="language-null" data-lang="null">systemctl start docker
+</code></pre><pre><code>sudo service docker start
+</code></pre><p>맥 OS</p>
+<pre><code>launchctl start docker
+</code></pre>
+	    
+	    <div class="fb-comments" data-href="https://happygrammer.github.io/dev/cloud/docker/docker/" width="100%" data-width="" data-numposts="3"></div>
+	</div>
+
+        
+        
+        <div class="article-toc" >
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#-">기본적인 명령어</a>
+      <ul>
+        <li><a href="#--1">컨테이너 확인</a></li>
+        <li><a href="#--2">에러 메시지</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        </div>
+        
+        
+	
+
+
+        
+    </div>
+    <nav id="article-nav">
+    
+    <a href="/nlp/doc2vec/" id="article-nav-newer" class="article-nav-link-wrap">
+        <div class="article-nav-title"><span>&lt;</span>&nbsp;
+            Doc2vec를 이용한 문서의 벡터 변환
+        </div>
+    </a>
+    
+    
+    <a href="/ai/tensorflow/serving-client-api/" id="article-nav-older" class="article-nav-link-wrap">
+        <div class="article-nav-title">Serving 클라이언트 API&nbsp;<span>&gt;</span></div>
+    </a>
+    
+</nav>
+
+</article>
+
+        
+    </section>
+    <footer id="footer">
+    
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/styles/tomorrow-night.min.css" integrity="sha256-2wL88NKUqvJi/ExflDzkzUumjUM73mcK2gBvBBeLvTk=" crossorigin="anonymous" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.9.0/highlight.min.js" integrity="sha256-KbfTjB0WZ8vvXngdpJGY3Yp3xKk+tttbqClO11anCIU=" crossorigin="anonymous"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+
+    
+    <script>
+        document.getElementById('main-nav-toggle').addEventListener('click', function () {
+            var header = document.getElementById('header');
+            if (header.classList.contains('mobile-on')) {
+                header.classList.remove('mobile-on');
+            } else {
+                header.classList.add('mobile-on');
+            }
+        });
+    </script>
+</footer>
+
+</div>
+</body>
+</html>
